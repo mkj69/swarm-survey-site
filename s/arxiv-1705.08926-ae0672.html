@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Counterfactual Multi-Agent Policy Gradients</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Counterfactual Multi-Agent Policy Gradients</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Foerster, Jakob; Farquhar, Gregory; Afouras, Triantafyllos et al.</dd><dt>日期</dt><dd>2017-05-24</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1705.08926" target="_blank" rel="noopener">https://arxiv.org/abs/1705.08926</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>集中式评论家加分散执行者的代表方法。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3025">一句话</h2>
+<p>COMA 用集中式评论家估计每个智能体的反事实贡献，改善共享奖励下的协作学习，但实验尚不能证明它能扩展到大规模 swarm。</p>
+<h2 id="h3026">主要内容</h2>
+<ul><li><strong>训练集中、执行分散</strong>：评论家在训练时利用全局状态、联合动作和历史信息；执行时，每个智能体只依据自己的局部观测与动作历史决策。</li><li><strong>把团队成绩拆成个体学习信号</strong>：固定其他智能体的动作，将某个智能体当前动作的估计回报，与其按当前策略选择其他动作的平均估计回报比较，判断这次选择的相对贡献。</li><li><strong>降低反事实计算成本</strong>：评论家一次输出某个智能体所有候选动作的价值，各智能体可批量计算，无须为每个反事实另跑环境，也无须人工指定默认动作。</li><li><strong>实验聚焦局部可观测的星际争霸微操</strong>：限制视野并移除攻击移动宏动作。作者报告，COMA 在各场景中优于独立 actor-critic，以及替换反事实基线等消融方法。</li></ul>
+<h2 id="h3027">证据与可信度</h2>
+<ul><li>材料末尾截断，且部分公式、图表数值缺失，<strong>未读到全文</strong>。不能据此给出 COMA 的具体胜率或提升幅度。</li><li>作者实验覆盖四种阵容，每队为 3 或 5 个单位；每种方法运行 35 次独立试验，每隔 100 个训练轮次暂停学习，进行 200 局评估。曲线汇总平均表现及一个标准差，属于论文作者报告的实验测量，材料未提供独立复现证据。</li><li>与集中式控制器“相当”的结论采用最佳表现比较，且双方观测和动作条件不同，不能等同于平均性能全面持平。</li><li>收敛结论依赖兼容评论家、无偏训练目标等假设；实际实验使用 TD(λ)，λ 为 0.8，不能直接视为理论条件已满足。文中也披露并修正了早期证明的问题。</li></ul>
+<h2 id="h3028">对 swarm scaling 的意义</h2>
+<p>COMA 指出，扩展协作系统不仅要增加智能体，还要让共享奖励提供可辨认的个体反馈。其评论家输出避免显式枚举指数规模的联合动作，但这只是缓解一种计算负担，并未消除整体学习难度。</p>
+<p>作者观察到，实验中的扩展瓶颈主要是多智能体探索；更大规模下评论家训练也更困难。因此，这篇论文更适合作为信用分配与集中训练、分散执行的机制依据，不能作为大规模 swarm 已获验证的证据，更不能直接外推到语言模型智能体。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

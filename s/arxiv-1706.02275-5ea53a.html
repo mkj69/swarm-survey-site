@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Lowe, Ryan; Wu, Yi; Tamar, Aviv et al.</dd><dt>日期</dt><dd>2017-06-07</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1706.02275" target="_blank" rel="noopener">https://arxiv.org/abs/1706.02275</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出非平稳与方差随智能体数上升这一多智能体学习难点。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3021">一句话</h2>
+<p>MADDPG 的核心启示是：增加智能体会放大学习中的相互干扰；训练时利用联合信息，有助于学出执行时仅依赖局部观察的协作策略。</p>
+<h2 id="h3022">主要内容</h2>
+<ul><li><strong>两类学习障碍。</strong> 各智能体同时更新策略，使单个智能体眼中的环境不断变化，旧经验难以直接复用；奖励又取决于多方行动，导致独立策略梯度的信号更嘈杂。</li><li><strong>集中训练、分散执行。</strong> 每个智能体拥有自己的 critic，训练时利用所有智能体的动作及额外状态信息；actor 执行时只使用自身观察。不同 critic 可以对应不同奖励，因此适用于合作、竞争及混合场景。</li><li><strong>降低对他者策略信息的依赖。</strong> 作者尝试从观察到的行为在线拟合其他智能体的策略，并在合作通信任务中获得接近使用真实策略的效果。</li><li><strong>用策略集合改善稳健性。</strong> 每个智能体训练多个子策略，每轮随机选择，使其适应多种伙伴和对手，减少对固定对手行为的过拟合。</li><li><strong>实验体现协调收益。</strong> 在二维粒子环境中，方法学出了通信导航、围捕和欺骗等行为；但集中式 critic 的输入也随智能体数量增加。</li></ul>
+<h2 id="h3023">证据与可信度</h2>
+<p>未读到全文：提供文本在附录证明处截断，多处公式及结果表数值缺失，但包含主要方法、实验描述和局限。</p>
+<p>数字均为论文作者的实验测量，无独立核验。合作通信训练 25000 轮后，作者报告到达目标的回合占比为 84.0%；这不同于“多少次训练成功学到正确策略”。物理欺骗在两个地标条件下，报告约 94% 的回合学出覆盖地标的欺骗行为。作者称收敛后再评估 1000 次迭代；成功与失败界限明显的任务使用 10 个随机种子，其余使用 3 个。</p>
+<p>作者还在特定二元动作示例中分析：单样本梯度朝正确方向更新的概率随智能体数指数下降。它是受设定约束的理论结论；当前片段缺少关键公式及完整证明，不能据此概括所有多智能体任务。</p>
+<h2 id="h3024">对 swarm scaling 的意义</h2>
+<p>这项工作把扩展瓶颈指向<strong>学习信号与协调结构</strong>：更多智能体意味着更多共同变化的策略，以及更难辨认的行动贡献。训练阶段集中信息、执行阶段保持局部决策，是材料支持的一条解决路径。</p>
+<p>它同时揭示新的成本：每个 critic 接收联合信息，作者明确指出其输入维度随智能体数线性增长，并将只考虑邻近智能体的模块化 critic 留作未来方向。因此，材料支持小规模任务中的协调改善，尚不足以证明大规模 swarm 的扩展收益，也不能直接外推到 LLM agent 群体。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

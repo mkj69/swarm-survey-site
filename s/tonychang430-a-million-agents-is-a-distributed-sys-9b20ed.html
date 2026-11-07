@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Million Agents Is a Distributed Systems Problem</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A Million Agents Is a Distributed Systems Problem</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>tonychang430</dd><dt>日期</dt><dd>2026-09-23</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/tonychang430/status/2102871890159083863" target="_blank" rel="noopener">https://x.com/tonychang430/status/2102871890159083863</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>26 likes; 6059 views</dd><dt>收录理由</dt><dd>把大量智能体视为分布式系统问题，有一手运维表述。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h697">一句话</h2>
+<p>作者把大规模智能体的核心问题定位为：如何让资源有限、随时可能失效的工作进程，在持久状态与协调机制支持下持续完成任务。</p>
+<h2 id="h698">主要内容</h2>
+<ul><li><strong>智能体应可中断、可替换。</strong> 作者称，InsForge 在 VPS 上运行的编码智能体经常被终止、重启或耗尽上下文；真正造成损失的是计划只保存在上下文中。因此，目标、计划、任务进度、产物与检查点应独立保存。</li><li><strong>增加智能体的效果取决于任务结构。</strong> 文中转引 Google Research 与 MIT 的研究：在 180 种配置中，多智能体让严格顺序推理任务的表现下降 39%—70%，而集中协调在可并行的金融推理任务上带来 80.9% 的提升。协调会消耗完成任务所需的预算。</li><li><strong>通信能力不等于分布式推理能力。</strong> Silo-Bench 把数据分散给不同智能体，发现它们能够交流、形成协作结构，却经常无法把分散的信息合成为正确答案。</li><li><strong>调度与恢复需要成为基础设施。</strong> 作者结合 AIOS、动态工作流调度和去中心化研究，主张引入资源调度、明确归属、背压、故障检测与接管机制。集中协调有收益，但协调者自身也需要可恢复。</li></ul>
+<h2 id="h699">证据与可信度</h2>
+<p>材料提供了完整文章正文，但其中引用的论文与图表未作独立核验。</p>
+<ul><li>Google 研究的数字属于作者转引的实验结果。错误放大最高从独立智能体的 17.2 倍降至集中协调的 4.4 倍；这衡量的是错误放大，不能理解为准确率提升。</li><li>Silo-Bench 据文中描述包含 54 种配置、1,620 次实验，团队规模为 2—100。最强模型的平均成功率从 61% 降至 18%；最难任务在 50 和 100 个智能体时成功率为零。这些结果受任务、模型及通信设置限制。</li><li>AIOS 最高 2.1 倍加速，以及动态调度节省 43% token、降低超过 36% 延迟，均为所引研究报告的结果，不能直接外推到百万规模。</li><li>VPS 故障叙述属于作者的一手运维经验，未提供日志或对照数据；“百万智能体”的架构判断属于工程主张，并非已验证的部署成果。</li></ul>
+<h2 id="h700">对 swarm scaling 的意义</h2>
+<p>这篇文章的价值在于拆开了“智能体数量”与“有效产出”：扩容前应判断任务能否拆分、信息如何汇总，以及协调成本是否吞掉并行收益。</p>
+<p>它也提出了明确的可靠性原则：让工作状态跨越智能体生命周期，才能支持重启、交接和协调者替换。不过，文章尚未给出百万规模的具体设计或测试；它更适合作为架构问题清单，而非规模化成功的证据。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI releases Symphony to automate Codex work through Linear</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>OpenAI releases Symphony to automate Codex work through Linear</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Sinisa Markovic</dd><dt>日期</dt><dd>2026-04-28</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.helpnetsecurity.com/2026/04/28/openai-symphony-codex-orchestration-linear/" target="_blank" rel="noopener">https://www.helpnetsecurity.com/2026/04/28/openai-symphony-codex-orchestration-linear/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>本次获取Symphony架构与500%数字的二手来源。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1869">一句话</h2>
+<p>Symphony 把 Linear 工单变成 Codex 的任务调度入口，扩展重点是减少人工盯会话的负担，而非展示智能体数量优势。</p>
+<h2 id="h1870">主要内容</h2>
+<ul><li>编排器轮询任务板，以工单状态驱动执行，为任务分配独立工作区，并重启崩溃或停滞的智能体。</li><li>工单不必对应单个 PR：可跨仓库产生多个 PR，也可只做调查分析；工程师负责审查产出。</li><li>系统基于 Codex App Server，通过动态工具调用访问 Linear，避免向子智能体容器暴露令牌。</li><li>Symphony 是供研究、修改的最小参考实现，OpenAI 不计划将其维护为独立产品；采用前需具备适合智能体的仓库、测试与护栏。</li></ul>
+<h2 id="h1871">证据与可信度</h2>
+<p>这是 Help Net Security 对 OpenAI 信息的二手报道。文中称部分内部团队使用前三周，已合入 PR 数增长 500%；按通常口径即原来的六倍，但未给基数、样本量、对照组或质量指标，属于厂商自报，无独立核验。手机完成三项重要代码修改也是公司提供的个案；Linear 工作区增长仅为创始人的观察。</p>
+<h2 id="h1872">对 swarm scaling 的意义</h2>
+<p>材料提示，规模化瓶颈可能从执行能力转向任务分配、故障恢复和人工审查。工单状态机与独立工作区提供了可复用的编排思路，但 PR 增长不能证明并行数量与收益成比例，也不能证明多智能体协作提高了代码质量。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

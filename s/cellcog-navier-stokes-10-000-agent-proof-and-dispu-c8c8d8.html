@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navier-Stokes: 10,000-agent proof and dispute</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Navier-Stokes: 10,000-agent proof and dispute</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>CellCog</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cellcog.ai/blog/openai-navier-stokes/" target="_blank" rel="noopener">https://cellcog.ai/blog/openai-navier-stokes/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>较低质量的二手来源，但转引了官方的分组架构和 Altman 言论。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3365">一句话</h2>
+<p>这篇带有产品营销目的的二手文章，提供了一套万级代理协作的架构叙述，但不足以证明 swarm 扩容带来的独立收益，也不能据此认定数学难题已获公认解决。</p>
+<h2 id="h3366">主要内容</h2>
+<ul><li>CellCog 转述 OpenAI 的声明：内部多代理系统得到三维不可压缩 Navier–Stokes 方程在光滑外力下有限时间奇性形成的证明，并提供 Lean 形式化；其数学有效性与优先权仍有争议。</li><li>据文中转引，找到结果的小组约有一万个并发代理，运行约 88 小时；随后通过 GPT-6 Astra 进行形式化与验证，另用约 17 小时。Navier–Stokes 任务产生约 270 万条代理间消息、1300 亿输出 token。</li><li>协作方式包括组内通信、不同小组探索不同命题版本、先试较易问题，再由 Codex 汇总各组有效发现并反馈。运行期间还更换了进一步训练的模型。</li><li>文章转引 Altman 后续讲话，将此次运行概括为一万个代理工作约四天、没有层级或上司。但它没有说明，这种描述如何对应分组、信息汇总和人工调整资源的流程。</li><li>数学界争议涉及成果优先权、发布节奏与概念理解。CellCog 则将案例引向自己的“AI 员工”产品，明确带有商业推广意图。</li></ul>
+<h2 id="h3367">证据与可信度</h2>
+<p>数字均来自该文转引的 OpenAI 自报或 Altman 言论，不是本文独立测量，也未见第三方审计。材料没有交代代理计数口径、失败尝试占比、实际成本或完整运行日志。</p>
+<p>本文仅依据所给抓取内容，未独立核验官方文章、视频、代码仓库或数学证明。即便按材料所述 Lean 检查通过，也只能支持形式系统内的推导，不能自动替代对形式化是否准确对应原问题的专家审查。</p>
+<p>材料有更新痕迹，但部分表述仍停留在“数学家阅读不足一天”的早期阶段，来源说明也混用不同时间点。因此，“已验证”“尚未接受”等状态应按文中语境理解，不能视为当前独立结论。</p>
+<h2 id="h3368">对 swarm scaling 的意义</h2>
+<p>它提供的主要线索是组织机制：并行探索、组内交流、跨组压缩经验，以及依据中间成果重新分配资源。万级规模本身并不能解释成功原因。</p>
+<p>材料没有同题单代理对照、不同规模实验或固定模型下的消融；较易 Euler 任务与主任务也不能直接比较扩容效率。模型中途升级进一步混入能力变化。因此，这更适合作为待验证的架构案例，而非“代理越多效果越好”的证据。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

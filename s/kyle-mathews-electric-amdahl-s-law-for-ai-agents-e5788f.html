@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amdahl&#x27;s Law for AI Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Amdahl&#x27;s Law for AI Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Kyle Mathews (Electric)</dd><dt>日期</dt><dd>2026-02-19</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://electric.ax/blog/2026/02/19/amdahls-law-for-ai-agents" target="_blank" rel="noopener">https://electric.ax/blog/2026/02/19/amdahls-law-for-ai-agents</a></dd><dt>许可</dt><dd>Apache-2.0-per-site-footer-(verify-scope-before-reuse)（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>把串行比例换成人类判断比例，属算术类比。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2293">一句话</h2>
+<p>这篇文章用 Amdahl 定律类比多智能体工作流：扩容的关键是把反复发生的人类干预转成可复用的规范与验证，让人工判断不再成为吞吐瓶颈。</p>
+<h2 id="h2294">主要内容</h2>
+<ul><li>作者将必须等待人类判断的时间占比记为 H，提出理想加速上限为 1/H。澄清需求、审批、复核、审美和新决策都可能构成阻塞。</li><li>核心建议是让干预消除自身的重复：发现错误就补测试，澄清歧义就改规范，做出判断就记录依据。</li><li>记录还须定期整合。不断追加规则会带来冲突与噪声，应将零散经验压缩为一致的规范、测试套件与技能定义。</li><li>更多 agent 会增加人工审核的到达量；作者因此主张限制在制任务、缩小批次、加快反馈，并让 agent 尽可能自动验证。</li><li>建议观察“同类人工干预的复发率”。自动化节省的精力也可能被投入更难的任务，使 H 下降后又回升，而非持续趋零。</li></ul>
+<h2 id="h2295">证据与可信度</h2>
+<ul><li>1/H 是算术类比，不是多智能体实验得出的定律。H 为 40% 时上限为 2.5 倍、20% 时为 5 倍，均由公式计算；其解释力依赖人工环节确实不可并行、工作范围与时间口径固定等假设。</li><li>作者自报 Electric 的 agent 在 20–30 分钟内将协议变更传播至 67 个文件、涉及 10 种语言的客户端，人工仅花几分钟审阅。这是团队经验，未提供对照实验或独立核验。</li><li>HTML5 解析器迁移耗时 4.5 小时、Gas Town 用户的 PR 产量与费用等，属于文章转述案例，不能直接推广为普遍收益。</li><li>文中队列倍率未交代完整模型假设；将利用率与队列描述为“指数”增长也不够严谨。审美与新决策难被模型替代、团队可持续复利至十倍等，主要是作者判断。</li></ul>
+<h2 id="h2296">对 swarm scaling 的意义</h2>
+<p>它把关注点从 agent 数量转向人工服务能力：并发扩大后，审核与决策可能成为共享瓶颈。可执行的启发是同时观察吞吐、人工等待及干预复发，并投资规范和自动验证。</p>
+<p>但本文没有测出最佳群体规模，也未量化 agent 间通信、协调与冲突成本。它更适合作为定位人机协作瓶颈的框架，不能作为 swarm 扩容收益的实证证明。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

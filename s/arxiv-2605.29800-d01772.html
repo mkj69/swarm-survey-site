@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Kohli, Guneet</dd><dt>日期</dt><dd>2026-05-28</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2605.29800" target="_blank" rel="noopener">https://arxiv.org/abs/2605.29800</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>九个前沿模型仅约 2.18 个有效投票，量化 Condorcet 失效。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1677">一句话</h2>
+<p>这项研究表明：多个模型若在同一道题上共同犯错，增加评审数量就难以增加独立信息；但结论限于所测面板与任务，不能直接推广到所有 swarm。</p>
+<h2 id="h1678">主要内容</h2>
+<ul><li>作者用来自 7 个模型家族的 9 个模型组成评审团，在三个自然语言推断数据集上各抽取 1,000 题，以每题 100 名人类标注者的多数标签为参照，并在 RewardBench 上补充验证。</li><li>MNLI 上，9 个评审的有效样本量为 2.18，95% 置信区间为 [2.07, 2.31]。这里的“有效票数”是错误相关性折算出的统计指标，不是实际只剩两个模型参与。</li><li>面板准确率为 72.0%，最佳单模型为 71.8%，提升很小；另外两个推断数据集上，面板分别落后最佳模型 6.5 和 2.5 个百分点。</li><li>在保留各模型错误特征、按题目难度分层的独立投票模拟中，MNLI 面板预计约有 94% 准确率，比实际高 22 个百分点。</li><li>扩容收益迅速下降：从 5 个增至 9 个评审，仅增加约 0.22 个有效票。跨家族模型同样存在较强错误相关性，更换品牌不等于获得独立判断。</li></ul>
+<h2 id="h1679">证据与可信度</h2>
+<p>未读到全文：所给内容在附录 E 截断，部分表格只有说明，以下判断仅依据提供的正文与附录片段，未经独立核验。</p>
+<p>数字属于作者报告的实验测量与模型估计。有效样本量由成对错误相关性通过 Kish 公式计算，并用特征值方法交叉检查；准确率缺口来自条件独立假设下的蒙特卡洛模拟，不是另一个真实评审团的实测成绩。</p>
+<p>作者报告提示词、温度和任务变体检验，但置信区间只反映固定面板的题目抽样不确定性。人类多数标签也不必然等于客观正确答案；“最佳单模型”比较还依赖事后获得标签。</p>
+<p>材料有值得核对的口径问题：MNLI“全部答对 290 题、全部答错 51 题”与“全票一致 319 题、准确率 90.9%”无法直接相容。此外，“聚合最多弥补 11% 缺口”仅适用于文中稳定方法；不稳定加权法曾在单个数据集达到 20.6%。</p>
+<h2 id="h1680">对 swarm scaling 的意义</h2>
+<p>它为“规模”提供了比 agent 数量更有用的观察维度：新增成员带来多少独立信息。对投票式评审 swarm，应同时测量错误相关性、有效样本量和实际准确率，并保留强单模型基线。</p>
+<p>研究支持优先寻找能减少共同错误的差异来源，而非默认扩容有效。但它没有验证开放式协作、任务分工或代码审查，也没有证明所有聚合算法都无效。文中约 2.6 票的渐近上限依赖当前相关性保持不变，不能视作所有未来面板的硬上限。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An update on GitHub availability</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>An update on GitHub availability</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>GitHub</dd><dt>日期</dt><dd>2026-04-28</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://github.blog/news-insights/company-news/an-update-on-github-availability/" target="_blank" rel="noopener">https://github.blog/news-insights/company-news/an-update-on-github-availability/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>一手证明智能体负载已使 GitHub 按 30 倍容量规划。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1873">一句话</h2>
+<p>GitHub 将未来容量设计目标从原有的 10 倍提高到当时规模的 30 倍，并将智能体开发加速列为主要驱动；这是平台容量规划的一手信号，不是负载已经增长 30 倍的证明。</p>
+<h2 id="h1874">主要内容</h2>
+<ul><li>GitHub CTO 表示，公司于 2025 年 10 月启动扩容 10 倍的计划，到 2026 年 2 月判断需要面向当时规模的 30 倍设计。文章称，智能体开发工作流自 2025 年 12 月下半月明显加速，仓库创建、PR、API、自动化及大型仓库负载均快速增长。</li><li>压力会沿依赖扩散：一次 PR 涉及存储、检查、Actions、搜索、通知及数据库等系统；队列积压、缓存失效和重试会进一步放大负载。</li><li>应对措施包括减少冗余工作、优化缓存与认证授权、将 webhook 移出 MySQL、增加云端算力、隔离关键服务，以及将部分性能敏感代码从 Ruby 单体迁至 Go。多云是长期方向。</li><li>大型 monorepo 被列为更难的扩展问题。GitHub 正优化 Git、PR 体验及合并队列，以应对每天有数千 PR 的仓库。</li><li>两次事故性质不同：4 月 23 日合并队列回归导致部分默认分支状态错误；4 月 27 日搜索集群过载影响依赖搜索的界面，后者当时仍在调查。</li></ul>
+<h2 id="h1875">证据与可信度</h2>
+<ul><li>属于 GitHub 官方、由 CTO 署名的平台自报，能说明其容量判断与工程行动，但材料未提供独立核验。</li><li>10 倍、30 倍都是规划目标，未附基准吞吐量、资源口径或实际增长曲线，不能据此计算智能体数量、并发或生产率增幅。“指数增长”也缺少可复算数据。</li><li>4 月 23 日事故影响 658 个仓库、2,092 个 PR，来自内部事故统计，并修订过初步估计。提交仍保存在 Git 中，但部分分支状态无法安全自动修复。</li><li>4 月 27 日事故“可能由僵尸网络攻击引发”只是初步判断。两次事故均不能直接归因为智能体负载。</li></ul>
+<h2 id="h1876">对 swarm scaling 的意义</h2>
+<p>这份材料表明，智能体规模化的约束会延伸到共享开发平台：更多并行工作可能同时增加 PR、检查、事件通知和后台任务，局部瓶颈又会通过重试与依赖关系扩散。</p>
+<p>对 swarm 系统的启示是，扩展能力需要连同代码托管、合并队列和 CI 一起评估，并重视工作去重、服务隔离与故障影响范围。不过，文章没有对照实验，无法证明增加智能体能带来多少有效产出，也无法给出最优 swarm 规模。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

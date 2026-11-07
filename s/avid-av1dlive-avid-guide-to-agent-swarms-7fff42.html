@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avid guide to agent swarms</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Avid guide to agent swarms</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Avid (@Av1dlive)</dd><dt>日期</dt><dd>2026-06-04</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/Av1dlive/status/2062561213532471707" target="_blank" rel="noopener">https://x.com/Av1dlive/status/2062561213532471707</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=438; retweets=81; views=379140</dd><dt>收录理由</dt><dd>推广型指南，数字未独立核实。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1609">一句话</h2>
+<p>这是一篇以 Kimi 为中心的推广型 swarm 指南，最有价值的是把扩展问题落到任务依赖、编排训练和运行治理上，但性能数字与混合模型方案缺乏独立验证。</p>
+<h2 id="h1610">主要内容</h2>
+<ul><li>将 swarm 定义为编排器拆分任务、多个子代理并行执行、再汇总结果；主要适用于可独立研究、批量分析等具有任务宽度的工作。</li><li>用独立局部上下文与结构化回传控制信息量，避免所有执行细节持续堆进同一上下文。但这也使结果筛选、信息保留与汇总质量成为关键。</li><li>介绍 PARL：冻结子代理，只训练编排器，通过并行、完成和最终质量奖励，学习何时拆分、分配多少代理。文章强调优化最长依赖链，而非单纯增加并发。</li><li>将 Mooncake 的预填充与解码分离、分布式 KV 缓存管理，视为支撑大量代理同时运行的基础设施。</li><li>推荐 Claude 负责规划和验证、Kimi 负责批量执行，并列出迭代上限、超时、失败隔离、重试、预算与人工审批等运行约束。</li><li>反对过早引入 swarm：天然串行、规模较小或仍在原型阶段的任务，应先使用单代理。</li></ul>
+<h2 id="h1611">证据与可信度</h2>
+<p>文章自述依据技术文档和论文整理，并经 AI 编辑，属于二手推广解读，没有提供作者自己的实验方法、运行日志或独立复现。</p>
+<p>文中报告 BrowseComp 从单代理的 60.6% 升至 swarm 的 78.4%，差值为 17.8 个百分点；另报 K2.6 达到 86.3%。WideSearch 的 72.7% 至 79.0% 对应提升 6.3 个百分点。这些是文章转述的基准结果，不能直接推广到任意任务。</p>
+<p>“耗时缩短 3—4.5 倍”、最多 300 个子代理、4,000 个协调步骤及持续运行超过 12 小时，均为文中引用的能力或性能宣称，缺少统一任务、成本和失败率条件。Mooncake 的吞吐数字涉及模拟场景、真实负载及不同硬件，不能合并为 swarm 的端到端加速比。</p>
+<p>文章把训练稳定性直接联系到长时代理可靠性，但所给内容不足以证明这一因果关系。混合模型优势也主要是作者判断，没有对照实验。抓取内容缺少部分图表、提示词及章节，未读到全文。</p>
+<h2 id="h1612">对 swarm scaling 的意义</h2>
+<p>这篇材料提供了一个有用的分析框架：扩展能力同时受任务可并行性、编排策略、推理服务和运行治理约束。代理数量只是容量指标，真正应观察的是关键路径、最终质量、总成本和失败恢复能力。</p>
+<p>其时间近似取最慢子任务的说法，是忽略拆分、通信、排队与汇总开销的理想化模型。对调研而言，PARL 的关键路径优化值得追踪；“数百代理”与跨模型分工则应视为待验证的能力主张和设计假设。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

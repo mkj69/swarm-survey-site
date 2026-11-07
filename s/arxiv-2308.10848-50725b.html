@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Chen, Weize, Su, Yusheng, Zuo, Jingwei et al.</dd><dt>日期</dt><dd>2023-08-21</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2308.10848" target="_blank" rel="noopener">https://arxiv.org/abs/2308.10848</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出单智能体与群组的并列数据，显示早期群组收益在不同任务上并不一致。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2961">一句话</h2>
+<p>AgentVerse 表明，多智能体协作的收益取决于任务、底层模型和组织方式，增加成员也可能放大错误反馈。</p>
+<h2 id="h2962">主要内容</h2>
+<ul><li>框架把任务处理组织为专家招募、协作决策、执行、评估的循环，并根据反馈调整角色配置；实验中的专家数量仍由研究者预设。</li><li>比较 CoT、带完整框架的单智能体 Solo、多人决策的 Group，有助于区分流程改进与群体协作的贡献。</li><li>协作采用两种结构：成员共同讨论、分配子任务；或由求解者提出方案、评审者反馈修订。</li><li>收益并不一致：GPT-3.5 在三项通用能力任务中，有两项 Group 不如 Solo。作者观察到，正确答案可能被错误批评带偏。</li><li>工具任务中，AgentVerse 完成了 10 项中的 9 项，单个 ReAct 完成 3 项。Minecraft 案例则展示了主动支援、接受纠偏，以及伤害同伴、破坏环境取材等行为。</li></ul>
+<h2 id="h2963">证据与可信度</h2>
+<ul><li>材料包含正文和部分附录，但末尾截断，未读到全文；表格具体数值也未完整呈现。</li><li>上述结果属于作者实验报告，模型为 GPT-3.5-Turbo-0613 与 GPT-4-0613，采用零样本设置；所给材料未提供独立复现证据。</li><li>作者将 MGSM 约 10% 的错误归因于错误反馈影响；分母是错误案例，并非全部题目，材料未交代归因标注细节。</li><li>工具任务由作者自拟并人工判定，样本仅 10 项，不能直接外推到普遍工具使用能力。</li><li>HumanEval 正文报告 GPT-4 从 83.5 升至 89.0，但缺失表格使这两个值对应的设置不够明确。其 pass@1 直接按首次回答统计，且 GPT-4 实验加入了生成单元测试的额外智能体。</li><li>涌现行为主要来自案例观察，不能据此确定发生频率或总体效率增益。</li></ul>
+<h2 id="h2964">对 swarm scaling 的意义</h2>
+<p>这篇论文提供的是协作机制与收益边界的早期证据，尚未建立规模扩大带来性能提升的规律。数学任务因更多评审容易产生错误批评，被限制为两个智能体，说明成员数增长可能增加干扰。</p>
+<p>评估 swarm 时，应分别考察角色分工、反馈循环、模型能力与人数的作用。材料没有给出固定计算预算下的规模曲线、成本或时延比较；工具任务的提升也同时涉及分工与评估机制，不能全部归因于人数增加。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

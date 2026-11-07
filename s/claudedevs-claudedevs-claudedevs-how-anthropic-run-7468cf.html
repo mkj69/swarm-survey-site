@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClaudeDevs: how Anthropic runs large-scale migrations</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>ClaudeDevs: how Anthropic runs large-scale migrations</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>ClaudeDevs (@ClaudeDevs)</dd><dt>日期</dt><dd>2026-07-21</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/ClaudeDevs/status/2079654423828304282" target="_blank" rel="noopener">https://x.com/ClaudeDevs/status/2079654423828304282</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=3811; retweets=339; views=551132</dd><dt>收录理由</dt><dd>官方给出规则书、判官、对抗评审流程及回归数，是方法论一手来源。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1309">一句话</h2>
+<p>Anthropic 把大规模代码迁移描述为一套可反复修正规则、并行执行、机械验收的流水线；对 swarm scaling 最有价值的是协调与验证机制，而非单纯增加 agent 数量。</p>
+<h2 id="h1310">主要内容</h2>
+<ul><li>官方称，一个月内，内部开发者借助 Claude 和动态工作流迁移了 10 个代码包。两个重点案例是 Bun 从 Zig 转向 Rust，以及一个 Python 项目转向 TypeScript。</li><li>迁移前先建立“判官”：把外部行为测试改成可同时验证新旧实现的断言，并用故意损坏的代码检验测试是否真能发现问题。</li><li>先制定规则书、依赖图和语言差异清单，再用小规模试译或对抗评审检验规则。保留结构的迁移可以比较两种译法；重新设计架构则需要审查设计并试跑完整流程。</li><li>执行阶段采用实现、评审、修复循环：两名独立上下文的评审者检查结果，分歧交给第三个 agent。反复出现的问题应写回规则书，再重新生成受影响批次。</li><li>任务队列由文件状态、编译错误、崩溃和行为差异驱动。昂贵构建由唯一守护进程合并触发，避免多个 agent 重复构建；是否把编译放进每轮循环，取决于编译耗时。</li><li>模型按职责分工：较小模型承担大量实现，较大模型负责评审和制定规则。人的注意力主要投入前期规则与后期系统性问题。</li></ul>
+<h2 id="h1311">证据与可信度</h2>
+<p>这是 Anthropic 官方发布的内部案例与方法总结，属于厂商自报，所给材料没有独立核验或受控对照。</p>
+<p>Bun 案例称，不到两周产出百万行代码，合并前现有 CI 测试全部通过，但合并后仍出现并修复了 19 个回归。这直接说明测试通过不等于行为完全一致。报告的消耗为 59 亿未缓存输入 token、6.9 亿输出 token，按 API 价格约 16.5 万美元；这是价格折算，不能视为包含人力的完整成本。</p>
+<p>Python 案例称，周末迁移为 16.5 万行 TypeScript，涉及数百个 agents、8 个阶段关卡及3 轮对抗评审；主迁移展开过 12 个子 agent。“数百个”没有同时并发口径，不能据此推断并发规模或效率。</p>
+<h2 id="h1312">对 swarm scaling 的意义</h2>
+<p>材料支持的是一种工程扩展方法：用依赖关系划分工作，用共享规则约束输出，用独立评审发现偏差，再以编译器、测试与新旧行为差异收敛结果。旧代码提供明确规格，使迁移特别适合这种模式。</p>
+<p>其关键约束也很清楚：规则错误会随并行执行扩散，构建资源会成为共享瓶颈，判官覆盖不足会留下回归。因此，应先验证规则与验收机制，再扩大执行规模。</p>
+<p>这些案例展示了多 agent 流水线的可行性，但没有提供 agent 数量与耗时、成本、质量的对照曲线，尚不能证明增加 agents 能带来线性收益。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

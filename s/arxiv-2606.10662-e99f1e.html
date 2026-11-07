@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decentralized Multi-Agent Systems with Shared Context</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Decentralized Multi-Agent Systems with Shared Context</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Mao, Yuzhen, Gu, Jerry, Chauhan, Aadi et al.</dd><dt>日期</dt><dd>2026-06-09</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.10662" target="_blank" rel="noopener">https://arxiv.org/abs/2606.10662</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>以共享上下文和任务队列减少并行等待，报告了长任务上的准确率和速度提升。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1545">一句话</h2>
+<p>DeLM 的核心主张是：多智能体提速取决于共享进展、减少等待和重复劳动，而不只是增加并行数量。</p>
+<h2 id="h1546">主要内容</h2>
+<ul><li>用共享上下文和任务队列替代中心主代理。各 agent 异步认领任务、发布中间成果，并在各自工作区整合完整解答。</li><li>共享上下文保留发现、失败及完成摘要；文件按需读取和合入，纠错通过追加记录传播。任务归属和运行状态公开，帮助其他 agent 避免重复探索。</li><li>长任务实验中，相对最强准确率基线，最高提升 17.5 个百分点；相对所依托的单 agent 框架，最高加速 2.49 倍。两者来自不同设置，不能理解为同一配置同时取得。</li><li>扩容存在代价：Terminal-Bench 上从两个增加到四个 agent 后更快，但准确率下降约 3–4 个百分点。作者将其归因于组件整合错误和共享缺陷扩散。</li><li>消融实验移除提前共享、同伴状态或共享上下文后，双 agent 的速度退回单 agent 附近，支持“协调机制影响并行收益”的解释。</li></ul>
+<h2 id="h1547">证据与可信度</h2>
+<p>未读到全文：提供内容在相关工作处截断，部分表格和附录缺失。以下仅依据所给正文，未经独立核验。</p>
+<p>数字属于作者实验测量与轨迹分析。论文称结果取三次运行的均值和标准差；Terminal-Bench、DeepSWE 各选取 10 个长任务，筛选依据是特定单 agent 配置的耗时，因此不能直接推广到完整基准或短任务。</p>
+<p>17.5 个百分点来自 DeepSWE 上 90.83% 与 73.33% 的差值；2.49 倍是 Terminal-Bench 的延迟比。示例中的等待占比降至 2%、提速 5.5 倍，仅是单任务轨迹。</p>
+<p>成本口径尤其要区分：每任务成本汇总所有 agent，单份提交成本则再除以 agent 数，因为每个 agent 都独立提交。单份提交更便宜不代表解决一个任务的总支出下降，也不代表这些提交相互独立。</p>
+<h2 id="h1548">对 swarm scaling 的意义</h2>
+<p>这项工作的价值在于把扩展瓶颈具体化为重复探索、同步等待和中心转述，并给出可检验的协调设计：异步认领、增量共享、状态可见、持续纠错。</p>
+<p>证据支持小规模协作的潜力，尚不足以证明大规模 swarm 可持续扩展：实验只覆盖两个和四个 agent，ProgramBench 也仅有两个任务。已有准确率回落提示，扩容时还需关注集成负担与错误传播；评估应同时报告准确率、耗时和总成本。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

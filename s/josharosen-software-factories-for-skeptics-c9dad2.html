@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Software Factories for Skeptics</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Software Factories for Skeptics</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>JoshARosen</dd><dt>日期</dt><dd>2026-10-09</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/JoshARosen/status/2108616086140735976" target="_blank" rel="noopener">https://x.com/JoshARosen/status/2108616086140735976</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>358 likes; 44991 views</dd><dt>收录理由</dt><dd>Rosen讨论软件工厂怀疑论，并引用Horthy的退出经历。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h541">一句话</h2>
+<p>Rosen 将“软件工厂”从无人值守的自动编程，重新界定为让人和 agent 的工作可见、可复用、可持续改进的组织系统。</p>
+<h2 id="h542">主要内容</h2>
+<ul><li><strong>保留人工参与也能叫工厂。</strong> 作者支持人在规划、实现、审查和批准中持续介入的“明亮工厂”，并不把完全自治当作前提。</li><li><strong>把临时协作变成共享流程。</strong> 编码助手已经会拆任务、启动子 agent，但一次运行结束后，分工结构和执行方法往往随之消失。工厂的价值是保存其中值得复用的部分。</li><li><strong>让组织看见过程。</strong> 工单和最终 PR 之间，还存在大量局部会话。共享系统可以展示任务进度、阻塞点和人工干预，也允许开发者继续使用不同工具。</li><li><strong>把反馈接入迭代。</strong> agent 提交 PR 后，人可以补充需求、发表评论，再让 agent 修改；工厂只是让这些交互进入团队可见的系统。</li><li><strong>将流程作为可修改的资产。</strong> 提示词、验证要求、模型路由、工具、上下文和审批点可以纳入版本管理，并依据执行数据调整。作者进一步设想由 agent 分析重复错误、提出流程改进，或维护业务知识。</li></ul>
+<h2 id="h543">证据与可信度</h2>
+<p>这是一篇设计主张与机制分析，不是规模化效果实验。文中的“100 名工程师”是说明可见性问题的假设场景，“数千项任务”是设想中的数据积累规模，均不是实测样本；文章没有给出吞吐、成本、成功率或质量提升数据。</p>
+<p>作者引用 Dex Horthy 关于 HumanLayer 放弃无人值守工厂的经历，但所给材料未展开其条件与结果，也未提供独立核验。元数据中的 358 次点赞、44991 次浏览只反映传播情况，不能证明方案有效。</p>
+<h2 id="h544">对 swarm scaling 的意义</h2>
+<p>文章把扩展重点从“启动更多 agent”转向“如何组织、观察和改进它们的工作”：保留任务拆分方法，连接执行记录、人工反馈与交付结果，再调整共享流程。</p>
+<p>它提供了一个有用的研究方向：多 agent 的规模化可能依赖组织层面的可见性和反馈积累，而不只依赖单次会话内的调度。但文章尚未证明这些机制能带来多大收益，也未量化共享系统及人工审查的开销。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

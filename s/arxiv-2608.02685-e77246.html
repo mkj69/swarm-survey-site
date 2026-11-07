@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BulkPR-Bench: Benchmarking Queue-Level Governance of Interacting Pull Requests</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>BulkPR-Bench: Benchmarking Queue-Level Governance of Interacting Pull Requests</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Zetong Xiong et al.</dd><dt>日期</dt><dd>2026-08-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2608.02685" target="_blank" rel="noopener">https://arxiv.org/abs/2608.02685</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>324 次运行仅 8 次完全正确，表明合并队列治理是硬瓶颈。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1225">一句话</h2>
+<p>BulkPR-Bench 表明：单项改动做得好，不代表能安全整合一批相互影响的改动；局部关系处理的进步，尚未转化为可靠的整队交付。</p>
+<h2 id="h1226">主要内容</h2>
+<ul><li>任务要求代理识别 PR 间的冲突、依赖、必须共同合入等关系，选择安全子集并安排可执行顺序。候选分批到达，允许有限延期；公开 CI 通过也可能违反隐藏约束。</li><li>基准在 18 个真实仓库的冻结快照上新编写了 581 个候选 PR，通过仓库执行验证关系图，再求出该图约束下的最大安全子集。它不是历史真实队列的直接回放。</li><li>主实验中，前三名模型的关系交付分数 RDS 为 66.6%、62.0%、57.9%，超过最强顺序基线的 53.1%。但 RDS 按关系组计分，一个组失败不会抹去其他组的成绩，因此不能当作整队成功率。</li><li>324 次运行只有 8 次满足严格完成条件；226 次出现不安全合并，占 69.8%。批次增大通常有益，但模型表现不同，延期也并非总能改善结果。</li><li>关键关系召回率仅为 35.2%–57.7%；对已明确记录且可评估的关系，遵守率达 98.1%–100.0%。提供正确关系后得分明显提升，提示关系发现是重要困难，但仍存在选择与排序问题。</li></ul>
+<h2 id="h1227">证据与可信度</h2>
+<p>以上是论文作者报告的基准测量，未作独立核验。324 次来自六个模型、18 个仓库、每组重复三次；8 次严格完成要求满足安全、可执行、最优交付及提议全部落实等条件，不能简单理解为“其余运行毫无正确成果”。</p>
+<p>分数先在仓库内平均重复运行，再对仓库等权平均；置信区间反映仓库间差异。关系覆盖是人为设计的，不能推断真实队列中冲突的发生率。最优性也只相对于冻结的关系约束，安全通过不等于生产环境正确。材料末尾截断，未读到全文。</p>
+<h2 id="h1228">对 swarm scaling 的意义</h2>
+<p>它直接测试的是改动整合治理，并未测量增加代理数量的收益曲线，因此不能据此断言 swarm 扩大必然失败。</p>
+<p>它提供的关键启示是：并行产出之外，还必须评估跨改动关系发现、共同规划和整队安全交付。只看单 PR 成功率或局部平均分，容易高估系统可交付能力。关系台账、有限延期和反馈后重规划值得进一步研究，但本文尚未证明哪种机制足以解决瓶颈。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

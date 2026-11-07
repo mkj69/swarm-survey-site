@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thoughts on slowing the fuck down</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Thoughts on slowing the fuck down</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Mario Zechner</dd><dt>日期</dt><dd>2026-03-25</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/" target="_blank" rel="noopener">https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>主张按人的审查能力限制智能体每日产量，并指出移除人会移除反馈痛感。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2061">一句话</h2>
+<p>Zechner 认为，智能体群的产出应受人的理解与审查能力约束，否则代码生成加速，也会让复杂性和错误更快积累。</p>
+<h2 id="h2062">主要内容</h2>
+<ul><li><strong>人的瓶颈也提供反馈。</strong> 人写代码的速度有限，维护困难会促使其返工；移除人之后，小问题可能持续累积，直到功能修改受阻或用户遭遇故障才暴露。</li><li><strong>局部决策可能损害整体一致性。</strong> 作者指出，智能体未必看到其他智能体的执行过程、完整代码和历史决策，容易重复实现、引入多余抽象，并延续已有错误。</li><li><strong>搜索能力限制后续修复。</strong> 作者认为，代码库越大，智能体越容易遗漏相关代码与可复用实现，使重构和维护更加困难；这不只是上下文窗口大小的问题。</li><li><strong>可测量不等于全面可靠。</strong> 自动研究式循环可以优化启动时间等明确指标，但评价函数未覆盖的复杂度、代码质量乃至正确性，可能被忽略。</li><li><strong>建议主动限制产量。</strong> 按每日实际可审查的代码量设限；架构、API 等整体设计由人掌握；优先委派范围明确、能够自评的任务，并由人承担最终质量把关。</li></ul>
+<h2 id="h2063">证据与可信度</h2>
+<p>这是一篇经验评论，作者明确承认整体观察带有轶事性质。文中关于服务稳定性、企业内部困境及 swarm 项目质量的判断，没有在所给内容中附上可复核的实验、统计口径或完整对照。</p>
+<p>“98% 可用性”是作者的感受性描述；“几小时生成两万行代码”“两个人数周内积累复杂性”等数字用于说明风险，并非本文报告的测量结果。搜索召回率随规模下降、错误反复累积等论断具有机制解释，但材料未提供量化验证，也未独立核验其引用案例。因而它适合提出风险假设，不能证明多智能体开发必然失败。</p>
+<h2 id="h2064">对 swarm scaling 的意义</h2>
+<p>这篇文章把扩展问题从“能同时运行多少智能体”转向“团队能理解、审查并维护多少变更”。依其论证，增加并发可能先提高产出，再把瓶颈推向整体设计、代码检索和人工反馈。</p>
+<p>它提示评估 swarm 时，应关注长期维护成本、遗漏与重复实现，以及人发现问题的时机。作者提出的扩展边界是：任务保持局部可控、评价闭环足够明确、产出不超出人的审查能力；这些是设计主张，尚非经实验确定的最优规模。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

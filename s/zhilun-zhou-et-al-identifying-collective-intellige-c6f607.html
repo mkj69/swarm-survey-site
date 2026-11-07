@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Identifying Collective Intelligence Factor in LLM Agent Groups for Generalizable Multi-Agent System Design</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Identifying Collective Intelligence Factor in LLM Agent Groups for Generalizable Multi-Agent System Design</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Zhilun Zhou et al.</dd><dt>日期</dt><dd>2026-07-01</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://aclanthology.org/2026.findings-acl.624/" target="_blank" rel="noopener">https://aclanthology.org/2026.findings-acl.624/</a></dd><dt>许可</dt><dd>CC-BY-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在 108 个 LLM 群组中寻找集体智能因子，属统计类比。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1421">一句话</h2>
+<p>这篇论文尝试从不同 LLM 群组的跨任务表现中提取共同能力因子，为可迁移的多智能体系统设计提供统计依据，但不能据此认定智能体越多越强。</p>
+<h2 id="h1422">主要内容</h2>
+<ul><li>研究关注：一个群组在多种任务上的表现，是否存在可用于预测新任务表现的共同因素。</li><li>作者构建了 108 个 LLM 群组，改变群组规模、模型组成和通信拓扑，并进行跨任务评估。</li><li>摘要称，可以从这些表现中提取人工集体智能因子（ACI），用于预测群组在新任务上的泛化表现。</li><li>作者进一步根据多智能体系统的特征预测 ACI，并将预测模型接入系统优化方法；摘要称这有助于改善泛化能力。</li></ul>
+<h2 id="h1423">证据与可信度</h2>
+<p>未读到全文；当前材料只有论文页面、摘要及重复的引用元数据，以下判断仅限这些信息。</p>
+<p>108 是摘要报告的实验群组数量，不是智能体数量，也不代表规模上限。ACI 的预测作用与优化收益属于作者报告的实验结论，当前材料没有呈现任务清单、因子提取方法、预测误差、收益幅度或统计不确定性，无法判断效果大小及稳健性。</p>
+<p>材料将论文列为 ACL 2026 Findings 收录，但收录信息不等于结论获得独立复现。此处没有独立核验依据；摘要在不同引用格式中重复出现，也不构成多份证据。</p>
+<h2 id="h1424">对 swarm scaling 的意义</h2>
+<p>它提供了一种研究思路：除了衡量某项任务的成绩，还可以考察群组配置是否具有跨任务的共同优势，并用这种优势指导系统搜索。</p>
+<p>但这更接近群组能力的统计建模，尚不足以构成规模定律。规模、模型组成与通信拓扑都在实验中变化，仅凭摘要无法分离各自贡献，也无法确认增加智能体后的边际收益、通信成本或性能拐点。对 swarm scaling 的主要价值是提出可检验的能力指标，而非证明扩群本身有效。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

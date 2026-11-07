@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I wrote my own pi subagent manager, and here&#x27;s why</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>I wrote my own pi subagent manager, and here&#x27;s why</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>championswimmer</dd><dt>日期</dt><dd>2026-10-07</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/championswimmer/status/2107883453811233185" target="_blank" rel="noopener">https://x.com/championswimmer/status/2107883453811233185</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>448 likes; 82835 views</dd><dt>收录理由</dt><dd>Gupta从认为子智能体过度转为自建管理器，归因于模型变强。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h593">一句话</h2>
+<p>作者从少用子智能体转向自建 Pi 管理器，核心判断是模型的任务拆解能力与使用成本已改善，而现成工具未满足其控制和恢复需求。</p>
+<h2 id="h594">主要内容</h2>
+<ul><li>讨论对象是同一编码会话内的子线程协作，区别于人手管理多个独立编码工具实例。</li><li>作者认为，早期模型虽会调用子智能体工具，却不擅长选择上下文继承方式、分解层级任务和避免资源冲突；新一代模型更适合承担编排。</li><li>自建管理器融合三类偏好：Claude 式状态查看和人工干预、Codex 式路径命名与上下文分叉、Pi 扩展中的模型及推理强度预设。</li><li>希望显式限制嵌套深度和并行数量，将全部子智能体历史保存在单个日志文件中，并支持恢复、模型候选列表和两种运行模式：按需委派，或主线程专职编排。</li><li>作者称项目已上 npm，但所给内容没有明确包名、代码或运行结果，无法据此验证实现情况。</li></ul>
+<h2 id="h595">证据与可信度</h2>
+<p>这是开发者的使用经验与产品设计说明，不是系统评测。作者声称做过多任务测试，认为 Pi 更快、更省，但未提供任务集、配置、费用明细或对照数据。</p>
+<p>“20 分钟耗尽 200 美元套餐窗口”“每分钟 100 美元”等属于未经核验的成本描述，不能直接当作计费测量；偏好三层嵌套也只是个人设置。文中模型代际能力判断缺少独立证据。元数据中的 448 个赞、82835 次浏览仅反映传播，不能证明技术效果。</p>
+<h2 id="h596">对 swarm scaling 的意义</h2>
+<p>材料提出的重点是：扩展协作规模需要同时管理上下文、任务边界、模型成本和运行状态。独立上下文可用于审查，继承上下文可减少重复交代；并行与深度上限、人工介入和会话恢复则帮助控制复杂度。</p>
+<p>但它没有给出智能体数量增加后的质量、耗时或成本曲线，因此只能支持一组值得验证的工程设计方向，不能证明 swarm 已实现稳定的规模收益。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Anthropic&#x27;s new Claude billing means for Zed users</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>What Anthropic&#x27;s new Claude billing means for Zed users</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Zed</dd><dt>日期</dt><dd>2026-05-14</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://zed.dev/blog/anthropic-subscription-changes" target="_blank" rel="noopener">https://zed.dev/blog/anthropic-subscription-changes</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>记录订阅计费变更及暂停过程，显示政策风险。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1789">一句话</h2>
+<p>这篇材料显示，agent 扩展的成本约束不仅来自模型价格，也来自可被调整或暂缓的订阅政策。</p>
+<h2 id="h1790">主要内容</h2>
+<ul><li>原方案拟将第一方工具与第三方 agent 用量分池：ACP、<code>claude -p</code> 和 Agent SDK 使用独立额度，耗尽后按 API 价格付费或停止请求。</li><li>6 月 16 日更新明确：方案暂未生效，订阅限额不变，无需领取独立额度；未来变更会提前通知。</li><li>Zed 强调通过 ACP、多供应商和自带 API 密钥保留切换空间，也提出在编辑器终端使用官方 CLI 的路径。</li></ul>
+<h2 id="h1791">证据与可信度</h2>
+<ul><li>原方案的月额度为 Pro 20 美元、Max 5x 100 美元、Max 20x 200 美元，均为 Zed 转述的政策数字，并非当前已生效额度。</li><li>“订阅相对 API 补贴约 15—30 倍”是 Zed 的估计，未给出计算过程或独立核验。</li><li>这是相关工具厂商的说明，含产品推广；没有并行规模、吞吐或成本实测。元数据日期为 5 月 14 日，正文另含后续更新，应以后者修正旧方案的理解。</li></ul>
+<h2 id="h1792">对 swarm scaling 的意义</h2>
+<p>规模化 agent 的预算不能只按订阅价格外推，还需考虑调用渠道、额度耗尽及政策变化。可切换供应商和计费路径有助于降低依赖风险，但本文不能证明 ACP 提升了 swarm 的性能或扩展效率。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multi-agent Architecture Search via Agentic Supernet</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-agent Architecture Search via Agentic Supernet</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Guibin, Niu, Luyang, Fang, Junfeng et al.</dd><dt>日期</dt><dd>2025-02-06</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2502.04180" target="_blank" rel="noopener">https://arxiv.org/abs/2502.04180</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>按查询采样智能体架构，报告仅需原成本 6% 到 45% 并保持更高性能。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2857">一句话</h2>
+<p>MaAS 把多智能体优化从“寻找固定工作流”改为“按问题选择工作流”，其价值在于让协作规模随任务需要变化，而非持续增加智能体。</p>
+<h2 id="h2858">主要内容</h2>
+<ul><li><strong>搜索架构分布</strong>：将推理、辩论、自我修正、测试、工具调用等封装成算子，组成分层超网；控制器根据问题和此前选中的算子，生成对应的执行架构。</li><li><strong>同时调节宽度与深度</strong>：每层可选择不同数量的算子，提前退出算子则允许简单问题少走几层。资源分配因此落实到具体调用路径。</li><li><strong>联合优化选择与执行方式</strong>：用蒙特卡洛估计更新架构分布，用智能体生成的文字反馈修改提示词、温度和算子结构；优化目标兼顾任务表现与 token 成本。</li><li><strong>实验覆盖数学、代码和工具使用</strong>：作者报告推理成本为对照系统的 6%—45%，性能提升为 0.54%—16.89%；另测试了跨数据集、跨模型迁移，以及推理时加入未见过的辩论算子。</li></ul>
+<h2 id="h2859">证据与可信度</h2>
+<ul><li>数字属于<strong>论文作者报告的实验测量</strong>，材料没有提供独立复现。抓取文本包含方法与附录，但关键表格只保留标题，无法逐项核算总体提升区间，也无法确认这些百分比应理解为相对提升还是百分点差。</li><li>MATH 实验采用 617 道最高难度的选定类别题目，训练与测试按 1:4 划分，不能直接代表完整 MATH。作者报告训练 API 成本为 3.38 美元，对照 AFlow 为 22.50 美元，支持其训练成本约为后者 15% 的说法；金额依赖实验配置。</li><li>材料存在口径不一致：摘要和实验部分称六个基准，引言一处称七个，且基准名称有变化；表注称统一使用 gpt-4o-mini，附录的 LLM-Blender 配置却包含其他模型。这些问题限制了对比较公平性的判断。</li><li>消融实验称，去掉提前退出或成本约束后，性能变化较小而成本增加；这为节省来自资源调度提供支持，但所给文本缺少具体表值。</li></ul>
+<h2 id="h2860">对 swarm scaling 的意义</h2>
+<p>它提示应把 scaling 理解为<strong>按任务调配协作资源</strong>：增加算子、调用层数和交互，并非每次都值得。作者观察到超网从两层增至四层时表现改善，继续加深则收益有限、成本上升，说明规模存在边际回报。</p>
+<p>但这仍是受控算子库与有向无环工作流内的架构搜索，不能据此推断大规模自主群体具有普遍扩展规律。其更直接的启发是：研究 swarm 时，应同时报告质量、成本和任务条件，考察“何时值得扩大协作”。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

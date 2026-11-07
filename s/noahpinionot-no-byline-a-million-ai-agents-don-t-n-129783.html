@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A million AI agents don&#x27;t need to be geniuses</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A million AI agents don&#x27;t need to be geniuses</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>NoahpinioNOT (no byline)</dd><dt>日期</dt><dd>2026-10-27</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://noahpinionot.substack.com/p/a-million-ai-agents-dont-need-to" target="_blank" rel="noopener">https://noahpinionot.substack.com/p/a-million-ai-agents-dont-need-to</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>反驳 Naam：智能爆炸模型用的是研究速度，Ord 的 λ 恰好支持这些模型的假设。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h329">一句话</h2>
+<p>本文反驳的是“固定模型的团队得分趋于饱和，就能否定智能爆炸”：作者认为，关键应看多智能体能否加快研发，以及这种速度能否转化为下一代模型的能力提升。</p>
+<h2 id="h330">主要内容</h2>
+<ul><li><strong>区分速度与能力上限。</strong> Naam 关注更多副本能否解决更难的问题；作者指出，智能爆炸模型中的 λ 描述并行研究的吞吐收益，即 N 个研究者完成的工作相当于单人工作 N^λ 倍时间，两者不能直接比较。</li><li><strong>现有速度数据未明显偏离模型假设。</strong> 文中转述 Ord 根据 OpenAI 发布数据推算，三个基准的 λ 分别为 0.68、0.57、0.48；作为对照，两套预测模型采用的默认值或中位数为 0.5、0.6。</li><li><strong>固定时限下的饱和不等于没有加速。</strong> 据文中引用的 Lean 实验，单体与百智能体的 24 小时得分为 0.39、0.68，十智能体已达 0.66；但两小时得分为 0.07、0.44，说明大团队更早完成可解部分。</li><li><strong>真正的争议在跨代反馈。</strong> 作者设想：团队加快实验，实验改善下一代模型，更强模型再提高团队产出。固定模型的测试无法直接检验这条反馈链。</li><li>作者承认更强单体、成本和数据稀缺都很重要；他将开放式研发类比于随资源扩大而扩展的问题，而非固定题集。</li></ul>
+<h2 id="h331">证据与可信度</h2>
+<ul><li>这是署名为 NoahpinioNOT、无明确个人署名的评论文章。上述数值均来自其转述的系统卡、Ord 分析及其他论文，本文没有提供独立复现实验，本解读也未独立核验原始来源。</li><li>Lean 得分据称为三次运行平均，题集含 49 个加权定理，属于厂商报告的测量；λ 则是基于发布数据的二次估计。作者由十至百智能体约 3.4 倍加速推得平均 λ≈0.53，但局部指数从约 0.75 降至 0.33，提示规模扩大后收益可能继续下降。</li><li>将饱和归因于题集和运行环境，以及认为实验搜索足以支撑持续研发加速，都是作者的解释，尚非实验证明。文末关于下一年表现的判断属于预测。</li></ul>
+<h2 id="h332">对 swarm scaling 的意义</h2>
+<p>本文最有用的贡献是拆开三个问题：更多智能体能否提高最终得分、能否缩短完成时间、能否推动下一代模型变强。前两项已有文中所引测量，第三项仍待验证。</p>
+<p>因此，评估 swarm 应同时追踪耗时、成本、规模收益衰减和跨代研发产出。现有证据支持某些任务上的并行加速，但不足以证明百万智能体仍保持相同收益，更不足以确认智能爆炸闭环成立。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

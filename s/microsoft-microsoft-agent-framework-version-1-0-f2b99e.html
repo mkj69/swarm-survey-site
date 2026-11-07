@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Agent Framework Version 1.0</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Microsoft Agent Framework Version 1.0</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Microsoft</dd><dt>日期</dt><dd>2026-04-03</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/" target="_blank" rel="noopener">https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>一手确认 MAF 1.0 日期，并澄清第三方的日期矛盾。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1993">一句话</h2>
+<p>微软宣布 Agent Framework 的 .NET 与 Python 版本进入 1.0，重点是稳定多智能体编排与生产运行接口，并未证明增加 agent 数量能带来性能收益。</p>
+<h2 id="h1994">主要内容</h2>
+<ul><li>框架整合 Semantic Kernel 的工程基础与 AutoGen 的编排能力，提供统一的开源 SDK，并承诺稳定 API、长期支持与向后兼容。</li><li>稳定编排模式包括顺序、并发、交接、群聊和 Magentic-One；支持流式输出、检查点、人工审批及暂停恢复。</li><li>图工作流可混合智能体与普通函数，执行条件分支、并行展开和结果汇合；检查点与状态恢复用于应对长流程中断。</li><li>通过模型连接器、可插拔记忆和 YAML 配置组织系统；MCP 用于发现与调用外部工具，A2A 用于跨运行时协作。文中明确说 A2A 1.0 支持尚未到来。</li><li>DevUI、托管部署集成、评估面板、Skills、编码 agent SDK 接入及 Agent Harness 属于预览功能，不能一概视为稳定承诺。</li></ul>
+<h2 id="h1995">证据与可信度</h2>
+<ul><li>这是微软官方发布公告，正文署名 Shawn Henry。它是一手的产品版本与支持范围声明，但“生产就绪”和经过客户验证属于厂商自报。</li><li>元数据标注发布日期为 <strong>2026-04-03</strong>；抓取正文宣布当天发布，却未保留文章日期栏。因此，这份材料支持该日期记录，但无法仅凭正文独立核对具体日历日期，也未提供第三方日期说法供比对。</li><li><strong>1.0 是版本号，不是效果指标</strong>。文章没有提供 agent 数量扩展实验、吞吐量、延迟、成本或任务成功率数据；示例只展示写作者与审阅者的顺序协作。</li><li>本解读仅依据提供的抓取内容，未做独立核验。</li></ul>
+<h2 id="h1996">对 swarm scaling 的意义</h2>
+<p>材料的价值在于展示多智能体系统的工程支撑：并行与汇合负责组织任务，检查点与恢复支撑长流程，人工审批提供干预入口，协议与连接器便于组合异构组件。</p>
+<p>但“具备编排能力”与“规模扩大后更有效”之间仍缺证据。研究中可将它归为生产化基础设施进展；若要论证 swarm scaling，仍需比较不同 agent 数量下的质量、成本、延迟与协调开销。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

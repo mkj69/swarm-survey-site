@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How the Claude Code team does code review (X article)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How the Claude Code team does code review (X article)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Addy Osmani (@addyosmani)</dd><dt>日期</dt><dd>2026-10-26</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2114604912520921136" target="_blank" rel="noopener">https://x.com/addyosmani/status/2114604912520921136</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L13725 RT1597 V2.65M</dd><dt>收录理由</dt><dd>以 Claude Code 团队口吻给出：6-9月合并 PR 翻倍而回滚占比降超40%，并以回滚/事故率作护栏，是少见的数量-质量联动数据（厂商自报）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h345">一句话</h2>
+<p>这份以 Claude Code 团队口吻写成的材料认为：扩大 agent 编码产出，需要同步扩展验证、审查与回滚能力，并约束 agent 之间的反复返工。</p>
+<h2 id="h346">主要内容</h2>
+<ul><li><strong>产量与质量联动</strong>：团队称，6—9 月 Claude Code 合并 PR 数超过翻倍，需要回滚的 PR 占比下降超过 40%。目标是多数 PR 最多只需一名人类参与，同时不提高回滚率和事故率。</li><li><strong>把审查前移并分层</strong>：提交 PR 前运行测试、构建等验证，由新上下文的子 agent 检查差异；随后结合 AI 审查、安全检查、CI、按风险分配的人类批准、合并队列与分阶段发布。</li><li><strong>并行发现，集中筛选</strong>：多个 agent 并行找问题，再由其他 agent 投票核验，过滤噪声。高风险修改仍需人类批准，agent 的批准不能替代。</li><li><strong>审查也必须收敛</strong>：团队观察到一个 PR 在一夜间往返超过 50 轮，最终人工停止。后续措施包括三轮后要求重新评估方案、初期轮次后只审新增差异、避免重复报告，并一次指出整类问题。</li><li><strong>用事故持续校准</strong>：将事故 PR、修复与回滚整理为人工核验的评测集，每天评估审查系统；同时观察评论被修复、拒绝或解释的情况，衡量噪声与人力成本。</li></ul>
+<h2 id="h347">证据与可信度</h2>
+<p>材料由 Addy Osmani 发布，文末注明为原文改写；核心数据属于团队自报，所给内容没有独立核验。</p>
+<p>“超过翻倍”指合并 PR 数，“下降超过 40%”指回滚占比的相对降幅，并非下降 40 个百分点。材料未给出原始计数、基线或统计方法，不能据此确认绝对回滚数下降，也不能将变化单独归因于多 agent 审查。</p>
+<p>另一组日合并变更量从约 2,500 增至超过 30,000，属于 monorepo，材料明确 Claude Code 不在其中，不能混作同一项目的增长证据。</p>
+<p>超过 50 轮是单例观察；约 59% 的反复标记代码在首轮时已存在，用于说明旧问题被逐轮发现造成返工。验证令质量提升两至三倍则是 Boris Cherny 的个人估计，缺少质量定义与实验细节。</p>
+<h2 id="h348">对 swarm scaling 的意义</h2>
+<p>这份材料的价值在于把扩展目标从“更多 agent、更多代码”转向“每次变更消耗更少人力，且质量护栏不恶化”。并行找错之外，还需要误报筛选、增量复审、收敛规则和快速撤回，否则审查交互本身就会吞噬吞吐量。</p>
+<p>它提供了具体的工程机制与运行观察，但没有给出 agent 数量、成本或受控对照，尚不能证明 swarm 随规模增加的收益曲线。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

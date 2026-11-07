@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Do Multi-Agent LLM Systems Fail?</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Why Do Multi-Agent LLM Systems Fail?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Cemri, Mert, Pan, Melissa Z., Yang, Shuyi et al.</dd><dt>日期</dt><dd>2025-03-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2503.13657" target="_blank" rel="noopener">https://arxiv.org/abs/2503.13657</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>基于 1600 多条轨迹建立多智能体失败分类，说明失败多来自系统设计与协调而不只是模型能力。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2841">一句话</h2>
+<p>多智能体失败不仅是模型能力问题，也与分工、信息传递和验收机制有关；这篇论文提供了一套可用于诊断这些问题的分类与轨迹数据。</p>
+<h2 id="h2842">主要内容</h2>
+<ul><li>作者构建 MAST-Data，收录 1642 条执行轨迹，覆盖编程、数学和通用任务；论文称覆盖 7 个多智能体框架。</li><li>MAST 将失败分为 3 类、14 种模式：系统设计问题，如重复步骤、丢失上下文和不知何时结束；智能体间失配，如不求澄清、遗漏信息和忽视同伴输入；任务验证问题，如提前终止、漏检和误检。</li><li>分类来自专家对约 150 条轨迹的分析，再通过人工一致性研究完善定义，随后使用 o1 扩大标注规模。</li><li>案例表明，同一底层模型下，调整决策权限、增加任务目标验收可以改善成功率，但局部修补仍未解决全部失败。</li><li>论文的主要价值是把“任务失败”拆成可检查的交互与流程问题，帮助定位改动究竟解决了什么。</li></ul>
+<h2 id="h2843">证据与可信度</h2>
+<ul><li><strong>未读到全文</strong>：所给正文较完整，但附录在系统介绍处截断，关键实验表格也未完整呈现；以下判断仅依据所给内容。</li><li>1642 条是作者收集的轨迹数量，不代表全部经过人工精标。规模化标签主要由 LLM 生成；人工标注者最终一致性为 κ=0.88，LLM 对人工标签的一致性为 κ=0.77、准确率为 94%。这些衡量标注一致程度，不能直接证明根因判断正确。</li><li>作者报告所测系统失败率为 41%—86.7%，但系统使用不同基准，不能据此直接排名，也不能外推为所有多智能体系统的失败率。</li><li>ChatDev 的流程调整和目标验证分别被报告带来 +9.4%、+15.6% 的成功率提升。片段未明确相对增幅还是百分点，且缺少完整实验细节，应视为作者报告的局部干预结果。</li><li>数据与标注工具据称已公开，但此处没有独立核验。“系统设计很关键”有案例支持；“仅提升模型不足以解决全部问题”仍包含作者推断。</li></ul>
+<h2 id="h2844">对 swarm scaling 的意义</h2>
+<p>这项研究提示：扩展 swarm 时，应同时观察重复劳动、信息遗漏、任务偏移和验证失效，而不能只看最终成功率。MAST 可作为扩容前后比较失败结构的诊断框架。</p>
+<p>但论文没有提供智能体数量递增的受控实验，也没有给出规模、成本与收益的曲线，因此不能据此断言规模越大越差，或确定最佳规模。它支持的是：协调与验收需要随扩容一起设计，并验证改进是否真正减少失败。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase Transition for Budgeted Multi-Agent Synergy</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Phase Transition for Budgeted Multi-Agent Synergy</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Liu et al.</dd><dt>日期</dt><dd>2026-01-24</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2601.17311" target="_blank" rel="noopener">https://arxiv.org/abs/2601.17311</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出预算下协同出现的相变条件。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2529">一句话</h2>
+<p>这篇论文把“多加 agent 是否划算”归结为预算内的两道门槛：层级协作能否放大信号，以及组织收益能否超过增强单个 agent 的收益。</p>
+<h2 id="h2530">主要内容</h2>
+<ul><li>框架聚焦三种约束：上下文窗口有限、消息传递有损、agent 共享错误。分别用窗口容量、通信保真度和错误相关性描述，再与单体推理计算的收益指数 β 比较。</li><li>星型结构传递层数少，但汇总节点能读的消息有限；链式结构若只转述已有信息，会累积通信损失；树型结构分散汇总压力，却要承受多层压缩与聚合的代价。</li><li>对二元任务和多数投票，作者提出层间增益指标 αρ，用它区分弱信号被放大还是逐层退化至随机水平。在放大且尚未饱和的增长区间，组织指数 s 超过 β，才满足文中的预算协同条件。</li><li>连续估计模型揭示另一种限制：平均可以降低独立误差，但通信损失和共享错误形成误差下限。若叶节点已经优于该下限，增加树深反而可能变差。</li><li>消息越长，可能保留越多信息，但也更耗预算，并压缩单个节点可接收的消息数量；因此通信质量、分支数和 agent 数不能分别优化。</li></ul>
+<h2 id="h2531">证据与可信度</h2>
+<ul><li><strong>未读到全文</strong>：所给材料包含摘要、引言、框架及连续模型部分，末尾截断；二元相变的详细证明、实验结果和附录未展示，部分公式也在抓取中缺失。</li><li>核心结论属于特定假设下的理论推导，依赖局部计算收益近似、简化相关性模型及指定聚合规则；不是通用 LLM 系统的实测规律。</li><li>作者称用受控合成模拟验证相变边界，并借外部等预算研究说明瓶颈的现实相关性。但片段没有呈现实验规模、误差或拟合结果，无法据此评估验证力度，也未作独立核验。</li><li>文中的指数和阈值是模型参数与推导条件，并非已测得的通用数值；作者明确指出 β 随任务、模型和推理流程变化。</li></ul>
+<h2 id="h2532">对 swarm scaling 的意义</h2>
+<p>它提供了比“数量越多越强”更可检验的设计思路：先估计单体增算收益、通信损失和共享错误，再判断扩群是否值得。层级结构的价值在于绕过上下文汇总上限，但绕过容量限制并不保证性能提升。达到饱和后，应优先改善消息保真度、降低共同失败，而不是继续增加深度。将这一框架用于真实 swarm，仍需在目标任务上校准并做等预算对照。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

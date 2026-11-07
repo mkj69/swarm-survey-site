@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multi-Agent Computer Use</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Computer Use</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Koh, Salakhutdinov, Fried</dd><dt>日期</dt><dd>2026-06-01</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.01533" target="_blank" rel="noopener">https://arxiv.org/abs/2606.01533</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>电脑操作任务上的正面结果。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1633">一句话</h2>
+<p>MACU 展示了电脑操作中多智能体协调的收益：把任务拆成可修改的依赖图，并随执行反馈重规划，能提高成功率，但加速效果取决于任务能否并行。</p>
+<h2 id="h1634">主要内容</h2>
+<ul><li>一个管理者维护子任务 DAG，向依赖已满足的节点分派工作者；收到结果后，可增删节点、调整依赖或取消任务。</li><li>工作者使用同一电脑操作模型，各自在隔离虚拟机中执行。分工来自任务指令，而非专门训练的角色。</li><li>系统通过截图、文件交接和虚拟机状态继承传递上下文，处理电脑环境中无法随时重新观察的信息。</li><li>主实验使用 Qwen3.6-27B 工作者、Opus 4.6 管理者，最多并行 4 个工作者，重规划预算为 10。</li><li>四个基准的成功率均提高，长程网页任务 Odysseys 的收益最大；偏串行的任务则可能因管理开销而变慢。</li></ul>
+<h2 id="h1635">证据与可信度</h2>
+<ul><li><strong>未读到全文</strong>：提供的内容在附录 C 截断，部分表格、图形只有标题。以下依据正文及可见附录，属于作者报告的实验结果，未作独立核验。</li><li>成功率分别为：OSWorld 43.8%→48.5%，Online-Mind2Web 52.2%→55.6%，WebTailBench-v2 20.8%→29.5%，Odysseys 8.5%→34.0%。相减得到 <strong>4.7、3.4、8.7、25.5 个百分点</strong>，不应误读为相对增幅。</li><li>OSWorld 用执行脚本判定成功；两个网页基准明确使用模型裁判，Odysseys 按任务评分项统计。因此，各基准的判定口径并不完全相同。</li><li>Odysseys 的任务耗时中位数从 162 降至 110 分钟，约为 1.47 倍加速；摘要称“平均”，正文称“中位数”，这里采用正文口径。Online-Mind2Web 则从 18.5 增至 33.6 分钟。</li><li>并行度从 1 增至 4 的约 3.2 倍加速，来自 Odysseys 的 45 道简单任务，且排除了推理开销，不能视为端到端普遍加速。</li><li>重规划消融只覆盖 36 道 OSWorld 任务；可见片段未提供误差区间或重复实验信息，外推需谨慎。</li></ul>
+<h2 id="h1636">对 swarm scaling 的意义</h2>
+<p>这份材料支持的是<strong>结构化协调带来的扩展收益</strong>：更多计算可用于独立探索、失败重试和动态纠错，而不只是延长单条执行轨迹。小规模消融中，初始拆解收益有限，持续修改任务图后收益明显，提示反馈闭环比一次性分工更关键。</p>
+<p>它尚不能证明智能体越多越好：并行度实验仅到 4，管理调用与状态交接也会消耗资源。对 swarm scaling，更值得研究的是按任务可分解性分配并行度，并同时比较成功率、总计算成本与实际耗时。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

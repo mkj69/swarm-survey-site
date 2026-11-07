@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting in the Zone for Successful Scalability</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Getting in the Zone for Successful Scalability</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Holtman, Jim; Gunther, Neil J.</dd><dt>日期</dt><dd>2008-09-15</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/0809.2541" target="_blank" rel="noopener">https://arxiv.org/abs/0809.2541</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用模拟解释 USL、Amdahl、Gustafson 的三个可扩展性区域。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3065">一句话</h2>
+<p>这篇论文把“扩容后变快、趋于饱和、反而变慢”联系到不同排队机制，为分析 swarm 的协作开销提供了框架，但没有直接验证多智能体系统。</p>
+<h2 id="h3066">主要内容</h2>
+<ul><li>USL 将扩展限制分为并发、资源争用和一致性开销；相较于 Amdahl 的饱和上限，它还能描述增加资源后吞吐下降的现象。</li><li>作者用机器维修工模型连接公式与机制：任务独立进入共享服务形成普通排队；同步等待产生 Amdahl 型限制；同步等待再叠加随负载增长的服务耗时，则产生 USL 型退化。</li><li>仿真的关键是任务何时恢复并行：完成串行服务后立即返回，还是等待其他任务、暂停并行工作。这说明同步规则本身就会影响扩展表现。</li><li>作者主张按负载观察系统如何跨越三个可扩展性区域，而非用一条曲线概括所有负载。曲线用于缩小排查范围，不能单独确定故障原因。</li></ul>
+<h2 id="h3067">证据与可信度</h2>
+<ul><li><strong>未读到全文</strong>：提供内容在讨论部分截断，部分公式、图表缺失；元数据日期为 2008 年，正文另标有 2026 年修订日期，版本关系未核验。</li><li>主要证据是解析推导与作者报告的离散事件仿真。串行占比设为 10%；USL 仿真另设每个等待请求增加 0.1% 串行服务时间。这些是模型输入，不是实际系统测量结果。</li><li>作者报告 USL 仿真拟合的决定系数为 1，说明所设机制与公式吻合，不能据此证明现实系统都遵循同一机制。</li><li>文中还有 WebSphere 吞吐测量案例，但提供内容不足以核查采集过程。垃圾回收、队列排序等只是候选解释，作者明确没有确认根因；此处也无独立核验。</li></ul>
+<h2 id="h3068">对 swarm scaling 的意义</h2>
+<ul><li>可将 agent 数量与吞吐的关系作为待测曲线，检查扩容收益是否被共享服务、同步等待及随规模增长的协调耗时抵消。这是对论文框架的迁移，属于研究假设。</li><li>论文中的成对比较机制产生随规模平方增长的额外开销，提示研究 swarm 时应检查交互结构，不能只统计 agent 数量。</li><li>评估需区分固定任务下的加速与扩大任务规模后的吞吐增长；Gustafson 式收益依赖工作量重标定，不能直接视为同一任务更快完成。</li></ul></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

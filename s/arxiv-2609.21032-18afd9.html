@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scaling Discovery through Test-Time Communication</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Scaling Discovery through Test-Time Communication</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Park et al.</dd><dt>日期</dt><dd>2026-09-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2609.21032" target="_blank" rel="noopener">https://arxiv.org/abs/2609.21032</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在匹配总预算的两款游戏上团队胜过单智能体，是能力论的最强受控证据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h793">一句话</h2>
+<p>这篇论文提供了有条件的证据：当任务能验证中间进展、每个智能体有足够探索预算时，通信可以把并行尝试变成累积发现，突破独立运行的表现。</p>
+<h2 id="h794">主要内容</h2>
+<ul><li>团队采用相同模型、工具和任务，通过共享文件与异步日志交流，没有预设角色或中央调度者。协议要求保留不同探索方向，凭可复现结果采纳同伴方案。</li><li>核心比较是通信团队 team@k 与独立运行取最佳的 best@k。ARC-AGI-3 上，三人、五人团队的成功率分别相当于十三、三十三个独立智能体。</li><li>LP85 游戏中，六十四次单智能体试验均未成功，五人团队二十次试验的成功率为 65%。这支持团队能跨越当前独立样本未达到的门槛，但不等于证明单智能体永远不能解决。</li><li>优势延伸到优化任务：拼板短时实验的最佳团队得分为 0.945，最佳独立运行为 0.883；MNIST 压缩中，四人团队在九十六小时内得到 1,957 字节、准确率达 99.4% 的提交，独立四次取最佳为 3,160 字节。</li><li>收益并非无条件成立：预算较小时通信拖累表现；Terminal-Bench 2.0 上，两人团队未超过独立 pass@2。</li></ul>
+<h2 id="h795">证据与可信度</h2>
+<p>未读到全文：所给内容在 MNIST 案例分析中截断，缺少后续章节及附录。以上均为作者实验报告，材料未提供独立复现。</p>
+<p>ARC 覆盖二十五款公开游戏，每款六十四次独立试验，各团队规模二十次试验。best@k 由独立样本池按无放回组合概率计算，并非全部重新运行；十三、三十三是匹配成功率所需的独立尝试数，不是直接测得的能力倍数。</p>
+<p>基础比较匹配每智能体资源，实际总输出 token 并不完全相同。作者另画 token 曲线，并在 SB26、LP85 两款游戏做总动作预算匹配，支持通信收益不能仅归因于更多尝试，但不能据此宣称所有任务都严格匹配总计算成本。</p>
+<p>拼板主要展示多次试验中的最佳轨迹，长期团队试验仅两次；MNIST 的“最佳人类结果”是作者按其提交格式复现的 2,461 字节基线。它们支持发现能力，尚不足以确定稳定收益及方差。</p>
+<h2 id="h796">对 swarm scaling 的意义</h2>
+<p>关键扩展变量不仅是智能体数量，还包括可验证的进展、保留探索多样性的协议，以及足以消化同伴成果的预算。案例中的突破来自想法、实现和改进的接续，而非简单投票。</p>
+<p>团队规模增大时优势上升，是值得追踪的信号；但现有规模有限，成功也集中于少数游戏，不能外推为无限扩展规律。实践上，应同时观察固定总预算下的收益、协调成本和重复试验稳定性。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

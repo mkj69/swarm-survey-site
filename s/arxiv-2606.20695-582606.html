@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Much Coordination Gain Is Real? A Paired Noise-Floor Protocol for Multi-Agent LLM Benchmarks</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How Much Coordination Gain Is Real? A Paired Noise-Floor Protocol for Multi-Agent LLM Benchmarks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Kaliyev, Alibek T, Maryanskyy, Artem</dd><dt>日期</dt><dd>2026-06-15</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.20695" target="_blank" rel="noopener">https://arxiv.org/abs/2606.20695</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>测出同模型配对噪声底并指出多数架构增益低于该水平，直接质疑小幅效应的可靠性。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1509">一句话</h2>
+<p>这篇论文提醒：多智能体架构的小幅涨分，可能来自运行波动；评估协作收益前，应先测同模型、同任务下的配对噪声。</p>
+<h2 id="h1510">主要内容</h2>
+<ul><li>作者比较无协作、主动读取共享失败记录（pull）、框架按工具调用注入警告（intercept）。核心贡献是测量协议，而非共享存储本身。</li><li>在 Haiku 4.5、τ²-bench retail 上，两个各含 100 个任务的重复实验中，最干净的无协作与 intercept 对照合并差距为 <strong>5 个百分点</strong>，作者报告置信区间为 <strong>[-2, 12] 个百分点</strong>，未达显著。</li><li>pull 对 intercept 首次出现 <strong>18 个百分点</strong>优势，第二次却变成 <strong>-3 个百分点</strong>，说明单次显著结果也可能无法复现。</li><li>作者提出只在共享记录非空、协作机制确有介入机会的任务上计算成功指标。该子集排除平局后仅有 <strong>8—17 对</strong>有效样本，无法据此认定协作有效或无效。</li><li>换模型、换领域后波动幅度改变，因此这里的噪声范围不能直接推广。</li></ul>
+<h2 id="h1511">证据与可信度</h2>
+<p><strong>未读到全文</strong>：所给内容在文献比较部分截断，以下仅依据现有片段，未独立核验代码、日志或统计实现。</p>
+<p>数字属于作者实验自报。干净对照合并后的胜／负／平为 <strong>34／24／142</strong>，净差按（34−24）÷200 得到 5 个百分点。首请求哈希审计支持输入一致，但后续用户模拟输出会使多轮轨迹分叉；这不是完整请求逐字节重放实验。</p>
+<p>材料存在需核对的矛盾：一处称各单次实验均无校正后显著结果，另一处明确报告首次 pull 对 intercept 的校正后 p=0.012；可靠表述应是“该显著性未复现，合并后不显著”。元数据日期为 2026-06-15，正文却引用 2026-07-28 的协议版本，版本时间线也待核实。</p>
+<p>“十篇中七篇增益较小”来自作者的示例性选文，不能据此判定这些论文失效。失败原因诊断也只是小样本、单一模型裁判支持的假说。</p>
+<h2 id="h1512">对 swarm scaling 的意义</h2>
+<p>它提供的是<strong>收益如何验证</strong>的方法，而非 agent 数量增加后的扩展规律：本文没有给出规模扫描曲线。</p>
+<p>研究 swarm 时，应同时报告整体表现、协作实际生效子集、同配置配对基线和重复运行结果。也不能把约 15 个百分点当成通用门槛：它混合了不同对照，最干净对照的上界是 12 个百分点，且均限于当前实验环境。协作机会稀少时，任务总数很大也未必有足够统计能力识别真实收益。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

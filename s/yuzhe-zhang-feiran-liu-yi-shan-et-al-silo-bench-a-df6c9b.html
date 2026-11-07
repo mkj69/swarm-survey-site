@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SILO-BENCH: A Scalable Environment for Evaluating Distributed Coordination in Multi-Agent LLM Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>SILO-BENCH: A Scalable Environment for Evaluating Distributed Coordination in Multi-Agent LLM Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Yuzhe Zhang, Feiran Liu, Yi Shan et al.</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://aclanthology.org/2026.acl-long.1354/" target="_blank" rel="noopener">https://aclanthology.org/2026.acl-long.1354/</a></dd><dt>许可</dt><dd>CC-BY-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>确认了 Silo-Bench 的同行评审出版状态，并提供 ACL 选集的开放许可说明。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3165">一句话</h2>
+<p>SILO-BENCH 将“群体能否整合分散信息”作为核心考题，作者报告：交流活跃并不保证协同计算有效，复杂任务中的扩容甚至伴随成功率归零。</p>
+<h2 id="h3166">主要内容</h2>
+<ul><li>基准不预设角色，让各智能体仅掌握部分信息，通过自由协作解决问题，以减少角色提示对协调能力评估的干扰。</li><li>包含 30 个有精确标准答案的算法任务，按最优通信复杂度分为聚合、网状交互和全局重排三个层级。</li><li>实验覆盖 3 种通信协议、6 种智能体规模和 3 个前沿模型，共 54 种配置、1,620 次实验；同时观察成功率、Token 消耗和通信密度。</li><li>作者将主要现象概括为通信与推理之间存在脱节：消息交换没有稳定转化为正确的分布式计算。摘要称，最高复杂度任务在超过 50 个智能体时成功率为零。</li></ul>
+<h2 id="h3167">证据与可信度</h2>
+<p>未读到全文；提供的内容是论文摘要、出版信息及其重复导出，不能视为多份独立证据。</p>
+<p>上述结果属于作者报告的实验测量。配置数可由 3×6×3＝54 核对，实验总数与 54×30＝1,620 一致，但摘要没有交代重复运行、随机性控制、具体模型和协议，也没有提供分组结果或误差分析。“超过 50 个智能体成功率为零”应限定于文中测试条件，不能解释为通用规模上限。</p>
+<p>页面将论文列入 ACL 2026 长文集，附有 DOI，可支持其正式出版身份；本材料未提供审稿记录，也没有独立复现实验。元数据提及开放许可，但抓取正文未展示具体许可条款，无法据此确认授权范围。</p>
+<h2 id="h3168">对 swarm scaling 的意义</h2>
+<p>它提示扩容评估需要同时看任务正确性、通信开销与信息整合效果：智能体更多、消息更密，并不足以证明群体能力增强。</p>
+<p>无预设角色的设计有助于考察自主协调，但其结论不能直接外推到具有明确分工、外部记忆或专门协调机制的系统。对调研而言，这是一项关于“信息孤岛下自由协作为何难以扩展”的实验线索，而非对所有 swarm 架构的否定。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

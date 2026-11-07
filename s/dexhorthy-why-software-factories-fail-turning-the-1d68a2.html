@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Software Factories Fail: Turning the lights back on</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Why Software Factories Fail: Turning the lights back on</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>dexhorthy</dd><dt>日期</dt><dd>2026-07-25</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/dexhorthy/status/2081058573556306030" target="_blank" rel="noopener">https://x.com/dexhorthy/status/2081058573556306030</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>1121 likes; 230887 views</dd><dt>收录理由</dt><dd>Horthy给出恢复人工审查和前置规划的做法。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1265">一句话</h2>
+<p>Horthy 主张把人工审查和设计决策前移，用小步可验证的实现控制返工；对 swarm scaling 而言，关键约束可能是人类审查能力，而非代码生成速度。</p>
+<h2 id="h1266">主要内容</h2>
+<ul><li><strong>恢复人工质量判断。</strong> 作者认为当前模型不足以长期守住代码质量，增加工具约束、生成量或模型评审不能替代人读代码。</li><li><strong>分层消除歧义。</strong> 产品阶段明确用户问题和成功标准；架构阶段确定服务、接口与数据关系；程序设计进一步落实类型、方法签名、文件布局和调用流程。模型起草，人参与讨论，必要时提前邀请最终 PR 审查者。</li><li><strong>按纵向切片推进。</strong> 避免依次做完数据库、服务、API、前端才验证。作者更倾向从接口和模拟数据起步，逐步接通前端、服务与数据库，每一步都能实际操作和检查。</li><li><strong>按任务复杂度裁剪流程。</strong> 简单任务直接交给模型，中等任务合并设计文档，大任务采用完整阶段。作者通常一次交付模型处理 1—3 个切片，边做边审，尽早纠偏。</li><li><strong>减少返工比增加 PR 更重要。</strong> 作者把低质量提交带来的理解、修改和沟通负担视为效率损耗来源。</li></ul>
+<h2 id="h1267">证据与可信度</h2>
+<p>这是带有 HumanLayer 产品推广的实践文章，主要证据是作者的工作经验与流程描述，没有对照实验、样本统计或独立核验。</p>
+<p>约 40% 的任务可直接完成或仅需 1—2 轮轻反馈，是作者明确标注的估计；每次审查 100—200 行、分配 1—3 个切片属于个人做法。PR 返工比例 20%、AI 一次生成的 PR 接近 50%，也是经验判断。规划半小时节省数小时审查、提速 2—3 倍均未提供测量方法，后者同时用于产品宣传，不能视为已验证收益。</p>
+<p>元数据中的点赞和浏览量只反映传播，不能证明流程有效；文末列出的外部资料也未在本材料中展开验证。</p>
+<h2 id="h1268">对 swarm scaling 的意义</h2>
+<p>文章没有比较不同 agent 数量，也未测量并行扩展效率。它提供的是一条值得检验的机制：生成吞吐增加后，需求歧义、设计偏差和人工审查可能限制最终交付速度。</p>
+<p>据此推论，扩大 swarm 前，应先明确共享接口、代码结构和验收标准，再让任务以可检查的切片推进。其启发是优化“生成—验证—纠偏”的完整周期；但这种流程能支撑多大规模、是否抵消协调成本，本文没有答案。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

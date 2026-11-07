@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Ringelmann Effect in Multi-Agent LLM Systems: A Scaling Law for Effective Team Size</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Ringelmann Effect in Multi-Agent LLM Systems: A Scaling Law for Effective Team Size</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Bertalanič, Blaž, Fortuna, Carolina</dd><dt>日期</dt><dd>2026-05-31</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.02646" target="_blank" rel="noopener">https://arxiv.org/abs/2606.02646</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出有效智能体数的两参数缩放定律，并区分硬上限、次线性和线性三种规模区间。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1637">一句话</h2>
+<p>这篇论文把 swarm 扩容的问题从“增加多少智能体”改为“增加多少独立信息”，但其异构团队实验支持的是抬高规模上限，尚非摆脱上限。</p>
+<h2 id="h1638">主要内容</h2>
+<ul><li>作者提出有效团队效率公式：\(R(N)=N_{\mathrm{eff}}/N=1/[1+c(N-1)N^{-\beta}]\)。其中，\(c\) 决定相关性强度，\(\beta\) 区分硬上限、次线性和线性增长。</li><li>论文区分答案多样性与正确性冗余：答案各不相同，不代表错误彼此独立。自由形式数学题中，不交流的团队能保留更多答案，但正确性层面仍呈硬上限。</li><li>在 Qwen2.5-7B 的 GSM-Hard 实验中，30 个辩论智能体的答案级有效规模约为 1.8；自我纠正和噪声对照约为 6。噪声对照接近自我纠正，支持收益主要来自重新思考，而非同伴内容。</li><li>作者用规模为 2、3、5 的团队拟合参数，再预测至 30；另提出，在高一致性等假设下，同伴数量与交流轮数主要通过乘积影响趋同。</li></ul>
+<h2 id="h1639">证据与可信度</h2>
+<p>未读到全文：所给内容包含主体章节，但附录在开头截断。数字均为作者实验、拟合或理论推导所得，无独立核验信息。</p>
+<p>作者报告覆盖 44 个模型、任务与条件组合；跨模型家族的小规模外推平均相对误差约为 5%—12%。这是有效规模预测误差，不是准确率误差。</p>
+<p>材料存在两处关键口径冲突：摘要称全部拟合 \(R^2&gt;0.99\)，结果部分则为最低 0.97、中位数 0.999；摘要及结论称异构团队“逃离硬上限”，但实验明确写其 \(\beta\approx0\) 保持不变，仅降低 \(c\)。因此更稳妥的解读是上限提高，增长区间未改变。</p>
+<p>均场结论依赖众数稳定、高一致性等条件；实验也报告低一致性和单轮交流时偏差更大。证据主要来自角色对称、答题与投票团队，不能直接推广到复杂分工系统。</p>
+<h2 id="h1640">对 swarm scaling 的意义</h2>
+<p>它提供了一个实用的扩容诊断框架：先用小团队估计新增成员带来的独立信息，再决定是否扩大规模，并同时观察答案多样性、正确性相关和成本。</p>
+<p>研究提示，应把独立采样、自我纠正与无关同伴信息设为对照，避免将重试收益误算为协作收益。异构模型值得测试，但本材料尚未证明它能实现线性扩展，更未证明通信轮数、角色分工或工具协作在所有 swarm 中都无效。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

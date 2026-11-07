@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>API credits for Max, Ultra, and Team plans</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>API credits for Max, Ultra, and Team plans</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Anthropic</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers" target="_blank" rel="noopener">https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>确认订阅附带 API 额度的金额与范围。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h105">一句话</h2>
+<p>Anthropic 将订阅附带额度接入 API 与 agent 开发，但它降低的是试验费用，并不能直接证明 swarm 的并发能力或规模收益。</p>
+<h2 id="h106">主要内容</h2>
+<ul><li>Max 每月附带 100 美元，Ultra 为 200 美元；Team 按 Standard 席位每人 20 美元、Premium 席位每人 100 美元汇总，组织每月最高 500 美元，折扣 Team 同样适用。</li><li>额度覆盖 Claude API、Managed Agents、Agent SDK 和控制台 Playground；不覆盖 Claude Code、Claude 应用额外用量及其他云平台。</li><li>需将订阅关联到一个 Console 组织，新订阅者须满 7 天才能领取。额度按账期发放，年付方案按月发放，到期不结转。</li><li>同一组织的所有 API key 和 workspace 共用余额，可用 workspace 支出上限约束项目费用。额度耗尽且无其他余额时，API 请求停止；销售开票组织的超额用量照常计费。</li><li>关联后组织至少进入 Start 层级，月额度超过 200 美元则至少进入 Build 层级；附带额度不计入进一步升级层级的条件。</li></ul>
+<h2 id="h107">证据与可信度</h2>
+<p>材料是 Anthropic 官方产品规则说明，金额、适用范围和限制属于厂商公布的条款，非实测结果，未提供独立核验。</p>
+<p>文中示例可直接复算：3 个 Standard 加 2 个 Premium 席位，每月为 3×20＋2×100＝260 美元；增加一个 Premium 席位后，下月为 360 美元。页面还称批处理 API 可节省 50% 费用，但没有提供 swarm 场景的成本或性能测试。</p>
+<h2 id="h108">对 swarm scaling 的意义</h2>
+<ul><li>额度池能支持多 agent 原型试验，但多个 agent 会竞争同一余额，增加 API key 并不会增加预算。</li><li>月度预算与扩展容量是两回事：额度用量仍计入组织支出上限，速率限制继续适用，不能把附带金额换算成可并发 agent 数。</li><li>到期不结转、额度刷新与自然月支出上限重置时间不同，会影响持续实验的排期。</li><li>模型选择、重复上下文缓存和非即时任务批处理，是材料给出的降本路径；它没有证明扩大 swarm 后的成功率、吞吐或边际收益。</li></ul></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

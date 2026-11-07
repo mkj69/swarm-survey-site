@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agensh: Scaling Organizational Intelligence to 1,024 Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agensh: Scaling Organizational Intelligence to 1,024 Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Zhan, Zhihao, Song, Ting, Dong, Li et al.</dd><dt>日期</dt><dd>2026-09-22</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2609.26781" target="_blank" rel="noopener">https://arxiv.org/abs/2609.26781</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在固定 6 小时预算下扩展到 1024 名智能体仍有收益，是与固定算力结论形成对照的重要反例。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h701">一句话</h2>
+<p>Agensh 表明，在固定时间而非固定算力的条件下，去中心化协作可让更多智能体继续提高软件重建成绩，但尚不能证明其成本效率或普遍扩展规律。</p>
+<h2 id="h702">主要内容</h2>
+<ul><li>系统取消中央任务分配者，由智能体自行发现、认领、验证和合并任务。协调依靠 Git 共享工作区、消息通信和共享知识记录；去中心化并不意味着无需协作基础设施。</li><li>实验要求在断网、6 小时内，通过运行参考程序观察行为，从零重建软件。各配置使用相同的 GPT-5.6-sol（high）模型及 Copilot 底层框架。</li><li>在 ProgramBench 最难的五项任务上，1、8、32、128 个智能体的平均最终测试通过率分别为 19.31%、20.68%、26.52%、28.78%。</li><li>pandoc 单项扩展至 1,024 个智能体，通过率从单智能体的 33.89% 升至 55.06%；128 个智能体为 50.94%。扩大规模也能更早达到给定分数。</li><li>作者从运行轨迹中观察到接口协商、交叉审查、集成流程标准化及专门集成角色。这些是案例观察，尚非对组织能力的系统量化。</li></ul>
+<h2 id="h703">证据与可信度</h2>
+<p>数字来自作者报告的基准实验，按官方评测流程统计测试通过率；所给材料未提供独立复现。五任务平均提升为 9.47 个百分点，除以基线 19.31%，得到约 49% 的相对提升，不能理解为提升了 49 个百分点。</p>
+<p>1,024 智能体的结果仅覆盖 pandoc，相比 128 个智能体再增 4.12 个百分点，外推到其他任务的证据有限。材料未报告重复实验次数、误差区间、总 token 或费用，也没有与中央编排方案进行直接对照，因而无法单独归因于去中心化设计。</p>
+<p>智能体采用错峰启动，6 小时从首个智能体启动计时，并非所有成员都运行完整时长。实验还包含空闲唤醒和结束前的统一收尾提醒。</p>
+<h2 id="h704">对 swarm scaling 的意义</h2>
+<p>这项研究支持的是“用更多并发资源换取限时成绩”：固定墙钟时间下，智能体数量仍可能带来收益。它与固定总算力下出现收益递减的结论可以同时成立，不能直接视为反证。</p>
+<p>其机制价值在于把任务发现、知识复用、验证与集成分散给成员，提供了绕开单一协调者瓶颈的具体方案。但规模收益是否来自这种组织方式、每单位成本是否划算，以及能否推广到更多任务，仍需进一步对照实验。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

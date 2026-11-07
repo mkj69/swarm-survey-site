@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>swarm-scaling: Ord&#x27;s λ measured directly at matched compute</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>swarm-scaling: Ord&#x27;s λ measured directly at matched compute</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Jack Payne</dd><dt>日期</dt><dd>2026-10-06</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/JackPayne123/swarm-scaling" target="_blank" rel="noopener">https://github.com/JackPayne123/swarm-scaling</a></dd><dt>许可</dt><dd>none-(no-licence-file)（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>0 stars</dd><dt>收录理由</dt><dd>独立复现 Ord 的 λ 点估计，但 BrowseComp 区间不能复现，且 λ 随团队规模变化。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h597">一句话</h2>
+<p>该仓库把“群体是否更强”拆成预算与筛选规则受控的比较，初步结果提示协作收益可能依赖模型，尚不足以确立普遍优势。</p>
+<h2 id="h598">主要内容</h2>
+<ul><li>在 AlgoTune 代码优化任务上，对比可通信、共享文件的四代理团队与四个独立代理；两组采用相同预算、硬件和最终候选筛选规则，并以隐藏实例评分。</li><li>Haiku 团队在14组比较中为独立组的0.97倍，未见明确优势；Opus 三组结果为1.21、1.12和1.74倍，其中一组来自修复后重新评分的早期试验。</li><li>复算 Ord 的 λ：BrowseComp、SEC-Bench Pro、Terminal-Bench 点估计分别为0.65、0.57、0.48；但 BrowseComp 的区间未能复现，λ 也随团队规模变化。</li></ul>
+<h2 id="h599">证据与可信度</h2>
+<ul><li>λ 来自作者对 OpenAI 发布图表原始数据的复算，属于对厂商数据的独立分析，并非独立重跑基准；作者得到 BrowseComp 区间0.45—0.85。</li><li>协作收益来自仓库作者自做实验；Opus 仅三组，95%区间为0.74—2.38倍，仍包含无收益的可能。</li><li>所给文本列出记录与修复路径，但未提供底层日志供本页核验。元数据日期为10月6日，正文状态更新至10月19日。</li></ul>
+<h2 id="h600">对 swarm scaling 的意义</h2>
+<p>同预算、同筛选规则的对照有助于区分通信协作收益与多次尝试收益。BrowseComp 的 λ 从1至4代理时的0.82降至4至16代理时的0.47，提示不能用固定指数外推规模收益；当前结果也尚未回答单代理用尽总预算或混合模型是否更优。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

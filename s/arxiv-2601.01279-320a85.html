@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Supracompetitive Pricing Under AI Monoculture</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Supracompetitive Pricing Under AI Monoculture</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Cao, Shengyu et al.</dd><dt>日期</dt><dd>2026-01-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2601.01279" target="_blank" rel="noopener">https://arxiv.org/abs/2601.01279</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>理论模型显示共用模型可经相变导致超竞争定价。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2693">一句话</h2>
+<p>这篇理论论文指出，共用模型与汇总反馈更新可能形成高价自我强化回路；提高输出一致性、扩大训练批次，在特定条件下反而会稳定超竞争定价。</p>
+<h2 id="h2694">主要内容</h2>
+<ul><li>作者构建双卖家、两种价格策略的简化模型。双方共享一个潜在定价偏好，分别获得建议，再由汇总的收益反馈更新模型；卖家之间无需直接通信。</li><li>模型区分“偏好高价的倾向”与“输出遵循潜在偏好的概率”。后者越高，共同偏好对双方行动的影响越强。</li><li>作者报告存在临界阈值：低于阈值，竞争定价是唯一稳定结果；高于阈值，竞争与超竞争定价均可稳定存在，初始偏好决定走向。输出完全遵循偏好时，任何内部初始状态都会趋向完全价格协调。</li><li>有限训练批次带来随机性，相同初始状态也可能走向不同结果。若初始状态位于超竞争吸引域，批次越大，进入超竞争结果的概率越接近一；偶发低价则可能掩盖长期高价模式。</li></ul>
+<h2 id="h2695">证据与可信度</h2>
+<p>未读到全文，现有内容截至模型定义部分，部分公式和收益表缺失，无法据此复核完整证明。</p>
+<p>核心证据属于理论推导，并非真实市场测量或大模型部署实验。文中报告，不确定结果区域随批次大小 \(b\) 按 \(O(1/\sqrt b)\) 收缩；这是模型中的渐近结论，不是实测规模效应。片段未给出临界阈值的具体表达式。</p>
+<p>结论依赖共同潜在偏好、卖家采纳建议、收益反馈估计无偏且方差有界，以及规定的更新规则。把低温生成对应为高输出保真度，是模型解释，尚非实际系统中的已验证映射。引言引用的市场份额和其他实验结果也未获独立核验。</p>
+<h2 id="h2696">对 swarm scaling 的意义</h2>
+<p>它提示：共享模型的 agent 数量增加，不必然增加独立决策能力；共同偏好与集中反馈可能让群体更稳定地收敛到不理想结果。扩大量级时，应同时关注行动相关性、反馈如何汇总，以及随机性被削弱后的系统行为。</p>
+<p>但本文分析的是双卖家模型与训练批次扩张，不能直接推出大规模 swarm 的性能规律。模型多样性、建议噪声或降低采纳率，在其框架内可能削弱价格协调；实际效果仍需实验验证。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

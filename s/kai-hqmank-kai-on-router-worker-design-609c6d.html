@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kai on Router-Worker design</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kai on Router-Worker design</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Kai (@hqmank)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/hqmank/status/2116802002244006101" target="_blank" rel="noopener">https://x.com/hqmank/status/2116802002244006101</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=43; retweets=0; views=3033</dd><dt>收录理由</dt><dd>从业者解读，无新增证据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h249">一句话</h2>
+<p>Kai 看好 Router-Worker 分工减轻多会话管理负担，但未提供扩展效果的实证。</p>
+<h2 id="h250">主要内容</h2>
+<ul><li>Router 管理共享上下文与协调，Workers 并行执行任务。</li><li>文中称原型可监测 GitHub 和团队聊天，主动修复问题并提交 PR。</li><li>人主要负责目标、反馈与重要决策。</li></ul>
+<h2 id="h251">证据与可信度</h2>
+<p>属于从业者解读与观点；对象仍是研究原型。未给出 Worker 数量、性能测量或成本数据，也无独立核验。</p>
+<h2 id="h252">对 swarm scaling 的意义</h2>
+<p>提示扩展不只靠增加执行者，还涉及上下文与协调机制；该架构能否改善吞吐、成本或可靠性，本文无法证明。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

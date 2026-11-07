@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Introducing Microsoft Agent Framework</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Introducing Microsoft Agent Framework</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Microsoft</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/" target="_blank" rel="noopener">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>记录微软将投资集中到 MAF 的表态。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3281">一句话</h2>
+<p>微软明确将大部分投入集中到 Microsoft Agent Framework（MAF），把 AutoGen 的多智能体编排与 Semantic Kernel 的企业能力汇入统一框架；这说明产品路线收敛，但不证明智能体越多效果越好。</p>
+<h2 id="h3282">主要内容</h2>
+<ul><li><strong>投入重心转移</strong>：Semantic Kernel 和 AutoGen 继续获得支持，但大部分投资转向 MAF。文章提供迁移路径，涉及 Agent、Tool、统一消息类型及 Workflow 等抽象，不能据此认定旧项目已停止维护。</li><li><strong>统一两类编排</strong>：既支持模型驱动的动态协作，也支持业务逻辑驱动的确定性流程；列出顺序、并发、群聊、交接，以及由管理者维护动态任务账本的 Magentic 模式。</li><li><strong>补齐运行基础设施</strong>：强调检查点、暂停恢复、重试、人工审批和 OpenTelemetry，试图降低多智能体系统从实验走向长期运行的工程负担。</li><li><strong>协议与生态连接</strong>：通过 MCP、A2A、OpenAPI 连接工具及其他运行环境，配合可插拔记忆和声明式配置。与 Microsoft 365 Agents SDK、Foundry Agent Service 的进一步整合包含未来规划，不能全部视作发布时已交付。</li><li><strong>迁移并非完全无成本</strong>：AutoGen 的多智能体编排需要转向带类型的图式 Workflow API；文章所称迁移简单，仍是厂商对改造成本的判断。</li></ul>
+<h2 id="h3283">证据与可信度</h2>
+<p>这是微软官方产品发布材料，可直接支持其投资方向与功能定位，但缺少独立测试。元数据未给出发布日期，抓取正文也未明确显示，不能用推荐文章日期代替。</p>
+<p>文中宝马案例称处理 TB 级车辆遥测，并将分析时间从数天缩短至数分钟；这是厂商页面收录的客户陈述，没有任务定义、对照条件、成本或原始测量，无法计算可靠加速比。其他客户多处于试点、建设或探索阶段，不能一概视为成熟生产部署。</p>
+<p>评论者称工作流可视化仍处于私有预览，提示宣传中的能力与当时实际可用范围可能存在差距；该说法也未获独立核验。</p>
+<h2 id="h3284">对 swarm scaling 的意义</h2>
+<p>MAF 的主要价值指向<strong>工程规模化</strong>：统一接口、跨环境连接、故障恢复与可观测性，为扩大协作系统提供基础。确定性流程与动态协作并存，也意味着团队可以按任务需要安排协作方式。</p>
+<p>但本文没有智能体数量扩展实验，也未报告数量增加后的成功率、延迟、通信成本或收益变化。因此，它适合作为微软生态整合与生产化路线的证据，不能用作 swarm scaling 性能规律的证据。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

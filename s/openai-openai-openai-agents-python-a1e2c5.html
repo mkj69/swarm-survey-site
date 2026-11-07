@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>openai/openai-agents-python</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>openai/openai-agents-python</h1><div class="meta"><span class="pill tr">逐句译文</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>openai</dd><dt>日期</dt><dd>2026-11-05</dd><dt>原文</dt><dd><a href="https://github.com/openai/openai-agents-python" target="_blank" rel="noopener">https://github.com/openai/openai-agents-python</a></dd><dt>许可</dt><dd>MIT（见 <a href="https://api.github.com/repos/openai/openai-agents-python/license" target="_blank" rel="noopener">https://api.github.com/repos/openai/openai-agents-python/license</a>）</dd><dt>译文进度</dt><dd>47/47 段</dd></dl><p class="notice">这是 Codex 生成的非官方逐句译文，未经原作者审阅，可能有错。原文采用开放许可，译文沿用原许可；引用请以原文为准并按原许可署名。</p><div class="modes"><button data-m="">中英对照</button><button data-m="m-zh">只看中文</button><button data-m="m-en">只看英文</button></div>
+<script>(function(){var bs=document.querySelectorAll('.modes button'),m='';try{m=localStorage.getItem('mode')||''}catch(e){}
+function set(v){document.body.className=v;bs.forEach(function(b){b.classList.toggle('on',b.dataset.m===v)});try{localStorage.setItem('mode',v)}catch(e){}}
+bs.forEach(function(b){b.onclick=function(){set(b.dataset.m)}});set(m)})();</script><div class="bh"><span class="zh">OpenAI Agents SDK</span><span class="en">OpenAI Agents SDK</span></div><div class="para"><span class="pair"><span class="zh">OpenAI Agents SDK 是一个轻量但功能强大的框架，用于构建多智能体工作流。</span> <span class="en">The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows.</span> </span><span class="pair"><span class="zh">它不依赖特定提供商，支持 OpenAI Responses 和 Chat Completions API，以及 100+ 种其他大语言模型（LLM）。</span> <span class="en">It is provider-agnostic, supporting the OpenAI Responses and Chat Completions APIs, as well as 100+ other LLMs.</span> </span></div><div class="para"><span class="pair"><span class="zh">&gt; [!NOTE]</span> <span class="en">&gt; [!NOTE]</span> </span></div><div class="para"><span class="pair"><span class="zh">&gt; 正在寻找 JavaScript/TypeScript 版本？</span> <span class="en">&gt; Looking for the JavaScript/TypeScript version?</span> </span><span class="pair"><span class="zh">请查看 [Agents SDK JS/TS](https://github.com/openai/openai-agents-js)。</span> <span class="en">Check out [Agents SDK JS/TS](https://github.com/openai/openai-agents-js).</span> </span></div><div class="bh"><span class="zh">核心概念：</span><span class="en">Core concepts:</span></div><div class="para"><span class="pair"><span class="zh">[**智能体（Agents）**](https://openai.github.io/openai-agents-python/agents)：配置了指令、工具、护栏和任务交接机制的大语言模型</span> <span class="en">[**Agents**](https://openai.github.io/openai-agents-python/agents): LLMs configured with instructions, tools, guardrails, and handoffs</span> </span></div><div class="para"><span class="pair"><span class="zh">[**沙箱智能体**](https://openai.github.io/openai-agents-python/sandbox_agents)：预先配置为与容器协同工作、可执行长时间跨度任务的智能体。</span> <span class="en">[**Sandbox agents**](https://openai.github.io/openai-agents-python/sandbox_agents): Agents preconfigured to work with a container to perform work over long time horizons.</span> </span></div><div class="para"><span class="pair"><span class="zh">[**实时智能体**](https://openai.github.io/openai-agents-python/realtime/quickstart/)：利用 `gpt-realtime-2.1` 和完整的智能体功能构建强大的语音智能体</span> <span class="en">[**Realtime agents**](https://openai.github.io/openai-agents-python/realtime/quickstart/): Build powerful voice agents with `gpt-realtime-2.1` and full agent features</span> </span></div><div class="para"><span class="pair"><span class="zh">[**语音智能体**](https://openai.github.io/openai-agents-python/voice/quickstart/)：构建结合语音转文本、智能体工作流和文本转语音的语音处理流水线</span> <span class="en">[**Voice agents**](https://openai.github.io/openai-agents-python/voice/quickstart/): Build voice pipelines that combine speech-to-text, an agent workflow, and text-to-speech</span> </span></div><div class="para"><span class="pair"><span class="zh">**[将智能体用作工具](https://openai.github.io/openai-agents-python/tools/#agents-as-tools) / [任务交接（Handoffs）](https://openai.github.io/openai-agents-python/handoffs/)**：将特定任务委派给其他智能体</span> <span class="en">**[Agents as tools](https://openai.github.io/openai-agents-python/tools/#agents-as-tools) / [Handoffs](https://openai.github.io/openai-agents-python/handoffs/)**: Delegating to other agents for specific tasks</span> </span></div><div class="para"><span class="pair"><span class="zh">[**工具**](https://openai.github.io/openai-agents-python/tools/)：各种工具使智能体能够执行操作（函数、MCP、托管工具）</span> <span class="en">[**Tools**](https://openai.github.io/openai-agents-python/tools/): Various Tools let agents take actions (functions, MCP, hosted tools)</span> </span></div><div class="para"><span class="pair"><span class="zh">[**护栏（Guardrails）**](https://openai.github.io/openai-agents-python/guardrails/)：用于验证输入和输出的可配置安全检查</span> <span class="en">[**Guardrails**](https://openai.github.io/openai-agents-python/guardrails/): Configurable safety checks for input and output validation</span> </span></div><div class="para"><span class="pair"><span class="zh">[**人在回路（Human in the loop）**](https://openai.github.io/openai-agents-python/human_in_the_loop/)：在智能体运行过程中引入人工参与的内置机制</span> <span class="en">[**Human in the loop**](https://openai.github.io/openai-agents-python/human_in_the_loop/): Built-in mechanisms for involving humans across agent runs</span> </span></div><div class="para"><span class="pair"><span class="zh">[**会话**](https://openai.github.io/openai-agents-python/sessions/)：在多次智能体运行之间自动管理对话历史</span> <span class="en">[**Sessions**](https://openai.github.io/openai-agents-python/sessions/): Automatic conversation history management across agent runs</span> </span></div><div class="para"><span class="pair"><span class="zh">[**追踪**](https://openai.github.io/openai-agents-python/tracing/)：内置的智能体运行追踪功能，可用于查看、调试和优化工作流</span> <span class="en">[**Tracing**](https://openai.github.io/openai-agents-python/tracing/): Built-in tracking of agent runs, allowing you to view, debug and optimize your workflows</span> </span></div><div class="para"><span class="pair"><span class="zh">浏览[示例](https://github.com/openai/openai-agents-python/tree/main/examples)目录，了解 SDK 的实际用法，并阅读我们的[文档](https://openai.github.io/openai-agents-python/)以获取更多详细信息。</span> <span class="en">Explore the [examples](https://github.com/openai/openai-agents-python/tree/main/examples) directory to see the SDK in action, and read our [documentation](https://openai.github.io/openai-agents-python/) for more details.</span> </span></div><div class="bh"><span class="zh">入门</span><span class="en">Get started</span></div><div class="para"><span class="pair"><span class="zh">首先，配置 Python 环境（要求 Python 3.10 或更高版本），然后安装 OpenAI Agents SDK 软件包。</span> <span class="en">To get started, set up your Python environment (Python 3.10 or newer required), and then install OpenAI Agents SDK package.</span> </span></div><div class="bh"><span class="zh">venv</span><span class="en">venv</span></div><pre><code>python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install openai-agents</code></pre><div class="para"><span class="pair"><span class="zh">如需语音支持，请安装可选的 `voice` 依赖组：`pip install &#x27;openai-agents[voice]&#x27;`。</span> <span class="en">For voice support, install with the optional `voice` group: `pip install &#x27;openai-agents[voice]&#x27;`.</span> </span><span class="pair"><span class="zh">如需 Redis 会话支持，请安装可选的 `redis` 依赖组：`pip install &#x27;openai-agents[redis]&#x27;`。</span> <span class="en">For Redis session support, install with the optional `redis` group: `pip install &#x27;openai-agents[redis]&#x27;`.</span> </span></div><div class="bh"><span class="zh">uv</span><span class="en">uv</span></div><div class="para"><span class="pair"><span class="zh">如果你熟悉 [uv](https://docs.astral.sh/uv/)，安装该软件包会更加简单：</span> <span class="en">If you&#x27;re familiar with [uv](https://docs.astral.sh/uv/), installing the package would be even easier:</span> </span></div><pre><code>uv init
+uv add openai-agents</code></pre><div class="para"><span class="pair"><span class="zh">如需语音支持，请安装可选的 `voice` 依赖组：`uv add &#x27;openai-agents[voice]&#x27;`。</span> <span class="en">For voice support, install with the optional `voice` group: `uv add &#x27;openai-agents[voice]&#x27;`.</span> </span><span class="pair"><span class="zh">如需 Redis 会话支持，请安装可选的 `redis` 依赖组：`uv add &#x27;openai-agents[redis]&#x27;`。</span> <span class="en">For Redis session support, install with the optional `redis` group: `uv add &#x27;openai-agents[redis]&#x27;`.</span> </span></div><div class="bh"><span class="zh">首次运行智能体</span><span class="en">Run your first agents</span></div><div class="para"><span class="pair"><span class="zh">该 SDK 支持四种主要的智能体运行方式。</span> <span class="en">The SDK supports four primary ways to run agents.</span> </span><span class="pair"><span class="zh">运行以下任一示例之前，请设置 `OPENAI_API_KEY` 环境变量。</span> <span class="en">Set the `OPENAI_API_KEY` environment variable before running any of these examples.</span> </span></div><div class="bh"><span class="zh">运行文本智能体</span><span class="en">Run a text agent</span></div><div class="para"><span class="pair"><span class="zh">对于不需要持久实时连接或沙箱工作区的工作流，请使用文本 `Agent`。</span> <span class="en">Use a text `Agent` for workflows that do not need a persistent realtime connection or a sandbox workspace.</span> </span></div><pre><code>from agents import Agent, Runner
+
+agent = Agent(name=&quot;Assistant&quot;, instructions=&quot;You are a helpful assistant&quot;)
+
+result = Runner.run_sync(agent, &quot;Write a haiku about recursion in programming.&quot;)
+print(result.final_output)
+
+# Code within the code,
+# Functions calling themselves,
+# Infinite loop&#x27;s dance.</code></pre><div class="para"><span class="pair"><span class="zh">（_Jupyter notebook 用户请参阅 [hello_world_jupyter.ipynb](https://github.com/openai/openai-agents-python/blob/main/examples/basic/hello_world_jupyter.ipynb)_）</span> <span class="en">(_For Jupyter notebook users, see [hello_world_jupyter.ipynb](https://github.com/openai/openai-agents-python/blob/main/examples/basic/hello_world_jupyter.ipynb)_)</span> </span></div><div class="bh"><span class="zh">运行沙箱智能体</span><span class="en">Run a sandbox agent</span></div><div class="para"><span class="pair"><span class="zh">当智能体需要检查文件、运行命令、应用补丁，或在较长任务的执行过程中保留工作区状态时，请使用 [`SandboxAgent`](https://openai.github.io/openai-agents-python/sandbox_agents)。</span> <span class="en">Use a [`SandboxAgent`](https://openai.github.io/openai-agents-python/sandbox_agents) when the agent needs to inspect files, run commands, apply patches, or preserve workspace state across longer tasks.</span> </span></div><div class="para"><span class="pair"><span class="zh">此示例使用 `UnixLocalSandboxClient`，它支持 macOS 和 Linux。</span> <span class="en">This example uses `UnixLocalSandboxClient`, which is supported on macOS and Linux.</span> </span><span class="pair"><span class="zh">在 Windows 上，请使用安装了 `openai-agents[docker]` 可选依赖的 `DockerSandboxClient`，或改用托管沙箱客户端；设置详情请参阅[沙箱客户端](https://openai.github.io/openai-agents-python/sandbox/clients/)。</span> <span class="en">On Windows, use `DockerSandboxClient` with the `openai-agents[docker]` extra or a hosted sandbox client instead; see [Sandbox clients](https://openai.github.io/openai-agents-python/sandbox/clients/) for setup details.</span> </span></div><pre><code>from agents import Runner
+from agents.run import RunConfig
+from agents.sandbox import Manifest, SandboxAgent, SandboxRunConfig
+from agents.sandbox.entries import GitRepo
+from agents.sandbox.sandboxes import UnixLocalSandboxClient
+
+agent = SandboxAgent(
+    name=&quot;Workspace Assistant&quot;,
+    instructions=&quot;Inspect the sandbox workspace before answering.&quot;,
+    default_manifest=Manifest(
+        entries={&quot;repo&quot;: GitRepo(repo=&quot;openai/openai-agents-python&quot;, ref=&quot;main&quot;)}
+    ),
+)
+
+result = Runner.run_sync(
+    agent,
+    &quot;Inspect the repo README and summarize what this project does.&quot;,
+    run_config=RunConfig(sandbox=SandboxRunConfig(client=UnixLocalSandboxClient())),
+)
+print(result.final_output)</code></pre><div class="bh"><span class="zh">运行实时智能体</span><span class="en">Run a realtime agent</span></div><div class="para"><span class="pair"><span class="zh">如需通过 WebSocket 提供低延迟的服务端语音和多模态体验，请使用 [`RealtimeAgent`](https://openai.github.io/openai-agents-python/realtime/quickstart/)。</span> <span class="en">Use a [`RealtimeAgent`](https://openai.github.io/openai-agents-python/realtime/quickstart/) for low-latency, server-side voice and multimodal experiences over WebSocket.</span> </span></div><pre><code>import asyncio
+from agents.realtime import RealtimeAgent, RealtimeRunner
+
+
+async def main() -&gt; None:
+    agent = RealtimeAgent(
+        name=&quot;Assistant&quot;, instructions=&quot;You are a helpful voice assistant. Keep responses short.&quot;
+    )
+    runner = RealtimeRunner(starting_agent=agent)
+    session = await runner.run()
+
+    async with session:
+        await session.send_message(&quot;Say hello in one short sentence.&quot;)
+        async for event in session:
+            if event.type == &quot;audio&quot;:
+                # Forward or play event.audio.data.
+                pass
+            elif event.type == &quot;history_added&quot;:
+                print(event.item)
+            elif event.type == &quot;agent_end&quot;:
+                break
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre><div class="bh"><span class="zh">运行语音智能体</span><span class="en">Run a voice agent</span></div><div class="para"><span class="pair"><span class="zh">使用 [`VoicePipeline`](https://openai.github.io/openai-agents-python/voice/quickstart/) 将音频转换为文本，运行智能体工作流，并以流式方式输出生成的语音。</span> <span class="en">Use a [`VoicePipeline`](https://openai.github.io/openai-agents-python/voice/quickstart/) to turn audio into text, run an agent workflow, and stream generated speech.</span> </span></div><pre><code>import asyncio
+
+import numpy as np
+
+from agents import Agent
+from agents.voice import AudioInput, SingleAgentVoiceWorkflow, VoicePipeline
+
+
+async def main() -&gt; None:
+    agent = Agent(name=&quot;Assistant&quot;, instructions=&quot;You are a helpful voice assistant.&quot;)
+    pipeline = VoicePipeline(workflow=SingleAgentVoiceWorkflow(agent))
+    audio_input = AudioInput(buffer=np.zeros(24000 * 3, dtype=np.int16))
+
+    result = await pipeline.run(audio_input)
+    async for event in result.stream():
+        if event.type == &quot;voice_stream_event_audio&quot;:
+            # Forward or play event.data.
+            pass
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())</code></pre><div class="para"><span class="pair"><span class="zh">浏览[示例](https://github.com/openai/openai-agents-python/tree/main/examples)目录，了解 SDK 的实际用法，并阅读我们的[文档](https://openai.github.io/openai-agents-python/)以获取更多详细信息。</span> <span class="en">Explore the [examples](https://github.com/openai/openai-agents-python/tree/main/examples) directory to see the SDK in action, and read our [documentation](https://openai.github.io/openai-agents-python/) for more details.</span> </span></div><div class="bh"><span class="zh">参与贡献</span><span class="en">Contributing</span></div><div class="para"><span class="pair"><span class="zh">请通过 [GitHub issues](https://github.com/openai/openai-agents-python/issues) 提交错误报告和功能请求。</span> <span class="en">Please share bug reports and feature requests through [GitHub issues](https://github.com/openai/openai-agents-python/issues).</span> </span></div><div class="para"><span class="pair"><span class="zh">仅限仓库协作者提交拉取请求（pull request）；我们不接受非协作者提交的拉取请求。</span> <span class="en">Pull requests are limited to repository collaborators; we do not accept pull requests from non-collaborators.</span> </span></div><div class="para"><span class="pair"><span class="zh">有关贡献政策和开发指南，请参阅 [CONTRIBUTING.md](https://github.com/openai/openai-agents-python/blob/main/CONTRIBUTING.md)。</span> <span class="en">See [CONTRIBUTING.md](https://github.com/openai/openai-agents-python/blob/main/CONTRIBUTING.md) for the contribution policy and development guide.</span> </span></div><div class="para"><span class="pair"><span class="zh">对于安全漏洞，请遵循 [SECURITY.md](https://github.com/openai/openai-agents-python/blob/main/SECURITY.md) 中的规定。</span> <span class="en">For security vulnerabilities, follow [SECURITY.md](https://github.com/openai/openai-agents-python/blob/main/SECURITY.md).</span> </span></div></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

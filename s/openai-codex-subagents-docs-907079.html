@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Codex subagents docs</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Codex subagents docs</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>OpenAI</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://learn.chatgpt.com/docs/agent-configuration/subagents" target="_blank" rel="noopener">https://learn.chatgpt.com/docs/agent-configuration/subagents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>官方建议偏读密集任务，并提醒并行写入有冲突。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3205">一句话</h2>
+<p>OpenAI 将子智能体定位为可并行分工、隔离中间上下文的工作机制，但明确提醒：增加代理会增加 token 消耗，并行修改代码还会带来冲突与协调成本。</p>
+<h2 id="h3206">主要内容</h2>
+<ul><li><strong>优先拆分读密集工作</strong>：代码探索、测试、问题分诊、日志分析和摘要适合交给不同子智能体，主智能体负责需求、决策与最终整合。</li><li><strong>收益不仅是并行提速</strong>：探索记录、命令输出等留在子线程，主线程接收提炼结果，以减少无关信息挤占上下文。</li><li><strong>任务边界决定分工质量</strong>：文档建议明确每个代理的职责、是否等待全部结果，以及返回什么内容；自定义代理应职责集中、工具配置匹配任务。</li><li><strong>支持异构配置</strong>：不同代理可采用不同模型和推理强度，以权衡能力、速度与成本；未指定时通常继承父代理配置。</li><li><strong>写操作需要更强协调</strong>：多个代理同时改代码可能产生冲突。子代理继承父会话的权限与沙箱，仅靠“不要编辑”的提示不能建立独立的只读隔离。</li><li><strong>编排有集中管理能力</strong>：主智能体可以派发、追问、等待和关闭子线程，并汇总结果；并发上限可配置。</li></ul>
+<h2 id="h3207">证据与可信度</h2>
+<p>这是 OpenAI 官方产品文档，适合说明产品机制与厂商推荐用法；性能收益和任务适用性属于官方指导，不能视为独立实验结论。</p>
+<p>材料没有给出代理数量与成功率、延迟或成本之间的测量曲线，也没有量化上下文隔离带来的提升。配置示例中的并发上限只是演示参数，不能据此判断最优规模或扩展效率。“更多 token”“可能节省时间”均未附对照数据，所给材料中也没有独立核验。元数据未提供发布日期，无法据此确认版本时效。</p>
+<h2 id="h3208">对 swarm scaling 的意义</h2>
+<p>这份材料支持一种有条件的扩展思路：先寻找能够独立执行、结果容易压缩汇总的子任务，再增加代理。上下文隔离提供了速度之外的潜在收益，但这种收益尚未在材料中量化。</p>
+<p>它也指出扩展的约束：代理越多，独立推理与工具调用的消耗越大；共享代码上的写入冲突会增加协调负担。因此，评估 swarm scaling 应同时检查任务独立性、汇总质量和总成本，不能仅以并发数量作为能力提升的证据。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

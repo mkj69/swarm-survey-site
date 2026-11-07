@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can a Million AI Agents Create Superintelligence</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Can a Million AI Agents Create Superintelligence</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Ramez Naam</dd><dt>日期</dt><dd>2026-10-19</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.rameznaam.com/p/can-a-million-ai-agents-create-superintelligence" target="_blank" rel="noopener">https://www.rameznaam.com/p/can-a-million-ai-agents-create-superintelligence</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总 Opus 5.5 Lean 任务局部 λ 从 0.75 降到 0.33 等证据，提出 G/λ/N 三个测量量。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h421">一句话</h2>
+<p>这篇文章认为，增加 agent 更容易换来提速，尚未证明能持续提高攻克难题的能力；百万规模能否推动递归自我改进，关键在于扩张后的边际收益。</p>
+<h2 id="h422">主要内容</h2>
+<ul><li>作者区分两类收益：更快完成同一任务，以及解决原本解决不了的难题。前者不能直接当作后者的证据。</li><li>文中转述的 Lean 测试包含 49 个加权定理陈述，每队运行 24 小时。Opus 5.5 从单 agent 扩到 10 个，得分增加约 27 点；从 10 个扩到 100 个，仅再增约 2 点。作者据此判断，该任务的收益明显递减，可能接近平台。</li><li>提速也可能递减。作者按达到同一得分 0.50 所需时间估算：Lean 团队从 10→30、30→100 个 agent 时，局部速度指数 λ 由约 0.75 降至 0.33，意味着后一区间提速的成本更高。</li><li>单体能力可能比数量更重要：文中称，10 个 Opus 5.5 在上述数学任务中超过了 100 个旧模型 agent。</li><li>作者提出三个跟踪量：G 衡量扩员带来的已验证表现增益；λ 衡量速度与成本的关系；N 标记收益开始减弱或趋于饱和的规模。应分别测量不同扩张区间。</li></ul>
+<h2 id="h423">证据与可信度</h2>
+<ul><li><strong>未读到全文</strong>：所给内容在末尾预测推演中截断；以下判断仅依据已提供部分。</li><li>Lean 得分来自文章转述的 Anthropic 测试；λ 是作者利用公开检查点估算的结果，并非直接报告的普适常数。这里没有独立核验原始报告或复现实验。</li><li>文中网络安全例子从 1、4、16 个 agent 得到约 71.2、74.3、76.4 分，但这些是不同预算下的最佳报告成绩，不能解释为固定算力下的协作净收益。</li><li>部分成本分析以总 agent 运行时间作代理，不能直接等同于 token 或金额。</li><li>“收益不足以支持自持式递归改进”属于作者基于基准形状和研究模型假设作出的推断。将有限规模曲线外推到百万、十亿 agent，并非相应规模的实测结论。</li></ul>
+<h2 id="h424">对 swarm scaling 的意义</h2>
+<p>这篇材料最有用的是测量框架：同时报告任务质量、完成时间和总资源消耗，并观察扩员后曲线是否变平。单次大型 swarm 的成功，不能单独证明规模是成功原因。</p>
+<p>后续研究需要区分协调开销、共同盲点与任务串行依赖，并检验更强模型、互补成员或更好的协作方法能否扩大有效规模。现有材料支持警惕简单数量外推，但不足以断言大规模 swarm 永远无法产生概念突破。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

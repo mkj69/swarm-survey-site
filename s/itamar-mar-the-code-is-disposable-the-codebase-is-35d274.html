@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Code Is Disposable. The Codebase Is Not.</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Code Is Disposable. The Codebase Is Not.</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>itamar_mar</dd><dt>日期</dt><dd>2026-07-29</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/itamar_mar/status/2082453557890945281" target="_blank" rel="noopener">https://x.com/itamar_mar/status/2082453557890945281</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>185 likes; 63793 views</dd><dt>收录理由</dt><dd>Uncle Bob不读代码与Horthy坚持读代码的争论梳理。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1249">一句话</h2>
+<p>扩大 agent 产能的关键，是让验证与治理能力同步增长，避免局部正确的代码持续侵蚀整个代码库的可维护性。</p>
+<h2 id="h1250">主要内容</h2>
+<ul><li>作者将“不读生成代码”与“目前仍应读代码”的争论，归结为两种关注点：前者依靠测试和约束确认输出，后者关注系统长期能否理解、修改和演进。</li><li>文中转述 Dex 团队的经历：agent 自主开发、审查、测试和交付，初期推进顺利，随后遇到难以修复的问题；人类重新理解积累的设计决策成本很高，最终选择重写部分系统。</li><li>测试能验证已定义的行为，却难以快速判断职责划分、抽象和耦合是否合理。增加审查 agent 可以发现已知问题，但不等于获得可靠的长期可维护性判据；作者也强调，审查效果还受上下文与运行框架影响。</li><li>建议把判断前移到需求、系统架构和程序设计，再以可运行的纵向切片实施，尽早纠偏。简单任务无需套用完整流程。</li><li>作者提出保存系统意图的“第三块磁盘”：架构、约束、接口、例外及决策理由。自主程度应随风险和证据强弱调整，并将反复出现的人类判断沉淀为规则、测试与持久上下文。</li></ul>
+<h2 id="h1251">证据与可信度</h2>
+<ul><li>这是一篇观点综合文章，引用多位从业者的讨论，没有提供受控实验或多 agent 扩展基准。</li><li>团队故障、耗时数周排查及重写经历属于作者转述的个人经验；材料附有来源链接，但这里未独立核验。</li><li>文中“生成快十倍”是假设，用于说明人工审查瓶颈；“100 或 200 行”与“2,000 行”是早期纠偏的示例，不是测得的效率阈值。</li><li>元数据中的 185 次点赞、63,793 次浏览仅反映传播情况，不能证明工程结论。</li></ul>
+<h2 id="h1252">对 swarm scaling 的意义</h2>
+<ul><li>材料没有证明 agent 数量增加会带来多少收益，而是指出一种扩展限制：产出增长可能把瓶颈转移到人类审查，并积累延迟显现的架构成本。</li><li>对 swarm 的启示是，让多个 agent 共享明确的系统意图与约束，通过小批次、可运行成果获得反馈；仅叠加生成和审查角色不足以保证系统健康。</li><li>更合适的目标是单位人类判断所支撑的可靠工程产出。随着验证证据增强，再逐步扩大自主范围，而非把无人参与的 PR 数量当作成功尺度。</li></ul></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

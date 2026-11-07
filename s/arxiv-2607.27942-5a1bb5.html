@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scaling LLM-Driven Multi-Agent Systems: Design Principles and Architectural Scalability Analysis</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Scaling LLM-Driven Multi-Agent Systems: Design Principles and Architectural Scalability Analysis</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Sander, Linus, Pan, Fengjunjie, Zolfaghari, Vahid et al.</dd><dt>日期</dt><dd>2026-07-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2607.27942" target="_blank" rel="noopener">https://arxiv.org/abs/2607.27942</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在 terminal-bench 上比较四级架构，显示中等复杂度最优且收益依赖模型能力下限。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1241">一句话</h2>
+<p>这项实验表明，多智能体架构的收益取决于基础模型能力：适度分工可能提高成功率，继续增加角色和反馈环路则可能被超时与不稳定性抵消。</p>
+<h2 id="h1242">主要内容</h2>
+<ul><li>作者提出四项设计原则：保持简单、按需反馈、以顺序流程为主并允许回环、通过摘要交换信息。各智能体读取累积摘要，自行选择后续节点。</li><li>实验比较四级配置：单智能体，以及含有3、5、7个智能体的系统，分别配置0、1、3、5个反馈环路。扩展同时改变角色分工与流程，不能把结果单独归因于智能体数量。</li><li>GPT-5-mini从单体扩展至中等配置时表现提升；首次扩展的任务成功率相对提高15.2%。五智能体配置最佳，七智能体配置因大量超时而回落。GPT-5-nano则没有稳定的扩展收益。</li><li>按每次任务通过的测试比例计算，mini从单体的0.514升至中等配置的0.543，首次扩展收益仅为3.0%。这说明部分任务成功率提升来自跨过“全部测试通过”的门槛。</li><li>跨次运行仍不可靠：各配置成功过的任务中，能在所有运行里持续成功的比例均不足一半。增加测试和审批角色没有消除这一问题。</li></ul>
+<h2 id="h1243">证据与可信度</h2>
+<ul><li>数字来自作者在terminal-bench上的实验报告，并非独立复核。文中涉及89项任务；mini与nano各配置运行三至五次，中等配置另以GPT-5.3-Codex运行五次，平均任务成功率为0.715。</li><li>15.2%是相对增幅，不是提高15.2个百分点；0.543等数值是平均测试通过比例，不能与完整任务成功率混用。</li><li>成本“近似线性增长”依据调用次数、生成token和执行时间等观测，所给材料未展示完整成本表，无法据此计算实际费用或拟合增长规律。</li><li>摘要称使用两个模型，正文实际列出三个，其中Codex只测试中等配置。“存在能力下限”因此是有限模型对照支持的判断，尚未测出明确阈值。下游接受上游错误框架，以及对抗式审核可能改善表现，属于作者解释与建议，未获直接验证。</li></ul>
+<h2 id="h1244">对 swarm scaling 的意义</h2>
+<p>这篇材料支持的是受控工作流扩展，并未证明大规模并行蜂群的扩展规律。它提示应同时考察任务成功率、测试通过比例、超时和重复运行可靠性，不能仅凭平均成绩判断扩展是否有效。中等配置的优势也受当前任务、模型和时间预算约束；七智能体表现下降，尚不足以证明更大系统必然更差。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

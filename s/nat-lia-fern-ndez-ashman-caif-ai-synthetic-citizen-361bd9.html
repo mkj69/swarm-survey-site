@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI &#x27;Synthetic Citizenry&#x27; Sandbox Prototyped with CAIF Support</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AI &#x27;Synthetic Citizenry&#x27; Sandbox Prototyped with CAIF Support</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Natàlia Fernández Ashman (CAIF)</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.cooperativeai.com/post/ai-synthetic-citizenry-sandbox-prototyped-with-caif-support" target="_blank" rel="noopener">https://www.cooperativeai.com/post/ai-synthetic-citizenry-sandbox-prototyped-with-caif-support</a></dd><dt>许可</dt><dd>all-rights-reserved-or-unstated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>记录 LLM 回答多样性低于真实人群，这是相关性误差的直接例子。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h285">一句话</h2>
+<p>这项合成人口原型表明：增加 LLM 模拟者的数量，并不能自动补足真实人群的价值差异；调查数据驱动的人设与校准，才是其改善代表性的主要路径。</p>
+<h2 id="h286">主要内容</h2>
+<ul><li>CAIF 与 Evens Foundation 支持 FARI 开展了为期 9 个月的项目，产出可测试政策表述和长文档的“合成公民”沙盒。</li><li>项目前期研究发现，当前 LLM 难以反映 OECD 国家约 33% 人群的核心价值观，生成意见也比真实人群更集中。文章将这种同质化与训练、对齐过程联系起来。</li><li>研究团队利用真实价值观调查构建多个人设，再汇总回答。在十个国家的 World Values Survey 数据上，预测更接近实际总体回答；训练数据代表不足的国家改善最大，额外校准也使意见分布更接近真人。</li><li>沙盒采用另一套数据：Cultural Dynamics 的英国 2021 年调查，涉及 2,000 名受访者。系统按价值群体占比抽样，利用模型输出的对数概率估计接受、拒绝等反应，并生成解释。</li><li>当前原型独立模拟各受访者，没有公民之间的互动或审议。实践者希望补充更新的欧洲数据、人口属性细分及对话功能。</li><li>测试者会反复改写措辞以改变模拟反馈，因此项目也提出独立监督、审计及研究者访问等治理需求。</li></ul>
+<h2 id="h287">证据与可信度</h2>
+<p>这是资助方发布的项目介绍，包含研究结果转述与早期用户反馈，并非独立评测。</p>
+<p>约 33% 是文中转述的研究结论，但未提供计算口径、模型清单或误差范围，不能理解成所有模型通用的漏覆盖率。十国是方法测试的数据范围；2,000 人是原型所用调查的受访者数量，不是每次运行的智能体数量。文章未给出预测改进幅度或校准指标。</p>
+<p>文中称相关方法论文获 VALE 2026 接收，但所给材料没有论文实验细节，也没有独立复现证据。实践者愿意继续使用，说明初步需求，不能证明预测准确。</p>
+<h2 id="h288">对 swarm scaling 的意义</h2>
+<p>材料提示一种规模化风险：若模拟者共享相似的价值偏差和同质化倾向，数量增加仍可能持续漏掉同一批人。这与相关性误差问题相呼应，但文章没有测量误差相关性，也没有测试智能体数量与性能的关系。</p>
+<p>其直接启示是，评估群体模拟不能只看平均预测，还应检查群体覆盖和意见分布。真实调查驱动的人设与校准提供了改进方向；由于原型没有交互机制，它尚不能支持关于 swarm 协作、辩论或集体智能随规模提升的结论。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conway&#x27;s Law for AI Systems: Your Org Chart Is Already Your Agent Architecture</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Conway&#x27;s Law for AI Systems: Your Org Chart Is Already Your Agent Architecture</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Tian Pan</dd><dt>日期</dt><dd>2026-04-12</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://tianpan.co/blog/2026-04-12-conways-law-ai-systems-org-chart-agent-architecture" target="_blank" rel="noopener">https://tianpan.co/blog/2026-04-12-conways-law-ai-systems-org-chart-agent-architecture</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Conway 类比的典型博客，缺少实测证据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1945">一句话</h2>
+<p>这篇博客把多智能体的协调失败解释为组织沟通问题的技术投影，适合作为架构诊断视角，但不能当作 swarm 扩展规律的实证依据。</p>
+<h2 id="h1946">主要内容</h2>
+<ul><li>作者认为，按部门划分智能体，会把部门间的目标冲突、信息壁垒和审批瓶颈带入系统；单个智能体表现良好，并不保证端到端任务成功。</li><li>一个核心问题是提示词、需求与评测分别归不同团队负责，迭代时容易出现行为要求与测试标准脱节。</li><li>文中用电商流程说明：交接若只传递最低限度的数据，用户意图、库存限制和履约能力等上下文可能丢失。这是说明性场景，并非报告过的生产事故。</li><li>建议围绕用户旅程或业务结果划分智能体，由跨职能团队负责提示词、工具、评测和监控；共享评测基础设施，并把提示词变更纳入版本管理与跨团队审查。</li><li>作者强调自治权限应与组织实际决策方式匹配；无法支撑复杂协作时，应调整组织或简化架构。</li></ul>
+<h2 id="h1947">证据与可信度</h2>
+<ul><li>抓取内容末尾出现会员续读提示，<strong>未读到全文</strong>；以上仅依据可见正文。</li><li>材料属于作者观点与经验归纳，未提供实验设计、样本、性能曲线或可复现结果。“几乎所有组织都会如此”等表述缺乏文内数据支持。</li><li>文中的两个、五个、十个智能体分别对应一、十、四十五组潜在配对，来自组合计数 \(n(n-1)/2\)。这计算的是所有无向两两连接的可能数量，并非实际消息量、延迟或成本测量；稀疏拓扑未必需要这些连接。</li><li>作者列出参考链接，但可见内容未呈现独立核验。“协调开销二次增长”“修复几乎总在组织层面”等结论，应视为带前提的判断。</li></ul>
+<h2 id="h1948">对 swarm scaling 的意义</h2>
+<p>它提醒调研者把组织承载能力纳入扩展分析：新增智能体不仅增加执行能力，也增加交接责任、目标对齐和变更协调的需求。评估重点应覆盖跨智能体上下文保留、端到端结果与共同回归测试。</p>
+<p>但本文没有证明增加智能体必然降低收益，也没有给出规模阈值。更适合从中提取待验证假设：实际通信拓扑、接口责任和评测闭环，可能影响 swarm 扩展后的净收益。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

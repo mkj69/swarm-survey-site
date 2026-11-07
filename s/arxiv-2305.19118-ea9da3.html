@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Liang, Tian, He, Zhiwei, Jiao, Wenxiang et al.</dd><dt>日期</dt><dd>2023-05-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2305.19118" target="_blank" rel="noopener">https://arxiv.org/abs/2305.19118</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出辩论缓解思维退化，也指出适度分歧和自适应终止才能发挥效果。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2969">一句话</h2>
+<p>多智能体辩论的收益来自有效纠错，而非人数或轮数的堆积；适度分歧、可靠裁判和及时停止共同决定效果。</p>
+<h2 id="h2970">主要内容</h2>
+<ul><li>论文提出“思维退化”：模型一旦确信初始答案，后续自我反思可能持续维护错误，难以产生新思路。MAD 用其他智能体的反驳提供外部反馈。</li><li>主要配置是两名辩手加一名裁判。辩手按固定顺序读取历史并发言；裁判每轮判断能否结束，到轮数上限后从历史中提取答案。</li><li>作者在常识机器翻译和反直觉算术推理上报告收益：GPT-3.5-Turbo 配合 MAD，在前者超过 GPT-4；在后者优于其他基于 GPT-3.5-Turbo 的比较方法，但仍不及 GPT-4。</li><li>扩大辩手数量反而降低表现。作者抽查后认为，更长、更复杂的历史使辩手遗漏他人观点，也增加裁判汇总难度。</li><li>强制处处反对没有取得最佳效果；强制延长辩论也可能损害答案。裁判允许提前结束时表现更好。</li><li>混用模型时，裁判倾向选择与自身同模型的辩手答案；实验还表明，强辩手配弱裁判优于相反配置。</li></ul>
+<h2 id="h2971">证据与可信度</h2>
+<ul><li>这些结论属于作者实验报告，无材料内的独立核验。抓取包含正文和附录文字，但缺少表格数值及图像，未读到全文的完整图表，无法核对具体提升幅度。</li><li>Common MT 的三类样本分别为 200、450、350 条，合计 1000 条；CIAR 为作者从既有题目、网页及人工衍生题构建的 200 题。结果主要支持这两类任务。</li><li>翻译采用自动指标及人工评分；三名专业译者匿名、随机顺序评估，评分范围为 1—5，报告的一致性系数为 0.76。算术采用答案准确率。</li><li>“思维退化”的观察包括强制进行 5 轮后，人工标注相邻轮次是否存在分歧；分歧多少本身不能直接证明推理是否正确。</li><li>关于长上下文失效的解释来自约 10% 测试子集的人工分析。计算成本以生成 token 衡量，不能直接换算成延迟或费用；附录对 MAD 额外成本的比较基准表述不够清楚。</li></ul>
+<h2 id="h2972">对 swarm scaling 的意义</h2>
+<p>这项工作提供了规模收益可能反转的证据：增加角色与交互，会同时扩大观点来源和上下文处理负担。其启示是按样本难度分配辩论轮数，并把终止机制、裁判偏好和辩手能力纳入系统设计。</p>
+<p>但它主要研究小规模、顺序发言的辩论，尚不能证明大规模 swarm 的扩展规律，也未给出固定计算预算下增加智能体是否划算的完整证据。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

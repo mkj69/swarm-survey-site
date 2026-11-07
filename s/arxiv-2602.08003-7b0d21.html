@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Don&#x27;t Always Pick the Highest-Performing Model: An Information Theoretic View of LLM Ensemble Selection</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Don&#x27;t Always Pick the Highest-Performing Model: An Information Theoretic View of LLM Ensemble Selection</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Turkmen, Yigit, Buyukates, Baturalp, Bastopcu, Melih</dd><dt>日期</dt><dd>2026-02-08</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.08003" target="_blank" rel="noopener">https://arxiv.org/abs/2602.08003</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用高斯 copula 推导相关错误下的信息论误差下限，并给出预算内模型选择算法。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2337">一句话</h2>
+<p>扩大模型集成的关键是新增模型能提供多少额外信息；在本文的相关错误模型下，即使使用最优聚合器，增加数量也可能遇到误差下限。</p>
+<h2 id="h2338">主要内容</h2>
+<ul><li>作者研究固定调用次数下的模型选择：从候选池中选出一组模型，用其二元判断预测真实标签，而不是设计多轮协作流程。</li><li>在错误独立、各模型错误率低于一半等假设下，选择准确率最高的模型最优；存在相关错误时，单模型排名不足以决定最佳组合。</li><li>提出的 Greedy MI 方法从已有标注数据估计条件互信息，每轮加入能带来最多新增信息的模型，无须训练模型参数。</li><li>方法并非一味追求差异：输出重复会减少信息，但可识别的共同错误结构也可能帮助解码。因此，简单惩罚相关性可能选入过弱的模型。</li><li>在同准确率、统一正相关的高斯 copula 模型下，作者推导出非零误差下限。实验另显示，大集成还会因聚合器统计估计不足而退化。</li></ul>
+<h2 id="h2339">证据与可信度</h2>
+<ul><li>材料提供正文至影响声明开头，末尾截断，部分公式及附录缺失，<strong>未读到全文</strong>。依据是作者的理论分析与实验自报，无独立核验。</li><li>MEDMCQA 将原有 4183 道题各转为一个正例和一个负例，得到 8366 条二元样本。使用 12 个模型，在三种温度、每种两次运行及五次随机划分上汇总；每次以 80% 数据估计统计量、20% 评估。调用五个模型时，报告错误率为 16.3%，Top-k 为 17.0%。</li><li>MMLU 抽取 5000 道题，同样转为 10000 条二元样本。调用六个模型时，报告错误率为 14.1%，Top-k 为 14.9%。这些结果衡量的是改写后的二元任务，不能直接当作原版多选题成绩。</li><li>copula 的两两错误概率由同一批数据拟合，拟合后的吻合不等于独立预测验证。理论下限也依赖特定分布假设，不能推广为所有模型群的普遍定律。</li></ul>
+<h2 id="h2340">对 swarm scaling 的意义</h2>
+<p>本文支持把扩容指标从“成员数、平均准确率”转向“给现有组合增加的信息”。但它研究的是固定模型子集的二元输出聚合，尚未验证通信、分工或多轮协作。</p>
+<p>还需区分两类瓶颈：共享错误造成的理论饱和，以及有限数据难以估计大量输出组合造成的工程退化。后者随组合模式数按 \(2^k\) 增长而加剧；实验中“模型更多反而更差”，不能全部归因于共同错误。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

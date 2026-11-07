@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Orchestration Tax</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Orchestration Tax</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>addyosmani</dd><dt>日期</dt><dd>2026-05-28</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2059844244907696186" target="_blank" rel="noopener">https://x.com/addyosmani/status/2059844244907696186</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>2594 likes; 817591 views</dd><dt>收录理由</dt><dd>Osmani用阿姆达尔定律解释人的注意力是串行资源，主张按审查速率定规模。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1705">一句话</h2>
+<p>多 agent 的扩展上限可能在人的审查与判断能力：并发产出增加，未必带来更多可靠交付。</p>
+<h2 id="h1706">主要内容</h2>
+<ul><li>Osmani 将“编排税”归因于启动与验收成本的不对称：派发任务很容易，但理解结果、处理冲突和合并修改仍消耗人的注意力。</li><li>他借阿姆达尔定律和单线程锁作类比：当人工判断成为串行瓶颈，继续增加 agent 主要会拉长待审队列。</li><li>负担还来自反复恢复上下文，以及担心后台任务出错。疲劳可能导致草率审查、放弃独立判断，继而积累技术债与认知债。</li><li>建议按实际审查速率控制并发；把隔离、可异步验收的任务与高度依赖判断的复杂任务分开；集中审查，并让测试、截图等自动验证承担基础检查。</li><li>人的完整思考时间也需要保护，避免全部被检查 agent 状态占据。</li></ul>
+<h2 id="h1707">证据与可信度</h2>
+<ul><li>这是结合个人使用经验与 Google I/O 讨论形成的观点文章，所给正文没有对照实验、吞吐量测量或独立核验。</li><li>文中并发 agent 数量、“多数人适合低个位数”及自动验证与人工判断的八二划分，均为示例或经验判断，不能视为测得的普适阈值。</li><li>阿姆达尔定律支持分析串行环节的思路，但文章未测量人工判断占比，因此不能据此计算具体加速上限。</li><li>元数据的 2594 次点赞、817591 次浏览反映传播情况，不验证论点。</li></ul>
+<h2 id="h1708">对 swarm scaling 的意义</h2>
+<p>这篇文章把扩展目标从“同时运行多少 agent”转向“单位时间能审查并交付多少可靠成果”。对需要人工验收的 swarm，任务隔离、自动验证与按审查能力施加背压，比单纯扩大数量更值得关注。其适用边界也很明确：文章讨论的是人参与判断与合并的开发流程，不能据此外推所有自主 swarm 的规模上限。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

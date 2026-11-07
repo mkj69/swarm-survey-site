@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How I do code reviews these days: more code = more selective human rev</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How I do code reviews these days: more code = more selective human rev</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>addyosmani</dd><dt>日期</dt><dd>2026-09-07</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2097027173941141799" target="_blank" rel="noopener">https://x.com/addyosmani/status/2097027173941141799</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>1024 likes; 153407 views</dd><dt>收录理由</dt><dd>Osmani的分级审查：多智能体初筛，敏感路径保留人工。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h929">一句话</h2>
+<p>代码增长后，人工审查应按风险分配，多智能体承担初筛。</p>
+<h2 id="h930">主要内容</h2>
+<ul><li>每个 PR 先由多智能体查错、核验、分级并建议修复。</li><li>初筛通过的低影响、低敏感改动可免深度人工审查。</li><li>核心与敏感路径仍需负责人及人工签核，并保留可恢复性。</li></ul>
+<h2 id="h931">证据与可信度</h2>
+<p>这是作者自述的审查实践；未提供缺陷检出率、耗时或规模对照，也无独立核验。点赞和浏览量仅反映传播。</p>
+<h2 id="h932">对 swarm scaling 的意义</h2>
+<p>扩展思路是让代理覆盖广泛初筛，把人工注意力留给高风险变更；材料未证明增加代理数量能提升审查质量。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

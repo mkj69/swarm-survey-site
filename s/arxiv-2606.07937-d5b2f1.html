@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hallucination Cascade: Analyzing Error Propagation in Multi-Agent LLM Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Hallucination Cascade: Analyzing Error Propagation in Multi-Agent LLM Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Jamshidi, Saeid, Dakhel, Arghavan Moradi, Nafi, Kawser Wazed et al.</dd><dt>日期</dt><dd>2026-06-06</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.07937" target="_blank" rel="noopener">https://arxiv.org/abs/2606.07937</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在三级级联中观察到幻觉净衰减，与错误放大叙事形成有条件的冲突。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1585">一句话</h2>
+<p>这篇论文在短链实验中观察到幻觉净衰减，但事实准确率也随之下降，说明增加串行 agent 可能降低幻觉评分，却未必提高答案的整体可靠性。</p>
+<h2 id="h1586">主要内容</h2>
+<ul><li>研究把回答拆成可核验的原子声明，结合参考事实匹配与 LLM 评判打分，沿交互链追踪错误的保留、修正与变化。</li><li>基准包含 500 次级联实验：250 条双 agent 链、250 条三 agent 链，覆盖 10 个知识领域，使用 GPT-5.3、DeepSeek-V3 和 LLaMA-3-70B-Instruct。</li><li>三 agent 链中，首尾幻觉分数从 0.422 降至 0.272，报告的放大因子为 0.644，表示净衰减；同期事实准确率从 0.789 降至 0.769。</li><li>作者报告每次相邻 agent 精炼平均降低幻觉分数 0.072，同时伴随事实一致性和回答质量的小幅损失。</li><li>模型比较呈现可靠性与效率的取舍：LLaMA 的幻觉分数最低，GPT-5.3 生成更快。材料还描述了并行共识、层级协调及长链实验，但截取部分未提供足够结果来评价其效果。</li></ul>
+<h2 id="h1587">证据与可信度</h2>
+<p>未读到全文：内容在结果部分截断，多个公式、表格及置信区间数值缺失。</p>
+<p>上述数字属于论文作者报告的实验测量，未作独立核验。响应总数可由实验设计核算：250×2＋250×3＝1,250；0.272÷0.422 约等于报告的 0.644。</p>
+<p>幻觉分数是作者构建的混合评估指标，不能直接理解为错误声明占比。其可信度依赖参考事实覆盖、声明拆分和 LLM 裁判的校准。现有片段不足以核查人工标注、评估器细节及统计显著性；模型间差异也缺少完整配置与对照信息。</p>
+<h2 id="h1588">对 swarm scaling 的意义</h2>
+<p>它对“交互必然放大错误”提供了有条件的反例：在所测短串行链中，平均幻觉指标下降。但这并不证明 agent 越多越好，更不能外推到大规模并行 swarm。</p>
+<p>关键启示是把幻觉抑制与事实保留分开评估。后续 agent 可能减少无依据内容，也可能删减、弱化有用事实；准确率下降使这一风险值得关注，但片段尚不能确定具体机制。扩展系统时应同时追踪错误修复、正确声明保留、语义漂移及成本，避免仅凭最终幻觉分数判断扩展收益。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

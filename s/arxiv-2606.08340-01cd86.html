@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Benchmarking Open-Ended Multi-Agent Coordination in Language Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Benchmarking Open-Ended Multi-Agent Coordination in Language Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Tessera et al.</dd><dt>日期</dt><dd>2026-06-06</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.08340" target="_blank" rel="noopener">https://arxiv.org/abs/2606.08340</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>个体能力不等于协调能力的新基准。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1589">一句话</h2>
+<p>alem 把“各自会做事”与“能够共同推进任务”分开测量：现有模型的协调能力仍是独立瓶颈，混入强模型也未必提升整个团队。</p>
+<h2 id="h1590">主要内容</h2>
+<ul><li>基准在程序生成的生存世界中加入资源接力、限时交接、同步行动和角色分工；每局重新生成协调要求，减少对固定合作套路的依赖。“开放式”指目标丰富但有限。</li><li>用同一个难度参数收紧交接窗口、提高全员参与要求和专业分工收益，同时保持地图布局与协调机会不变，尽量区分环境难度与协调难度。</li><li>作者测试了 13 个模型组成的同质团队，并以 4 种多智能体强化学习方法作参照。困难档中，LLM 平均总回报为最大可得奖励的 6.2%。</li><li>基础任务表现与协调表现可以分离：困难档中，GPT-5.4-High 的基础分为 11.8%，协调分为 4.2%；Gemini-3.1-Pro-High 的协调分为 17.5%，接近训练十亿环境步的 MARL 参照值 17.6%。</li><li>在两个模型的消融中，移除通信带来的协调损失最大；记忆的收益取决于是否用于保存后续计划，而非重复当前状态。</li><li>两组异质团队的表现都接近成员各自同质团队成绩的平均值，没有自动继承最强成员的水平。</li></ul>
+<h2 id="h1591">证据与可信度</h2>
+<p>未读到全文：所给正文覆盖主要实验与结论，但附录中途截断。上述数字均为论文作者报告的实验测量，未作独立核验。</p>
+<p>分数由累计奖励除以对应类别的最高可得奖励，再跨智能体取平均。基础分、协调分、总分分别归一化，不能直接相加；6.2% 也不是任务成功率。开源权重模型每档使用 20 个种子，闭源模型使用 10 个，报告 95% 分层 bootstrap 置信区间。</p>
+<p>通信消融中，Gemini 协调分从 17.5% 降至 5.3%，Gemma 从 8.8% 降至 3.8%，支持通信在这些配置中的作用。两组异质实验及有限模型消融不足以证明普遍规律；接近 MARL 分数也不意味着训练或推理成本相当。</p>
+<h2 id="h1592">对 swarm scaling 的意义</h2>
+<p>这项工作的价值是提供协调压力测试，而非证明“智能体越多越强”。它提示应分别考察单体执行、角色分配、计划维持与同步行动，避免用总分掩盖协作失败。</p>
+<p>材料没有给出随团队规模增长的系统性能或成本曲线，因此不能据此推导 swarm 的规模收益。更直接的启示是：增强成员能力、混合模型或增加交互，并不保证产生团队增益；扩展前需要验证通信能否转化为共享计划和共同执行。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

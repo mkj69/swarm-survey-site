@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Top AI Papers of the Week</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Top AI Papers of the Week</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>DAIR.AI (@dair_ai)</dd><dt>日期</dt><dd>2026-10-04</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/dair_ai/status/2106770783607373994" target="_blank" rel="noopener">https://x.com/dair_ai/status/2106770783607373994</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>155 likes; 18 RTs; 9 replies; 30049 views</dd><dt>收录理由</dt><dd>周榜长文收录 Agensh，放大其传播。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h617">一句话</h2>
+<p>DAIR.AI 的论文周榜把 Agensh 作为无中心编排的多智能体扩展案例传播，核心证据是在限定任务与时间预算下，增加智能体数量能提高测试通过率。</p>
+<h2 id="h618">主要内容</h2>
+<ul><li>周榜汇集十项研究，涵盖上下文管理、记忆、自改进、训练环境和决策能力；Agensh 是其中直接讨论大规模智能体协作的项目。</li><li>据榜单介绍，Agensh 由微软研究院提出，不设中心编排者。各工作者异步运行相同循环，自行认领任务、行动、分享发现、验证并合并进展。</li><li>协作依靠共享工作区、消息接口和共享上下文。它将组织能力放进公共基础设施与工作者行为，而非集中在单个调度者上。</li><li>在五个最难的 ProgramBench 任务上，使用 GPT-5.6-sol，智能体数量从 1 增至 128，平均最终测试通过率由 19.31% 升至 28.78%；更大的团队也能更早达到给定通过率。</li><li>在从零构建 pandoc 的任务中，时间预算为 6 小时，智能体从 1 增至 1,024，通过率由 33.89% 升至 55.06%。</li><li>榜单还介绍了可管理多个智能体上下文的 CLM，以及默认支持递归子智能体的 JAZ，显示扩展问题也涉及上下文和执行框架。</li></ul>
+<h2 id="h619">证据与可信度</h2>
+<p>这是论文周榜的二手介绍。未读到全文，尤其未获得 Agensh 原论文、实验配置与运行日志，无法独立核验结果。</p>
+<p>ProgramBench 的提升为 9.47 个百分点，相对提升约 49%，来自两项通过率的差值及其与初始值的比值；pandoc 提升为 21.17 个百分点。它们属于榜单转述的研究测量结果，不是跨任务的普遍保证。材料未提供重复次数、误差范围或总算力成本。</p>
+<p>元数据记录 155 次点赞、18 次转发、9 条回复和 30,049 次浏览，可说明该帖获得传播，但不能证明读者关注的是 Agensh，也不能验证技术效果。</p>
+<h2 id="h620">对 swarm scaling 的意义</h2>
+<p>Agensh 提供了一个具体方向：通过统一工作循环与共享协作设施，让智能体自行组织，并把团队规模作为扩展变量。现有结果支持它在复杂编码任务和紧迫时间预算下的价值。</p>
+<p>但这些数字说明的是通过率与完成速度改善，尚不能证明成本效率随规模提高。周榜扩大了这一方向的可见度；判断其扩展边界，仍需查看原论文中的资源投入、协作开销及实验覆盖范围。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

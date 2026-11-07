@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navier-Stokes priority controversy</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Navier-Stokes priority controversy</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Wikipedia</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>wiki</dd><dt>原文</dt><dd><a href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总克雷研究所状态、优先权争议和 Noam Brown 的成本确认。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3369">一句话</h2>
+<p>这篇维基条目将一次万级 agent 数学攻关描述为算力、证明验证与科研归属交织的案例，但它不足以证明 swarm 扩容带来了多少独立增益。</p>
+<h2 id="h3370">主要内容</h2>
+<ul><li>据条目转述，OpenAI 宣称内部多智能体系统运行 88 小时，产出 166 页论文及 Lean 形式化证明，目标是纳维–斯托克斯问题中带光滑外力的有限时间奇性情形，不能泛化为所有情形均已解决。</li><li>系统据称使用至少 1 万个 agent，交换 270 万条消息，消耗 1300 亿输出 token。这些数字说明投入规模，没有说明任务分工、通信结构或失败尝试的分布。</li><li>Buckmaster 与 Alpöge 认为其未公开研究可能影响了攻关方向，并质疑署名安排及 Codex 数据使用。OpenAI 否认直接访问相关用户资料；关于训练影响，其表述从最初无法排除，更新为内部调查后排除特定时期输入的影响。</li><li>条目称，克雷研究所仍要求同行评审与后续审查；另有论文指出，自然语言证明与 Lean 形式化之间存在语义偏差。因此，形式化检查通过与原数学命题成立需要分别判断。</li></ul>
+<h2 id="h3371">证据与可信度</h2>
+<p>这是用户提供的维基抓取文本，含正文与参考文献，但存在模板残片；本解读未独立核验原始链接。</p>
+<p>88 小时、agent 数、消息数和 token 数来自条目对 OpenAI 公告的转述，属于厂商自报，未见独立运行日志或复现实验。成本方面，正文称仅电费便达数百万美元，但所列 Noam Brown 推文只确认结果耗资数百万美元，不能据此确认电费口径；参考文献标题中的 1500 万美元也不宜直接视为经审计成本。</p>
+<p>优先权与数据使用涉及争议双方陈述，不能将指控写成已证实事实。条目引述的后续研究属于外部质疑，但此处未核验其论证；研究所的审查状态也不能替代最终认可。</p>
+<h2 id="h3372">对 swarm scaling 的意义</h2>
+<p>它提供的是一次高投入攻关的案例描述，而非 scaling law：缺少单 agent 基线、不同规模对照、同等预算比较及成功率数据，无法区分模型能力、总算力和多智能体协作各自的贡献。</p>
+<p>更有价值的启示是评估边界：扩容实验应同时记录成本、通信与人类输入，并检查最终验证对象是否忠实对应原问题。科研 swarm 的成果还依赖来源追踪与贡献归属；产出更多证明文本，并不自动意味着获得更多可靠、可理解的新知识。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drop the Hierarchy and Roles</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Drop the Hierarchy and Roles</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Dochkina</dd><dt>日期</dt><dd>2026-03-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.28990" target="_blank" rel="noopener">https://arxiv.org/abs/2603.28990</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>单作者、LLM 评分、无单智能体基线，传播夸大。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2049">一句话</h2>
+<p>这篇论文支持“固定执行顺序、允许自主选角色”在特定实验中优于其他协议，但不足以证明去掉层级普遍有效，更没有证明智能体越多越强。</p>
+<h2 id="h2050">主要内容</h2>
+<ul><li>Sequential 让智能体依次读取前序成果，再选择角色或退出。它保留了执行顺序这一人为结构，并非完全去中心化。</li><li>作者报告：在使用 GPT-4.1-mini、8 个智能体的试验中，Sequential 的质量评分比 Shared 高约 44%；在使用 Claude、16 个智能体的 L3 任务中，比集中协调高约 14%。</li><li>自主组织的收益依赖模型：部分条件下 Claude 自选角色略有改善，GLM-5 则低于固定角色方案，因此标题不能理解为普遍否定预设角色。</li><li>扩大团队主要表现为质量持平。64 至 256 个智能体未检出显著质量差异，成本却增加至 4.6 倍。</li></ul>
+<h2 id="h2051">证据与可信度</h2>
+<ul><li>这是单作者论文中的实验报告，质量全部由 LLM 评分，任务全部为合成任务；没有人工评测，也未提供单智能体基线。材料未显示独立核验。</li><li>44% 是相对评分增幅：由 0.724 与 0.503 计算约得 44%，不是成功率提高 44 个百分点。该比较同时改变了执行顺序和当前成果可见性，不能把收益全部归因于角色自治。</li><li>规模表述需核对：正文三组实验的任务数为 660、8,020、12,130，合计 20,810，与宣称的 25,000 多次运行之间缺少清楚对账；另有四种协议的详细结果留待后文发表。</li><li>“次线性成本”不能覆盖所有规模区间：8 至 64 个智能体成本仅增 11.8%，但另一组 64 至 256 的实验成本增至 4.6 倍。两组条件不同，不能拼成统一扩展规律。</li><li>作者承认评分模型跨系列变化、API 限流可能带来选择偏差，且未正式校正多重比较。代码与数据承诺接收后公开，当前材料不足以复算统计结果。</li></ul>
+<h2 id="h2052">对 swarm scaling 的意义</h2>
+<p>最值得检验的是信息如何传递：让后续智能体看到已完成成果，可能减少重复劳动，比单纯放大团队更有价值。但 Sequential 的延迟随人数线性增长，质量收益伴随串行瓶颈。</p>
+<p>这里的规模证据更接近“增加人数后评分没有明显变化”，而非能力持续增长；不显著也不等于证明等效。后续应在相同预算下比较单智能体、串行多智能体和并行方案，并用真实任务及人工评测判断收益能否迁移。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

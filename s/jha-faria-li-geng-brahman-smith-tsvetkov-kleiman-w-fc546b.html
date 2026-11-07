@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>s³: Simple Scaling of Swarms via Cooperative Multi-agent RL (preprint PDF, 28 pp.)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>s³: Simple Scaling of Swarms via Cooperative Multi-agent RL (preprint PDF, 28 pp.)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Jha, Faria, Li, Geng, Brahman, Smith, Tsvetkov, Kleiman-Weiner, Jaques (UW; Ai2)</dd><dt>日期</dt><dd>2026-11-06</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://scalingswarms.com/paper.pdf" target="_blank" rel="noopener">https://scalingswarms.com/paper.pdf</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>论文正文显示 25 倍只来自信息聚合任务 N=8 对比在线 SFT 消融，且每个条件只训练一次。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h25">一句话</h2>
+<p>s³ 探索通过合作式多智能体强化学习扩展 swarm，但本次未读到全文，元数据中的“25 倍”只能视为特定实验条件下、尚待核对的结果。</p>
+<h2 id="h26">主要内容</h2>
+<ul><li>据标题，论文研究重点是用合作式多智能体强化学习实现 swarm 扩展；具体算法、训练流程与评测设计无法从抓取内容确认。</li><li>元数据将其标为 UW、Ai2 作者团队的预印本，日期为 2026 年 11 月 6 日，共 28 页。</li><li>元数据的备注称：“25 倍”来自信息聚合任务中 N=8 的设置，对比对象是在线 SFT 消融版本；每个条件仅训练一次。这些限定决定了该数字的解释范围。</li></ul>
+<h2 id="h27">证据与可信度</h2>
+<p>抓取结果是 PDF 二进制乱码，缺少可读正文，因此<strong>未读到全文</strong>。上述内容仅依据所给元数据，未进行独立核验。</p>
+<p>“25 倍”、N=8 和每个条件训练一次，均来自元数据备注对论文实验的概括，不能视为本页已核实的测量结果。缺少原始指标、分子分母及图表，无法复算倍率，也无法判断它衡量的是准确率、收益还是其他指标。</p>
+<p>若每个条件确实只训练一次，便不足以据此估计训练随机性带来的波动；结果稳定性仍待重复实验支持。</p>
+<h2 id="h28">对 swarm scaling 的意义</h2>
+<p>该材料提示，研究 swarm 扩展应同时关注协作能力如何训练，以及增加智能体后的效果如何变化。但现有信息不足以确认 s³ 的扩展曲线。</p>
+<p>即使备注准确，特定任务下 N=8 相对在线 SFT 消融的倍率，也不能直接代表增加智能体数量的收益，更不能外推为所有任务上的通用提升。这里最值得追查的是：收益来自合作式训练的哪些部分，以及在不同群体规模、重复训练和成本约束下能否保持。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

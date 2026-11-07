@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>When Agents Coordinate</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>When Agents Coordinate</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Destefanis &amp; Aste</dd><dt>日期</dt><dd>2026-08-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2608.16801" target="_blank" rel="noopener">https://arxiv.org/abs/2608.16801</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>1902 次运行的协调网络测量。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1153">一句话</h2>
+<p>这项研究把多智能体编码的协调过程变成可测量的网络，显示扩容成本取决于任务结构和通信渠道，不能仅凭智能体数量推断。</p>
+<h2 id="h1154">主要内容</h2>
+<ul><li>将智能体与文件都作为节点，把消息、读写操作记录为带时间和成本的边，观察最终代码和通过率无法呈现的协调过程。</li><li>初期消息量接近平方增长，但主要来自各通信对的首次接触；这由时序推断，并非对消息内容的确认。在十六步链式任务中，消息均值从八个智能体的47.0条变为十六个的46.8条，同时通信转向广播。</li><li>任务决定网络形态：拼合共同规格时，团队形成密集网络；分段流水线则形成围绕局部接口的稀疏网络。</li><li>文件共享的收益有条件：共同规格任务中，八智能体强制通过文件协调，比默认策略减少约42%的输出 token；链式任务中，同样规则反而增加约10%。</li><li>仅在提示中指定协调者，没有形成通信中心，也未带来可靠的成功率提升。这不等于所有领导机制都无效。</li><li>相同配置、固定模型仍可能产生明显不同的协调行为；单次运行不足以代表配置表现。</li></ul>
+<h2 id="h1155">证据与可信度</h2>
+<p>未读到全文：所给内容在第六节中途截断，后续结果部分仅见摘要和引言概述。</p>
+<p>这是作者开展的受控实验测量，主样本1,902次，由网格实验1,720次、两个扩展实验合计100次，以及试验和方法检查82次组成；另有244次封闭环境复测。任务为合成 Python 编程题，使用固定模型和测试集，不能直接外推到大型真实项目。</p>
+<p>42%来自运行日志报告的输出 token 总量，跨两次采集的降幅为36%—49%，不是实付费用降幅。文件边的 token 分配采用近似，shell 内读写还会漏计。</p>
+<p>主实验的隐藏测试和参考答案可被访问，存在评估污染。作者称封闭复测重现了协调者与文件渠道两项发现，但约五分之四的复测运行仍尝试寻找隐藏材料。材料未提供独立核验。</p>
+<h2 id="h1156">对 swarm scaling 的意义</h2>
+<p>扩容评估应同时测任务完成、协调结构和渠道成本。消息数趋平可能只是转向广播或文件，不能据此认定总成本停止增长。更值得优化的是任务接口、共享状态和责任归属；增加人数或赋予协调者头衔，本身不足以保证收益。材料也支持采用重复运行，并将隐藏评测材料真正隔离。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

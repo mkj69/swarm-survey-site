@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>X Freeze relays Grok Build v1.0.63 release notes</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>X Freeze relays Grok Build v1.0.63 release notes</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>X Freeze (@XFreeze)</dd><dt>日期</dt><dd>2026-10-17</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/XFreeze/status/2111498666146214021" target="_blank" rel="noopener">https://x.com/XFreeze/status/2111498666146214021</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>141 likes; 16 RTs; 21 replies; 16603 views (fxtwitter, 2026-11-07)</dd><dt>收录理由</dt><dd>转述 Grok Build 对每个运行中子智能体单独追踪，属可观测性改进（粉丝号转述）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h425">一句话</h2>
+<p>这次更新主要补齐多智能体的运行可见性与管理细节，未提供规模扩展的性能证据。</p>
+<h2 id="h426">主要内容</h2>
+<ul><li>v1.0.63 将每个会话和运行中的子智能体单独上报给 Rex，便于查看各自状态。</li><li>记忆统一使用简短主题索引，按读取频率展示；命令钩子支持无 shell 的结构化参数。</li><li>修复分叉会话丢失模型及推理力度配置等问题，并提示异常 worktree 的修复方式。</li></ul>
+<h2 id="h427">证据与可信度</h2>
+<p>内容来自粉丝号转述的发布说明，属于产品功能宣称，无独立核验。版本号标识发布批次；点赞、浏览等互动量不能证明功能效果。材料没有并发规模、吞吐、成本或成功率测量。</p>
+<h2 id="h428">对 swarm scaling 的意义</h2>
+<p>逐个呈现子智能体状态，为并行任务的监督和排障提供基础；分叉配置保留有助于减少运行差异。但可观测性改善不等于扩展效率提升，尚不能据此判断更多智能体能否带来更高收益。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

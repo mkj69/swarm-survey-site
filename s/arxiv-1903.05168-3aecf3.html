@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>On the Pitfalls of Measuring Emergent Communication</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>On the Pitfalls of Measuring Emergent Communication</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Lowe, Ryan; Foerster, Jakob; Boureau, Y-Lan et al.</dd><dt>日期</dt><dd>2019-03-12</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1903.05168" target="_blank" rel="noopener">https://arxiv.org/abs/1903.05168</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>警示消息看似有信息却无因果作用，可直接迁移到 LLM 评估。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3001">一句话</h2>
+<p>消息能预测发送者的行动，不代表接收者会据此行动；评估多智能体沟通，需要检验消息的因果作用。</p>
+<h2 id="h3002">主要内容</h2>
+<ul><li>论文区分两类现象：“积极发信”指消息与发送者的观察或行动相关；“积极倾听”指消息改变接收者的行为。前者可以在缺少后者时出现。</li><li>作者让两个深度强化学习智能体在带免费离散通信的矩阵博弈中学习。随机改变收益矩阵后，消息与发送者下一步行动形成明显关联，但干预消息时，对方的行动分布几乎不变。</li><li>发言一致性、消息与概念的对应关系，以及消息内容的可视化，主要反映发送端的统计规律。消息熵低甚至可能只是始终发送同一符号。</li><li>跨情境汇总消息与接收者行动的相关性，也可能漏掉真实沟通：同一消息在不同收益矩阵下可以引出不同的最佳行动，汇总后关联被抵消。</li><li>作者提出通信因果影响指标 CIC：在控制当前情境时改变消息，检查接收者行动分布如何变化。它直接针对“是否听进去了”，但行为受影响仍不等于任务收益提高。</li></ul>
+<h2 id="h3003">证据与可信度</h2>
+<p>未读到全文：提供的抓取内容在结果部分截断，表格具体数值及后续消融细节缺失。</p>
+<p>这是作者报告的受控实验与方法分析，并非厂商宣传或个人经验。实验使用两智能体，矩阵规模为 2×2、4×4、8×8，对应消息符号数为 4、6、10。文中称 CIC 在 1000 个测试博弈上计算，平均值接近消息无影响时的最小值；但片段没有表内数值，无法判断准确效应量或不确定性。作者还报告消息被随机替换后仍可出现发信规律。材料提供了代码地址，但这里未核验代码或独立复现。</p>
+<h2 id="h3004">对 swarm scaling 的意义</h2>
+<p>它提供的是评估警示，而非规模扩展结论：更多消息、更稳定的表达或看似合理的协作记录，都不足以证明通信推动了群体表现。</p>
+<p>迁移到 LLM swarm 时，可据此设计消息屏蔽、替换等干预，分别检查接收者决策与最终任务结果的变化，并控制情境差异。这属于方法上的启发；本文实验没有验证 LLM，也没有测量智能体数量增长带来的收益、成本或扩展规律。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

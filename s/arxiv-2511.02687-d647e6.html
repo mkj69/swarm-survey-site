@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Collaboration Gap: Exploration and Benchmarking of Open-World Agentic Cooperation</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Collaboration Gap: Exploration and Benchmarking of Open-World Agentic Cooperation</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Davidson, Tim R., Fourney, Adam, Amershi, Saleema et al.</dd><dt>日期</dt><dd>2025-11-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2511.02687" target="_blank" rel="noopener">https://arxiv.org/abs/2511.02687</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在 32 个模型上揭示单独强不等于协作强，并显示接力方式能缩小差距。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2757">一句话</h2>
+<p>单体能力强并不保证协作强：这项迷宫实验表明，建立共同理解和安排谁先开口，会显著影响双智能体表现。</p>
+<h2 id="h2758">主要内容</h2>
+<ul><li>研究评估了32个开源与闭源模型，比较独立解题、同模型配对和异模型配对。双方各持互补的不完整地图，需要通过自然语言交换信息、商定每一步行动。</li><li>几乎所有受测模型在协作时都出现统计上可靠的表现下降。研究另设“单个模型同时看到两张残缺地图”的对照，以区分信息整合困难与协作困难。</li><li>失败不只来自路径推理，还包括坐标含义不一致、当前位置未对齐、错误让步及规划方式冲突。蒸馏模型受影响更大的现象是作者观察，尚不能据此确定蒸馏的因果作用。</li><li>异构配对存在顺序效应：强模型先开口更容易建立清晰约定，后开口则可能沿用弱模型的交流方式。混合模型也可能比各自同模型配对更差。</li><li>“接力推理”让强模型先建立坐标、参照系和交流约定，再换弱模型继续；实验显示，这通常比弱模型先交流、强模型随后补救更有效。</li></ul>
+<h2 id="h2759">证据与可信度</h2>
+<ul><li>数字来自作者实验，未经此处独立核验。主实验采用6×6迷宫、30%墙密度，最优路径平均为7至9步；单体各设置及同构配对各采样100次，异构配对每组至少50次，协作最多50轮。</li><li>主要指标是“加权结果”，按最优路径长度与最后有效位置距终点的距离计算，可为负数，不能当作成功率。o3与gpt-4.1-mini配对时，o3先发为0.77±0.04，反向为0.62±0.06；文中说明区间为95%置信区间。</li><li>路径先由gpt-4.1从对话提取，再对照真实迷宫验证。作者报告更换评分模型与重复评分未发现显著偏差，但自动提取仍可能遗漏表达方式。</li><li>已提供内容包含主体和复现说明，附录截断，未读到全文；评分消融等附录细节无法据此完整检查。代码公开有利于复现，但不等于已有独立复现。</li></ul>
+<h2 id="h2760">对 swarm scaling 的意义</h2>
+<p>这项研究支持把协作能力作为独立评测轴：增加模型或混用强弱模型，可能引入协调损耗。可借鉴的设计是先建立共享表示、明确行动规则，再交给较弱模型推进。</p>
+<p>但它研究的是双智能体迷宫协作，没有测量大规模群体随数量增长的收益曲线，也未证明接力方案节省总体成本。对 swarm 的直接启示是识别协调瓶颈，而非证明规模扩展有效。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

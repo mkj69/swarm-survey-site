@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI-Scaling vs Human Scaling</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AI-Scaling vs Human Scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Toby Ord</dd><dt>日期</dt><dd>2026-10-09</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.tobyord.com/writing/ai-scaling-vs-human-scaling" target="_blank" rel="noopener">https://www.tobyord.com/writing/ai-scaling-vs-human-scaling</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Ord 的新文章用 UK AISI 图估计 γ≈0.66，并讨论其对智能爆炸参数的影响。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h517">一句话</h2>
+<p>Ord 提醒：增加 agent 数量与延长单个 agent 的推理，都可能存在收益递减；评估 swarm scaling 时，需要同时考虑这两层折损。</p>
+<h2 id="h518">主要内容</h2>
+<ul><li>文章质疑“给 AI 更多 token，等于给人更多时间”的类比。额外资源能否带来同等进步，需要测量，不能直接假定。</li><li>Ord 根据英国 AISI 的内部 CTF 攻防任务图，采用关系式 \(H_{80}\propto T^\gamma\)：\(T\) 为 token 预算，\(H_{80}\) 为 AI 以 80% 成功率完成的任务所对应的人类耗时。若 \(\gamma&lt;1\)，时间跨度随 token 次线性增长。</li><li>作者估计，较早模型将时间跨度提高十倍需要约一万倍 token，较新模型约需二十倍。模型有所改善，但数据不足以判断是否停在 \(\gamma\approx2/3\)，或仍会继续上升。</li><li>对递归自我改进，作者提出把反馈强度从 \(r=\lambda/\beta\) 调整为 \(r=\lambda\gamma/\beta\)，纳入推理扩展相对人类时间扩展的效率差异。</li></ul>
+<h2 id="h519">证据与可信度</h2>
+<ul><li>这些数字属于<strong>对已有实验图表的二次估算</strong>。作者披露使用 Claude Opus 5.5 估计曲线斜率并辅助核查；材料未提供可复算的原始数据，也未展示独立核验。</li><li>“十倍跨度所需 token 倍数”由 \(10^{1/\gamma}\) 得到，并非直接测量所有对应预算下的表现。</li><li>AISI 数据仅涉及一套任务，且推理长度超过上下文窗口、需要多次压缩，可能影响斜率。时间跨度也是人类表现的间接代理，不能等同于直接比较双方投入时间后的成绩。</li><li>METR 的早期结果混合了长推理与多次尝试取最佳结果，人类长时段数据也包含并行劳动，因此不能据此分离纯粹的串行扩展效应。作者明确将整体结论定位为提示性证据。</li></ul>
+<h2 id="h520">对 swarm scaling 的意义</h2>
+<p>若并行扩展满足 \(T\propto N^\lambda\)，再结合上述关系，就得到 \(H_{80}\propto N^{\lambda\gamma}\)。这意味着，即使 swarm 将人数转化为推理能力的效率尚可，最终转化为人类等效任务跨度时仍可能再次折损。</p>
+<p>文中的假设例子取 \(\lambda=\gamma=0.5\)：匹配人类时间增加十倍的收益，需要单 agent 的 token 增加一百倍，或 agent 数量增加一万倍。这是公式示例，并非实测 swarm 结果。其调研价值在于要求同时追踪并行效率与串行推理效率，而不能只凭 agent 数量推断能力增幅。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

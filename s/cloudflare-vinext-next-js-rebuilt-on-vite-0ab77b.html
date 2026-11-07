@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>vinext (Next.js rebuilt on Vite)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>vinext (Next.js rebuilt on Vite)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Cloudflare</dd><dt>日期</dt><dd>2026-02-24</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://blog.cloudflare.com/vinext" target="_blank" rel="noopener">https://blog.cloudflare.com/vinext</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>低成本重写案例，依赖移植上游测试作为判据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2253">一句话</h2>
+<p>vinext 展示了在成熟底座、明确接口和可移植测试支撑下，一名工程师如何组织 AI 快速重写框架，但它并未证明增加 agent 数量就能带来规模收益。</p>
+<h2 id="h2254">主要内容</h2>
+<ul><li>Cloudflare 称，一名工程师在不到一周内指导 AI，以 Vite 为基础重新实现 Next.js 接口，覆盖路由、服务端渲染、React Server Components、缓存等功能；这不是从零重造全部基础设施。</li><li>工作从架构规划开始，再按功能拆任务，让 AI 编写实现与测试，以测试结果驱动修正。另有 agent 审查 PR、处理审查意见，人负责架构、优先级及纠偏，并通过浏览器检查渲染、导航和 hydration。</li><li>作者报告运行了超过 800 次 OpenCode 会话，Claude API token 支出约 1,100 美元。会话次数不能视为 agent 数量，也不能据此判断并发程度。</li><li>项目自报覆盖 Next.js 16 接口的 94%，拥有超过 1,700 个 Vitest 测试及 380 个 Playwright 端到端测试，其中包括移植的 Next.js 与 OpenNext 测试。</li><li>发布时仍属实验项目，尚未经有意义的大规模流量检验，且不支持构建期静态预渲染。已有客户上线是采用信号，不能替代完整兼容性验证。</li></ul>
+<h2 id="h2255">证据与可信度</h2>
+<ul><li>工期、费用、会话数、测试数和接口覆盖率均为 Cloudflare 自报，材料没有提供独立核验。1,100 美元仅指 token 费用，不是包含人工、基础设施和维护的总成本；94% 的接口覆盖也不等于行为正确率。</li><li>性能数据来自厂商对单个含 33 条路由的应用进行的基准测试：Next.js 构建耗时 7.38 秒，vinext 使用 Rolldown 时为 1.67 秒，相除约为 4.4 倍；gzip 客户端包从 168.9 KB 降至 72.9 KB，约减少 57%。</li><li>测试关闭了 Next.js 的类型检查、ESLint，并采用动态渲染以排除静态预渲染开销，因此衡量的是编译与打包，不是线上服务性能。文章称方法及历史结果公开，但本解读未独立复现。</li><li>“模型能保持大型代码库一致性”等判断属于作者经验；测试与类型检查提供约束，不能保证不存在遗漏或错误。</li></ul>
+<h2 id="h2256">对 swarm scaling 的意义</h2>
+<p>这个案例支持的是“可验证任务更容易自动化”：成熟接口帮助拆分工作，上游测试提供外部判据，CI 与审查 agent 缩短反馈循环，人处理方向性错误。尤其是移植既有测试，能减少实现和测试同时由模型生成时共享错误假设的风险。</p>
+<p>但材料没有披露 agent 数量、并发配置、协调成本，也没有单 agent 与多 agent 对照实验。因此，它是低 token 成本的软件重写与自动化协作案例，不能据此推出 swarm 随规模扩大而持续提速。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

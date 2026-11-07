@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stellar Colosseum: A Many-Agent Harness for Long-Horizon Research in Mathematics and Theoretical Computer Science</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Stellar Colosseum: A Many-Agent Harness for Long-Horizon Research in Mathematics and Theoretical Computer Science</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Lin, Woodruff, Deng, Mao et al.</dd><dt>日期</dt><dd>2026-09-14</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2609.15983" target="_blank" rel="noopener">https://arxiv.org/abs/2609.15983</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>代表“结构化分解+验证”路线，而非单纯堆数量。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h821">一句话</h2>
+<p>Stellar Colosseum 把多智能体扩展的重点放在策略筛选、依赖管理和带反证的聚合上；材料支持其研究潜力，但尚不足以证明增加智能体数量本身带来多少收益。</p>
+<h2 id="h822">主要内容</h2>
+<ul><li><strong>先探索，再拆解。</strong> 系统并行尝试不同研究路线，通过就绪门判断核心机制是否稳定、剩余难点能否明确分配，再生成带依赖关系的证明计划。</li><li><strong>按依赖并行，按缺陷修复。</strong> 独立章节可同时求解；局部审查失败时重试对应子问题。全文审查负责检查跨章节假设、定义和结论的一致性，必要时退回策略探索。</li><li><strong>聚合保留反对证据。</strong> 候选方案与针对它的批评绑定，经过随机抽样、组间可重叠的树形合成。聚合可以拼接有效部分、修补缺陷或保留未决冲突，并非最终答案投票。</li><li><strong>失败也是共享状态。</strong> 上轮草稿及审查意见直接进入下一轮，知识目录另存引理、失败路线、参考资料和观察，减少重复探索。</li><li>作者报告了开放研究成果、长篇证明草稿，以及定理证明和编程基准上的表现。</li></ul>
+<h2 id="h823">证据与可信度</h2>
+<p><strong>未读到全文</strong>：所给内容在编程评测部分截断，部分公式及表格缺失。以下仅依据该片段，未做独立核验。</p>
+<ul><li>TCS-Bench 包含 <strong>300</strong> 题，跨模型选择答对 <strong>213</strong> 题，对应 <strong>71.0%</strong>。这是作者实验报告，判分依赖可读取参考证明的自动评分器，并非逐题人工或形式化验证。评分器在另一个 <strong>100</strong> 份专家标注证明集上报告准确率超过 <strong>90%</strong>，不能直接视为本次判分可靠性的保证。</li><li><strong>71.0%</strong> 来自两次不同模型运行后的批评筛选：对其中一份证明生成 <strong>8</strong> 次批评，至少 <strong>5</strong> 次认可才选它。因此该成绩包含额外运行和选择机制的贡献。</li><li>Codeforces 报告 <strong>222</strong> 题中通过 <strong>218</strong> 题，依据完整隐藏测试和原始检查器，比自然语言证明评分更易明确复核，但仍是作者自报。</li><li><strong>46</strong> 页、<strong>75</strong> 页证明草稿及 <strong>15</strong> 轮探索说明产物长度和过程跨度，不等于证明正确性。片段未提供固定预算下的规模消融，不能据此估计数量扩展的收益。</li></ul>
+<h2 id="h824">对 swarm scaling 的意义</h2>
+<p>这项工作的启示是：扩展群体时，需要同时扩展任务接口、依赖调度、证据保存和错误定位能力。树形聚合控制单次上下文规模，局部修复复用已有工作，反证随候选流转则有助于避免共识掩盖漏洞。</p>
+<p>不过，自然语言审查仍可能共享盲点；找不到反例不代表证明成立。它展示了值得测试的组织架构，而非已确立的 swarm scaling 定律。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

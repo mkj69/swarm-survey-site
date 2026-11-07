@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MASS paper announcement</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>MASS paper announcement</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>hardmaru (@hardmaru)</dd><dt>日期</dt><dd>2026-10-11</dd><dt>类型</dt><dd>thread</dd><dt>原文</dt><dd><a href="https://x.com/hardmaru/status/2109385496237678844" target="_blank" rel="noopener">https://x.com/hardmaru/status/2109385496237678844</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>1761 likes; 248 RTs; 95791 views</dd><dt>收录理由</dt><dd>作者方宣传，强调同质循环会强化自身盲点。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h497">一句话</h2>
+<p>MASS尝试把同一模型的团队协作经验蒸馏回模型，但自评与自训仍可能放大共同盲点。</p>
+<h2 id="h498">主要内容</h2>
+<ul><li>交替优化子代理的通信与任务流，再用筛选出的成功轨迹微调共享模型。</li><li>作者称，解题轨迹训练也能改善优化者和评估者，多代理轨迹比单代理轨迹更利于训练。</li><li>作者认为，优化者能力可能比评估者能力更限制改进速度。</li></ul>
+<h2 id="h499">证据与可信度</h2>
+<ul><li>这是作者方发布帖，未读到全文。作者报告：27B开放权重模型经过两轮循环，在四个研究基准上的每输出token得分达到基座的1.2—1.6倍；帖文只列出三个基准名称。</li><li>该数字属于作者自报实验结果，并非总分或整体成本收益。所给材料无实验细节、误差范围或独立核验；互动量不能证明结论。</li></ul>
+<h2 id="h500">对 swarm scaling 的意义</h2>
+<p>它把扩展重点从增加代理数量转向优化协作结构、复用协作经验。但同源代理与自评机制并未自动消除同质性风险，现有材料也不足以证明收益会随团队规模持续增长。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

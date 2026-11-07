@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DarkForest: Less Talk, Higher Accuracy for Multi-Agent LLMs</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>DarkForest: Less Talk, Higher Accuracy for Multi-Agent LLMs</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Yi, Wei, Songtao, Jiang, Dongming et al.</dd><dt>日期</dt><dd>2026-05-24</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2605.25188" target="_blank" rel="noopener">https://arxiv.org/abs/2605.25188</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>主张先独立作答再受控聚合，代表减少通信以防错误传播的路线。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1741">一句话</h2>
+<p>DarkForest 把多智能体协作的重点从反复讨论转向独立生成、校准聚合与受控披露，试图同时减少错误传播和通信成本。</p>
+<h2 id="h1742">主要内容</h2>
+<ul><li>各智能体先独立作答，不接触其他成员的答案或推理；随后解析输出，将等价候选聚类，再交给协调器判断。</li><li>聚合不只数票，还考虑成员历史可靠性、哪些成员共同支持候选、解析质量、置信度及相关性折扣。参数通过有标签样本离线校准，测试时冻结，不更新模型。</li><li>协调器主要接收紧凑的候选与证据摘要；当某候选的支持人数、信念分数及领先幅度均达到阈值时，确定性规则可覆盖协调器的冲突答案。</li><li>作者用“初始候选中是否已有正确答案”检查聚合损失：成员已经答对而最终仍答错，意味着协调过程未能保留有用证据。不过，这种差距本身不能单独证明错误由通信造成。</li></ul>
+<h2 id="h1743">证据与可信度</h2>
+<ul><li><strong>未读到全文</strong>：所给文本在附录实验设置处截断，主要结果表格的具体内容也未完整呈现。以下均为作者报告的实验结果，无独立核验。</li><li>实验覆盖六个推理基准，每题使用三个独立查询的智能体，并比较六种基线。因此证据主要支持小规模异构模型聚合。</li><li>MATH 得分为 76.80%，比 Self-Consistency 高 5.00 个百分点；MMLU-Pro 为 58.38%，比 Debate 高 2.52 个百分点。摘要所称最高 30.7% 是相对提升，不能读成增加 30.7 个百分点。</li><li>成本以每题平均输入、输出 token 衡量。例如 MATH 从 Graph-of-Agent（Mean）的 13.8k 降至 4.7k。最高节省 6.5 倍是作者总体报告，当前片段不足以逐项复算，也不能直接换算成延迟或费用收益。</li><li>去掉确定性规则后，MATH 从 76.80% 降至 75.40%，LegalBench 从 68.00% 降至 65.60%，支持该规则在这些实验中的作用。其归一化信念分数并非完整生成模型推导出的贝叶斯后验。</li></ul>
+<h2 id="h1744">对 swarm scaling 的意义</h2>
+<p>这项工作的启发是：扩展 swarm 时，应关注新增成员带来多少独立证据，以及聚合能否保留这些证据。压缩跨成员信息、折扣相关错误，可能比增加讨论轮次更有效。</p>
+<p>但材料没有展示随智能体数量增长的扩展曲线，不能据此断言大规模 swarm 同样获益。更多成员还会增加支持组合的校准需求；复杂代码等任务也可能需要保留更丰富的内容。它提供的是值得检验的通信设计路线，而非已证实的规模定律。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

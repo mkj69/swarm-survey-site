@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mindstorms in Natural Language-Based Societies of Mind</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Mindstorms in Natural Language-Based Societies of Mind</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Zhuge, Mingchen; Liu, Haozhe; Faccio, Francesco et al.</dd><dt>日期</dt><dd>2023-05-26</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2305.17066" target="_blank" rel="noopener">https://arxiv.org/abs/2305.17066</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>明确援引 Minsky，主张自然语言社会，是类比而非机制证明。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2973">一句话</h2>
+<p>论文把 Minsky 的“心智社会”转为自然语言连接异构模型的实验框架，展示了协作收益，但尚未证明大规模 swarm 的通用扩展规律。</p>
+<h2 id="h2974">主要内容</h2>
+<ul><li>自然语言充当统一接口，让语言、视觉等模型通过多轮问答交换信息；角色分工与通信结构共同决定系统行为。</li><li>实验覆盖视觉问答、图像描述、图像与三维生成、第一人称检索、具身探索和语言任务，采用组织者、专家、评审、汇总者等角色。</li><li>组织方式没有统一赢家：视觉问答中，领导者集中决策优于投票；第一人称检索中则相反。后者使用人工提供的场景叙述，不能视为直接理解完整视频的验证。</li><li>作者进一步设想以支付、合约和破产机制分配奖励的“心智经济”，但这属于展望，并非已完成的强化学习实验。</li></ul>
+<h2 id="h2975">证据与可信度</h2>
+<ul><li><strong>作者实验报告</strong>：A-OKVQA 上，零样本协作系统准确率为 67.42%，文中最佳单模型基线为 60.3%。视觉专家从 1 个增至 3 个时表现逐步改善，但基线训练方式不同，不能据此单独归因于代理数量。</li><li>图像描述在 TARA 上经过 10 轮交流，Sentence-BERT 相似度得分为 20.6，BLIP2 为 11.3；这是文本相似度指标，不等同于事实准确率。</li><li>最大规模 129 个成员来自图像提示词系统：26 组艺术家各含 3 个语言模型，加上 50 个评审、1 个汇总者及1个图像模型。它主要依据示例作定性评价，没有提供系统的数量扩展曲线。</li><li>三维生成在超过 2 轮后未观察到显著改善，说明增加交流轮次存在收益停滞。</li><li><strong>未读到全文</strong>：所给内容在附录相关工作处截断，关键结果表及实验细节未完整提供。上述均为作者报告，当前材料未提供独立核验。</li></ul>
+<h2 id="h2976">对 swarm scaling 的意义</h2>
+<p>价值在于把“增加代理”拆成可研究的变量：专家异质性、角色分工、决策权限和交流轮次。结果支持特定任务中的组合收益，也提示更多成员、更多讨论未必持续有效。</p>
+<p>自然语言接口便于扩充模块，不等于任务性能随规模增长。129 个角色的演示也不代表同等数量的独立模型。要支持更强的 scaling 主张，仍需控制总推理预算，比较不同规模下的质量、成本与延迟；材料尚未给出这类证据。Minsky 类比提供研究视角，数十亿代理和经济机制则仍是愿景。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walden Yan: Multi-Agents, what is actually working</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Walden Yan: Multi-Agents, what is actually working</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Walden (@walden_yan)</dd><dt>日期</dt><dd>2026-04-22</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/walden_yan/status/2047054401341370639" target="_blank" rel="noopener">https://x.com/walden_yan/status/2047054401341370639</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=1630; retweets=194; views=659387</dd><dt>收录理由</dt><dd>最有价值的反面立场：单线程写入、结构化蜂群才实用。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1917">一句话</h2>
+<p>作者修正了此前对多智能体的否定立场：当前更实用的路线是集中写入、分散思考，以明确分工和上下文管理扩展能力。</p>
+<h2 id="h1918">主要内容</h2>
+<ul><li><strong>并行写入仍有协调难题。</strong> 多个 agent 会在代码风格、边界处理和实现模式上作出隐含选择，局部成果未必能组成一致产品。作者认为，模型能力提升并未消除这一问题。</li><li><strong>编码与审查循环已有实际应用。</strong> 编码 agent 负责修改，审查 agent 从干净上下文检查差异，再由编码方结合用户要求筛选反馈。这里刻意减少上下文共享，以获得独立视角；关键是避免误报引发反复修改或范围扩张。</li><li><strong>强模型顾问的效果受主模型制约。</strong> 较弱主模型需要识别自身局限、提出有效问题并传递上下文。作者承认 SWE-1.5 未能胜任这一角色；SWE-1.6 有改善，但仍未达到预期。Claude 与 GPT 搭配则被报告在困难场景中有效，更像按能力路由。</li><li><strong>更大任务采用管理层级。</strong> manager 拆分任务、子 agent 执行、manager 汇总。实际难点包括过度指挥、误以为共享状态，以及子 agent 不主动传播影响其他任务的发现。</li></ul>
+<h2 id="h1919">证据与可信度</h2>
+<ul><li>作者称，Devin 最大企业客户分组的使用量在过去六个月增长约 <strong>8 倍</strong>；未说明使用量定义、基数或统计方法，属于厂商自报，也不能据此推导多智能体的增益。</li><li>Devin Review 被报告平均每个 PR 发现 <strong>2 个 bug</strong>，其中约 <strong>58%</strong> 属严重问题。材料未给出样本量、判定流程、误报率或对照实验，不能直接视为已验证的质量提升幅度。</li><li>Smart Friend 的收益及管理型 agent 的表现主要来自作者参与产品开发的经验。披露失败和限制有助于理解适用边界，但缺少可复现评测与独立核验。</li><li>浏览器、编译器等大规模演示仅作为例子出现。作者强调其验收标准较明确，不能自动代表真实软件中的需求判断与协作难度。</li></ul>
+<h2 id="h1920">对 swarm scaling 的意义</h2>
+<p>本文将扩展重点从 agent 数量转向决策一致性：增加审查、咨询和任务分解能力，同时控制写入与结果整合的责任边界。</p>
+<p>上下文策略也应随角色变化：审查需要独立视角，顾问需要足够背景，管理者需要可靠的状态与发现回传。因此，“共享越多越好”不是通用规则。</p>
+<p>这是一份有实践细节的反面立场材料，支持优先探索结构化协作；但它没有证明无结构 swarm 必然无效，也未量化规模扩大后的成本、延迟和收益曲线。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AGNTCY research note</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AGNTCY research note</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Ry Walker</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://rywalker.com/research/agntcy" target="_blank" rel="noopener">https://rywalker.com/research/agntcy</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>第三方判断 AGNTCY 活跃但采用较少。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3357">一句话</h2>
+<p>AGNTCY 试图为跨组织、多厂商的智能体网络补齐发现、身份与通信基础设施，但这份研究呈现的是“开发活跃、采用证据薄弱”，尚不能证明其能提升 swarm 的规模或效率。</p>
+<h2 id="h3358">主要内容</h2>
+<ul><li><strong>定位转向协议周边设施。</strong> AGNTCY 已归档自有 ACP 协议，围绕 A2A、MCP 提供配套能力：用 OASF 描述智能体与服务，通过去中心化目录发现资源，以可验证身份建立信任，并提供观测与评估工具。</li><li><strong>支持多对多交互。</strong> SLIM 基于 gRPC，覆盖发布订阅、请求响应、流式传输等模式，面向智能体群组通信；材料没有给出其性能优于其他方案的实验。</li><li><strong>治理背书强，社区信号弱。</strong> 据文中资料，项目于 2025 年 7 月 29 日捐赠给 Linux Foundation，有五家创始成员及超过 65 家支持企业，但公开关注度与这些背书并不匹配。</li><li><strong>部署成本仍由使用方承担。</strong> 各组件独立部署、全部自托管；多组件、多语言架构增加维护负担。作者因此将其主要适用对象定位为有平台工程能力的企业团队。</li></ul>
+<h2 id="h3359">证据与可信度</h2>
+<p>这是 Ry Walker 的第三方研究笔记，引用项目文档、基金会公告、GitHub 和 Hacker News；本页仅依据提供的抓取内容，未独立核验链接与统计。</p>
+<p>文中称，2026 年有 48 个组织仓库中的 44 个发生过推送，Directory 于同年 5 月发布 v1.4.0。这些属于作者依据仓库记录整理的开发活动指标，不能直接代表软件成熟度或生产使用量。</p>
+<p>截至 2026 年 6 月，组织总星标约 2,066，最高单仓库为 316；作者还称相关 Hacker News 投稿均未超过 3 分。这些只能反映部分公开关注度，不能据此统计真实用户、部署数量或企业内部采用情况。“采用较少”是作者基于弱信号作出的判断。</p>
+<p>治理和功能信息主要来自官方资料；材料未提供独立的生产案例验证，也没有吞吐、延迟、成本或任务成功率测试。</p>
+<h2 id="h3360">对 swarm scaling 的意义</h2>
+<p>这份材料提醒我们：扩大 swarm 不只是增加智能体数量，还涉及跨边界发现、身份验证、多方通信和故障追踪。AGNTCY 提供了观察这些基础设施需求的具体案例。</p>
+<p>但基础设施齐全不等于扩展收益成立。材料没有测量智能体数量增长时的协调开销、性能变化或任务质量，因此不能用它支持“更多 agent 带来更好结果”。其研究价值在于展示规模化所需的工程条件，以及企业背书、开发活跃度与实际采用之间仍待验证的距离。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

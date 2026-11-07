@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loop-Back Authority in LLM Agent Teams: A Paired Experiment on Flat and Hierarchical Coordination</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Loop-Back Authority in LLM Agent Teams: A Paired Experiment on Flat and Hierarchical Coordination</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Agachan, van Duijn, Zohrehvand</dd><dt>日期</dt><dd>2026-09-13</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2609.14767" target="_blank" rel="noopener">https://arxiv.org/abs/2609.14767</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>配对实验显示扁平团队报告质量更高，差距来自无法验证的修订。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h825">一句话</h2>
+<p>在开放式商业报告任务中，给 Manager 强制返工权增加了成本，却未改善质量；但这不能推出“扁平 swarm 普遍优于层级 swarm”。</p>
+<h2 id="h826">主要内容</h2>
+<ul><li>实验覆盖 43 款笔记本、86 次运行。两组均设研究、分析、写作、评论和管理五种角色，并配对固定模型分工、数据和工具；核心差别是 Manager 能否要求返工。</li><li>扁平组的实用性更高，配对效应量为 d=0.42；写作清晰度差异较小，为 d=0.34。优势主要集中在战略深度与简洁性，并非结构或连贯性全面改善。</li><li>层级组每份报告消耗 74,781 tokens，扁平组为 49,370，增加 51.5%；耗时增加 34.3%。最终报告长度基本相同，额外开销主要发生在协作流程。</li><li>文本变化指向“保留原稿、增加限定语”：层级组每千词的模糊限定表达多 53%；发生修改的运行中，第二稿比第一稿每千词多 1.95 个此类表达。修订稿保留前稿的公共子序列中位数为 88%。</li><li>修正后的规格核验中，86 份报告有 85 份完整、正确复述全部规格，因此该任务的事实检查部分几乎没有改进空间。</li></ul>
+<h2 id="h827">证据与可信度</h2>
+<p>数字均为论文作者报告的实验测量，未做独立核验。质量由五模型评审团按量表评分；tokens、耗时和文本特征来自运行记录与程序统计。</p>
+<p>实用性差异较稳健，移除任一评审后仍显著；清晰度较脆弱，部分移除检验不再显著，Wilcoxon 检验 p=0.051。两名盲评者对 20 对报告的人工检查未能确认优势，且彼此分歧明显。</p>
+<p>“每次返工对应清晰度下降约 0.14 分”是相关关系：Manager 自己选择返工对象，较差初稿可能更容易被退回。首稿比较仅显示文本指标未检出差异，不能据此认定初稿质量完全相同。</p>
+<p>此外，两组 Manager 的查看范围与决策规则也不同，“只改变一条权威边”的解释需保留限定。实验也没有直接证明“可验证任务中，管理权一定有益”。</p>
+<h2 id="h828">对 swarm scaling 的意义</h2>
+<p>这项研究考察的是固定五角色团队的协调协议，并未测量随 agent 数量增长的扩展曲线。它提示：更多控制与迭代可能放大计算开销，同时只换来措辞软化。</p>
+<p>对开放式综合任务，可把“路由权”与“强制返工权”分别设计，并进一步比较可验证错误触发和主观评价触发的修订。后者是值得测试的设计假设，尚非本文已验证的结论；结果也不能直接外推到代码、长上下文或大规模 swarm。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>
