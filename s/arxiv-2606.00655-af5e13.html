@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scaling Behavior of Single LLM-Driven Multi-Agent Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Scaling Behavior of Single LLM-Driven Multi-Agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Li, Jialing, Gu, Zhouhong, Cai, Yin et al.</dd><dt>日期</dt><dd>2026-05-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.00655" target="_blank" rel="noopener">https://arxiv.org/abs/2606.00655</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在同构智能体上测得倒 U 形曲线和二次令牌成本，并用填充实验区分协调开销与长上下文影响。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1641">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Scaling Behavior of Single LLM-Driven Multi-Agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Li, Jialing, Gu, Zhouhong, Cai, Yin et al.</dd><dt>日期</dt><dd>2026-05-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.00655" target="_blank" rel="noopener">https://arxiv.org/abs/2606.00655</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在同构智能体上测得倒 U 形曲线和二次令牌成本，并用填充实验区分协调开销与长上下文影响。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1605">一句话</h2>
 <p>这项同模型多智能体实验表明，增加成员可能先带来收益、再损害表现，但证据支持的是特定小规模通信机制下的趋势，尚不足以确立普遍的 swarm scaling 定律。</p>
-<h2 id="h1642">主要内容</h2>
+<h2 id="h1606">主要内容</h2>
 <ul><li>作者设计 SIMAS：所有智能体使用同一底座模型，以不同人格、信念和专长提示产生差异；默认讨论 3 轮，依次读取不断累积的完整历史，最后汇总答案。</li><li>实验将人数从 1 增至 8，比较 Llama-3.1 与 Qwen2.5 的大小模型。作者报告，小模型随人数增加持续退化；较强模型在部分任务上先升后降，最佳人数随模型和任务变化。</li><li>推理任务更容易受讨论干扰。SIMAS 在复杂数学题上未稳定超过同模型的单智能体 CoT；部分知识任务则出现下降后回升，因此实际曲线并非统一倒 U 形。</li><li>固定输入长度的填充实验仍出现先升后降；AutoGen GroupChat 对照也出现峰值后退化。两者支持协调方式影响扩展收益，但不能据此排除所有其他机制。</li><li>作者报告 SIMAS 的令牌成本随人数呈二次增长；这一成本特征与反复读取累积历史有关。</li></ul>
-<h2 id="h1643">证据与可信度</h2>
+<h2 id="h1607">证据与可信度</h2>
 <p>未读到全文：提供内容在附录中途截断，部分公式、图表及具体统计信息缺失。以上依据已提供的正文与附录片段，未做独立核验。</p>
 <p>数字属于作者实验报告。MMLU 从 6 个学科各抽取 17 题，每种配置重复 3 次后取平均，样本较小，百分比的小数精度不代表估计同样精确。例如，固定长度条件下，Qwen2.5-72B 的抽象代数准确率从 2 人的 60.78% 升至 4 人的 72.55%，再降至 8 人的 64.71%。</p>
 <p>填充对照削弱了“只是上下文变长”的解释，但尚未直接量化冗余、冲突等协调机制各自的贡献。文中部分数学基准比较转引 Gu 等人的结果，并非本研究重新测量。材料也存在口径瑕疵，如声称未测试超过 70B 的模型，却列入 72B 模型。</p>
-<h2 id="h1644">对 swarm scaling 的意义</h2>
+<h2 id="h1608">对 swarm scaling 的意义</h2>
 <p>人数应作为需要按任务调优的变量，而非默认有效的扩展手段。评估时应同时比较准确率、令牌成本和强单智能体基线，检验增加成员是否真正产生净收益。</p>
 <p>这项研究主要覆盖同模型、完整历史通信、最多 8 人的系统，不能直接外推至异构工具智能体、分层或 DAG 拓扑及大规模 swarm。其最有价值的启示是：扩展收益依赖信息流与汇总机制，观察到局部退化并不等于证明所有多智能体系统都存在同一规模上限。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

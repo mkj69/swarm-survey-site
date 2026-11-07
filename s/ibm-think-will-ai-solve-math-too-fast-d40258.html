@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Will AI solve math too fast?</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Will AI solve math too fast?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>IBM Think</dd><dt>日期</dt><dd>2026-09-10</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.ibm.com/think/news/will-ai-solve-math-too-fast-navier-stokes-terence-tao" target="_blank" rel="noopener">https://www.ibm.com/think/news/will-ai-solve-math-too-fast-navier-stokes-terence-tao</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>转引 Tao 的担忧和规模数字，并说明尚待数学家审查。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h845">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Will AI solve math too fast?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>IBM Think</dd><dt>日期</dt><dd>2026-09-10</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.ibm.com/think/news/will-ai-solve-math-too-fast-navier-stokes-terence-tao" target="_blank" rel="noopener">https://www.ibm.com/think/news/will-ai-solve-math-too-fast-navier-stokes-terence-tao</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>转引 Tao 的担忧和规模数字，并说明尚待数学家审查。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h833">一句话</h2>
 <p>这篇报道以 OpenAI 自报的万级 agent 数学攻关为例，提出一个关键问题：快速得到证明，是否也能保留探索过程中产生的方法与理解？</p>
-<h2 id="h846">主要内容</h2>
+<h2 id="h834">主要内容</h2>
 <ul><li>IBM Think 转述 OpenAI 的声明：内部系统声称解决了 Navier–Stokes 存在性与光滑性问题，但结果仍待数学家审查。</li><li>据报道，团队最多同时运行 10,000 个 agent，交换 270 万条消息，生成约 1,300 亿个输出 token；启动约 88 小时后得到结果，随后由 GPT-6 Astra 再用 17 小时在 Lean 中形式化并验证。</li><li>组织方式包括分组探索不同路线、用 Codex 汇总有用见解，以及在 Euler 方程方向出现成果后，将更多资源转向 Navier–Stokes。</li><li>陶哲轩担忧，竞争压力会让研究只追求完成证明，挤压对失败路线、衍生问题和通用方法的整理与探索。他关注的不只是答案是否正确，还有数学理解是否得到积累。</li></ul>
-<h2 id="h847">证据与可信度</h2>
+<h2 id="h835">证据与可信度</h2>
 <ul><li>这是 IBM Think 的新闻报道，并非原始实验报告。上述规模、消息量、token 量和耗时均来自文中转引的 OpenAI 自报，未展示日志、成本明细或独立复现实验。</li><li>10,000 是并发峰值，不能据此推算全程平均并发；88 小时与后续 17 小时对应不同阶段，也不能直接当作完整项目成本。</li><li>Lean 验证同样是转述声明；材料未提供证明文件、形式化命题或审查结果，不能据此认定该数学难题已获公认解决。</li><li>陶哲轩的担忧属于专家判断，提供了评价研究价值的视角，但不是关于 swarm 效率或知识损失的定量测量。</li></ul>
-<h2 id="h848">对 swarm scaling 的意义</h2>
+<h2 id="h836">对 swarm scaling 的意义</h2>
 <p>材料呈现了一种值得研究的扩展模式：并行探索、跨组汇总、按中间成果重新分配资源，再进行集中验证。但单次成功声明缺少小规模对照、消融实验和成本数据，无法证明增加 agent 数量带来了多大的净收益。</p>
 <p>它也提示，swarm 的评价不应只看完成速度与最终答案，还应考察可复用方法、探索记录和人类可理解性。这里体现的是规模化研究的评价问题，而非已经得到验证的扩展规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

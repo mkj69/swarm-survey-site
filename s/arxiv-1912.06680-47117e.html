@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dota 2 with Large Scale Deep Reinforcement Learning</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Dota 2 with Large Scale Deep Reinforcement Learning</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>OpenAI et al.</dd><dt>日期</dt><dd>2019-12-13</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1912.06680" target="_blank" rel="noopener">https://arxiv.org/abs/1912.06680</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>OpenAI Five 说明协调来自大规模联合训练，而非推理时临时组队。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2993">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Dota 2 with Large Scale Deep Reinforcement Learning</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>OpenAI et al.</dd><dt>日期</dt><dd>2019-12-13</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1912.06680" target="_blank" rel="noopener">https://arxiv.org/abs/1912.06680</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>OpenAI Five 说明协调来自大规模联合训练，而非推理时临时组队。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2941">一句话</h2>
 <p>OpenAI Five 展示了共享策略经大规模自博弈训练形成团队协作的能力，但没有证明增加推理时的智能体数量就能提升表现。</p>
-<h2 id="h2994">主要内容</h2>
+<h2 id="h2942">主要内容</h2>
 <ul><li>五名英雄由同一策略网络的副本控制，参数共享，各自保留独立记忆状态；输入信息几乎相同，通过英雄身份区分行动。协作建立在共同训练和共享观测之上。</li><li>系统采用 PPO，以自博弈数据训练，结合胜负、资源获取等奖励。工程重点是并行生成对局、批量推理与同步优化，以及持续更新策略。</li><li>扩大批量能缩短训练时间，但收益低于线性：早期实验中，批量从约 12.3 万增至 98.3 万时间步，达到指定能力门槛的速度约提升 2.5 倍。</li><li>数据新鲜度影响很大。旧策略生成的数据会拖慢学习；样本重复使用两三次，在相关实验中即可造成约两倍的训练减速。</li><li>“Surgery”让模型在游戏规则、输入和网络结构改变后继续训练，减少重启成本；但最终环境下从头训练的 Rerun 表现更强，说明持续迁移仍有代价。</li></ul>
-<h2 id="h2995">证据与可信度</h2>
+<h2 id="h2943">证据与可信度</h2>
 <p>未读到全文：提供内容在相关工作部分截断，附录未包含。</p>
 <p>结果来自研究团队自报的比赛记录与训练实验，所给材料没有独立核验。对 OG 的成绩为 2∶0；公开挑战中共进行 7,257 局、输掉 42 局，得到约 99.4% 胜率。但 7,215 场胜局中有 3,140 场来自对手退出，不能将该比例直接视为完整对局胜率。</p>
 <p>批量、数据陈旧度与样本复用结论来自早期、小规模对照实验，不能直接推广到全部训练阶段；不同批量也未分别调优超参数。若干系统设计缺少完整消融。</p>
 <p>评测还有边界：仅支持 17 名英雄，禁用部分多单位控制机制，部分操作依赖脚本；输入为结构化游戏信息，并非屏幕像素。</p>
-<h2 id="h2996">对 swarm scaling 的意义</h2>
+<h2 id="h2944">对 swarm scaling 的意义</h2>
 <p>这项工作应归入“扩大训练规模以获得协作”，而非“增加智能体数量”的证据：队伍规模固定，没有展示成员数量与能力之间的增长关系。</p>
 <p>可借鉴的是系统条件：共享策略、角色区分、共同奖励，以及及时的数据和参数流转。它提示，扩大并行采样量需要配套优化吞吐和数据质量，否则更多算力可能只带来有限收益。对临时组队的语言模型 swarm，这些属于设计启发，尚非效果验证。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

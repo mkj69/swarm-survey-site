@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HN thread mirror: Harness engineering</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>HN thread mirror: Harness engineering</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hacker News mirror</dd><dt>日期</dt><dd>2026-06-05</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://hn.jakechampion.name/item/48416264" target="_blank" rel="noopener">https://hn.jakechampion.name/item/48416264</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>本次实际读取的讨论镜像，用于核对评论内容。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1593">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>HN thread mirror: Harness engineering</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hacker News mirror</dd><dt>日期</dt><dd>2026-06-05</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://hn.jakechampion.name/item/48416264" target="_blank" rel="noopener">https://hn.jakechampion.name/item/48416264</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>本次实际读取的讨论镜像，用于核对评论内容。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1561">一句话</h2>
 <p>这场讨论把 agent 编程的规模问题，从“能生成多少代码”转向“能否用验证、上下文管理和集成机制，把大量生成转化为可靠交付”。</p>
-<h2 id="h1594">主要内容</h2>
+<h2 id="h1562">主要内容</h2>
 <ul><li>讨论围绕 OpenAI 的工程案例展开：原文引述称，团队约五个月形成百万行仓库，合并约 1500 个 PR，工程师从三人增至七人。争议集中在代码量、PR 数与产品价值之间缺少直接对应关系。</li><li>自称原文作者的 zbrock 补充：项目主要是 Electron 应用及少量托管后端，属于类似当前 Codex 应用的内部原型，并影响了后续产品。工程师的主要工作是调整技能、文档和提示，对不达标的运行结果直接弃用；他估计超过一半未达标准。</li><li>并发集成并未消失，而是引入更多自动化处理：作者提到，部分团队尝试由 agent 协调的集中集成队列，也使用普通合并队列及监控 CI、处理冲突的 Codex 会话。</li><li>实践者强调可执行验证、架构约束、独立工作环境与仓库内工作记录。另一些人提醒，小文件和按需读取可能减少无关上下文，但日志中的旧错误、过期文档也可能误导后续会话。</li><li>成本与 CI 负载被明确提为自主运行的限制。评论同时质疑：维护 harness 是否真正改善交付，还是形成了另一层需要持续调试的系统。</li></ul>
-<h2 id="h1595">证据与可信度</h2>
+<h2 id="h1563">证据与可信度</h2>
 <ul><li>百万行、约 1500 个 PR、每人每天 3.5 个 PR，均来自讨论引用的厂商案例，并非论坛独立测量。材料缺少完整工时、人数变化及统计口径，无法重算人均吞吐，也无法据此推导效率倍数。</li><li>评论用百万行除以 1500 个 PR，得到每个 PR 约 650 行的粗略估算；这混合了仓库存量与变更次数，不能作为实际 PR 大小或质量指标。与 Firefox 的比较也存在范围不一致问题。</li><li>作者身份在本材料中未经独立核验，其回复属于当事人自述；其他工作流、成本瓶颈和小文件收益主要是个人经验。虽有公开仓库链接，材料未提供审计结果。</li><li>当前依据是讨论镜像文本，未读到被讨论文章全文；没有受控实验、完整成本数据或长期质量追踪。</li></ul>
-<h2 id="h1596">对 swarm scaling 的意义</h2>
+<h2 id="h1564">对 swarm scaling 的意义</h2>
 <p>它提供了扩展工程的候选机制，而非 agent 数量增加就能提高净产出的证明：隔离环境降低资源冲突，集成队列处理并发提交，自动验证承担部分检查，上下文整理支持跨会话延续。</p>
 <p>值得继续验证的是：扣除失败运行、返工、审查、集成和维护成本后，增加 agent 能否提升合格交付。材料显示这些成本确实存在，但没有给出 agent 数量与净收益的关系，不能据此宣称 swarm 已实现线性或超线性扩展。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

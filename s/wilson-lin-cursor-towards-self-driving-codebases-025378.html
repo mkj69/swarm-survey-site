@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Towards self-driving codebases</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards self-driving codebases</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Wilson Lin (Cursor)</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cursor.com/blog/self-driving-codebases" target="_blank" rel="noopener">https://cursor.com/blog/self-driving-codebases</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>详述六次架构迭代及放弃逐提交正确性的取舍。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2381">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards self-driving codebases</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Wilson Lin (Cursor)</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cursor.com/blog/self-driving-codebases" target="_blank" rel="noopener">https://cursor.com/blog/self-driving-codebases</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>详述六次架构迭代及放弃逐提交正确性的取舍。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2337">一句话</h2>
 <p>Cursor 的浏览器实验表明，多智能体扩展的关键在于分层责任、异步反馈与容错，而提交吞吐的提升依赖于放宽逐次提交的正确性要求。</p>
-<h2 id="h2382">主要内容</h2>
+<h2 id="h2338">主要内容</h2>
 <ul><li>架构经历多轮试错：平级智能体共享协调文件造成锁竞争、责任分散；规划者、执行者、评审者的分工改善了协作，却受最慢工人和静态计划拖累；持续执行者又因兼任规划、编码、合并等职责而过载。</li><li>最终采用递归规划树：根规划者负责整体目标，子规划者负责局部范围，均不直接编码；工人在各自仓库副本中完成任务，通过交接报告向上反馈，推动持续重规划，减少全局同步。</li><li>中央集成者也被移除，因为数百名工人的成果都需通过同一入口，形成吞吐瓶颈。</li><li>团队放弃每次提交都完全正确的要求，容忍短暂错误与局部冲突，依靠后续任务修复。作者提出发布前仍需生成通过检查的分支；这属于建议，并非已展示的发布保障。</li><li>编译、磁盘和共享锁成为基础设施瓶颈；拆分单体项目后，作者观察到编译等待减少、吞吐提高。目标说明同样重要：性能、依赖边界和优先级若未明确，更多计算也会放大方向偏差。</li></ul>
-<h2 id="h2383">证据与可信度</h2>
+<h2 id="h2339">证据与可信度</h2>
 <ul><li>数字均来自 Cursor 团队自报：共享锁使 <strong>20 个智能体</strong>退化到约 <strong>1—3 个</strong>的吞吐；一周运行涉及 <strong>1000 万次工具调用</strong>，提交速率峰值约 <strong>每小时 1000 次</strong>。峰值不能当作整周平均值，也不能据此推算总提交量。</li><li>文中的“数千智能体参与”与“多数运行峰值数百智能体”口径不同，不能解读为数千智能体同时在线。</li><li>这是内部研究项目的工程复盘，浏览器并非面向外部使用的成品。所给材料未提供独立核验、完整扩展曲线、成本对照或标准化质量评测。</li><li>“错误率小且稳定”“有效线性扩展”主要是团队观察与判断，缺少量化定义。提交数和工具调用数也不能直接代表有效功能产出。</li></ul>
-<h2 id="h2384">对 swarm scaling 的意义</h2>
+<h2 id="h2340">对 swarm scaling 的意义</h2>
 <p>这份材料提供了明确的设计假设：通过递归拆分责任、限制角色负担和异步交接，降低协调成本；通过容忍局部失败，避免所有工作被同一质量门槛串行化。</p>
 <p>其局限同样关键：它展示了特定项目中持续推进的可能性，尚未证明增加计算能同比增加可靠产出。评估 swarm scaling 时，应把质量、修复开销、编译等待和最终可交付状态一起计入，而不能只看提交吞吐。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kimi AI review</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi AI review</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>TechRadar</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://techradar.com/pro/kimi-ai-review" target="_blank" rel="noopener">https://techradar.com/pro/kimi-ai-review</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>独立评测提示子任务可能静默失败，但正文未能读取。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3305">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi AI review</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>TechRadar</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://techradar.com/pro/kimi-ai-review" target="_blank" rel="noopener">https://techradar.com/pro/kimi-ai-review</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>独立评测提示子任务可能静默失败，但正文未能读取。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3249">一句话</h2>
 <p>这篇评测最有价值的发现是：Kimi Agent Swarm 的部分子任务会返回不完整结果却不主动标记，提示扩大并行规模时，结果完整性检查同样关键。</p>
-<h2 id="h3306">主要内容</h2>
+<h2 id="h3250">主要内容</h2>
 <ul><li>元数据称正文未能读取，但本次提供的内容已包含体验、功能、定价与测试方法，可以依据正文分析。</li><li>评测者使用 Allegretto 套餐进行竞争研究，认为 Agent Swarm 表现尚可，但编排过程不够透明，部分子任务结果不完整，需要人工核验。</li><li>文章称系统最多协调 300 个并行子代理、执行 4,000 个协调步骤；Agent Swarm 从每月 39 美元的套餐开放。这些是产品能力与套餐描述，并非评测验证的实际运行规模。</li><li>长文档交叉分析和代码重构体验总体积极，但文章没有证明这些表现来自 swarm，也未比较单代理与多代理的效果差异。</li></ul>
-<h2 id="h3307">证据与可信度</h2>
+<h2 id="h3251">证据与可信度</h2>
 <ul><li>静默返回不完整结果属于第三方评测者的亲身观察。正文说明了任务类型及所用套餐，但没有提供原始输出、任务数量、重复次数或判定标准，因此只能支持“出现过此类问题”，不能估计发生概率。</li><li>300 个子代理、4,000 个步骤是文章转述的产品规格；未展示满规模测试或独立核验。</li><li>文中提到 K2.5 工具调用失败率约为 12%，但使用的是转述语气，未交代来源、样本和统计口径；不能将其当作当前版本的失败率，也不能据此量化改进幅度。</li><li>文章列出测试方法，但没有公开基准数据；发布日也未在元数据中给出，版本与价格仅代表材料中的描述。</li></ul>
-<h2 id="h3308">对 swarm scaling 的意义</h2>
+<h2 id="h3252">对 swarm scaling 的意义</h2>
 <p>这份材料提供的是可靠性警示，而非规模收益证明。子任务若在不完整时仍看似正常结束，汇总结果就可能掩盖遗漏。由此可推导出，扩展 swarm 时应检查每个子任务的完成条件、证据覆盖及异常标记，并保留复核环节。</p>
 <p>材料没有测量代理数量增加后，质量、耗时、成本和失败率如何变化。因此，“支持 300 个代理”只能说明宣称的容量，不能证明增加代理能带来稳定收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

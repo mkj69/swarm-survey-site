@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Manage costs effectively</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Manage costs effectively</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Anthropic</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">https://code.claude.com/docs/en/costs</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出计划模式下约7倍token的官方数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3197">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Manage costs effectively</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Anthropic</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">https://code.claude.com/docs/en/costs</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出计划模式下约7倍token的官方数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3141">一句话</h2>
 <p>Anthropic 官方文档称，队友处于计划模式时，Claude Code agent teams 的 token 用量约为普通会话的 7 倍；这是特定使用条件下的成本提示，不能直接当作 swarm 的普遍扩展规律。</p>
-<h2 id="h3198">主要内容</h2>
+<h2 id="h3142">主要内容</h2>
 <ul><li>多个队友分别运行 Claude 实例，各自维护上下文；总 token 用量随活跃队友数量及运行时长增长，文档将其描述为与团队规模大致成正比。</li><li>控制团队成本的建议包括：缩小团队、明确任务边界、精简启动提示，并在任务结束后关闭队友。队友还会自动加载项目说明、MCP 服务和技能，存在上下文负担。</li><li>子代理可把测试、日志、文档等冗长内容留在自己的上下文，只向主会话返回摘要；但子代理请求仍计入总用量，主会话变短不代表整体更省。</li><li>成本还受模型、上下文长度、缓存命中和后台请求影响。因此，token 总量与最终账单不能简单等同。</li></ul>
-<h2 id="h3199">证据与可信度</h2>
+<h2 id="h3143">证据与可信度</h2>
 <ul><li>“约 7 倍”来自 Anthropic 产品文档，限定条件是队友运行于计划模式。材料未披露任务集、队友数量、普通会话基线、重复次数或误差范围，属于厂商给出的近似数字，缺少可复现实验及独立核验。</li><li>“与团队规模大致成正比”是官方机制说明，材料没有提供不同规模的实测曲线，也未报告成功率或耗时收益。</li><li>文档中的缓存统计明确只覆盖主会话，不含子代理；订阅用量归因则来自本机历史的近似计算。评估多代理成本时，需要先确认统计口径是否覆盖全部代理。</li><li>抓取文本末尾截断于网站配置，正文包含相关成本段落；发布日期未提供，无法据此确定这些数字的版本适用范围。</li></ul>
-<h2 id="h3200">对 swarm scaling 的意义</h2>
+<h2 id="h3144">对 swarm scaling 的意义</h2>
 <p>这份材料提供的是扩容的成本约束，而非扩容有效性的证据。增加代理会增加独立上下文与请求，但材料没有证明这些开销能换来多少质量或速度收益。</p>
 <p>对调研最有用的启示是：同时记录团队规模、运行时长、全体代理 token、缓存及模型配置，再与任务成功率和完成时间比较。“约 7 倍”可作为试点预算的参考，不能据此推算任意规模 swarm 的成本或收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

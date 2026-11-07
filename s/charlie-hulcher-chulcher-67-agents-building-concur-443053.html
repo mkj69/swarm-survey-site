@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>67 agents building concurrently; hardest part is keeping them on task</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>67 agents building concurrently; hardest part is keeping them on task</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Charlie Hulcher (@chulcher)</dd><dt>日期</dt><dd>2026-02-20</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/chulcher/status/2024710896397021223" target="_blank" rel="noopener">https://x.com/chulcher/status/2024710896397021223</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L6 V629</dd><dt>收录理由</dt><dd>小号自报67个并发 agent，瓶颈是人做路由、PR 无人审、CI 夜间红灯无人理（低传播量）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2289">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>67 agents building concurrently; hardest part is keeping them on task</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Charlie Hulcher (@chulcher)</dd><dt>日期</dt><dd>2026-02-20</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/chulcher/status/2024710896397021223" target="_blank" rel="noopener">https://x.com/chulcher/status/2024710896397021223</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L6 V629</dd><dt>收录理由</dt><dd>小号自报67个并发 agent，瓶颈是人做路由、PR 无人审、CI 夜间红灯无人理（低传播量）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2245">一句话</h2>
 <p>并发扩到数十个 agent 后，作者感受到的主要瓶颈是任务衔接与监督。</p>
-<h2 id="h2290">主要内容</h2>
+<h2 id="h2246">主要内容</h2>
 <ul><li>自报某日早晨有67个 agent 同时构建，人需不断检查、催办和对齐上下文。</li><li>PR待审、CI失败及任务完成后缺少响应。</li><li>以 OrgLoop 声明事件源、角色、路由和流程，让监督 agent 接续工作，人处理升级事项。</li></ul>
-<h2 id="h2291">证据与可信度</h2>
+<h2 id="h2247">证据与可信度</h2>
 <p>67来自作者自报，未说明统计口径；“数十亿 token”也无账单佐证。生产运行及少数团队使用均为项目方陈述，无独立核验或对照测量。</p>
-<h2 id="h2292">对 swarm scaling 的意义</h2>
+<h2 id="h2248">对 swarm scaling 的意义</h2>
 <p>案例提示扩容需要事件驱动的协调闭环；但未证明监督层能提高吞吐或降低成本，组织设计仍需人工维护。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The 2026-07-28 Specification</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The 2026-07-28 Specification</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>MCP Project</dd><dt>日期</dt><dd>2026-07-28</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener">https://blog.modelcontextprotocol.io/posts/2026-07-28/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>MCP 转向无状态并给出约五亿月下载量，对扩展至关重要。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1253">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The 2026-07-28 Specification</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>MCP Project</dd><dt>日期</dt><dd>2026-07-28</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener">https://blog.modelcontextprotocol.io/posts/2026-07-28/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>MCP 转向无状态并给出约五亿月下载量，对扩展至关重要。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1233">一句话</h2>
 <p>MCP 此次更新把工具调用的协议核心改为无状态请求响应，为大量 agent 共享工具服务减少会话管理负担，但没有证明 swarm 的任务效果会随规模提升。</p>
-<h2 id="h1254">主要内容</h2>
+<h2 id="h1234">主要内容</h2>
 <ul><li>取消初始化握手与协议会话标识；请求自行携带版本、客户端身份和能力，可分发到负载均衡器后的任意实例。应用仍可保留状态，但需用显式句柄在调用间传递。</li><li>MRTR 将调用中途的确认、补充参数等交互改为“返回所需输入，再携答案重试”，减少对持续双向连接的依赖。</li><li>方法与工具名进入 HTTP 请求头，便于网关路由、鉴权和计量；列表等响应增加缓存提示，工具目录提供确定顺序，以减少重复获取并稳定提示词缓存。</li><li>Tasks 转为扩展，提供轮询和更新接口；授权机制强化发行方校验与凭据隔离，并推进从 DCR 向 CIMD 迁移。</li><li>发布配套 SDK 和迁移说明；废弃功能设有至少十二个月的过渡期，依赖旧会话机制的实现需要调整。</li></ul>
-<h2 id="h1255">证据与可信度</h2>
+<h2 id="h1235">证据与可信度</h2>
 <p>这是项目官方发布说明，能够支持“发布方宣布了哪些协议变化”，但所给材料没有独立测试或规范实现核验。</p>
 <p>月下载量接近五亿，指 Tier 1 SDK 的合计下载次数；TypeScript、Python SDK 各累计超过十亿次，均为项目自报。材料未交代统计窗口、去重和自动化下载处理方式，不能据此推算用户、agent 或生产部署数量。</p>
 <p>合作方还自报：Honeycomb 近 20% 的月度交互查询来自 agent；Manufact 包体积约减少 83%、速度提升 25%。后者归因于新版 SDK 的客户端与服务端拆分，未给测试条件，不能归为无状态协议的普遍收益。多家企业背书提供采用线索，但不等于独立验证。</p>
-<h2 id="h1256">对 swarm scaling 的意义</h2>
+<h2 id="h1236">对 swarm scaling 的意义</h2>
 <p>价值主要在工具服务层：任意实例接收请求、按请求头治理流量、缓存工具目录，有望降低并发 agent 扩容时的连接与会话协调成本；MRTR 则使需要人工输入的工具交互更适配无状态部署。</p>
 <p>状态复杂性并未消失，而是更多转移到显式句柄和应用逻辑。材料没有报告 agent 数量增长下的吞吐、延迟、成本或任务成功率，因此它支持基础设施更易扩展的判断，尚不足以证明 swarm 协作效率或智能收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

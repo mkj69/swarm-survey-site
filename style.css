@@ -72,6 +72,24 @@ body.m-en .pair .zh,body.m-en .bh .zh{display:none}
 body.m-en .pair{display:inline;margin:0}body.m-en .pair .en{display:inline;font-size:16.5px;color:var(--fg);line-height:1.75}
 body.m-en .bh .en{font-size:1.2em;font-weight:700;color:var(--fg)}
 .pair:hover .zh,.pair:hover .en{background:var(--mark)}
+/* paper reader: paragraph = English block, then Chinese block */
+.reader .para{margin:0 0 1.6em}
+.p-en{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.7;color:var(--fg);opacity:.86}
+.p-zh{margin-top:.55em;padding-left:12px;border-left:3px solid var(--accent-bg);line-height:1.9}
+.p-zh .s.missing{color:var(--muted);font-style:italic}
+.s.hl{background:var(--mark);border-radius:3px}
+.para.cap{font-size:14.5px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-top:-.4em}
+.para.cap .p-en{font-size:14px}
+.reader .bh{margin:2.2em 0 .7em}.reader .bh .en{display:block;font-size:1.2em;font-weight:700;color:var(--fg);font-family:Georgia,serif}.reader .bh .zh{display:block;font-size:1.05em;font-weight:600;color:var(--accent)}
+figure.pfig{margin:1.4em 0 .8em;text-align:center}figure.pfig img{max-width:100%;height:auto;background:#fff;border-radius:6px;border:1px solid var(--line)}
+.eq{overflow-x:auto;margin:1em 0;text-align:center}
+table.ptable td,table.ptable th{white-space:nowrap;font-size:13.5px}
+pre.praw{font-size:13px;white-space:pre-wrap}
+body.m-para .p-sent{display:none}
+body.m-sent .p-en,body.m-sent .p-zh{display:none}
+body.m-sent .pair{margin:0 0 .7em}body.m-sent .pair .en{font-family:Georgia,serif;font-size:15px;color:var(--fg);opacity:.86}body.m-sent .pair .zh{padding-left:12px;border-left:3px solid var(--accent-bg)}
+body.m-zh .p-en,body.m-zh .p-sent,body.m-zh .reader .bh .en{display:none}body.m-zh .p-zh{border:0;padding:0;margin:0}
+body.m-en .p-zh,body.m-en .p-sent,body.m-en .reader .bh .zh{display:none}body.m-en .p-en{opacity:1}
 /* source browser */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 8px;position:sticky;top:52px;background:var(--bg);padding:8px 0;z-index:4}
 .filters input,.filters select{font:inherit;font-size:15px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}

@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SocioVerse: A World Model for Social Simulation Powered by LLM Agents and A Pool of 10 Million Real-World Users</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>SocioVerse: A World Model for Social Simulation Powered by LLM Agents and A Pool of 10 Million Real-World Users</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Xinnong et al.</dd><dt>日期</dt><dd>2025-04-14</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2504.10157" target="_blank" rel="noopener">https://arxiv.org/abs/2504.10157</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>SocioVerse 以千万用户池校准模拟，代表规模化对齐路线。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2829">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>SocioVerse: A World Model for Social Simulation Powered by LLM Agents and A Pool of 10 Million Real-World Users</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Xinnong et al.</dd><dt>日期</dt><dd>2025-04-14</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2504.10157" target="_blank" rel="noopener">https://arxiv.org/abs/2504.10157</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>SocioVerse 以千万用户池校准模拟，代表规模化对齐路线。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2781">一句话</h2>
 <p>SocioVerse 的核心是用真实用户数据与人口分布校准社会模拟；千万级用户池并不等于千万个 agent 同时交互，更不构成 swarm 性能随规模提升的证据。</p>
-<h2 id="h2830">主要内容</h2>
+<h2 id="h2782">主要内容</h2>
 <ul><li>框架将对齐拆成环境、用户、场景和行为四部分：提供现实背景、构建用户画像、组织模拟流程，再生成个体行为。</li><li>用户池据称覆盖来自 X、小红书等平台的 1000 万用户。画像通过多模型标注、人工核验及分类器扩展，涵盖 15 类属性；这些属性多由帖子推断，并非用户直接提供。</li><li>实验覆盖美国总统选举、ChatGPT 发布后的新闻态度、中国居民消费调查。作者报告，人口分布先验与用户历史帖子有助于改善选举模拟，且不同模型在不同任务中的表现有差异。</li><li>框架设计包含访谈、行为实验和社交网络互动，但作者承认当前只实现部分功能，现有验证主要围绕问卷式模拟。</li></ul>
-<h2 id="h2831">证据与可信度</h2>
+<h2 id="h2783">证据与可信度</h2>
 <p>未读到全文：提供内容在附录处截断，多张关键表格只有标题，没有数值。</p>
 <p>“1000 万”是作者报告的数据池规模，不能据此推算实际运行的 agent 数、并发量或交互量。选举实验按美国人口的千分之一抽样；正文称州胜负预测正确率超过 90%，这是作者实验自报，缺少表格明细，无法核查模型差异与误差幅度。</p>
 <p>人口校准也有局限：附录称 IPF 在多数情况下未收敛，但 918 个边际项中有 888 个与目标的差距小于 5%。这说明边际拟合较接近，不能证明联合分布准确。</p>
 <p>新闻实验的“真值”由讨论过 ChatGPT 的真实用户集合所对应的 LLM agent 回答问卷得到，并非直接收集真人问卷。因此，其一致性部分反映模型对两组用户画像的模拟一致性。经济实验采用官方统计作参照，但材料未展示具体误差值。所给内容未提供独立核验。</p>
-<h2 id="h2832">对 swarm scaling 的意义</h2>
+<h2 id="h2784">对 swarm scaling 的意义</h2>
 <p>它代表的是“扩大可采样人群并校准组成”的路线：规模的价值在于覆盖异质用户，而可信度仍依赖画像质量、抽样分布及现实参照。</p>
 <p>材料没有展示随 agent 数增长的性能曲线、通信开销或协作收益。框架虽提出结合规则模型与 LLM，也尚不足以证明大规模混合系统的实际扩展效率。对 swarm 研究更直接的启示是：增加数量之外，还要检验群体是否具有代表性，以及评估基准是否真正独立于模拟模型。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

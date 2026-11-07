@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Large Language Model based Multi-Agents: A Survey of Progress and Challenges</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Large Language Model based Multi-Agents: A Survey of Progress and Challenges</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Guo, Taicheng, Chen, Xiuying, Wang, Yaqi et al.</dd><dt>日期</dt><dd>2024-01-21</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.01680" target="_blank" rel="noopener">https://arxiv.org/abs/2402.01680</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>较早的大模型多智能体综述，可作为背景分类和资源索引。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2953">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Large Language Model based Multi-Agents: A Survey of Progress and Challenges</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Guo, Taicheng, Chen, Xiuying, Wang, Yaqi et al.</dd><dt>日期</dt><dd>2024-01-21</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.01680" target="_blank" rel="noopener">https://arxiv.org/abs/2402.01680</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>较早的大模型多智能体综述，可作为背景分类和资源索引。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2905">一句话</h2>
 <p>这篇综述提供了理解大模型多智能体系统的分类框架，但所给内容不足以证明“智能体越多，系统越强”。</p>
-<h2 id="h2954">主要内容</h2>
+<h2 id="h2906">主要内容</h2>
 <ul><li>以环境接口、角色设定、通信方式和能力获取为主线，拆解多智能体系统的设计。</li><li>将应用分为问题求解与世界模拟：前者包括软件开发、机器人协作和科学辩论，后者包括社会、游戏、经济及推荐场景。</li><li>区分合作、辩论、竞争等交互方式，以及分层、去中心化、中心化、共享消息池等通信结构。角色可以由设计者指定、模型生成或数据构造。</li><li>能力调整包括利用记忆、根据反馈修改策略或训练模型，以及运行时生成新智能体。作者同时指出，数量增加会使编排管理更加复杂。</li><li>文中介绍了动态选择智能体、提前停止、按角色订阅消息等机制，为控制协作开销提供设计线索。</li></ul>
-<h2 id="h2955">证据与可信度</h2>
+<h2 id="h2907">证据与可信度</h2>
 <ul><li><strong>未读到全文</strong>：材料在政策制定部分中途截断，未提供后续挑战讨论、完整资源章节及参考文献；解读仅依据已给内容。</li><li>这是文献综述，分类属于作者的整理，性能结论主要转述被引研究，并非本文统一复现实验的结果。</li><li>社会模拟规模包括生成式智能体社区的 <strong>25</strong> 个智能体、Social Simulacra 的 <strong>1,000</strong> 个人设，以及两类话题网络的 <strong>8,563</strong> 和 <strong>17,945</strong> 个智能体。这些是不同研究报告的规模，不能拼接为同一系统的扩展曲线。</li><li>图注称按三个月间隔统计论文数量，但所给文本缺少图中具体数据。材料也未给出随规模变化的成本、延迟或成功率测量，未见独立核验信息。</li></ul>
-<h2 id="h2956">对 swarm scaling 的意义</h2>
+<h2 id="h2908">对 swarm scaling 的意义</h2>
 <p>它适合作为调研的分类底座：比较规模前，应先区分任务、角色差异、通信结构和反馈来源。尤其要区分“模拟更多个体”与“更多个体协作提升解题能力”；文中部分心理及推荐模拟中的智能体彼此并不通信。</p>
 <p>材料提示，规模扩展需要同时研究编排与通信机制。动态生成智能体说明系统可以按需增加角色，但能否获得净收益，仍需受控实验衡量质量提升与新增开销；这段材料尚未给出这样的证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

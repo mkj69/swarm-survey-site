@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-Agent Collaboration via Evolving Orchestration</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Collaboration via Evolving Orchestration</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Dang, Yufan, Qian, Chen, Luo, Xueheng et al.</dd><dt>日期</dt><dd>2025-05-26</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2505.19591" target="_blank" rel="noopener">https://arxiv.org/abs/2505.19591</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用强化学习训练中心编排者，显示紧凑的循环结构能降低协调成本。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2813">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Collaboration via Evolving Orchestration</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Dang, Yufan, Qian, Chen, Luo, Xueheng et al.</dd><dt>日期</dt><dd>2025-05-26</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2505.19591" target="_blank" rel="noopener">https://arxiv.org/abs/2505.19591</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用强化学习训练中心编排者，显示紧凑的循环结构能降低协调成本。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2765">一句话</h2>
 <p>这篇论文把多智能体扩展的重点从“增加参与者”转向“学习如何调度”：通过强化学习训练中心编排者，逐步形成更紧凑、可反复反馈的推理结构。</p>
-<h2 id="h2814">主要内容</h2>
+<h2 id="h2766">主要内容</h2>
 <ul><li>Puppeteer 根据任务当前状态选择下一位智能体；智能体可由不同基础模型、提示策略和工具组合而成，协作结构随推理过程生成。</li><li>编排策略使用 REINFORCE 更新，奖励同时考虑答案质量与计算成本，鼓励选择有效且低成本的智能体，并适时终止推理。</li><li>实验覆盖数学、知识问答、软件开发和概念生成任务，比较异构模型池与同模型配置。作者报告，演化后的策略总体表现更好，且多数设置的 token 消耗下降。</li><li>节省成本的路径存在差异：较强模型池更多依靠提前结束推理；较弱模型池则更多依靠选择低成本智能体。附录也承认，部分设置没有持续降耗。</li><li>作者观察到，训练后协作集中于较少的活跃节点，循环反馈增多；扩大探索宽度或推理深度并不保证收益，可能增加冗余并降低表现。</li></ul>
-<h2 id="h2815">证据与可信度</h2>
+<h2 id="h2767">证据与可信度</h2>
 <p>这些结论属于论文作者的实验报告，所给材料没有独立复现证据。作者称基线在相同设置下重跑，但当前文本缺少表格数值和图像，无法核对全部比较与成本降幅。</p>
 <p>文中明确给出：Titan 配置平均得分由 0.6893 升至 0.7731，相减为 0.0838；这是跨任务平均分，不能直接理解为某个任务准确率的提升。附录称优化样本数为 200，并承认部分任务的性能／成本比没有明显改善。</p>
 <p>未读到全文：抓取在附录 A.3 开头截断，部分公式也缺失。紧凑结构、循环增多与性能改善是作者观察到的关联，现有片段不足以证明其独立因果作用。token 降低也不能直接等同于训练与推理总成本降低。</p>
-<h2 id="h2816">对 swarm scaling 的意义</h2>
+<h2 id="h2768">对 swarm scaling 的意义</h2>
 <p>它支持一种“选择性扩展”思路：扩大候选能力池，同时学习减少实际调用和无效交互，而非让更多智能体持续参与。反复调用少数有效节点，可能比不断扩张协作网络更划算。</p>
 <p>但这不是大规模 swarm 的扩展定律。材料没有展示智能体数量持续增加时的系统性收益曲线，也未充分核算编排与训练开销；中心编排的吞吐瓶颈仍待验证。更稳妥的启示是：把调度、停止条件和反馈回路作为需要优化的变量。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>When Agents Evolve, Institutions Follow</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>When Agents Evolve, Institutions Follow</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Fei, Chao et al.</dd><dt>日期</dt><dd>2026-04-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2604.27691" target="_blank" rel="noopener">https://arxiv.org/abs/2604.27691</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>把政治制度转成多智能体架构，发现治理拓扑差距超过 57 个百分点。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1857">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>When Agents Evolve, Institutions Follow</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Fei, Chao et al.</dd><dt>日期</dt><dd>2026-04-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2604.27691" target="_blank" rel="noopener">https://arxiv.org/abs/2604.27691</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>把政治制度转成多智能体架构，发现治理拓扑差距超过 57 个百分点。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1821">一句话</h2>
 <p>这篇论文把历史制度转为可执行的多智能体架构，表明组织方式会显著影响成绩，但优势取决于模型与任务，不能据此选出通用最优制度。</p>
-<h2 id="h1858">主要内容</h2>
+<h2 id="h1822">主要内容</h2>
 <ul><li>SocialSystemArena 将七种历史制度映射为流水线、带审核回路的流水线、自治集群和共识四类架构，加上单智能体基线，在三个模型、两个基准上比较。</li><li>在 PinchBench 上，各模型的最佳架构不同：MiniMax 对应唐三省制，Kimi 对应蒙古帝国，Gemini 对应江户幕藩制。同一审核架构可能帮助一个模型，也可能拖垮另一个。</li><li>审核失败有两种机制：反复退回修改，耗尽执行预算；直接否决并终止，减少完成机会。Kimi 的唐制实验中，23 个任务有 18 个触及 32 步上限。</li><li>更复杂的 ClaweBench 上，架构间分差明显缩小，普通流水线相对更好。作者据此提出按任务和模型选择治理结构，但尚未实现动态演化。</li></ul>
-<h2 id="h1859">证据与可信度</h2>
+<h2 id="h1823">证据与可信度</h2>
 <p>这是作者报告的基准实验，所给材料包含正文和附录，但未提供独立复现或核验。</p>
 <p>“成功率”实际是任务评分的均值，允许部分得分，并非完全完成任务的比例。PinchBench 有 23 个任务；同一模型最高分减最低分，得到 MiniMax 的 57.1、Kimi 的 58.6、Gemini 的 60.5 个百分点。MiniMax 的最低项是单智能体基线，因此“制度差距超过 57 个百分点”需说明比较范围。ClaweBench 有 104 个任务，对应分差仅为 11.9、8.2、9.7 个百分点；正文将第一项写成 11.8，与表格相减不符。</p>
 <p>因果解释也有限：治理规格同时包含拓扑、角色提示、阶段和功能插件，实验比较的是整套架构，不能把全部差异归于连线方式。材料未报告重复运行、置信区间或显著性检验；审核密度的预测力也缺少充分消融支持。</p>
-<h2 id="h1860">对 swarm scaling 的意义</h2>
+<h2 id="h1824">对 swarm scaling 的意义</h2>
 <p>它支持把组织结构与模型能力一起优化：增加分工、审核和并行并不保证收益，协调机制本身可能制造成本与失败。</p>
 <p>但这不是智能体数量的扩展定律研究，没有系统扫描群体规模，也没有验证动态治理优于静态治理。更直接的启示是：用审核通过率、预算消耗和任务得分评估架构是否适配；自适应切换拓扑仍是待验证方向。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

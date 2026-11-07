@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MECoBench</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>MECoBench</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Liu et al.</dd><dt>日期</dt><dd>2026-06-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.31966" target="_blank" rel="noopener">https://arxiv.org/abs/2606.31966</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>具身协作基准，收益取决于协调复杂度。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1425">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>MECoBench</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Liu et al.</dd><dt>日期</dt><dd>2026-06-30</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.31966" target="_blank" rel="noopener">https://arxiv.org/abs/2606.31966</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>具身协作基准，收益取决于协调复杂度。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1401">一句话</h2>
 <p>MECoBench 表明，具身多智能体的扩容收益受协调成本限制：增加成员起初有效，继续扩容则可能因冲突和信息处理瓶颈而退化。</p>
-<h2 id="h1426">主要内容</h2>
+<h2 id="h1402">主要内容</h2>
 <ul><li>基准基于 VirtualHome 家庭模拟器，包含 8 类活动、96 个任务；每个任务分别设置并行与顺序协作，共 192 个测试用例，各含 2–7 个子目标。并行设置允许自由分工，顺序设置限制活动区域，要求跨区域交接物品。</li><li>多数模型加入第二个智能体后表现改善；在固定总行动预算下，团队从 1 人扩至 5 人总体呈倒 U 型。复杂任务中，多智能体的表现相对更稳定，但没有适用于所有模型的最佳人数。</li><li>小团队通常受益于领导者统一协调；人数增加后，去中心化广播更具竞争力。关闭通信会降低表现，顺序任务和较大团队受影响更明显。</li><li>共享记忆能降低 token 消耗、加快早期进展，但顺序任务的成功率反而下降。给领导者增加视觉输入也并非普遍有效，收益取决于模型处理视觉信息的能力。</li><li>缺少位置先验或加入错误位置时，双智能体仍有收益。主要失败包括重复操作，以及错误的“任务已完成”判断经通信传播，导致团队提前停止。</li></ul>
-<h2 id="h1427">证据与可信度</h2>
+<h2 id="h1403">证据与可信度</h2>
 <p>以上属于论文作者报告的模拟实验，未做独立核验。提供文本在附录提示词部分截断，未读到全文；多处图表只有说明，缺少具体数值，无法据此计算整体提升幅度或核对误差范围。</p>
 <p>192 个用例来自 96 个任务各运行两种协作设置。并行扩容实验固定总预算为 60 步，每个智能体分得 60/n 步，因此人数效应同时包含单体行动额度缩减。噪声实验注入额外 30% 的错误位置，并将总预算增至 80 步。</p>
 <p>作者报告，Qwen3-32B-VL 扩至 5 个智能体时，重复抓取率达 57.4%；这只是特定模型与设置的结果。协作行为由关键词规则识别，行为出现与否对应的成功率差异属于相关性，不能直接证明因果。基准规模较小，且限于室内模拟环境。</p>
-<h2 id="h1428">对 swarm scaling 的意义</h2>
+<h2 id="h1404">对 swarm scaling 的意义</h2>
 <p>这份材料支持把扩容看成“并行收益与协调负担的共同变化”，而非人数越多越好。评估应同时观察任务完成、通信成本和动作冲突，并区分可独立分工与必须同步交接的任务。</p>
 <p>工程上可据此提出待验证的选择：小团队集中协调，规模扩大时分散决策；松耦合任务尝试共享记忆，强时序依赖任务保留显式沟通，并核验关键完成声明。但实验最多覆盖 5 个智能体，不能据此推断大规模 swarm 的增长规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

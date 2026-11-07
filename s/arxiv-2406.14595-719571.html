@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Adversaries Can Misuse Combinations of Safe Models</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Adversaries Can Misuse Combinations of Safe Models</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Jones, Erik et al.</dd><dt>日期</dt><dd>2024-06-20</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.14595" target="_blank" rel="noopener">https://arxiv.org/abs/2406.14595</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>说明组合多个安全模型仍可实现滥用，是任务分解攻击的理论基础。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2893">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Adversaries Can Misuse Combinations of Safe Models</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Jones, Erik et al.</dd><dt>日期</dt><dd>2024-06-20</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.14595" target="_blank" rel="noopener">https://arxiv.org/abs/2406.14595</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>说明组合多个安全模型仍可实现滥用，是任务分解攻击的理论基础。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2845">一句话</h2>
 <p>单个模型因拒绝有害请求或能力不足而难以被滥用，不代表它们组合后仍然安全：任务分解能让不同模型的能力与行为互补。</p>
-<h2 id="h2894">主要内容</h2>
+<h2 id="h2846">主要内容</h2>
 <ul><li>论文研究两种组合方式：人工把任务拆成适合不同模型处理的部分；由弱模型提出相关良性任务，再利用强模型的解答辅助完成原始任务。</li><li>核心机制是强模型提供复杂但良性的能力，弱模型承担较简单的恶意部分。强模型无需直接输出恶意内容，整个流程也可能产生有害结果。</li><li>实验覆盖故意引入漏洞的代码、露骨图像、攻击脚本和模拟个性化操纵，并设置单次调用、同一模型内分解任务等基线，以区分异构组合与任务分解本身的贡献。</li><li>作者发现，组合效果往往随强、弱两端模型能力提升而增强；但更复杂的自适应代理与训练策略仍属未来方向。</li></ul>
-<h2 id="h2895">证据与可信度</h2>
+<h2 id="h2847">证据与可信度</h2>
 <ul><li>这是作者的实验结果，所给文本在讨论结尾截断，未读到全文及附录；未进行独立核验。</li><li>漏洞代码数据由模型生成：100 道题，每题配三种漏洞，共 300 个样例。Claude 3 Opus 与 Llama 2 70B 组合成功率为 43%，各自单独使用均不足 3%。成功要求功能与目标漏洞同时成立，但由 GPT-4 判定，并非全部经过真实执行或安全专家验证。</li><li>图像实验中，不现实环境任务的组合成功率为 30%，单模型均不超过 2%。作者对打乱顺序、隐藏生成来源的图像人工评判，但仍非独立标注。</li><li>攻击脚本实验含 130 个合成任务，组合最高为 22%，单模型最高为 11%，同样依赖 GPT-4 评判。</li><li>操纵实验使用历史虚假账号数据与 GPT-4 模拟反应，只能支持模拟环境内的比较，不能证明真实用户会被有效操纵。“完美对齐也可能助长滥用”是机制层面的推论，实验并未验证模型已完美对齐。</li></ul>
-<h2 id="h2896">对 swarm scaling 的意义</h2>
+<h2 id="h2848">对 swarm scaling 的意义</h2>
 <p>论文直接支持的是异构分工带来的能力与风险增益，而不是代理数量增加的规模定律。其关键提醒是：局部输出合规，不能推出端到端目标安全；模型间的互补性、任务路由和上下文传递都应进入评估。</p>
 <p>对 swarm 系统而言，应测试完整任务链，并在生态中出现新模型后重新评估组合风险。大规模同构群体、持续自主协作与随代理数量增长的风险曲线，本文尚未给出实证。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

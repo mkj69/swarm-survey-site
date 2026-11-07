@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Understanding Agent Scaling in LLM-Based Multi-Agent Systems via Diversity</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Understanding Agent Scaling in LLM-Based Multi-Agent Systems via Diversity</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Yang, Yingxuan, Qu, Chengrui, Wen, Muning et al.</dd><dt>日期</dt><dd>2026-02-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.03794" target="_blank" rel="noopener">https://arxiv.org/abs/2602.03794</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>从信息论推导性能受任务不确定性约束而非智能体数量约束，并证明异构比同构扩容更有效。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2425">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Understanding Agent Scaling in LLM-Based Multi-Agent Systems via Diversity</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Yang, Yingxuan, Qu, Chengrui, Wen, Muning et al.</dd><dt>日期</dt><dd>2026-02-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.03794" target="_blank" rel="noopener">https://arxiv.org/abs/2602.03794</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>从信息论推导性能受任务不确定性约束而非智能体数量约束，并证明异构比同构扩容更有效。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2381">一句话</h2>
 <p>这篇论文把多智能体扩容的关键从“增加人数”转向“增加互补证据”：异构配置能延缓收益饱和，但多样性本身不保证正确率。</p>
-<h2 id="h2426">主要内容</h2>
+<h2 id="h2382">主要内容</h2>
 <ul><li>作者用条件互信息描述智能体输出带来的“可用证据”：新增调用的价值取决于它补充了多少已有输出未包含的信息。同构智能体容易重复相似路径，因此数量增加后收益迅速下降。</li><li>理论上，可用证据不超过任务的条件熵 \(H(Y|X)\)；在理想化证据覆盖假设下，剩余不确定性随有效通道数 \(K\) 按几何速度下降。关键同时包括通道数量与证据互补程度。</li><li>提出无需真实标签的代理指标 \(K^{*}\)：对输出嵌入的余弦相似度矩阵做归一化，再计算熵有效秩，用来估计输出覆盖了多少不同语义方向。</li><li>实验比较同构、仅人格提示不同、仅模型不同、模型与人格均不同四种配置，涵盖投票和辩论。作者报告完全异构的两个智能体可达到或超过十六个同构智能体的表现。</li><li>作者也发现反例：部分配置的 \(K^{*}\) 上升而准确率下降。不同的错误路径同样会增加语义多样性，因此不能把指标升高直接当作能力提升。</li></ul>
-<h2 id="h2427">证据与可信度</h2>
+<h2 id="h2383">证据与可信度</h2>
 <p>未读到全文：提供内容覆盖主体与局限讨论，但附录中途截断，多处公式和表格数值未显示。</p>
 <p>数字来自作者论文中的实验报告，未独立核验。实验使用三个约七十亿至八十亿参数的开放权重模型、七个基准；投票一轮、辩论四轮，智能体数量取二、四、八、十二、十六。所谓“八倍减少”来自十六除以二，指智能体数量，不能直接解释为实际费用或延迟降低八倍；材料按调用次数匹配计算预算，未给出完整 token、价格或耗时比较。</p>
 <p>理论结论有条件：几何收敛依赖潜在证据独立、覆盖概率均匀等假设；异构方案的信息恢复下界更高，也不等于无条件证明其实际准确率更高。\(K^{*}\) 与准确率的关系主要是实验相关性，且受嵌入模型和任务类型影响；区分正确、错误路径的分析仍需要真实标签。</p>
-<h2 id="h2428">对 swarm scaling 的意义</h2>
+<h2 id="h2384">对 swarm scaling 的意义</h2>
 <p>它提供了一个有用的扩容判断标准：新增成员是否带来可验证的互补信息。可优先比较模型与解题策略的组合，并观察准确率、冗余度及调用成本，而非仅追求规模或表达差异。</p>
 <p>材料中同构约四个、异构约八个智能体后收益趋缓，只是本实验的经验范围。结论尚不能直接推广到更大模型、工具调用或长期规划型 swarm；\(K^{*}\) 更适合作为冗余诊断信号，而非单独用于决定扩容。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

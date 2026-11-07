@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>G-Safeguard: A Topology-Guided Security Lens and Treatment on LLM-based Multi-agent Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>G-Safeguard: A Topology-Guided Security Lens and Treatment on LLM-based Multi-agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Wang, Shilong et al.</dd><dt>日期</dt><dd>2025-02-16</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2502.11127" target="_blank" rel="noopener">https://arxiv.org/abs/2502.11127</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>基于拓扑的检测与干预，是早期图方法防御的代表。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2849">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>G-Safeguard: A Topology-Guided Security Lens and Treatment on LLM-based Multi-agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Wang, Shilong et al.</dd><dt>日期</dt><dd>2025-02-16</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2502.11127" target="_blank" rel="noopener">https://arxiv.org/abs/2502.11127</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>基于拓扑的检测与干预，是早期图方法防御的代表。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2801">一句话</h2>
 <p>G-Safeguard 把多智能体安全视为通信网络中的污染扩散问题，用图模型识别风险节点，再切断其对外通信；其扩展价值在于小规模训练后的防御迁移，而非证明智能体越多越强。</p>
-<h2 id="h2850">主要内容</h2>
+<h2 id="h2802">主要内容</h2>
 <ul><li>每轮对话结束后，将智能体历史输出和交互记录编码为图的节点、边特征，用带边特征的图神经网络判断哪些智能体已受攻击或污染。</li><li>对高风险节点删除其下一轮的出边，限制错误信息继续传播。该机制依赖已经发生的通信，无法阻止最初的入侵，也不能保证此前受污染的节点恢复。</li><li>实验覆盖提示注入、工具攻击和记忆投毒，以及链、树、星形和随机图。作者还测试了跨基础模型迁移，并在 CAMEL 的多角色配置中评估检测效果。</li><li>扩展实验用 8 个智能体的数据训练，直接用于 20、35、50、65、80 个智能体的系统，无需重新训练防御模型。</li></ul>
-<h2 id="h2851">证据与可信度</h2>
+<h2 id="h2803">证据与可信度</h2>
 <ul><li>数字均为论文作者实验报告，没有独立核验。正文称，提示注入下 CSQA、MMLU 的攻击成功率分别下降 21.38%、22.01%；大规模实验报告下降范围为 19.50%—39.23%。</li><li>抓取文本缺少表格具体数值，无法重算这些降幅，也无法确认百分数表示相对下降还是百分点变化。摘要的“性能恢复超过 40%”与攻击成功率下降属于不同表述，不能直接等同。</li><li>方法包含监督训练，检测器使用攻击标签学习；跨模型迁移结果支持其在所测配置中的适应性，不能推出对未知攻击普遍有效。</li><li>所谓真实应用验证仍是在 CAMEL 中构造攻击场景，并使用 CSQA、MMLU 测试，不是生产部署证据。材料未给出足以核验防御延迟、额外成本及误判导致协作损失的信息。</li></ul>
-<h2 id="h2852">对 swarm scaling 的意义</h2>
+<h2 id="h2804">对 swarm scaling 的意义</h2>
 <p>这项工作的启发是：扩容不仅需要管理任务分工，也需要管理错误信息沿哪些连接扩散。拓扑因此既是协作设计变量，也是安全干预入口。</p>
 <p>小图训练后迁移到更大图，为防御组件随群体扩容提供了实验依据；但测试规模止于 80 个智能体，“任意规模”仍属外推。后续判断其实用价值，应同时考察污染抑制、剪边后的任务能力和防御开销；现有材料不足以证明三者能随规模增长持续兼顾。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

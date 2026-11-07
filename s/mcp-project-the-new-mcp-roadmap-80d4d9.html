@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The New MCP Roadmap</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The New MCP Roadmap</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>MCP Project</dd><dt>日期</dt><dd>2026-08-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/" target="_blank" rel="noopener">https://blog.modelcontextprotocol.io/posts/mcp-roadmap/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>路线图显示 MCP 正向智能体消息与身份委托延伸。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1121">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The New MCP Roadmap</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>MCP Project</dd><dt>日期</dt><dd>2026-08-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/" target="_blank" rel="noopener">https://blog.modelcontextprotocol.io/posts/mcp-roadmap/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>路线图显示 MCP 正向智能体消息与身份委托延伸。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1109">一句话</h2>
 <p>MCP 正从工具调用接口扩展为支持长任务、事件交互和智能体身份委托的协议，但路线图尚不能证明 swarm 扩大后会获得性能收益。</p>
-<h2 id="h1122">主要内容</h2>
+<h2 id="h1110">主要内容</h2>
 <ul><li><strong>已发布的基础改造</strong>：据项目介绍，2026-07-28 规范移除了协议级会话和初始化握手，使服务端可无状态横向扩容；增加能力发现与列表缓存，并以多轮请求模式支持无状态交互。</li><li><strong>消息机制继续完善</strong>：计划通过 webhook、通道等服务端事件减少轮询，并审查任务、订阅和进度通知能否协同工作。Tasks 目前是官方扩展，路线图希望推动其进入规范。</li><li><strong>身份与委托成为重点</strong>：面向无人值守的云端智能体，以及用户向智能体、智能体向子智能体授予权限的场景，计划结合工作负载身份联合、令牌交换和持有证明机制，建立标准化信任路径。</li><li><strong>控制工具规模带来的负担</strong>：提出渐进式发现，让服务先暴露较小入口，再随需求展开工具目录；同时统一工具结果契约，改善 SDK 与文档。</li></ul>
-<h2 id="h1123">证据与可信度</h2>
+<h2 id="h1111">证据与可信度</h2>
 <p>这是 MCP 项目发布的官方路线图，能直接说明维护者的方向与优先级；已交付能力及扩容效果仍属于项目自述，材料未提供独立核验或性能测试。文中的“一百个工具”是解释上下文负担的示例，并非实验样本；没有吞吐、延迟、成本或多智能体成功率数据。应区分已发布规范、现有扩展与未来计划。</p>
-<h2 id="h1124">对 swarm scaling 的意义</h2>
+<h2 id="h1112">对 swarm scaling 的意义</h2>
 <p>它触及 swarm 扩展的几类基础约束：服务端状态、长任务通信、子智能体授权，以及工具目录膨胀。无状态服务有利于扩容承载层，事件机制可能减少轮询，身份委托可为分层协作提供权限边界，渐进式发现则试图控制工具选择负担。但这些是协议层支撑，不能据此推断更多智能体会带来更高任务质量、更低成本或更好的协作效率。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-Agent Cooperation and the Emergence of (Natural) Language</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Cooperation and the Emergence of (Natural) Language</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Lazaridou, Angeliki; Peysakhovich, Alexander; Baroni, Marco</dd><dt>日期</dt><dd>2016-12-21</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1612.07182" target="_blank" rel="noopener">https://arxiv.org/abs/1612.07182</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>参照游戏中涌现语言的基础工作。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3033">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Cooperation and the Emergence of (Natural) Language</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Lazaridou, Angeliki; Peysakhovich, Alexander; Baroni, Marco</dd><dt>日期</dt><dd>2016-12-21</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/1612.07182" target="_blank" rel="noopener">https://arxiv.org/abs/1612.07182</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>参照游戏中涌现语言的基础工作。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2981">一句话</h2>
 <p>这篇论文表明，两个智能体能为共同任务学出有效的通信符号，但协作成功并不自动意味着这些符号具有丰富、可供人类理解的语义。</p>
-<h2 id="h3034">主要内容</h2>
+<h2 id="h2982">主要内容</h2>
 <ul><li><strong>用协作需求驱动通信。</strong> 发送者知道两张图中的目标，只能发送一个离散符号；接收者据此选图。双方仅凭共同任务的成败奖励，用强化学习训练各自的网络。</li><li><strong>任务成功可能依赖极简协议。</strong> 普通发送者始终只用两个符号，也能接近完全协调；带有逐维比较两图归纳偏置的发送者收敛更快，使用更多符号，符号与概念类别的对应也更强。</li><li><strong>环境决定协议学到什么。</strong> 让双方看到同类别的不同图片，可以削弱对具体图像细节的依赖。作者观察到，通信仍可成功，符号的类别纯度小幅提高。</li><li><strong>人类可读性需要额外锚定。</strong> 将协作游戏与监督式物体命名交替训练后，发送者使用了88个符号，类别纯度达到70%。在后续人类实验中，参与者能够利用这些词，以68%的准确率识别目标图。</li></ul>
-<h2 id="h3035">证据与可信度</h2>
+<h2 id="h2983">证据与可信度</h2>
 <p>这是作者报告的受控实验结果，材料包含实验方法、结果叙述及讨论；表格具体数值和图像未完整呈现，不能据此补出全部配置的表现，也没有独立复现或核验信息。</p>
 <p>实验使用463个物体概念、20个大类，每个概念抽取100张图片。语义“纯度”按符号形成的对象簇与类别标签的一致程度计算，并与随机分配比较；它衡量类别对应，不能等同于自然语言理解。</p>
 <p>68%来自众包选图实验：作者抽取298对智能体已通信成功的图片，每对收集10次判断，并报告统计显著性。因此，该结果支持有限的人类可解释性，但样本经过成功条件筛选，不能直接代表所有场景。另需注意，视觉输入来自预训练VGG，系统并非完全不借助既有视觉知识。</p>
-<h2 id="h3036">对 swarm scaling 的意义</h2>
+<h2 id="h2984">对 swarm scaling 的意义</h2>
 <p>论文为群体通信设计提供了一个基础提醒：共同奖励足以促成可用协议，却不足以保证协议丰富、可迁移或便于人类审查。扩展系统时，应分别评价任务成功、语义一致性与跨伙伴可理解性。</p>
 <p>其可借鉴之处是通过信息条件和辅助监督塑造通信协议，降低对持续人工参与的依赖。不过，实际验证限于双智能体、单符号参照游戏；论文没有测量智能体数量增加后的收益、通信成本或协调瓶颈，不能作为 swarm 规模效应的直接证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

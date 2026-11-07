@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rewriting Bun in Rust</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Rewriting Bun in Rust</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Jarred Sumner / Bun</dd><dt>日期</dt><dd>2026-07-08</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://bun.com/blog/bun-in-rust" target="_blank" rel="noopener">https://bun.com/blog/bun-in-rust</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>最完整的一手数字：64 峰值、6502 提交、16.5 万美元、19 个回归。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1393">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Rewriting Bun in Rust</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Jarred Sumner / Bun</dd><dt>日期</dt><dd>2026-07-08</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://bun.com/blog/bun-in-rust" target="_blank" rel="noopener">https://bun.com/blog/bun-in-rust</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>最完整的一手数字：64 峰值、6502 提交、16.5 万美元、19 个回归。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1373">一句话</h2>
 <p>Bun 的 Rust 重写展示了大规模代理协作如何依靠任务拆分、独立审查和自动验证推进工程，但不能据此证明代理数量与产出线性增长。</p>
-<h2 id="h1394">主要内容</h2>
+<h2 id="h1374">主要内容</h2>
 <ul><li>目标是把既有 Zig 实现机械迁移到 Rust，尽量保持行为与架构，再逐步重构；既有 TypeScript 测试套件提供了跨语言验收基础。</li><li>作者称，约 50 种动态工作流持续运行 11 天，峰值为 4 个工作区各运行 16 个 Claude，合计约 64 个，并非全程维持峰值。</li><li>协作基本单元是实现、至少两名独立上下文审查者、修复反馈。迁移指南与生命周期表负责共享约束，编译错误和测试失败负责生成后续任务。</li><li>并行过程出现过 Git 操作互相覆盖、编译目标被理解为填充桩函数、磁盘与测试资源耗尽。应对方式包括限制共享状态操作、分片工作区、统一收集错误和资源隔离。</li><li>全平台测试通过后才合并；合并不等于正式发布。文中报告迁移引入了 19 个已知回归，均已修复，后续仍继续安全审查与模糊测试。</li></ul>
-<h2 id="h1395">证据与可信度</h2>
+<h2 id="h1375">证据与可信度</h2>
 <ul><li>这是项目负责人兼执行者的一手复盘，但作者披露 Bun 已被 Anthropic 收购，团队成员在其任职，且使用预发布模型，存在利益关联。</li><li>6,502 次提交来自迁移分支日志、排除合并提交；另一处列出 6,778 次提交，材料未充分解释两者范围差异，不宜混用。</li><li>约 16.5 万美元是根据输入、输出及缓存读取 token 用量按 API 价格折算，不能直接视为实付账单或完整项目成本。</li><li>提交记录、CI 分片和具体缺陷案例使叙述具有可追查线索，但本解读未独立核验。19 个是已知回归数，不代表遗漏缺陷总数；“三名工程师一年”是作者估计，不是对照实验。</li><li>性能提升属于团队自测。材料末尾截断，未读到全文。</li></ul>
-<h2 id="h1396">对 swarm scaling 的意义</h2>
+<h2 id="h1376">对 swarm scaling 的意义</h2>
 <p>这个案例支持的是“有强反馈的工程任务可以大规模并行”：文件、crate 和测试失败提供可分派边界，编译器与测试提供验收信号，独立审查补充自动检查的盲区。</p>
 <p>扩展瓶颈同时出现在共享仓库、磁盘吞吐、测试隔离和任务目标定义上。增加代理需要同步改造协调机制；人工仍负责设定迁移策略、检查工作流并决定合并。</p>
 <p>它证明了一次大型迁移的可行性，却没有不同代理规模的对照，也未量化审查开销和边际收益，因此不能推出 64 个代理的最优性或相对单代理的加速倍数。</p></main>

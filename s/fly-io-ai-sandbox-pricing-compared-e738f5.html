@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI sandbox pricing, compared</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AI sandbox pricing, compared</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Fly.io</dd><dt>日期</dt><dd>2026-09-09</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://fly.io/learn/ai-sandbox-pricing/" target="_blank" rel="noopener">https://fly.io/learn/ai-sandbox-pricing/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>比较沙箱费率与计费方式，但作者是竞争厂商。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h853">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AI sandbox pricing, compared</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Fly.io</dd><dt>日期</dt><dd>2026-09-09</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://fly.io/learn/ai-sandbox-pricing/" target="_blank" rel="noopener">https://fly.io/learn/ai-sandbox-pricing/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>比较沙箱费率与计费方式，但作者是竞争厂商。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h841">一句话</h2>
 <p>这篇竞争厂商撰写的价格比较说明：swarm 的沙箱成本不仅取决于 agent 数量，更取决于等待期间如何计费、内存占用及并发套餐门槛。</p>
-<h2 id="h854">主要内容</h2>
+<h2 id="h842">主要内容</h2>
 <ul><li>文章比较 E2B、Daytona、Modal、Vercel、Cloudflare 与 Fly.io，区分预留资源按运行时长计费、活跃 CPU 计费、实际用量计费，以及套餐叠加额度等机制。</li><li>E2B、Daytona 的运行中沙箱按预留 CPU 和内存收费；Vercel、Cloudflare 的 CPU 费用随活跃时间变化，但内存仍持续收费；Fly.io 宣称 Sprites 按实际 CPU、内存用量计费，休眠后仅收存储费。</li><li>作者设置了累计 100 沙箱小时的算例：以 2 vCPU、4 GB 为基准，CPU 忙碌率为 25%、实际内存占用为 1.5 GB 时，E2B 为 16.56 美元、Vercel 为 14.88 美元、Sprites 为 5.21 美元；满载时分别为 16.56、34.08、16.45 美元。利用率变化会改变价格排序。</li><li>单价之外还需考虑并发上限、会话时长、固定资源规格、套餐费、快照和流量。文章列出的 E2B Pro 月费为 150 美元，计算资源另计。</li></ul>
-<h2 id="h855">证据与可信度</h2>
+<h2 id="h843">证据与可信度</h2>
 <ul><li>这些金额主要是作者依据各厂商公开价目表计算的情景估算，并非真实 swarm 的账单测量或性能实验。上述算例排除了套餐费、额度抵扣及 Sprites 存储费。</li><li>横向比较并非完全同规格：Cloudflare 使用 2 vCPU、8 GiB 的固定规格；Modal 按物理核心报价；表中也混用 GB 与 GiB，复算时需保留差异。</li><li>Fly.io 同时是比较者与参评厂商，文章有明确推广导向。其休眠、计量等描述属于厂商自报；所给材料未展示独立核验。</li><li>元数据日期为 2026-09-09，但部分价格标注核查于 2026-10-05，算例标注核查于 2026-09-10，存在后续更新或版本时间不一致的问题。</li></ul>
-<h2 id="h856">对 swarm scaling 的意义</h2>
+<h2 id="h844">对 swarm scaling 的意义</h2>
 <ul><li>扩大并发时，应分别估算 CPU 工作、等待模型响应、驻留内存和休眠存储。低 CPU 利用率并不自动意味着低账单。</li><li>并发上限与创建速率可能先于算力成为约束；套餐升级还会引入固定成本，不能只把单次费用乘以 agent 数量。</li><li>材料支持的是“计费机制会改变扩容经济性”，没有证明更多 agent 能提高任务成功率，也未测量吞吐、启动延迟或协调开销。选型仍需用自身负载复算。</li></ul></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

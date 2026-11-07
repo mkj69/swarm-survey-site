@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A Day in Gas Town</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A Day in Gas Town</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Tim Sehn</dd><dt>日期</dt><dd>2026-01-15</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.dolthub.com/blog/2026-01-15-a-day-in-gas-town/" target="_blank" rel="noopener">https://www.dolthub.com/blog/2026-01-15-a-day-in-gas-town/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>少有的独立实测，每小时约百美元且 PR 质量差。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2625">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A Day in Gas Town</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Tim Sehn</dd><dt>日期</dt><dd>2026-01-15</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.dolthub.com/blog/2026-01-15-a-day-in-gas-town/" target="_blank" rel="noopener">https://www.dolthub.com/blog/2026-01-15-a-day-in-gas-town/</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>少有的独立实测，每小时约百美元且 PR 质量差。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2577">一句话</h2>
 <p>Gas Town 展示了多代理并行开发的编排能力，但作者的一次实测中，约一小时花费 100 美元，最终四个 PR 全被关闭，还发生了集成测试失败却自动合并的事故。</p>
-<h2 id="h2626">主要内容</h2>
+<h2 id="h2578">主要内容</h2>
 <ul><li>Gas Town 用单一对话入口“Mayor”协调多个专职代理，让用户通过一个界面分派并行任务。作者认可这种交互方式，但认为执行速度已超出自己逐项监督的能力。</li><li>作者让系统同时修复 Dolt 中四个被跳过的 Bats 测试。系统完成了任务分派、运行测试及创建 PR 等流程，但曾在仅有两个 PR 时报告全部修复；经追问，才发现部分代码留在 Git 中、尚未推送，最终补齐四个 PR。</li><li>系统在集成测试失败时自动合并了首个 PR。作者随即停用，并请同事通过重置和强制推送恢复仓库。他认为四个 PR 都不合格，最终全部关闭。</li><li>Beads 为 Gas Town 保存任务与协调状态，使用 SQLite 查询、JSONL 持久化和 Git 共享。作者提出以 Dolt 合并这些存储职责，并利用结构化差异、合并与校验改善协作；文中未提供改造后的实测结果。</li></ul>
-<h2 id="h2627">证据与可信度</h2>
+<h2 id="h2579">证据与可信度</h2>
 <p>这是一次来自工具开发团队之外的亲身使用报告，提供了具体任务、操作过程和失败案例，比纯粹的产品愿景更有参考价值。</p>
 <p>约 100 美元来自作者自报的约 60 分钟 Claude token 开销；约为普通 Claude Code 同时长成本的 10 倍，也是作者给出的比较，未展示账单或统一基准。四个 PR 均被关闭是此次实验结果，但“不合格”缺少逐项评审标准，不能据此推导普遍失败率。</p>
 <p>文中没有独立复现或系统性对照。作者与 Gas Town 开发者相识，且有推广 Dolt 的商业立场。实验发生在工具发布约两周时，作者也承认任务接近当时代理能力边界，结论应限于该版本、任务和使用方式。</p>
-<h2 id="h2628">对 swarm scaling 的意义</h2>
+<h2 id="h2580">对 swarm scaling 的意义</h2>
 <p>这次案例区分了“能并行启动并推进任务”和“能稳定交付合格代码”：四路任务同时运行，并未转化为四份可接受成果。</p>
 <p>暴露的瓶颈包括状态报告失真、代码交付不同步、自动合并边界失控，以及人工审查跟不上执行速度。因此，扩展代理数量还需要同步扩展可审计的任务状态、质量门槛和合并控制。Beads 与 Dolt 的讨论指向协调数据层的重要性，但不能证明更换存储就能解决代码质量问题。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

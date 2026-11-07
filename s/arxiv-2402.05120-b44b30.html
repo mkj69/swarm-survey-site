@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>More Agents Is All You Need</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>More Agents Is All You Need</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Junyou, Zhang, Qin, Yu, Yangbin et al.</dd><dt>日期</dt><dd>2024-02-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.05120" target="_blank" rel="noopener">https://arxiv.org/abs/2402.05120</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>代表乐观一方，报告采样投票性能随智能体数量上升，且增幅与任务难度相关。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2949">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>More Agents Is All You Need</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Junyou, Zhang, Qin, Yu, Yangbin et al.</dd><dt>日期</dt><dd>2024-02-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.05120" target="_blank" rel="noopener">https://arxiv.org/abs/2402.05120</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>代表乐观一方，报告采样投票性能随智能体数量上升，且增幅与任务难度相关。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2901">一句话</h2>
 <p>Agent Forest 表明，重复采样再投票能在多个基准上提高准确率，但这主要是推理预算扩张的证据，尚不能证明复杂 swarm 协作具有普遍的规模收益。</p>
-<h2 id="h2950">主要内容</h2>
+<h2 id="h2902">主要内容</h2>
 <ul><li>方法分为采样与聚合：对同一问题多次调用模型或已有协作框架；封闭答案按频次选择，代码则选择与其他候选累计 BLEU 相似度最高的样本。</li><li>实验覆盖数学、通用推理、棋盘状态追踪与代码生成。表 2 中，采样规模为 40 时，Llama2-13B 在 GSM8K 上从 35% 升至 59%，超过单次调用 Llama2-70B 的 54%；GPT-3.5-Turbo 从 73% 升至 85%。</li><li>方法可叠加 CoT、反思和辩论，但收益并非处处出现：两个 Llama2 模型的辩论式代码生成在叠加后仍为零。</li><li>难度与收益不是简单正相关。受控实验显示，固有难度升高时收益先增后减；推理步骤增加时收益更大。作者据此提出逐步投票和分层求解。</li></ul>
-<h2 id="h2951">证据与可信度</h2>
+<h2 id="h2903">证据与可信度</h2>
 <p>数字来自作者报告的基准实验，属于论文测量结果；材料提供代码链接，但没有独立复现证据。主要结果取 10 次独立运行的平均值，误差条为标准误；通常采样至 40，辩论因计算开销限制为 10。</p>
 <p>须区分百分点与相对增幅：35% 到 59% 是增加 24 个百分点，相对提高约 69%；MATH 上 3% 到 9% 的相对增幅虽为 200%，最终准确率仍低。方差分析支持不同规模间存在差异，不能单独证明每次增加样本都有效或可无限扩展。</p>
 <p>材料也有内部不一致：Llama2-13B 的 HumanEval 结果在表 2 为 0.18、表 3 为 0.25；部分文字中的增益范围与表格不完全吻合。代码候选的相似度是选择依据，本身不保证程序正确。</p>
-<h2 id="h2952">对 swarm scaling 的意义</h2>
+<h2 id="h2904">对 swarm scaling 的意义</h2>
 <p>它提供了重要基线：评估复杂多智能体架构时，应检验其是否优于同预算的重复采样与投票。文中的“agent”可以只是同一模型的一次调用，因此结果主要支持集成收益，不能直接归因于分工、通信或组织涌现。</p>
 <p>扩展也有成本边界：作者报告 token 用量随采样数成比例增加，尚未确立统一预算下的优势。小模型集成超过大模型单次调用，只能说明能力可以用更多推理计算换取，不能据此断言更便宜。难题收益回落也提示：模型已难以产生有效候选时，继续增加数量并非充分条件。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

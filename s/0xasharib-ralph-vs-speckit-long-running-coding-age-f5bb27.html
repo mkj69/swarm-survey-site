@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ralph vs SpecKit: Long-Running Coding Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Ralph vs SpecKit: Long-Running Coding Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>0xAsharib</dd><dt>日期</dt><dd>2026-01-21</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/0xAsharib/status/2013945986536952156" target="_blank" rel="noopener">https://x.com/0xAsharib/status/2013945986536952156</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>25 likes; 1354 views</dd><dt>收录理由</dt><dd>比较Ralph和SpecKit的二手综述。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2573">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Ralph vs SpecKit: Long-Running Coding Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>0xAsharib</dd><dt>日期</dt><dd>2026-01-21</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/0xAsharib/status/2013945986536952156" target="_blank" rel="noopener">https://x.com/0xAsharib/status/2013945986536952156</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>25 likes; 1354 views</dd><dt>收录理由</dt><dd>比较Ralph和SpecKit的二手综述。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2525">一句话</h2>
 <p>这篇二手综述把长期编码代理分为“测试驱动的循环执行”和“规格驱动的分阶段协作”，对 swarm scaling 的价值在于提示任务、记忆和验收如何组织，而非证明增加代理数量能提升产出。</p>
-<h2 id="h2574">主要内容</h2>
+<h2 id="h2526">主要内容</h2>
 <ul><li><strong>Ralph：以小任务为单位反复执行。</strong> 按文章描述，它从 PRD 中选择未完成事项，启动新的代理实例，读取代码和持久化记录，完成实现后通过测试决定是否提交、重试。对话上下文被清空，进度和经验留在文件及 Git 中。</li><li><strong>SpecKit：先明确意图，再推进实现。</strong> 文章将其概括为原则、规格、计划、任务、实现五个阶段，通过文档保存需求和架构决策，并让开发者在关键环节审阅。</li><li><strong>两者承担不同成本。</strong> Ralph 的代价是反复读取上下文，以及局部任务可能偏离整体设计；SpecKit 的代价是文档与审阅负担，以及长会话的上下文压力。</li><li><strong>作者提出混合流程。</strong> 先用 SpecKit 形成计划和任务清单，再交给 Ralph 循环实现。文中没有给出该组合的实际案例或效果数据。</li></ul>
-<h2 id="h2575">证据与可信度</h2>
+<h2 id="h2527">证据与可信度</h2>
 <p>这是 0xAsharib 于 2026 年 1 月 21 日发布的比较文章，自称依据仓库文档，属于二手机制综述，未提供实验设计、运行日志或独立核验。</p>
 <p>“五阶段”来自作者对流程的归纳；“排队执行 20 个任务”只是使用场景示例，不是实测吞吐量。元数据中的 25 次点赞、1354 次浏览仅反映传播情况。</p>
 <p>文中关于不会陷入幻觉循环、文档始终更新、显著快于人工等说法缺少测量支持，应视为作者判断。测试通过也不能据此推出需求或架构必然正确。</p>
-<h2 id="h2576">对 swarm scaling 的意义</h2>
+<h2 id="h2528">对 swarm scaling 的意义</h2>
 <ul><li><strong>先解决可验收性。</strong> Ralph 的模式说明，扩大执行规模需要颗粒度合适的任务和可靠反馈；否则循环可能只是在重复错误。</li><li><strong>外部记忆提供跨实例衔接。</strong> 文件、规格和提交记录可作为代理接续工作的依据，但文章没有验证多代理同时读写时的冲突与协调问题。</li><li><strong>规划与执行可以分工。</strong> 混合方案提供了先统一约束、再分派实现的思路；其并行收益、协调成本和适用规模仍待验证。</li></ul>
 <p>材料讨论的是长时间运行的工作流，没有报告代理数量变化、并行实验或成本曲线，不能作为 swarm scaling 效果的直接证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

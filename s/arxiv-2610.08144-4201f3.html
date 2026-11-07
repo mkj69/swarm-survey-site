@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Navier-Stokes lost in translation</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Navier-Stokes lost in translation</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Bastounis, Circelli, Hansen</dd><dt>日期</dt><dd>2026-10-06</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2610.08144" target="_blank" rel="noopener">https://arxiv.org/abs/2610.08144</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>独立论文，质疑 Lean 形式化与自然语言证明不对应。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h601">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Navier-Stokes lost in translation</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Bastounis, Circelli, Hansen</dd><dt>日期</dt><dd>2026-10-06</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2610.08144" target="_blank" rel="noopener">https://arxiv.org/abs/2610.08144</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>独立论文，质疑 Lean 形式化与自然语言证明不对应。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h597">一句话</h2>
 <p>Lean 验证的是形式化后的命题与推导；如果翻译改变了假设、结论或证明路线，编译通过就不能为原始自然语言证明背书。</p>
-<h2 id="h602">主要内容</h2>
+<h2 id="h598">主要内容</h2>
 <ul><li>作者区分两种任务：为已正确形式化的定理找到有效证明，以及忠实保留整篇数学文本的定义、陈述和推理。前者成功不代表后者成功。</li><li>初等案例展示两类偏差：AI 修正了原证明的错误后给出正确证明；或把正确证明替换成另一条有效路线。两者都能通过 Lean，但不能据此确认原论证。</li><li>对材料所称 OpenAI Navier–Stokes 证明，作者指出两处具体差异：逆算子估计在自然语言中需要额外四阶导数，所引 Lean 结果需要额外五阶；压力通量估计在 Lean 中额外依赖梯度范数，证明方法也发生变化。</li><li>作者还讨论定义中的隐含存在性：形式语言的默认值可能让代码通过，却掩盖原文对象未必存在的问题。将 Lean 再译回自然语言，也仍需检查语义对应。</li></ul>
-<h2 id="h603">证据与可信度</h2>
+<h2 id="h599">证据与可信度</h2>
 <p>未读到全文：抓取内容在第 4.3 节中途截断，部分公式和代码缺失，附录未提供。</p>
 <p>这是作者的案例分析与理论论证，不是模型准确率或规模实验。“额外四阶与五阶”的比较来自作者对指定提交 <code>f9e8bc5</code> 中 Lean 声明与原文引理的对照；材料提供了文件及声明定位，但此处未独立核验代码，也无法据这些案例估算误译频率。聊天模型表示赞同不构成独立验证。</p>
 <p>摘要声称一般语义消歧的复杂度可超出停机问题，并给出 SCI 为无穷的表述；严格论证指向未提供的附录，不能据此认定每个实际翻译任务都不可解。作者明确限定：他们质疑翻译对应关系，并未断言原自然语言证明错误。</p>
-<h2 id="h604">对 swarm scaling 的意义</h2>
+<h2 id="h600">对 swarm scaling 的意义</h2>
 <p>这篇材料没有测量多智能体数量与性能的关系，但揭示了可用于审视 swarm 的验收风险：如果所有代理都围绕“让验证器通过”优化，更多尝试可能增加有效形式证明，却没有增加对原任务的忠实度。</p>
 <p>由此可推导的设计启示是：把形式正确性与语义对应分开检查，明确核对假设、结论、定义和关键中间步骤。增加翻译或复核代理能否改善这一问题，仍需实验；代理之间达成一致，也不能替代可追溯的逐项对应证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

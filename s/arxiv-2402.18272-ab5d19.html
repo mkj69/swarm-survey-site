@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rethinking the Bounds of LLM Reasoning: Are Multi-Agent Discussions the Key?</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Rethinking the Bounds of LLM Reasoning: Are Multi-Agent Discussions the Key?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Wang, Qineng, Wang, Zihao, Su, Ying et al.</dd><dt>日期</dt><dd>2024-02-28</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.18272" target="_blank" rel="noopener">https://arxiv.org/abs/2402.18272</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>证明强提示单智能体可接近最佳讨论框架，界定讨论只在缺少示例时明显占优。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2929">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Rethinking the Bounds of LLM Reasoning: Are Multi-Agent Discussions the Key?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Wang, Qineng, Wang, Zihao, Su, Ying et al.</dd><dt>日期</dt><dd>2024-02-28</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.18272" target="_blank" rel="noopener">https://arxiv.org/abs/2402.18272</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>证明强提示单智能体可接近最佳讨论框架，界定讨论只在缺少示例时明显占优。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2881">一句话</h2>
 <p>这篇论文提示：多智能体讨论的收益取决于单体基线是否充分优化；给强模型配好示例后，讨论未必还能带来明显提升。</p>
-<h2 id="h2930">主要内容</h2>
+<h2 id="h2882">主要内容</h2>
 <ul><li>作者比较单智能体与 Debate、MAD、ReConcile、CMD，重点控制提示中的任务说明、回答格式和示例，检验收益究竟来自讨论还是提示质量。</li><li>在所测任务中，加入示例后，强单体与讨论框架整体表现接近；没有示例时，多智能体讨论通常更有优势。这是实验条件下的发现，不能推广成普遍定律。</li><li>新框架 CMD 将智能体分组：组内共享答案和解释，组间只共享答案；最后多数投票，平票时交由额外的秘书智能体裁决。</li><li>异构模型讨论中，较弱模型的逐轮表现有所改善。作者将其解释为较强模型提供了帮助，但这不等于系统超越了最强单体。</li><li>讨论也会损害正确答案：裁判可能选错，智能体也可能放弃原本正确的判断，转而传播错误共识。</li></ul>
-<h2 id="h2931">证据与可信度</h2>
+<h2 id="h2883">证据与可信度</h2>
 <ul><li>属于作者报告的基准实验，以准确率衡量。ECQA、GSM8K 各抽取测试集的 100 题；FOLIO-wiki 使用清理后的 460 题。模型包括 ChatGPT-3.5、Gemini Pro、Bard，讨论最多 3 轮；异构 CMD 设置为 6 个智能体、分为 2 组。</li><li>提供内容在附录处截断，<strong>未读到全文</strong>；正文虽描述结果，但抓取内容缺少表格中的具体分数，无法核算提升幅度、方差或显著性，也没有独立复现实验可供核验。</li><li>“新视角帮助推理”“同源讨论可能过度思考”属于作者解释；错误传播虽有案例支持，其发生频率没有可见统计。“表现接近”也不能视为已完成统计等效性检验。</li></ul>
-<h2 id="h2932">对 swarm scaling 的意义</h2>
+<h2 id="h2884">对 swarm scaling 的意义</h2>
 <p>这项研究主要约束的是“增加讨论能否提高推理准确率”，并未建立随智能体数量增长的 scaling 曲线。研究 swarm 时，应先以相同示例条件下的强单体作为基线，再判断通信是否带来额外收益。</p>
 <p>CMD 的分组通信针对输入 token 和上下文压力，但材料没有给出成本、延迟或大规模扩展数据。更值得检验的是：增加成员是否贡献了独立信息，以及错误传播是否抵消收益；更高共识本身不能替代正确率证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

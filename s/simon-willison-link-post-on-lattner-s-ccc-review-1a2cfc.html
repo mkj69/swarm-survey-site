@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Link post on Lattner&#x27;s CCC review</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Link post on Lattner&#x27;s CCC review</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Simon Willison</dd><dt>日期</dt><dd>2026-02-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://simonwillison.net/2026/Feb/22/ccc/" target="_blank" rel="noopener">https://simonwillison.net/2026/Feb/22/ccc/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提炼Lattner评价，便于交叉核对。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2265">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Link post on Lattner&#x27;s CCC review</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Simon Willison</dd><dt>日期</dt><dd>2026-02-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://simonwillison.net/2026/Feb/22/ccc/" target="_blank" rel="noopener">https://simonwillison.net/2026/Feb/22/ccc/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提炼Lattner评价，便于交叉核对。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2221">一句话</h2>
 <p>并行 Claude 做出的编译器显示了实现自动化的潜力，但通过测试不等于具备生产级设计能力。</p>
-<h2 id="h2266">主要内容</h2>
+<h2 id="h2222">主要内容</h2>
 <ul><li>Willison 摘介 Lattner 的代码评审：CCC 接近合格的教材式实现，距离生产可用仍远。</li><li>部分设计偏向通过测试，暴露出通用抽象与开放式泛化的不足。</li><li>实现越容易自动化，设计判断、沟通和持续维护越重要；许可与知识产权边界仍待厘清。</li></ul>
-<h2 id="h2267">证据与可信度</h2>
+<h2 id="h2223">证据与可信度</h2>
 <p>这是评审的二手摘介，主要是专家判断，并非扩展性测量。文中未给出代理数量、成本、加速比或独立复现实验，无法据此量化并行收益。</p>
-<h2 id="h2268">对 swarm scaling 的意义</h2>
+<h2 id="h2224">对 swarm scaling 的意义</h2>
 <p>它提示应区分“并行完成实现”与“形成可靠系统”：测试成功只能覆盖部分质量目标。材料支持关注抽象设计与维护责任，但不足以证明增加代理能持续提升产出质量。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

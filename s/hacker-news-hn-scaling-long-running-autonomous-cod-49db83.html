@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HN: Scaling long-running autonomous coding</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>HN: Scaling long-running autonomous coding</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Hacker News</dd><dt>日期</dt><dd>2026-01-14</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://news.ycombinator.com/item?id=46624541" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=46624541</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Cursor原帖的主要社区讨论入口，仅核对了元数据。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2645">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>HN: Scaling long-running autonomous coding</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Hacker News</dd><dt>日期</dt><dd>2026-01-14</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://news.ycombinator.com/item?id=46624541" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=46624541</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Cursor原帖的主要社区讨论入口，仅核对了元数据。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2597">一句话</h2>
 <p>这场讨论把 Cursor 长时自主编码实验的核心问题，从“能生成多少代码”转向“产物能否构建、验证并持续维护”。</p>
-<h2 id="h2646">主要内容</h2>
+<h2 id="h2598">主要内容</h2>
 <ul><li>讨论围绕自主构建浏览器展开。支持者认为，智能体能长期迭代、整合组件，本身已显示能力进步；质疑者则要求可复现的运行结果。</li><li>多名评论者称，本地构建失败，仓库持续集成长期报错，无法确定哪个提交对应展示中的可运行版本。也有人先假定能够编译，随后承认没有验证。</li><li>“从零构建”的含义受到挑战：评论者查看依赖后指出，项目使用了现有 JavaScript 引擎、图形、窗口及解析库。争议并非组件复用是否合理，而是宣传是否准确描述了实际工作。</li><li>维护性与交付成为另一焦点：目录难以理解、文档不足、大规模改动难以审查，以及后续修改是否会持续引入退化。</li><li>少数参与者分享规划者分派任务、用 git 子树并行工作的经验；另有人强调人工引导、独立检查和测试约束。</li></ul>
-<h2 id="h2647">证据与可信度</h2>
+<h2 id="h2599">证据与可信度</h2>
 <p>未读到全文：提供内容在评论中途截断，也未提供 Cursor 原帖全文。以上仅依据所给讨论片段。</p>
 <p>页面显示 290 分、197 条评论，只能说明该抓取时点的讨论热度。评论中的构建失败属于参与者自述：有人贴出 34 个错误、94 条警告，另有人称超过 100 个编译错误，不能视为同一环境下的重复测量。</p>
 <p>一名评论者报告 63,295 次工作流运行中有 1,426 次成功，但未附统计方法或快照。百万行代码、数万次提交、万亿级 token 等也属于转述，不能据此确认实验规模或效率。按全部 token 套用输出单价推算费用，缺少输入输出比例及实际计费依据，不能当作真实成本。</p>
 <p>这些反馈提供了外部质疑和部分检查线索，但本材料没有独立核验；也无法确定各评论针对的提交版本是否一致。</p>
-<h2 id="h2648">对 swarm scaling 的意义</h2>
+<h2 id="h2600">对 swarm scaling 的意义</h2>
 <p>材料提示，扩展智能体数量与运行时间，不等于可用软件产出同比增长。更有价值的评估对象是：固定版本能否复现构建、测试是否通过、功能是否达标、后续改动是否仍可审查和维护。</p>
 <p>讨论还提出一种值得检验的风险：并行生成越快，集成与纠错负担也可能越大。因此，规划与分工之外，验证门槛、共享架构理解和收敛机制同样关键。但这只是社区提出的问题与经验，材料没有受控对照，不能据此得出 swarm scaling 的收益曲线或规模上限。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

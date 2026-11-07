@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Towards a Science of Scaling Agent Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards a Science of Scaling Agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Google Research and MIT authors</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/html/2512.08296v1" target="_blank" rel="noopener">https://arxiv.org/html/2512.08296v1</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>上述研究的论文版本，含 180 种配置。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3329">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards a Science of Scaling Agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Google Research and MIT authors</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/html/2512.08296v1" target="_blank" rel="noopener">https://arxiv.org/html/2512.08296v1</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>上述研究的论文版本，含 180 种配置。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3273">一句话</h2>
 <p>这项研究表明，在固定计算预算下，多智能体的收益取决于任务与协调结构是否匹配，增加代理并不保证性能提升。</p>
-<h2 id="h3330">主要内容</h2>
+<h2 id="h3274">主要内容</h2>
 <ul><li>作者比较单智能体与独立、中心化、去中心化、混合四类多智能体架构，覆盖三类模型家族和六个交互式基准，并控制提示、工具及计算预算。</li><li>可拆分的金融分析最受益：中心化架构相对单智能体提升最高达 80.8%；顺序约束强的规划任务则全部退步，降幅为 39%—70%。</li><li>收益来自不同机制：并行探索适合部分搜索任务，集中验证有助于拦截错误；沟通则会压缩上下文、分摊每个代理的推理预算。</li><li>作者观察到，工具密集任务更容易承担协调成本；单智能体表现较高时，增加代理的收益趋于下降。文中的 45% 基线阈值应理解为实验范围内的观察。</li><li>研究用协调效率、错误放大和信息冗余等指标建立回归模型，尝试预测架构选择。</li></ul>
-<h2 id="h3331">证据与可信度</h2>
+<h2 id="h3275">证据与可信度</h2>
 <ul><li><strong>未读到全文</strong>：提供内容在实验设置部分截断，未包含完整结果、附录及执行轨迹分析。</li><li>元数据写 180 种配置，正文写 260 种。正文给出的构成为四个基准各 45 种、另外两个各 40 种，合计 260；两种口径的差异尚未核实。</li><li>上述增减幅度是作者实验报告的相对变化，即“多智能体均分减去单智能体均分，再除以单智能体均分”，不是百分点变化。</li><li>回归模型交叉验证的 R² 为 0.373，换用任务相关能力指标后为 0.413，说明解释能力有限。留出配置的最优架构识别率为 87%，不能等同于跨任务性能预测准确率。</li><li>独立架构的 17.2 倍与中心化架构的 4.4 倍，属于执行轨迹中协调失败带来的额外计算工作指标，不能读作最终任务错误率倍数。独立架构还特意不做交叉验证或多数投票，结论不宜泛化到所有集成方案。</li><li>软件与终端基准每种配置只用 20 个实例，结果稳定性需结合未提供的置信区间判断。以上均为作者报告，未做独立核验；链接标注 v1，而正文包含后续时间信息，版本对应关系也待核实。</li></ul>
-<h2 id="h3332">对 swarm scaling 的意义</h2>
+<h2 id="h3276">对 swarm scaling 的意义</h2>
 <p>它把问题从“堆多少代理”转向“哪些工作值得拆分、如何传递上下文、在哪里验证”。实际扩展应先建立同预算单代理基线，再检验并行收益能否覆盖沟通与错误传播成本。这份材料支持按任务选择架构，但尚不足以证明适用于任意规模 swarm 的普遍扩展定律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

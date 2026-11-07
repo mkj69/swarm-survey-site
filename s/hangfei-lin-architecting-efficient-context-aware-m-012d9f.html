@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Architecting efficient context-aware multi-agent framework for production</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Architecting efficient context-aware multi-agent framework for production</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hangfei Lin</dd><dt>日期</dt><dd>2025-12-04</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://developers.googleblog.com/architecting-efficient-context-aware-multi-agent-framework-for-production/" target="_blank" rel="noopener">https://developers.googleblog.com/architecting-efficient-context-aware-multi-agent-framework-for-production/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>阐述上下文编译视图及交接范围的工程设计。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2729">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Architecting efficient context-aware multi-agent framework for production</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hangfei Lin</dd><dt>日期</dt><dd>2025-12-04</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://developers.googleblog.com/architecting-efficient-context-aware-multi-agent-framework-for-production/" target="_blank" rel="noopener">https://developers.googleblog.com/architecting-efficient-context-aware-multi-agent-framework-for-production/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>阐述上下文编译视图及交接范围的工程设计。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2681">一句话</h2>
 <p>这篇文章把多智能体扩展中的上下文问题，重构为“从共享状态生成每次调用所需视图”的系统设计问题，而不是单纯扩大模型窗口。</p>
-<h2 id="h2730">主要内容</h2>
+<h2 id="h2682">主要内容</h2>
 <ul><li><strong>存储与输入分离</strong>：会话保存结构化事件，长期记忆保存可检索知识，制品保存大型文件；模型每次调用只接收由这些来源重新构建的工作上下文。</li><li><strong>上下文通过流水线生成</strong>：有序处理器负责筛选历史、转换角色、注入记忆等，使过滤、压缩、缓存和路由具有明确的插入位置，便于观察与测试。</li><li><strong>控制长期任务的信息累积</strong>：旧事件可由模型异步摘要；确定性规则可过滤内容；稳定指令与摘要放在前部，以便复用前缀缓存。</li><li><strong>大数据按需加载</strong>：文件默认以名称、版本和摘要等引用出现，需要时再加载，用完后退出工作上下文。长期记忆支持智能体主动搜索，也支持调用前预检索。</li><li><strong>区分两种协作方式</strong>：把智能体作为工具时，传入聚焦任务并获取结果；转交控制权时，子智能体接续会话，但应明确限定可见历史。</li><li><strong>交接还要处理行动归属</strong>：前一个智能体的发言和工具调用需要重新标注，避免接手者把别人的行为误认成自己完成的操作。</li></ul>
-<h2 id="h2731">证据与可信度</h2>
+<h2 id="h2683">证据与可信度</h2>
 <p>这是 Google ADK 技术负责人的官方工程说明，依据是作者所述实践及框架机制，属于厂商一方的架构介绍。文中没有报告智能体数量、吞吐量、任务成功率或成本改善的实验结果，也没有独立核验。</p>
 <p>文中的 5MB CSV 是说明大载荷问题的示例，不是测量结果。成本、延迟和可靠性的收益主要是设计推断，无法据此确定实际扩展幅度。</p>
 <p>有一个关键细节：文章提倡最小上下文，但转交模式的默认设置仍会传递调用者的完整工作上下文；限制历史需要显式配置。</p>
-<h2 id="h2732">对 swarm scaling 的意义</h2>
+<h2 id="h2684">对 swarm scaling 的意义</h2>
 <p>它提供的是控制信息传播的工程路径：智能体数量和任务深度增加时，不必让全部历史沿调用链反复复制，而可共享持久状态、传递制品引用，并为各角色生成局部视图。</p>
 <p>这也提示，swarm 的扩展能力取决于交接范围、信息检索和行动归属，而不只是并发数量。不过，摘要遗漏、检索失误及局部视图损失是否会抵消收益，本文没有实验回答；它支持架构选型，尚不能证明规模越大效果越好。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

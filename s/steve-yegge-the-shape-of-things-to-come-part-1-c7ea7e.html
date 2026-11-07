@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Shape of Things to Come, Part 1</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Shape of Things to Come, Part 1</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Steve Yegge</dd><dt>日期</dt><dd>2026-08</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://yegge.ai/essays/the-shape-of-things-to-come/" target="_blank" rel="noopener">https://yegge.ai/essays/the-shape-of-things-to-come/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Yegge一手承认Gas Town主要用于构建自身，因模型变化而终结，并以Wheelhouse替代。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1237">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Shape of Things to Come, Part 1</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Steve Yegge</dd><dt>日期</dt><dd>2026-08</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://yegge.ai/essays/the-shape-of-things-to-come/" target="_blank" rel="noopener">https://yegge.ai/essays/the-shape-of-things-to-come/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Yegge一手承认Gas Town主要用于构建自身，因模型变化而终结，并以Wheelhouse替代。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1217">一句话</h2>
 <p>Yegge 从 Gas Town 转向服务 Wyvern 的专用编排系统 Wheelhouse，其经验表明：扩大 agent 数量后，瓶颈会转向任务供给、共享状态、集成验证和人的注意力。</p>
-<h2 id="h1238">主要内容</h2>
+<h2 id="h1218">主要内容</h2>
 <ul><li><strong>Gas Town 的失效带有模型依赖。</strong> 作者称，它实际主要用于构建自身；Opus 4.7 持续修整框架、迟迟不进入业务工作，成为系统失效的最后诱因。他也承认系统另有问题，不能简单归因于模型升级。</li><li><strong>Wheelhouse 按生产与消费分工。</strong> Crew 负责设计和拆解任务，fleet 负责实现，再由较强模型审查；常驻角色承担运维、反馈收集和发布说明。Beads 保存任务依赖、领取状态和历史知识，Markdown 保存长期决策与操作规范。</li><li><strong>持续运行需要配平资源。</strong> 作者保留大量已设计任务供夜间执行，同时隔离部分账户资源以保障运维可用性。继续增加 worker，又受到本机能力和本人追踪能力限制。</li><li><strong>集成成为下游瓶颈。</strong> 合并队列积压后，他尝试集中落地大批提交，再由 agent 并行定位并修复问题，替代反复二分排查。</li><li><strong>自动化延伸到需求入口。</strong> “Wish Factory”把管理员及玩家反馈转成任务；面向玩家的入口增加分流、审查与约束，自动处理部分不涉及游戏平衡的问题。</li></ul>
-<h2 id="h1239">证据与可信度</h2>
+<h2 id="h1219">证据与可信度</h2>
 <p>材料是作者的一手实践叙述，未提供可复核日志、对照实验或独立审计，Wheelhouse 也未开源。</p>
 <p>作者自报：18 个 crew、40 多个 agent 持续工作；当月平均每天约 175 次业务提交；编排系统维护占其工作量的 20%—25%。这些数字描述规模与投入，不能直接证明生产率提升。</p>
 <p>费用需区分口径：7 月约 690 亿 token、96% 缓存命中；每月约 8.7 万美元是 API 标价等价值，约 2800 美元才是其所称实际支出，并非同一计费方式。</p>
 <p>大批合并方案仅自述运行约一周，曾清理 120—150 个提交的批次，缺少修复耗时、缺陷率和事故数据。文中的业内旁证属于转述；“人工审查和传统 CI/CD 即将消失”属于预测。</p>
-<h2 id="h1240">对 swarm scaling 的意义</h2>
+<h2 id="h1220">对 swarm scaling 的意义</h2>
 <p>这份案例支持把 swarm 看作排队、协调与反馈系统：设计任务的速度、实现速度和验证容量必须匹配。共享任务图、角色分工、知识分层与故障恢复，比单纯增加 worker 更值得关注。</p>
 <p>它也暴露扩展成本：token、状态库维护、编排开发和人类协调都可能随规模增长。模型升级还可能改变 agent 行为，使原有编排失效。</p>
 <p>提交速度超过验证容量，能说明队列难以持续，却不足以证明“大批合并后修复”是唯一解。材料没有建立 agent 数量与交付质量、成本或净产出的扩展曲线。</p></main>

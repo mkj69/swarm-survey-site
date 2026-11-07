@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rethinking Multi-Agent Intelligence Through the Lens of Small-World Networks</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Rethinking Multi-Agent Intelligence Through the Lens of Small-World Networks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Wang, Boxuan, Li, Zhuoyun, Huang, Xiaowei et al.</dd><dt>日期</dt><dd>2025-12-19</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2512.18094" target="_blank" rel="noopener">https://arxiv.org/abs/2512.18094</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>评估小世界连接作为拓扑先验，发现准确率接近但共识轨迹更稳定。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2705">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Rethinking Multi-Agent Intelligence Through the Lens of Small-World Networks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Wang, Boxuan, Li, Zhuoyun, Huang, Xiaowei et al.</dd><dt>日期</dt><dd>2025-12-19</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2512.18094" target="_blank" rel="noopener">https://arxiv.org/abs/2512.18094</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>评估小世界连接作为拓扑先验，发现准确率接近但共识轨迹更稳定。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2657">一句话</h2>
 <p>这篇论文将小世界网络作为多智能体通信的结构先验：初步实验的主要收益是让共识过程更稳定，而非明显提高答题准确率。</p>
-<h2 id="h2706">主要内容</h2>
+<h2 id="h2658">主要内容</h2>
 <ul><li>小世界结构结合局部邻近通信与少量远距离捷径，试图兼顾局部协作和跨群体的信息流动。</li><li>作者以多智能体辩论为试验场，使用 GPT-4o-mini、8 个智能体，在 ARC-Challenge、ScienceQA、GSM8K 三个基准上比较全连接、稀疏环、每轮重新采样的随机图，以及静态小世界图。</li><li>随机拓扑在多项任务上取得最高准确率和最低通信成本；小世界拓扑的准确率接近强基线，成本略有增加，但 GSM8K 上的共识轨迹更平滑、波动更小。</li><li>作者进一步提出用语义熵等不确定性信号指导连边，将认知分歧较大或低置信度的智能体与其他节点连接。这是后续设计方向，材料未展示其完整算法及实测收益。</li><li>简单模拟还显示，节点所在位置会影响信念更新：局部连接紧密的节点更快稳定，外围节点波动较大，跨群体桥接节点整合信息较慢。</li></ul>
-<h2 id="h2707">证据与可信度</h2>
+<h2 id="h2659">证据与可信度</h2>
 <ul><li>“8 个智能体”“三个基准”均来自作者给出的实验设置；准确率、token 成本和共识变化属于作者实验结果，所给材料没有独立核验。</li><li>抓取内容包含正文，但图表仅有说明，缺少具体数值，无法计算准确率差距、成本增幅或稳定性改善幅度，也无法判断统计显著性。</li><li>作者将实验定位为轻量、初步研究。摘要称成本近似，引言提及成本下降，结果部分则承认相对最佳基线有少量额外成本，因此不宜概括为小世界结构必然省 token。</li><li>不确定性重连及更广泛的鲁棒性、扩展性收益主要是研究主张；节点角色差异来自简单模拟，不能直接视为真实任务能力分工的验证。</li></ul>
-<h2 id="h2708">对 swarm scaling 的意义</h2>
+<h2 id="h2660">对 swarm scaling 的意义</h2>
 <p>它提示，扩展 swarm 时除了最终正确率和通信量，还应观察多轮协作是否振荡、退化，以及错误如何传播。小世界拓扑值得作为稀疏通信基线，但材料中的 8 智能体实验尚不足以证明大规模扩展优势。</p>
 <p>关键待验证点是：规模增大后稳定性收益能否保持，以及不确定性估计与动态重连的额外成本是否值得。共识更平稳本身也不等于答案更正确。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

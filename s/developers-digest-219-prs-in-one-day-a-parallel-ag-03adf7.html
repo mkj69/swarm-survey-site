@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>219 PRs in One Day: A Parallel Agent Fan-Out Postmortem</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>219 PRs in One Day: A Parallel Agent Fan-Out Postmortem</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Developers Digest</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.developersdigest.tech/blog/parallel-agent-fanout-day" target="_blank" rel="noopener">https://www.developersdigest.tech/blog/parallel-agent-fanout-day</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>记录200多并行子代理的资源上限问题，仅见摘要。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3229">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>219 PRs in One Day: A Parallel Agent Fan-Out Postmortem</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Developers Digest</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.developersdigest.tech/blog/parallel-agent-fanout-day" target="_blank" rel="noopener">https://www.developersdigest.tech/blog/parallel-agent-fanout-day</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>记录200多并行子代理的资源上限问题，仅见摘要。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3173">一句话</h2>
 <p>这篇复盘说明：独立任务可以靠大量代理快速铺开，但规模上限很快转移到共享资源、结果验收和审查队列，PR 数量也不等于完成交付。</p>
-<h2 id="h3230">主要内容</h2>
+<h2 id="h3174">主要内容</h2>
 <ul><li>作者称，在 35 个仓库上运行 200 多个 Claude Code 子代理，一天创建 219 个 PR，主要处理跨仓库迁移。</li><li>有效的任务约束是：每个代理限定仓库、分支和 PR 目标，按清单执行；不符合迁移条件就退出。约 40 次运行选择跳过，避免制造无用改动。</li><li>共用检出目录导致分支和提交互相干扰；独立临时克隆缓解了这类冲突，但没有消除主机资源竞争。</li><li>故障包括：清理进程误杀其他代理的构建、克隆及依赖安装耗尽磁盘、工作目录错误造成空差异 PR，却被运行日志标成成功。</li><li>后续改进包括共享资源加锁、克隆失败时使用本地缓存、预先筛选目标仓库，并将流程固化为可复用 skill。</li><li>作者估计约 70% 的 PR 可直接合并，其余需要修正。人工审查、Devin 二次审查队列及 GitHub Actions 额度成为后续瓶颈。</li></ul>
-<h2 id="h3231">证据与可信度</h2>
+<h2 id="h3175">证据与可信度</h2>
 <p>提供的内容包含正文与 FAQ，并非仅摘要；正文标注更新于 2026 年 5 月 6 日。</p>
 <p>219 个 PR、35 个仓库、200 多次运行、约 40 次跳过，以及磁盘用量超过 60GB，均为作者自报，材料未附完整运行日志、PR 清单或资源监控。约 70% 可直接合并属于作者估计；约第 180 个 PR 时触及 Actions 额度，也无账单记录佐证。没有独立核验。</p>
 <p>并发口径尤其含糊：文章同时使用“每仓库一个代理”“200 多次运行”和“200 多个并发代理”，未解释批次与峰值并发的关系，不能据此确认实际同时运行数量。串行耗时与“一周缩至一下午”的说法也缺少对照测量，不能算作已验证的加速比。</p>
-<h2 id="h3232">对 swarm scaling 的意义</h2>
+<h2 id="h3176">对 swarm scaling 的意义</h2>
 <p>这是独立仓库任务的扇出案例，能支持任务分解、执行隔离和资源治理的实践判断，不能证明复杂协作任务也能获得同样收益。</p>
 <p>关键启示是：扩容要同时处理任务准入、共享资源限流和结果验收。运行成功状态不足以证明产物有效；空差异 PR 与后续修改需求说明，应把有效产物和审查完成情况纳入评价。案例显示，代理生成速度提升后，系统吞吐仍可能受磁盘、CI 额度及审查队列限制。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

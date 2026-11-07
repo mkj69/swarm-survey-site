@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wilson Lin on FastRender: a browser built by thousands of parallel agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Wilson Lin on FastRender: a browser built by thousands of parallel agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Simon Willison</dd><dt>日期</dt><dd>2026-01-23</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://simonwillison.net/2026/Jan/23/fastrender/" target="_blank" rel="noopener">https://simonwillison.net/2026/Jan/23/fastrender/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>披露峰值约2000智能体及依赖选择等原帖未提细节。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2533">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Wilson Lin on FastRender: a browser built by thousands of parallel agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Simon Willison</dd><dt>日期</dt><dd>2026-01-23</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://simonwillison.net/2026/Jan/23/fastrender/" target="_blank" rel="noopener">https://simonwillison.net/2026/Jan/23/fastrender/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>披露峰值约2000智能体及依赖选择等原帖未提细节。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2485">一句话</h2>
 <p>FastRender 展示了约两千智能体并行开发复杂软件的可行性，但材料支持的是协调系统的规模实验，尚不足以证明增加智能体能带来同比例的有效产出。</p>
-<h2 id="h2534">主要内容</h2>
+<h2 id="h2486">主要内容</h2>
 <ul><li>项目由 Wilson Lin 的个人实验发展为 Cursor 研究项目，核心目标是改进多智能体协调框架，浏览器提供持续、复杂且可观察的任务。</li><li>据 Lin 介绍，系统曾连续运行约一周，峰值约 2,000 个智能体并发；每台大型机器约运行 300 个。规划智能体按树状结构分派任务，不同工作流可在不同机器上分别运行。</li><li>降低冲突的主要方法是减少任务与代码修改范围的重叠。Lin 称多数提交没有合并冲突，但未给出冲突率。</li><li>长程自主运行依赖多种反馈：仓库内的标准规范、渲染截图与参考图比较，以及 Rust 编译检查。</li><li>系统允许短暂的语法或接口错误，以减少同步等待。Lin 称这些错误通常在后续几次提交中修复，错误量没有持续累积。</li><li>智能体会自行选择依赖来解除阻塞，例如引入 QuickJS 等待自研引擎完成；也会因约束不明确而采用超出研究者预期的现成实现。</li><li>演示中部分真实网页已可使用，但显示较慢，JavaScript 尚未启用，距离成熟浏览器仍有明显差距。</li></ul>
-<h2 id="h2535">证据与可信度</h2>
+<h2 id="h2487">证据与可信度</h2>
 <p>文章是 Simon Willison 对项目负责人的访谈整理，附时间戳和演示描述。并发约 2,000、单机约 300、每小时数千次提交、最长运行约一周，均属项目方口述；其中提交速率带有回忆性措辞。近 30,000 次提交、超过百万行 Rust 是文中报告的规模数据，本文材料未提供独立核验过程。</p>
 <p>网页演示能支持“已有部分渲染能力”，不能验证整体正确性。低冲突、错误稳定及通用模型更适合协调任务，主要属于团队经验判断，缺少系统对照数据。材料未披露成本、算力配置、有效任务完成率或随并发增长的收益曲线；代码量与提交量不能直接等同于生产力。</p>
-<h2 id="h2536">对 swarm scaling 的意义</h2>
+<h2 id="h2488">对 swarm scaling 的意义</h2>
 <p>案例提示，可扩展性取决于任务拆分、模块边界、反馈质量和同步策略，而非单纯增加智能体。允许局部短暂错误，可能换取更高吞吐，但需要可靠的发现与修复机制。</p>
 <p>依赖选择也暴露了局部推进与整体目标之间的偏差：智能体成功解除阻塞，仍可能偏离“从零实现”的意图。因此，评估 swarm scaling 应同时看最终功能、质量、成本和目标一致性；这篇材料提供了大规模运行的案例，尚未证明其效率优势或普遍适用性。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
