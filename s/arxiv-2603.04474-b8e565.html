@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Xie, Yizhe, Zhu, Congcong, Zhang, Xinyue et al.</dd><dt>日期</dt><dd>2026-03-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.04474" target="_blank" rel="noopener">https://arxiv.org/abs/2603.04474</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>建模错误级联并比较枢纽与叶节点注入，量化拓扑敏感性和治理效果。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2141">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Xie, Yizhe, Zhu, Congcong, Zhang, Xinyue et al.</dd><dt>日期</dt><dd>2026-03-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.04474" target="_blank" rel="noopener">https://arxiv.org/abs/2603.04474</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>建模错误级联并比较枢纽与叶节点注入，量化拓扑敏感性和治理效果。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2165">一句话</h2>
 <p>多智能体协作可能把局部错误固化成集体共识；本文用传播模型解释这一风险，并提出沿消息来源链进行核验和干预。</p>
-<h2 id="h2142">主要内容</h2>
+<h2 id="h2166">主要内容</h2>
 <ul><li>将协作抽象为有向依赖图，追踪单条错误被各智能体采纳的过程。这里的“采纳”包括把错误当作行动前提，明确否定错误则不计入。</li><li>提出早期放大条件：传播概率 β 与图谱半径 ρ(A) 的乘积大于有效纠错率 δ。它描述小错误是否倾向扩散，不是对每次运行结果的确定预测。</li><li>在六个框架中识别三类脆弱性：错误沿上下文复用扩散；枢纽节点比边缘节点影响更大；错误写入中间产物后，后续纠正需要处理更多依赖。</li><li>防御采用消息中间层：拆分原子断言，记录来源及支持、冲突关系，放行已确认内容，拦截冲突内容，并对不确定内容分配核验预算。通信拓扑保持不变。</li></ul>
-<h2 id="h2143">证据与可信度</h2>
+<h2 id="h2167">证据与可信度</h2>
 <p>未读到全文：材料在防御策略部分截断，多张表格数据及实验附录未展示。</p>
 <ul><li>作者报告，六个框架中有五个在受控示踪实验里最终达到全部智能体感染。该实验把错误植入入口智能体的系统指令，用于测量结构放大效应，不能直接等同于外部攻击成功率。</li><li>LangGraph 的枢纽与叶节点注入感染率分别为 100% 和 9.7%；CrewAI 的两者比值为 6.29 倍。这些是作者实验结果，片段未给出完整样本量和统计配置。</li><li>摘要称，治理层在不同运行模式下至少有 89% 的运行避免最终感染；可见内容不足以核查其分母、判定口径及成本收益。</li><li>模型是采用独立传播假设的均值场近似，拟合参数来自观测轨迹。拟合吻合支持其描述能力，但不能证明所有协作系统都遵循相同机制。材料提供代码与数据链接，未见独立复现证据。</li></ul>
-<h2 id="h2144">对 swarm scaling 的意义</h2>
+<h2 id="h2168">对 swarm scaling 的意义</h2>
 <p>本文提示，扩展协作规模时，应同时关注消息依赖、上下文复用和纠错能力。多个智能体重复同一来源，可能只是在放大同一个错误，并不构成独立证据。</p>
 <p>可借鉴的方向是优先核验高影响节点、保留断言来源并尽早纠偏。不过，材料未展示随智能体数量增长的系统实验，因此尚不能据此给出规模上限，或断言治理效果能稳定延伸到更大 swarm。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

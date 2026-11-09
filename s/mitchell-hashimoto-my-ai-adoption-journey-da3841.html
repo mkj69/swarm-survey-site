@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>My AI Adoption Journey</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>My AI Adoption Journey</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Mitchell Hashimoto</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://mitchellh.com/writing/my-ai-adoption-journey" target="_blank" rel="noopener">https://mitchellh.com/writing/my-ai-adoption-journey</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>二月基线：不想多开，智能体只运行工作日的10%到20%。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2369">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>My AI Adoption Journey</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Mitchell Hashimoto</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://mitchellh.com/writing/my-ai-adoption-journey" target="_blank" rel="noopener">https://mitchellh.com/writing/my-ai-adoption-journey</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>二月基线：不想多开，智能体只运行工作日的10%到20%。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2393">一句话</h2>
 <p>Hashimoto 的采用经验表明，个人开发中的智能体扩展，首先受制于可委派任务、验证工具和人的注意力，而非能同时启动多少智能体。</p>
-<h2 id="h2370">主要内容</h2>
+<h2 id="h2394">主要内容</h2>
 <ul><li>他从聊天界面转向能读取文件、执行程序和发起网络请求的智能体，认为工具调用与反馈循环更适合既有代码库。</li><li>为摸清能力边界，他让智能体重做自己已手工完成的提交，由此学会拆分任务、分开规划与执行，并提供自动验证手段；早期收益主要是减少无效使用，尚未感到净提效。</li><li>他在每天最后 30 分钟启动研究、方案探索及 issue／PR 分诊任务。这一阶段试过并行，但通常不到半小时就结束，并非整夜循环运行；价值在于次日更快进入工作。</li><li>对高把握的编码任务，他采用单个后台智能体，自己继续处理其他工作，并关闭通知，在自然休息时检查结果，减少注意力切换。</li><li>他将反复出现的错误转化为 AGENTS.md 约束或测试、截图等工具，称为 harness engineering，目标是让智能体自行发现并纠正问题。</li><li>“始终有智能体运行”仍是目标。当前后台运行时间约占正常工作日的 10%—20%，他暂时不想增加并发数量。</li></ul>
-<h2 id="h2371">证据与可信度</h2>
+<h2 id="h2395">证据与可信度</h2>
 <p>这是署名于 2026 年 2 月 5 日的个人实践记录，有具体工作方式，但没有对照实验、任务样本统计或独立核验。</p>
 <p>每天预留 30 分钟、任务通常半小时内完成，以及 10%—20% 的运行占比，均来自作者自述；其中运行占比明确是估计，不能当作遥测数据，更不代表生产率提升幅度。“更高效”“结果更好”等也属于主观体验。</p>
 <p>作者称自己不任职、投资或顾问于 AI 公司；这是利益关系自述，不能替代效果验证。</p>
-<h2 id="h2372">对 swarm scaling 的意义</h2>
+<h2 id="h2396">对 swarm scaling 的意义</h2>
 <p>这篇材料提供的是个人采用的基线，而非 swarm 扩展效果的证明。作者曾用并行智能体探索想法和分诊问题，但日常编码仍偏好单个后台智能体；不能把“不想多开”解读为从未并行。</p>
 <p>可提炼的扩展顺序是：先建立高质量任务供给与可靠验证，再提高运行覆盖率，最后考虑更多并发。人的审阅负担和上下文切换可能先成为瓶颈，但文章没有量化这些成本，也无法证明增加智能体数量会带来多少收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

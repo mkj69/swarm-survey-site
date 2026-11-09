@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A dozen coding agents; savagely overwriting each other at ~200k LOC</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A dozen coding agents; savagely overwriting each other at ~200k LOC</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Steve Yegge (@Steve_Yegge)</dd><dt>日期</dt><dd>2025-09-11</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/Steve_Yegge/status/1965991591367295403" target="_blank" rel="noopener">https://x.com/Steve_Yegge/status/1965991591367295403</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L489 V102K</dd><dt>收录理由</dt><dd>早期遗漏的一手合并冲突证据：13个 agent 同仓库到约20万行后互相覆盖，需每几小时停机修复。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2725">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A dozen coding agents; savagely overwriting each other at ~200k LOC</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Steve Yegge (@Steve_Yegge)</dd><dt>日期</dt><dd>2025-09-11</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/Steve_Yegge/status/1965991591367295403" target="_blank" rel="noopener">https://x.com/Steve_Yegge/status/1965991591367295403</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L489 V102K</dd><dt>收录理由</dt><dd>早期遗漏的一手合并冲突证据：13个 agent 同仓库到约20万行后互相覆盖，需每几小时停机修复。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2749">一句话</h2>
 <p>并发编码能快速扩产，但共享项目中的冲突处理可能成为扩展瓶颈。</p>
-<h2 id="h2726">主要内容</h2>
+<h2 id="h2750">主要内容</h2>
 <ul><li>作者称近一周同时使用约12个 agent，刚加入第13个。</li><li>项目约20万行后，agent 开始互相覆盖；每隔几小时需全部停机、人工修复并逐个重启。</li><li>他称约六天产出25万行代码，使用 AmpCode。</li></ul>
-<h2 id="h2727">证据与可信度</h2>
+<h2 id="h2751">证据与可信度</h2>
 <p>数字均为作者个人自报；“充分审查、测试、企业级”无独立核验。未提供冲突日志、代码质量指标或对照实验。</p>
-<h2 id="h2728">对 swarm scaling 的意义</h2>
+<h2 id="h2752">对 swarm scaling 的意义</h2>
 <p>案例提示：增加 agent 数量可能放大共享代码的协调成本。但无法据此确定瓶颈来自并发数、代码规模还是工作分工，也不能把20万行视为通用阈值。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

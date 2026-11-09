@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AutoGen Update discussion</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AutoGen Update discussion</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Microsoft</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://github.com/microsoft/autogen/discussions/7066" target="_blank" rel="noopener">https://github.com/microsoft/autogen/discussions/7066</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>早期维护承诺，可与后来的归档声明对照。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3229">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>AutoGen Update discussion</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>Microsoft</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://github.com/microsoft/autogen/discussions/7066" target="_blank" rel="noopener">https://github.com/microsoft/autogen/discussions/7066</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>早期维护承诺，可与后来的归档声明对照。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3253">一句话</h2>
 <p>抓取内容更像 AutoGen 仓库说明页，而非标题所指的更新讨论：它展示了多智能体编排的技术结构，也暴露了维护状态变化与文档不一致的问题。</p>
-<h2 id="h3230">主要内容</h2>
+<h2 id="h3254">主要内容</h2>
 <ul><li>AutoGen 采用分层设计：Core 提供消息传递、事件驱动智能体及本地和分布式运行时；AgentChat 封装常见对话协作模式；Extensions 接入模型、代码执行等能力。</li><li>示例通过主助手调用数学、化学专家智能体，展示把智能体封装为工具的委派方式。它说明如何组织协作，没有证明扩大团队能提高效果。</li><li>Studio 面向无代码原型，Bench 用于性能评估；材料没有给出实际评测结果。</li><li>页面顶部声明项目已归档，微软停止提供修复、功能更新与支持，并建议迁移至 Microsoft Agent Framework；后文却仍保留“维护模式”、接受修复类贡献等说法。</li></ul>
-<h2 id="h3231">证据与可信度</h2>
+<h2 id="h3255">证据与可信度</h2>
 <p>未读到全文：所给内容未呈现讨论帖正文、发帖时间及回复，不能据此还原元数据所称的“早期维护承诺”，也无法建立承诺变化的时间线。</p>
 <p>架构、归档状态及后继框架的生产可用性均属于项目方陈述，未做独立核验。顶部归档声明与尾部维护说明存在口径冲突，可能反映更新残留，但材料不足以确认原因。</p>
 <p>示例中的工具迭代上限为 10，这是代码配置，不是智能体规模或吞吐量测量。全文没有规模增长下的成功率、成本、延迟或对照实验，不能作为 scaling 收益的实证。</p>
-<h2 id="h3232">对 swarm scaling 的意义</h2>
+<h2 id="h3256">对 swarm scaling 的意义</h2>
 <p>这份材料提供的是扩展协作的工程机制：消息传递、分布式运行时和专家委派为组织更多智能体提供接口，但接口存在不等于规模收益成立。</p>
 <p>它对调研更有价值的提醒是：swarm 能否持续扩展，还取决于依赖维护、安全修复和迁移成本。此处可以记录归档声明与文档口径冲突；若要比较早期承诺与后续变化，仍需取得原讨论正文及对应时间证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

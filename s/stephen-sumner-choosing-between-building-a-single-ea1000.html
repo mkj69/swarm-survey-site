@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Choosing Between Building a Single-Agent System or Multi-Agent System</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Choosing Between Building a Single-Agent System or Multi-Agent System</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Stephen Sumner</dd><dt>日期</dt><dd>2025-12-01</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出企业决策树，以安全和组织边界为多智能体理由。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2685">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Choosing Between Building a Single-Agent System or Multi-Agent System</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Stephen Sumner</dd><dt>日期</dt><dd>2025-12-01</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出企业决策树，以安全和组织边界为多智能体理由。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2709">一句话</h2>
 <p>这份微软企业架构指南把多智能体的主要理由放在安全隔离、团队分工和明确的扩展需求上；其他情况应先验证单智能体，再用测试结果决定是否拆分。</p>
-<h2 id="h2686">主要内容</h2>
+<h2 id="h2710">主要内容</h2>
 <ul><li><strong>先判断是否需要智能体，再决定数量。</strong> 决策树还包括传统代码、非生成式模型和现成 SaaS 智能体，避免直接进入自建多智能体方案。</li><li><strong>优先拆分的条件是边界要求。</strong> 数据隔离、合规与职责分离，不同团队独立维护领域能力，以及明确的跨领域扩展规划，都可成为多智能体的理由。</li><li><strong>角色多、数据多、请求多不自动意味着需要多个智能体。</strong> 规划、审查、执行等角色可先通过单智能体的提示、工具权限和上下文控制实现；数据处理问题应先检查检索、分块、缓存等环节。</li><li><strong>架构不确定时做对照原型。</strong> 在接近生产的负载下测量准确率、吞吐、延迟和成本，只有单智能体优化后仍有局限，才考虑拆分。</li><li><strong>多智能体需要显式协调。</strong> 工作流负责执行顺序、状态传递、分支和审计；每次交接也带来延迟、错误处理、权限管理及重复上下文成本。单智能体同样可使用工作流和人工审核。</li></ul>
-<h2 id="h2687">证据与可信度</h2>
+<h2 id="h2711">证据与可信度</h2>
 <p>这是 Microsoft Learn 的厂商架构指导，属于设计建议，未提供基准实验、样本规模、成本曲线或独立核验。文中“超过三到五种不同功能时适合模块化拆分”是建议性阈值，没有展示推导或测量依据，不能视为通用拐点。</p>
 <p>关于并行收益、通信开销和上下文重复的论述给出了机制解释，但没有量化净收益。元数据日期为 2025-12-01，抓取页标注最后更新于 2025-12-10，应区分两者。</p>
-<h2 id="h2688">对 swarm scaling 的意义</h2>
+<h2 id="h2712">对 swarm scaling 的意义</h2>
 <p>材料提示，扩展智能体数量需要分别回答两个问题：组织与权限是否必须拆分，以及并行执行是否实际提升性能。前者可能直接决定架构，后者需要实验验证。</p>
 <p>它支持以单智能体作为基线，比较加入协调之后的整体表现，而不是把智能体数量当作能力指标。同时，文中的多智能体主要是企业流程内的专业分工，不能据此推断大规模 swarm 的涌现能力、最优规模或性能增长规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

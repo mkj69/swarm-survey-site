@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Opinion: check the repo before believing browser hype</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Opinion: check the repo before believing browser hype</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>The Register</dd><dt>日期</dt><dd>2026-01-26</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.theregister.com/2026/01/26/cursor_opinion" target="_blank" rel="noopener">https://www.theregister.com/2026/01/26/cursor_opinion</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总构建失败、依赖 Servo 和 QuickJS 等质疑，属评论文章。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2477">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Opinion: check the repo before believing browser hype</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>The Register</dd><dt>日期</dt><dd>2026-01-26</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.theregister.com/2026/01/26/cursor_opinion" target="_blank" rel="noopener">https://www.theregister.com/2026/01/26/cursor_opinion</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总构建失败、依赖 Servo 和 QuickJS 等质疑，属评论文章。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2501">一句话</h2>
 <p>这篇评论以 Cursor 的浏览器实验为例，指出多智能体生成大量代码，与交付可验证、可运行的软件之间仍有明显距离。</p>
-<h2 id="h2478">主要内容</h2>
+<h2 id="h2502">主要内容</h2>
 <ul><li>作者 Steven J. Vaughan-Nichols 质疑宣传与实际成果的落差：Cursor 对外强调浏览器规模和自主开发能力，工程师的说明则承认项目困难、功能有限。</li><li>文中转述开发者检查仓库后的反馈：近期提交存在编译与 CI 失败；部分版本经手工修补后能运行，但页面加载缓慢。</li><li>“从零构建”的表述也受到挑战。文章提及 Servo、QuickJS 等既有项目；工程师则解释，自定义 JavaScript 虚拟机使用了其个人解析器项目。材料中的依赖与代码来源说法存在争议，不能据此直接判定全部成果来自拼装。</li><li>作者主张用可复现构建、通过的 CI 和真实基准衡量成果，而不是以代码量或演示视频代替交付证据。</li></ul>
-<h2 id="h2479">证据与可信度</h2>
+<h2 id="h2503">证据与可信度</h2>
 <ul><li>这是立场鲜明的评论文章，不是系统实验报告。提供的正文可读，但本文未独立检查仓库、运行构建或核验所引链接。</li><li>“超过 300 万行代码、数千个文件”来自 Cursor CEO 的自报；“数百个智能体运行一周”是文章对实验规模的描述，均非作者提供的独立测量。</li><li>“10—20 万亿 token、按标价需数百万美元”来自作者询问 Perplexity 后得到的估算，没有实际用量、计费记录或计算过程，不能作为可靠成本数据。</li><li>“页面加载约一分钟”及构建失败属于文章转述的外部开发者反馈，缺少统一环境、版本与测试方法。Servo 维护者对设计的批评属于具名专业判断，也不能替代性能测试。</li></ul>
-<h2 id="h2480">对 swarm scaling 的意义</h2>
+<h2 id="h2504">对 swarm scaling 的意义</h2>
 <p>这份材料适合作为“大规模并行产码不等于有效工程产出”的警示案例。它提示调研应同时记录智能体规模、资源投入、构建成功率、功能覆盖和运行性能，才能判断扩张是否带来收益。</p>
 <p>但文章没有不同智能体数量的对照实验，也没有可信的实际成本数据，因此无法证明 swarm 扩张必然失效，或推导最优规模。其主要价值是揭示评估口径的缺口：代码量增长之后，集成、验证与交付仍需单独举证。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Shift to Agentic AI: Evidence from Codex</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Shift to Agentic AI: Evidence from Codex</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Johnston et al.</dd><dt>日期</dt><dd>2026-06-25</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.26959" target="_blank" rel="noopener">https://arxiv.org/abs/2606.26959</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出真实并发基线：超 10% 用户每周至少一次同管 3 个以上智能体。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1409">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Shift to Agentic AI: Evidence from Codex</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Johnston et al.</dd><dt>日期</dt><dd>2026-06-25</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.26959" target="_blank" rel="noopener">https://arxiv.org/abs/2606.26959</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出真实并发基线：超 10% 用户每周至少一次同管 3 个以上智能体。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1433">一句话</h2>
 <p>这篇论文提供了真实用户并行委派智能体的使用基线，但尚不能证明增加智能体数量能提高生产率。</p>
-<h2 id="h1410">主要内容</h2>
+<h2 id="h1434">主要内容</h2>
 <ul><li>研究比较 Codex 的个人账户、外部组织账户和 OpenAI 员工，观察采用程度、任务类型及使用深度。</li><li>摘要称，超过 10% 的用户每周至少有一次同时管理三个或更多 Codex 智能体，26.6% 使用 skills。这说明并行委派与可复用工作流已有实际采用。</li><li>重度用户更常运行复杂、长时间和并行任务；作者将其使用方式概括为委派、监控、审查与协调多条工作流。</li><li>使用增长具有明显的组织差异：OpenAI 内部采用最深，外部组织其次，个人用户较低。内部培训、知识共享、使用限制少等条件，也可能影响这种差异。</li><li>委派范围仍以软件生产为主，但已覆盖文档、研究、数据分析和沟通等工作。</li></ul>
-<h2 id="h1411">证据与可信度</h2>
+<h2 id="h1435">证据与可信度</h2>
 <p>未读到全文：提供内容在第五节开头截断，未包含并发指标的详细分析及相关附录。</p>
 <p>这是基于 OpenAI 自有产品日志的厂商研究，属于观察性测量，并非独立实验。超过 10% 的并发比例及 26.6% 的 skills 使用率来自摘要；片段没有展示其具体分母、统计窗口细节或误差范围。正文将并发定义为多个 Codex 回合同时间运行，因此不能直接解读为智能体之间存在协作。</p>
 <p>任务复杂度来自模型估计的人类完成时间，并非实测工时：样本是允许训练使用数据的个人账户中的 0.1%。输出 token 则衡量生成量，不能直接代表成果质量或生产率。</p>
 <p>材料未提供独立核验。OpenAI 员工所处环境特殊，作者也明确承认其不代表一般组织。</p>
-<h2 id="h1412">对 swarm scaling 的意义</h2>
+<h2 id="h1436">对 swarm scaling 的意义</h2>
 <p>这份材料最有价值的是需求基线：一部分用户已经在同时委派多条任务，调度、状态跟踪和结果审查因此具有现实意义。</p>
 <p>但“同时运行多个智能体”与“协作式 swarm”仍有距离。片段没有给出智能体间通信、依赖关系、冲突处理或联合成果指标，也没有比较不同并发数量的收益与成本，无法据此推出规模收益曲线。</p>
 <p>它更支持一个待验证的方向：扩展效果可能同时取决于可复用流程、用户监督能力和组织配套，而不只取决于智能体数量。</p></main>

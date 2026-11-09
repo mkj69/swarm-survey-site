@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-Agent LLM Orchestration Achieves Deterministic, High-Quality Decision Support for Incident Response</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent LLM Orchestration Achieves Deterministic, High-Quality Decision Support for Incident Response</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Drammeh, Philip</dd><dt>日期</dt><dd>2025-11-19</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2511.15755" target="_blank" rel="noopener">https://arxiv.org/abs/2511.15755</a></dd><dt>许可</dt><dd>none-withdrawn-version（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>其百倍优势已被作者因代码审计撤回，是不能引用其决策质量结果的警示案例。</dd><dt>注</dt><dd><strong>注意：该文献已撤回。</strong></dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2693">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent LLM Orchestration Achieves Deterministic, High-Quality Decision Support for Incident Response</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Drammeh, Philip</dd><dt>日期</dt><dd>2025-11-19</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2511.15755" target="_blank" rel="noopener">https://arxiv.org/abs/2511.15755</a></dd><dt>许可</dt><dd>none-withdrawn-version（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>其百倍优势已被作者因代码审计撤回，是不能引用其决策质量结果的警示案例。</dd><dt>注</dt><dd><strong>注意：该文献已撤回。</strong></dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2717">一句话</h2>
 <p>这篇已撤回的论文说明：评分若读到预设答案，多智能体的巨大优势可能只是评测实现造成的假象。</p>
-<h2 id="h2694">主要内容</h2>
+<h2 id="h2718">主要内容</h2>
 <ul><li>研究面向生产系统故障响应，原摘要称以348次受控试验比较单智能体与多智能体，并提出衡量有效性、具体性和正确性的决策质量指标。</li><li>原先报告的可执行率、质量倍数优势及零方差结论，均已被作者撤回。</li><li>撤回说明指出：多智能体侧的行动列表是代码常量，并非模型输出；评分器却只读取该字段，且实现与论文第三节不符。</li><li>作者表示延迟数据不受影响，正在重新设计研究。</li></ul>
-<h2 id="h2695">证据与可信度</h2>
+<h2 id="h2719">证据与可信度</h2>
 <p>未读到全文，仅有摘要、版本记录和撤回说明。348次试验、100%对1.7%的可执行率、80倍具体性及140倍正确性，都是作者原先报告的数据；相关质量结论现已失效，不能作为效果证据。双方约40秒的理解延迟虽被作者保留，所给材料未提供独立核验。最新版本于2026年8月31日撤回。</p>
-<h2 id="h2696">对 swarm scaling 的意义</h2>
+<h2 id="h2720">对 swarm scaling 的意义</h2>
 <p>它不能证明增加智能体能提高决策质量，更不能支持“确定性”或生产就绪的结论。其价值在于提醒评测者追踪模型输出到评分输入的完整链路：先确认测到的是系统实际生成的答案，再讨论多智能体的收益与扩展规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

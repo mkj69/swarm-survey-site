@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Don&#x27;t Build Multi-Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Don&#x27;t Build Multi-Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Walden Yan (Cognition)</dd><dt>日期</dt><dd>2025-06-12</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cognition.com/blog/dont-build-multi-agents" target="_blank" rel="noopener">https://cognition.com/blog/dont-build-multi-agents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出共享完整上下文原则，与 Hayek 式压缩信号形成张力。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2753">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Don&#x27;t Build Multi-Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Walden Yan (Cognition)</dd><dt>日期</dt><dd>2025-06-12</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cognition.com/blog/dont-build-multi-agents" target="_blank" rel="noopener">https://cognition.com/blog/dont-build-multi-agents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出共享完整上下文原则，与 Hayek 式压缩信号形成张力。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2777">一句话</h2>
 <p>作者认为，多智能体扩展的主要瓶颈是上下文与决策的一致性；在这些问题解决前，增加并行执行者容易降低系统可靠性。</p>
-<h2 id="h2754">主要内容</h2>
+<h2 id="h2778">主要内容</h2>
 <ul><li>文章提出两项原则：共享完整执行轨迹，而非只传递个别消息；行动本身包含隐含决策，这些决策若相互冲突，会破坏最终结果。</li><li>任务拆分会遗漏需求解释、工具调用和多轮交互中的细节。即使子智能体收到同一份初始任务，也可能各自选择不同的视觉风格或实现假设，导致成果难以整合。</li><li>作者建议默认采用连续上下文的单线程智能体。任务过长时，可由专门模型压缩历史，保留关键事件与决策，但压缩质量需要投入，且仍有容量上限。</li><li>文中以问答型子任务和代码编辑流程说明：边界清楚的委派有价值，而把决策与执行拆给不同模型，可能因传递中的歧义产生错误。</li><li>作者对未来协作持乐观态度，但认为当时的智能体尚不能可靠地通过持续沟通协调分歧。</li></ul>
-<h2 id="h2755">证据与可信度</h2>
+<h2 id="h2779">证据与可信度</h2>
 <p>这是一篇来自 Cognition 从业者的架构观点文章，主要依据工程经验与示意案例。Flappy Bird 的拆分失败是说明机制的假设场景，并非实验结果。</p>
 <p>材料未提供智能体数量、成功率、成本或延迟的对照测量，因此不能据此量化并行带来的损失，也不能证明多智能体普遍劣于单智能体。Cognition 使用过专门的压缩模型属于厂商自述；对 Claude Code 的描述限定于文中所述的 2025 年 6 月，材料内没有独立核验。作者也承认这些原则可能随技术进展调整。</p>
-<h2 id="h2756">对 swarm scaling 的意义</h2>
+<h2 id="h2780">对 swarm scaling 的意义</h2>
 <p>文章提示，扩展规模需要同时处理执行并行度和决策依赖：当多个任务会共同决定同一产物的行为或风格时，拆分越多，潜在的协调负担越重。</p>
 <p>它与依赖压缩信号进行分散协调的思路形成张力，但并未否定压缩本身——作者也采用历史压缩。真正的分歧在于：压缩后是否仍保留了后续行动所需的决策背景。对 swarm 的直接启发是，评估扩展收益时，应把上下文传递、冲突修复和整合成本一并计入；这些是本文提出的研究方向，而非已验证的规模规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

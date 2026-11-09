@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Curse of Coordination</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Curse of Coordination</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>CooperBench team</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cooperbench.com/blog/curse-of-coordination" target="_blank" rel="noopener">https://cooperbench.com/blog/curse-of-coordination</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>解释 50% 来自 GPT-5/Sonnet 4.5，并列出 2/3/4 智能体成功率。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3333">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Curse of Coordination</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>CooperBench team</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cooperbench.com/blog/curse-of-coordination" target="_blank" rel="noopener">https://cooperbench.com/blog/curse-of-coordination</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>解释 50% 来自 GPT-5/Sonnet 4.5，并列出 2/3/4 智能体成功率。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3357">一句话</h2>
 <p>CooperBench 的核心发现是：在需要修改同一批文件的编码任务中，多智能体的协调成本可能吞掉并行收益，但这些结果不能直接推广为所有 swarm 都不如单体。</p>
-<h2 id="h3334">主要内容</h2>
+<h2 id="h3358">主要内容</h2>
 <ul><li>基准包含来自 12 个开源库的 652 个任务。两个智能体分别实现兼容但涉及相同文件的功能，以测试分工后的协作能力。</li><li>GPT-5 与 Claude Sonnet 4.5 的双智能体成功率均为 25%，作者称比单智能体完成两个功能低 50%；中等难度任务的差距最大。</li><li>另一组扩展实验报告：2、3、4 个智能体的成功率依次为 68.6%、46.5%、30.0%。正文没有交代这组结果的模型、任务子集及完整配置。</li><li>开放通信能减少合并冲突，却没有提高最终测试通过率；通信最多消耗 20% 的行动预算。重复消息、问题无人回应、错误报告完成状态，是作者归纳的主要障碍。</li><li>成功轨迹中出现了明确分工、划定修改范围、先协商再编码等行为；作者据此提出，可用协作轨迹和交互环境训练更可靠的协调能力。</li></ul>
-<h2 id="h3335">证据与可信度</h2>
+<h2 id="h3359">证据与可信度</h2>
 <p>这些数字属于基准作者自报的实验结果，本材料没有提供独立核验。</p>
 <p>“下降 50%”是相对降幅，不是下降 50 个百分点；按文中数字反推，单体成功率约为 50%，双体为 25%。不能把这一结论概括成所有模型、所有配置都减半。</p>
 <p>68.6%→46.5%→30.0% 缺少实验口径，不能与上述 25% 直接拼接比较。“63% 的失败”涉及未根据伙伴计划调整行动，是失败案例内的归因比例，不是全部任务的失败率；标注方法及类别是否重叠未说明。</p>
 <p>“协调比原始能力更关键”及向科研、商业等领域的推广属于作者解释和判断，文中未给出对应领域实验。</p>
-<h2 id="h3336">对 swarm scaling 的意义</h2>
+<h2 id="h3360">对 swarm scaling 的意义</h2>
 <p>这份材料提示，扩容应同时衡量最终任务成功率、协调开销与共享资源冲突，不能仅以智能体数量或消息量判断收益。合并更顺利，也不等于功能正确。</p>
 <p>结果尤其适用于共享代码文件、分支间难以直接核验进度的协作场景。明确职责、隔离修改范围、让承诺可验证，是值得进一步测试的设计方向；成功轨迹提供了线索，但尚不能证明这些策略的因果效果，也不能据此否定具备成熟编排机制的 swarm。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

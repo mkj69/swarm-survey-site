@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Optimizing Sequential Multi-Step Tasks with Parallel LLM Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Optimizing Sequential Multi-Step Tasks with Parallel LLM Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Enhao, Zhu, Erkang, Bansal, Gagan et al.</dd><dt>日期</dt><dd>2025-07-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2507.08944" target="_blank" rel="noopener">https://arxiv.org/abs/2507.08944</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>并行运行多个团队获得约 2.2 倍提速，说明冗余探索可换取延迟收益。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2737">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Optimizing Sequential Multi-Step Tasks with Parallel LLM Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Enhao, Zhu, Erkang, Bansal, Gagan et al.</dd><dt>日期</dt><dd>2025-07-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2507.08944" target="_blank" rel="noopener">https://arxiv.org/abs/2507.08944</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>并行运行多个团队获得约 2.2 倍提速，说明冗余探索可换取延迟收益。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2761">一句话</h2>
 <p>M1-Parallel 通过让多个智能体团队同时尝试同一任务，用额外推理成本换取更短等待时间；收益来自执行路径的差异，而非把串行步骤直接并行化。</p>
-<h2 id="h2738">主要内容</h2>
+<h2 id="h2762">主要内容</h2>
 <ul><li>框架基于 Magentic-One，每个团队独立规划、调用工具并动态调整路径，中央管理器通过异步消息协调执行。</li><li>两种模式对应不同目标：早停模式采用最先返回的答案并终止其他团队；聚合模式收集多个答案及执行日志，再生成最终答案。</li><li>在 GAIA 上，三个团队早停相较单团队提速 <strong>1.6—1.8 倍</strong>，任务完成率保持相当，推理费用升至 <strong>1.7—1.8 倍</strong>。五个团队提速 <strong>1.8—2.2 倍</strong>，费用升至 <strong>2.2—2.6 倍</strong>，新增团队带来的收益已趋缓。</li><li>三团队聚合在三个难度等级平均分别多解出 <strong>3、5、1 道题</strong>，但通常等待更久，费用达到基线的 <strong>2.5—3.4 倍</strong>。</li><li>显式要求生成不同计划没有明确优于重复采样；作者观察到，为追求差异而添加的多余步骤可能拖累表现。</li><li>聚合器仍是瓶颈：读取日志的 LLM 通常优于多数投票，但仍落后于“只要任一答案正确就算成功”的理想上界。</li></ul>
-<h2 id="h2739">证据与可信度</h2>
+<h2 id="h2763">证据与可信度</h2>
 <p>这是论文作者报告的实验结果，所给正文覆盖方法、实验与结论，但抓取内容未呈现图表中的全部原始数值，未作独立核验。</p>
 <p>实验使用 GAIA 验证集，三个等级分别有 <strong>53、86、26 道题</strong>；主实验每题运行 <strong>5 次</strong>，图中报告 <strong>95% 置信区间</strong>。基础模型为 GPT-4o 指定版本。延迟按提交任务至返回答案的墙钟时间测量；费用依据输入、输出 token 和当时 API 单价估算，仅代表 LLM 推理费用。</p>
 <p>“最高 2.2 倍”对应五团队配置，不能当作默认三团队的普遍收益。另一本地 Qwen3-32B 实验受单卡内存限制，未真正并发执行，其延迟收益由独立运行的最小、最大耗时推算，属于理想并发条件下的估计。早停也没有正确性验证器，完成率相当不意味着每次最快返回的答案都正确。</p>
-<h2 id="h2740">对 swarm scaling 的意义</h2>
+<h2 id="h2764">对 swarm scaling 的意义</h2>
 <p>它展示了团队级冗余探索的价值：即使任务内部有严格依赖，也能通过并行尝试完整路径降低等待时间。扩容是否有效，取决于路径耗时差异、停止规则和答案选择能力。</p>
 <p>结果同时提示扩展边界：团队数增加并不带来线性加速；若目标是提高正确率，聚合器能否识别已有正确答案，比单纯增加候选更关键。强制制造计划差异也不等于有效探索。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

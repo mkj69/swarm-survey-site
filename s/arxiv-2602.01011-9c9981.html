@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-Agent Teams Hold Experts Back</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Teams Hold Experts Back</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Pappu, Aneesh, El, Batu, Cao, Hancheng et al.</dd><dt>日期</dt><dd>2026-02-01</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.01011" target="_blank" rel="noopener">https://arxiv.org/abs/2602.01011</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>显示自组织团队难以达到最佳成员水平，且妥协倾向和规模损失随团队变大而加重。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2405">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Teams Hold Experts Back</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Pappu, Aneesh, El, Batu, Cao, Hancheng et al.</dd><dt>日期</dt><dd>2026-02-01</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.01011" target="_blank" rel="noopener">https://arxiv.org/abs/2602.01011</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>显示自组织团队难以达到最佳成员水平，且妥协倾向和规模损失随团队变大而加重。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2429">一句话</h2>
 <p>这项研究表明，在开放讨论的自组织团队中，增加 agent 可能稀释专家意见；但机器学习基准上的主要差距参照是“逐题选对成员”的理想上界，不能直接理解为落后于某个固定最强模型。</p>
-<h2 id="h2406">主要内容</h2>
+<h2 id="h2430">主要内容</h2>
 <ul><li>作者研究没有预设角色、允许全员讨论的团队，重点考察能否达到“强协同”：团队表现至少追平最佳成员，而非仅超过成员平均水平。</li><li>默认设置为 4 个 agent、4 轮讨论，讨论后各自作答，再以多数票确定团队答案。任务包括三类心理学排序任务，以及五个机器学习基准，每个基准抽取 100 道题。</li><li>在心理学任务中，即使明确告知谁掌握专家信息，团队仍落后于专家单独作答。揭示专家身份带来的改善较小，说明瓶颈主要是采用专家意见，而非识别专家。</li><li>在机器学习基准中，团队与“至少一个成员答对即可算对”的理想上界相比，相对差距为 6.3%–41.1%。多数投票、辩论和允许弃权的协议也未达到该上界。</li><li>心理学任务将团队规模从 2 增至 4、8 时，与专家的差距扩大。对话分析发现，非专家折中、专家迁就与更差表现相关。</li><li>在两类排序任务的破坏性成员实验中，团队表现下降较小。作者推测，压低异常意见的机制可能同时削弱专家贡献与恶意干扰。</li></ul>
-<h2 id="h2407">证据与可信度</h2>
+<h2 id="h2431">证据与可信度</h2>
 <p>未读到全文：提供内容在附录 A 中途截断，多个结果表和后续附录未展示。以上依据已提供的正文及方法描述。</p>
 <p>数字属于作者实验报告，未作独立核验。6.3%–41.1% 按“理想上界准确率减团队准确率，再除以上界准确率”计算，并非准确率下降的百分点，也不等于相对固定最佳单模型的损失。</p>
 <p>规模效应在所测心理学任务及信息条件中报告为显著，均为 \(p&lt;0.05\)。对话主要由 Gemini 标注，作者称两名人工标注者核验了 50 段对话，与模型标注一致率为 94%。行为与成绩的相关性不能单独证明因果；将折中倾向归因于对齐训练，也只是作者假说。</p>
-<h2 id="h2408">对 swarm scaling 的意义</h2>
+<h2 id="h2432">对 swarm scaling 的意义</h2>
 <p>这篇论文提示：扩容的限制可能来自意见如何获得权重，而不只是推理能力或成员数量。更多声音若被平均处理，新增成员可能冲淡已有的正确判断。</p>
 <p>评估 swarm 时，应分别报告成员平均水平、固定最佳单模型和逐题理想上界，避免混淆不同收益。该研究支持检验专家意见保留与采用机制，但不足以证明所有 swarm 扩容都会退化：规模实验集中于小规模心理学任务，不能直接外推到大规模、明确分工或独立执行的系统。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

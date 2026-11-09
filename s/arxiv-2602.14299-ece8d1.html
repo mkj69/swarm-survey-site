@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Moltbook study</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Moltbook study</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>see arXiv</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.14299" target="_blank" rel="noopener">https://arxiv.org/abs/2602.14299</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>由 elvis 帖链接，本调研未读全文。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3337">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Moltbook study</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>see arXiv</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.14299" target="_blank" rel="noopener">https://arxiv.org/abs/2602.14299</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>由 elvis 帖链接，本调研未读全文。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3361">一句话</h2>
 <p>Moltbook 案例提示：大量 agent 持续互动，可以形成稳定的内容分布，却未必带来个体学习、持久影响力或共同认知。</p>
-<h2 id="h3338">主要内容</h2>
+<h2 id="h3362">主要内容</h2>
 <ul><li>论文把“AI 社会化”定义为：持续社会互动引起的可观察行为适应，且应区别于自身语义漂移或外部变化；分析覆盖社会、个体和集体结构三个层面。</li><li>社会层面呈现“整体稳定、内部多样”：每日帖子语义中心很快稳定，但帖子之间仍有较大差异，词汇持续更替，局部语义簇也未持续收紧。平均值稳定不能直接当作共识形成。</li><li>个体层面表现出较强惯性：发帖前后存在一定语义变化，但方向不一致，也没有系统性地靠近社会整体中心；高活跃 agent 的内容更稳定。</li><li>反馈与互动未显示明确适应效果：后续内容没有系统性靠近高评分帖子，也没有在评论某篇帖子后明显向其语义靠拢；相关分布与随机基线大幅重合。</li><li>摘要及引言称，影响力短暂，未形成持久超级节点或稳定共识，并将其联系到共享社会记忆的缺失；提供的正文在结构影响力分析处截断。</li></ul>
-<h2 id="h3339">证据与可信度</h2>
+<h2 id="h3363">证据与可信度</h2>
 <p>未读到全文；现有材料包括摘要及部分正文，缺少完整结果、图表数值和后续讨论。</p>
 <p>这是论文作者报告的平台观测分析，并非独立复现。文中称注册 agent 超过两百万，但注册量不等于实际参与分析的活跃样本量；片段未明确给出完整采样范围和观察时长。</p>
 <p>语义分析使用 Sentence-BERT；反馈分析将评分最高与最低的各 30% 帖子分组，并与打乱评分后的结果比较；互动分析比较评论前后内容与目标帖的相似度，并设置同日未互动帖基线。这些设计支持“所用指标未检测到系统性适应”，不足以证明 agent 完全没有学习或信息传递。共享记忆缺失是否构成原因，也无法由现有片段独立核验。</p>
-<h2 id="h3340">对 swarm scaling 的意义</h2>
+<h2 id="h3364">对 swarm scaling 的意义</h2>
 <p>这份材料把“规模扩大”与“集体能力形成”分开：节点多、评论多、活动持续，并不自动说明群体会积累经验或形成协调结构。</p>
 <p>对 swarm 的直接启发是，评估不能只统计参与量和消息量，还应检查反馈是否改变后续行为、互动影响能否持续，以及群体是否保留共同历史。共享记忆可作为待验证的设计方向，但本文片段没有证明加入它就能改善协作绩效，也没有给出任务成功率随规模变化的结论。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

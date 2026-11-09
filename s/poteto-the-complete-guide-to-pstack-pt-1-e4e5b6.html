@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Complete Guide to pstack Pt. 1</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Complete Guide to pstack Pt. 1</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>poteto</dd><dt>日期</dt><dd>2026-08-31</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/poteto/status/2094457600259842065" target="_blank" rel="noopener">https://x.com/poteto/status/2094457600259842065</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>7845 likes; 1288178 views</dd><dt>收录理由</dt><dd>Tan称月产2000 PR，并反对worktree转向云智能体，但她有Cursor背景。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h993">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Complete Guide to pstack Pt. 1</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>poteto</dd><dt>日期</dt><dd>2026-08-31</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/poteto/status/2094457600259842065" target="_blank" rel="noopener">https://x.com/poteto/status/2094457600259842065</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>7845 likes; 1288178 views</dd><dt>收录理由</dt><dd>Tan称月产2000 PR，并反对worktree转向云智能体，但她有Cursor背景。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1017">一句话</h2>
 <p>pstack 的核心主张是：先让智能体具备可重复的自主验证能力，再扩大云端并行；但文中的高产出与倍数提升主要是作者自述，尚不足以证明规模收益。</p>
-<h2 id="h994">主要内容</h2>
+<h2 id="h1018">主要内容</h2>
 <ul><li><strong>把验证变成基础设施。</strong> 智能体应能运行应用、复现问题、检查结果并继续修正，减少人工验收形成的瓶颈。作者强调，技术栈的可调试性会直接影响这条闭环。</li><li><strong>用工具固化操作。</strong> 将应用交互和调试封装为小型 CLI，并统一开发环境、测试账号和数据准备。相比反复生成临时脚本，这种方式旨在降低操作成本，让验证更可重复。</li><li><strong>用功能地图压缩上下文。</strong> 以 Markdown 记录功能用途、入口与操作路径，配合 CLI 帮助智能体定位功能；作者建议至少每天维护一次验证技能，避免共享知识过时。</li><li><strong>把执行迁往云端。</strong> 作者认为本地 worktree 会受存储和计算资源限制，推荐独立云环境。主机器人承担协调与监督，云智能体执行任务，以释放主机器资源并减少上下文负担。</li><li><strong>让并行服务于验证。</strong> 文中的 swarm 用于扩大性能验证样本、模糊测试和回归检查，也可结合自动化流程尝试复现用户报告。</li></ul>
-<h2 id="h995">证据与可信度</h2>
+<h2 id="h1019">证据与可信度</h2>
 <p>作者自报每月向生产环境交付 <strong>2,000 个 PR</strong>，并称所在代码库每天合入数百个 PR；材料没有提供统计窗口、PR 大小、合入记录或质量指标，不能据此判断有效产出。</p>
 <p><strong>100—1000 倍</strong>团队产出属于作者的效果主张，没有基线、对照实验或计算方法。本地约 <strong>10 个</strong>智能体的并行规模是带硬件与仓库条件的经验估计，并非通用上限。“数百个云端子智能体并行”被留作后续文章内容，本篇未展示相应实验。</p>
 <p>材料提供了流程说明和示例仓库链接，但未给出可核验的规模测试结果。作者自述曾为 Cursor 创建验证技能，且积极推荐 Cursor 云智能体，存在产品关联视角。所给材料中无独立核验；点赞与浏览量只说明传播程度。</p>
-<h2 id="h996">对 swarm scaling 的意义</h2>
+<h2 id="h1020">对 swarm scaling 的意义</h2>
 <p>这篇材料的价值在于提出一套扩容前提：可自动启动的环境、可编程的验证工具、可维护的共享功能知识，以及协调者与执行者分工。它提示，增加智能体数量之前，应先降低每项任务对人工判断和临时操作的依赖。</p>
 <p>但云端隔离主要解决执行资源问题。本文没有回答并行修改如何合并、智能体如何协调冲突，以及成本和质量随并发数如何变化。因此，它更适合作为验证基础设施的实践参考，而非 swarm 规模效应的实证证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

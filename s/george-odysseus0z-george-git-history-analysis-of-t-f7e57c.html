@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>George: git-history analysis of the compiler run</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>George: git-history analysis of the compiler run</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>George (@odysseus0z)</dd><dt>日期</dt><dd>2026-02-13</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/odysseus0z/status/2022178089632174291" target="_blank" rel="noopener">https://x.com/odysseus0z/status/2022178089632174291</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=9; retweets=1; views=2120</dd><dt>收录理由</dt><dd>外部通过 git 历史分析协调方式，属少见的第三方分析。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2277">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>George: git-history analysis of the compiler run</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>George (@odysseus0z)</dd><dt>日期</dt><dd>2026-02-13</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/odysseus0z/status/2022178089632174291" target="_blank" rel="noopener">https://x.com/odysseus0z/status/2022178089632174291</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=9; retweets=1; views=2120</dd><dt>收录理由</dt><dd>外部通过 git 历史分析协调方式，属少见的第三方分析。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2301">一句话</h2>
 <p>这份第三方分析认为，编译器项目的关键是测试环境、Git 协作与持续人工引导，而非复杂的多智能体编排。</p>
-<h2 id="h2278">主要内容</h2>
+<h2 id="h2302">主要内容</h2>
 <ul><li>提示词简短；环境提供快速局部测试、异步完整测试、易解析反馈及容器隔离。</li><li>任务文件名由智能体自定，作者据此质疑 Git 冲突能有效锁定任务；去重主要依靠阅读彼此的任务描述。</li><li>人类通过想法目录持续调整优先级、提供诊断，未审查代码不等于没有参与。</li><li>后期出现功能互相破坏；加入批评角色未见帮助，但瓶颈原因尚难归因。</li></ul>
-<h2 id="h2279">证据与可信度</h2>
+<h2 id="h2303">证据与可信度</h2>
 <p>16 个智能体、两周、约 2,000 次会话和 2 万美元是文中转述的项目规模，并非作者独立测量。作者称分析了 3,982 次提交，统计出 79 个想法对应 2,063 个任务锁文件，以及 38 次添加想法的提交。属于第三方仓库分析，本页未独立核验；提示词与运行脚本未完整公开，限制了复现和因果判断。</p>
-<h2 id="h2280">对 swarm scaling 的意义</h2>
+<h2 id="h2304">对 swarm scaling 的意义</h2>
 <p>案例提示，共享状态、反馈质量和人工任务供给可能比复杂编排更关键。但单次运行没有规模对照，不能据此证明增加智能体数量带来的收益，也无法区分模型能力、环境设计与并行度各自的贡献。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

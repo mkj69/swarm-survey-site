@@ -2,17 +2,17 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Here Comes The AI Worm: Unleashing Zero-click Worms that Target GenAI-Powered Applications</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Here Comes The AI Worm: Unleashing Zero-click Worms that Target GenAI-Powered Applications</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Cohen, Stav et al.</dd><dt>日期</dt><dd>2024-03-05</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2403.02817" target="_blank" rel="noopener">https://arxiv.org/abs/2403.02817</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Morris II 展示了针对 RAG 邮件助手的零点击自复制攻击。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2869">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Here Comes The AI Worm: Unleashing Zero-click Worms that Target GenAI-Powered Applications</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Cohen, Stav et al.</dd><dt>日期</dt><dd>2024-03-05</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2403.02817" target="_blank" rel="noopener">https://arxiv.org/abs/2403.02817</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Morris II 展示了针对 RAG 邮件助手的零点击自复制攻击。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2893">一句话</h2>
 <p>Morris-II 展示了：互联的 RAG 助手不仅能交换信息，也可能把恶意指令复制给彼此，使单点污染扩展成跨应用传播。</p>
-<h2 id="h2870">主要内容</h2>
+<h2 id="h2894">主要内容</h2>
 <ul><li>攻击利用外部内容与模型指令之间的边界失守：恶意邮件被存入检索库，随后进入生成上下文，诱使模型泄露信息并把恶意提示带入输出。</li><li>传播依赖应用持续收录新内容、检索受污染记录，以及生成的邮件被发送给其他用户。这里的“零点击”不等于整个流程没有用户参与；实验描述仍包含用户生成和发送邮件。</li><li>作者用自建邮件助手测试新邮件生成、正文扩写和回复。上下文包含 20 封邮件时，后两类任务的综合成功率约为 20%。</li><li>多跳实验显示，在确保恶意邮件进入上下文的条件下，复制与泄露行为能持续多轮。泄露内容发给正常邮件收件人，并非自动回传攻击者。</li><li>作者提出通过模型输入与输出的相似性识别自复制内容的防护方案 Virtual Donkey。</li></ul>
-<h2 id="h2871">证据与可信度</h2>
+<h2 id="h2895">证据与可信度</h2>
 <p>未读到全文：提供内容在防护讨论处截断，缺少后续实验细节和完整局限分析。</p>
 <p>这是作者的实验室测量，不是对已部署商业产品的实测。基础数据为 Enron 中 20 名员工、每人 100 封邮件，共 2,000 封；三种生成任务各做 1,000 次实验。约 20% 是特定配置下的综合指标，作者将其解释为平均每五封邮件传播一次，不能直接当作真实网络感染率。</p>
 <p>多跳结果也有条件：实验主动把恶意邮件放入上下文，因此前 11 跳复制与泄露成功率超过 90%，不代表端到端传播概率超过 90%。综合成功率由检索、复制和泄露成功率相乘得到，不能直接等同于实际新增感染数。</p>
 <p>泄露成功只需输出至少一项上下文信息；复制成功则要求提示字符串完全一致，两者判定宽严不同。材料中 precision 与 recall 的公式名称对调，相关 F1 数值应谨慎解读。</p>
 <p>防护的真阳性率 1.0、假阳性率 0.015 来自作者报告；片段不足以核查其样本与完整设置。材料称代码和数据已公开，但这里没有独立复现证据。</p>
-<h2 id="h2872">对 swarm scaling 的意义</h2>
+<h2 id="h2896">对 swarm scaling 的意义</h2>
 <p>它提供的是风险扩散证据，而非多智能体协作收益的扩展规律。共享记忆、自动检索和跨节点通信既能传递任务信息，也可能传递持久化攻击。</p>
 <p>对 swarm 的启示是：评估规模扩展时，应同时测量污染进入记忆、被检索、被执行和跨节点传播的概率。本文说明这些环节可以连成攻击链，但没有证明节点越多就必然出现何种增长曲线，也不能据此断言所有 agent 架构都会自发感染。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

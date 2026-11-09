@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Predictable Swarm Scaling</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Predictable Swarm Scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Wenhao Chai</dd><dt>日期</dt><dd>2026-09-27</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://wenhaochai.com/blogs/predictable-swarm-scaling.html" target="_blank" rel="noopener">https://wenhaochai.com/blogs/predictable-swarm-scaling.html</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用任务 DAG 模拟器估计蜂群结构，其模拟指数高于 Ord 的区间，但承认真实实验中没有蜂群胜过单智能体。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h661">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Predictable Swarm Scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Wenhao Chai</dd><dt>日期</dt><dd>2026-09-27</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://wenhaochai.com/blogs/predictable-swarm-scaling.html" target="_blank" rel="noopener">https://wenhaochai.com/blogs/predictable-swarm-scaling.html</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用任务 DAG 模拟器估计蜂群结构，其模拟指数高于 Ord 的区间，但承认真实实验中没有蜂群胜过单智能体。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h685">一句话</h2>
 <p>Wenhao Chai 用拟合真实探索任务结构的 DAG 模拟器研究蜂群扩展，说明任务依赖、协作成本与探索多样性如何共同决定收益，但模拟优势尚未得到真实智能体实验的支持。</p>
-<h2 id="h662">主要内容</h2>
+<h2 id="h686">主要内容</h2>
 <ul><li><strong>把任务结构显式化。</strong> 节点代表探索步骤，必须完成全部前置节点才能继续；智能体优先处理最深的就绪步骤。生成器的部分参数拟合自内部语言建模和文生图配方搜索实验中的两张 DAG。</li><li><strong>区分两种目标。</strong> 覆盖度衡量完成多少步骤，最优分数衡量找到的最好结果。增加智能体能加快分支探索，却不能跳过通往优质结果的依赖链，因此覆盖度加速不等于优化效果同比提升。</li><li><strong>比较组织方式。</strong> 标准蜂群集中调度，递归蜂群允许智能体派生下属；另比较独立尝试、多个小蜂群及动态调配资源的自适应方案。自适应方案先分散探索，再将资源转向当前表现较好的路线。</li><li><strong>收益存在结构性上限。</strong> 模拟中，64 个智能体的标准蜂群达到半覆盖快 33 倍，最优分数达到 0.8 快 16 倍；但从 32 增至 64 个智能体，全部完成的时间基本不变，受最长依赖链限制。</li><li><strong>集中与分散各有用途。</strong> 单个大蜂群较快推进同一路线，多个独立小蜂群则保留不同路线的潜力，有时更容易达到较高目标分数。</li></ul>
-<h2 id="h663">证据与可信度</h2>
+<h2 id="h687">证据与可信度</h2>
 <p>上述加速数字属于作者的模拟结果，不是真实智能体性能测量。常规图每张使用 16 个任务，组织方式擂台比较的是 4,096 次运行的平均最优分数。</p>
 <p>模拟中的交接开销设为中位步骤耗时的 5%；组内两名活跃智能体使步骤耗时增加 15%，之后每人再加 1%。这些是模型设定，材料未提供其现实测量依据。部分图结构参数虽来自真实 DAG，也不等于整个模拟器已经获得外部验证。</p>
 <p>作者以半覆盖加速比计算扩展指数：三层递归蜂群在 4—64 个智能体下为 0.88—0.93，高于文中转述 Ord 的 0.48—0.68；两者指标与实验条件不同，不能直接当作实证胜负。</p>
 <p>最关键的反证是作者承认：配套真实智能体实验按提交次数计，没有任何蜂群胜过单智能体，包括自适应蜂群。所给材料未提供独立核验。</p>
-<h2 id="h664">对 swarm scaling 的意义</h2>
+<h2 id="h688">对 swarm scaling 的意义</h2>
 <p>这篇文章的价值在于提供可检验的机制假说：扩展收益应同时考虑任务宽度、关键依赖链、通信开销和独立探索的多样性，而不能只看智能体数量。</p>
 <p>模拟器适合筛选待测组织方案；其较高扩展指数不能直接外推到真实部署。后续验证尤其需要区分墙钟加速、总资源消耗与最终质量，并检验早期领先是否真能预测路线潜力。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

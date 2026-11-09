@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Themes of Technology Radar Vol. 35</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Themes of Technology Radar Vol. 35</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Thoughtworks</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>video</dd><dt>原文</dt><dd><a href="https://www.thoughtworks.com/insights/podcasts/technology-podcasts/themes-technology-radar-vol-35" target="_blank" rel="noopener">https://www.thoughtworks.com/insights/podcasts/technology-podcasts/themes-technology-radar-vol-35</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>说明当前重心转向多智能体管理和反馈闭环。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h281">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Themes of Technology Radar Vol. 35</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Thoughtworks</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>video</dd><dt>原文</dt><dd><a href="https://www.thoughtworks.com/insights/podcasts/technology-podcasts/themes-technology-radar-vol-35" target="_blank" rel="noopener">https://www.thoughtworks.com/insights/podcasts/technology-podcasts/themes-technology-radar-vol-35</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>说明当前重心转向多智能体管理和反馈闭环。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h305">一句话</h2>
 <p>这期讨论将多智能体扩展的重点放在减少人工干预、完善反馈与控制成本上，但没有提供“增加多少智能体能提升多少产出”的实测证据。</p>
-<h2 id="h282">主要内容</h2>
+<h2 id="h306">主要内容</h2>
 <ul><li>并行使用编码智能体催生新的管理工具：统一展示运行、等待审批和完成状态，并管理隔离工作区，缓解多终端切换带来的注意力负担。</li><li>嘉宾更看重单个智能体能持续自主完成任务多久。明确任务边界、验收标准和自动反馈，比单纯增加并发更值得投入。</li><li>反馈应直接进入智能体工作过程，包括构建结果、测试和生产表现。人类投入可用于改进这些检查机制，让后续任务持续受益。</li><li>安全依赖沙箱、最小权限等技术约束。频繁审批容易使人机械确认；需要问责的决策仍应由获得充分上下文的人承担。</li><li>模型应按任务选择，结合通用模型、专用模型、开放权重模型和本地部署。统一路由、用量可见性和成本管理，是规模化运行的基础设施。</li><li>人仍需定义有价值的工作切片与方向。嘉宾反对盲目套用复杂工作流，主张采用团队能够理解和调整的流程。</li></ul>
-<h2 id="h283">证据与可信度</h2>
+<h2 id="h307">证据与可信度</h2>
 <p>未读到全文：提供的转录在最后讨论 harness 定义时截断，无法完整评价该主题。</p>
 <p>材料是 Thoughtworks 雷达编委参与的播客，主要依据咨询项目观察、工具提名、编委讨论和个人使用经验。嘉宾称，雷达从全球一万多名员工的观察中征集条目，经集中讨论筛选约一百项；这些是机构自述的编制规模，不代表调查样本量或统计代表性。</p>
 <p>文中多终端、长时间等待审批等例子属于个人经验；模型性能与成本优势也未附测试方法或可复核数据。材料没有多智能体吞吐、质量、成本或扩展效率的对照实验，亦未提供独立核验。</p>
-<h2 id="h284">对 swarm scaling 的意义</h2>
+<h2 id="h308">对 swarm scaling 的意义</h2>
 <p>它提供的是扩展条件清单，而非扩展收益曲线：并发增加后，任务边界、反馈质量、人工注意力、权限控制和推理预算都需要同步管理。</p>
 <p>其启发是，把“等待人处理的频率”和“能否自行判断完成”视为扩展瓶颈。不过，文中案例主要是一个人管理多个编码会话，不能据此证明智能体之间的协作、通信或群体决策已能有效扩展。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Technology Radar Vol. 35</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Technology Radar Vol. 35</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Thoughtworks</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener">https://www.thoughtworks.com/radar</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>最新一期，蜂群条目已不在其中，无人值守构建进入Trial。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h81">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Technology Radar Vol. 35</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Thoughtworks</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener">https://www.thoughtworks.com/radar</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>最新一期，蜂群条目已不在其中，无人值守构建进入Trial。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h105">一句话</h2>
 <p>Thoughtworks 本期更强调由开发者直接掌控的多会话并行，并指出：扩大 agent 使用规模，首先会遇到人的审查能力与交付流程的容量限制。</p>
-<h2 id="h82">主要内容</h2>
+<h2 id="h106">主要内容</h2>
 <ul><li>材料区分了三种组织方式：开发者分别管理多个会话；按预设角色和流程协作的 agent 团队；由编排 agent 自行拆分、分配任务的 swarm。后两者把更多决策权交给 agent。</li><li>Thoughtworks 团队目前主要采用直接控制多个会话的方式，并认为这是合理的起点。另一种实践是让 agent 承担运行更久的大块任务，例如开发者定义任务、事后审查的夜间无人值守构建。</li><li>并行会话工具通过状态收件箱集中展示待回答、待批准事项；Git worktree 隔离工作副本，但可能积累难以合并的分支。会话内的 subagent 则承担窄任务，减少探索与重试对主上下文的干扰。</li><li>扩容压力会沿流程传递：开发者注意力不足，可能使人工监督流于形式；多个开发者同时使用多个 agent，也可能让变更超过交付流水线的处理能力。</li><li>配套能力包括持续维护和评估 agent 的运行环境，以及按任务选择、路由模型。成本还受批处理、数据移动和底层基础设施效率影响。</li></ul>
-<h2 id="h83">证据与可信度</h2>
+<h2 id="h107">证据与可信度</h2>
 <p>这是基于 Thoughtworks 全球团队经验形成的技术判断，属于机构实践总结与观点，不是受控实验。材料没有给出 agent 数量、吞吐提升、成本或成功率的测量结果，也没有独立核验，不能据此推导 scaling 曲线。</p>
 <p>未读到全文：当前内容是首页及主题说明，未包含完整条目和环级清单。元数据称“蜂群条目已不在其中、无人值守构建进入 Trial”，但所给正文仍讨论 swarm，也未展示后者的具体环级，因此无法核实条目是否移出或升级。</p>
-<h2 id="h84">对 swarm scaling 的意义</h2>
+<h2 id="h108">对 swarm scaling 的意义</h2>
 <p>这份材料提供的是扩容约束框架：增加 agent 之前，需要同时考察任务隔离、上下文管理、审查容量、分支整合和上线队列。更多并行产出能否转化为更多已交付成果，取决于整条流程。</p>
 <p>它也提醒调研者区分“人管理更多会话”和“swarm 自主协调”：两者的授权程度与协调机制不同，不能用前者的实践经验直接证明后者有效。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

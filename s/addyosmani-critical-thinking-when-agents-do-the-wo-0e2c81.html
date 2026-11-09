@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Critical thinking when agents do the work</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Critical thinking when agents do the work</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>addyosmani</dd><dt>日期</dt><dd>2026-11-03</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2117512471930167377" target="_blank" rel="noopener">https://x.com/addyosmani/status/2117512471930167377</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>17751 likes; 4279410 views</dd><dt>收录理由</dt><dd>Osmani讨论并行工作流下批判性思维的流失，发布于本调研前一天。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h201">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Critical thinking when agents do the work</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>addyosmani</dd><dt>日期</dt><dd>2026-11-03</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2117512471930167377" target="_blank" rel="noopener">https://x.com/addyosmani/status/2117512471930167377</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>17751 likes; 4279410 views</dd><dt>收录理由</dt><dd>Osmani讨论并行工作流下批判性思维的流失，发布于本调研前一天。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h225">一句话</h2>
 <p>Osmani认为，多 agent 并行提高了产出速度，也可能让人的理解与审核能力成为瓶颈；扩容必须同时建设验证机制，并保留人的判断与责任。</p>
-<h2 id="h202">主要内容</h2>
+<h2 id="h226">主要内容</h2>
 <ul><li><strong>委托工作不等于放弃判断。</strong> 作者区分任务外包、默认接受输出、彻底放弃核查三个层次。风险在于这种滑落往往逐步发生：结果越流畅、明显错误越少，人越容易停止追问。</li><li><strong>理解债务可能被表面质量掩盖。</strong> 代码整洁、测试通过，并不代表团队理解系统。作者接受按需重建局部理解，但强调必须知道自己缺少哪些理解。</li><li><strong>验证也需要被审查。</strong> 功能和测试可能共享同一个错误假设，因此绿灯只能证明检查覆盖的性质。应提前明确完成标准，先看实际执行及其结果，再看 agent 的总结。</li><li><strong>审核应覆盖隐含决策。</strong> 除了代码差异，还要追问 agent 选择了哪些默认值、删去了哪些范围、如何处理需求冲突。新增会话无法自动消化已经堆积的待审产出。</li><li><strong>输入质量与信息来源同样关键。</strong> 人应明确目标、约束和完成条件；多个 agent 连续传递摘要，可能使后续参与者脱离原始材料。作者也建议用反方论证、独立上下文复核及人工练习维持判断能力。</li></ul>
-<h2 id="h203">证据与可信度</h2>
+<h2 id="h227">证据与可信度</h2>
 <p>这是一篇实践反思与方法建议，主要依据作者个人工作经验，并转述其他从业者及研究者的观点。材料没有提供受控实验、并发规模对照或吞吐与质量的测量，无法据此确定增加 agent 会造成多大审核负担。</p>
 <p>文中的代码行数、客户访谈数量等属于示例；自查后还能发现额外问题属于个人经验，均不是系统评测。元数据中的 17,751 次点赞与 4,279,410 次浏览是抓取时的平台互动信息，不能证明论点正确。所提研究和团队实践未在本材料中展开方法或数据，也未独立核验。</p>
-<h2 id="h204">对 swarm scaling 的意义</h2>
+<h2 id="h228">对 swarm scaling 的意义</h2>
 <p>文章提出了一个值得检验的扩容约束：agent 产出可以并行增长，人的注意力与可承担责任的审核量却未必同步增长。因此，评估 swarm 不应只看任务完成速度，还应考察验证覆盖、待审积压，以及人能否解释关键决策。</p>
 <p>它也提示两类协作风险：共享错误假设可能让自动检查失效，摘要接力可能丢失原始依据。独立复核、保留可追溯证据、抽查原始材料，以及按后果分配人工审核，都是作者论述支持的设计方向；本文没有证明这些措施的实际扩容收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

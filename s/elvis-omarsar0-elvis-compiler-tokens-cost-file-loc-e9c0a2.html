@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>elvis: compiler tokens, cost, file locks</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>elvis: compiler tokens, cost, file locks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>elvis (@omarsar0)</dd><dt>日期</dt><dd>2026-02-06</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/omarsar0/status/2019780306778104056" target="_blank" rel="noopener">https://x.com/omarsar0/status/2019780306778104056</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=289; retweets=38; views=37169</dd><dt>收录理由</dt><dd>二手转述并复述 token 与成本数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2321">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>elvis: compiler tokens, cost, file locks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>elvis (@omarsar0)</dd><dt>日期</dt><dd>2026-02-06</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/omarsar0/status/2019780306778104056" target="_blank" rel="noopener">https://x.com/omarsar0/status/2019780306778104056</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=289; retweets=38; views=37169</dd><dt>收录理由</dt><dd>二手转述并复述 token 与成本数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2345">一句话</h2>
 <p>这条推文的重点是多智能体如何协调代码工作，而非仅靠并行堆数量。</p>
-<h2 id="h2322">主要内容</h2>
+<h2 id="h2346">主要内容</h2>
 <ul><li>转述 Anthropic 用16个 Claude 实例构建 C 编译器。</li><li>智能体自主领任务，以文件锁避免冲突，并通过 Git 同步。</li><li>声称产出10万行 Rust，可编译 Linux 内核，无主动人工监督。</li></ul>
-<h2 id="h2323">证据与可信度</h2>
+<h2 id="h2347">证据与可信度</h2>
 <ul><li>数字均为二手转述：耗时两周，输入20亿、输出1.4亿 token，总成本2万美元。</li><li>本帖未提供测量方法或独立核验；“受 Ralph Loop 启发”只是作者猜测。</li></ul>
-<h2 id="h2324">对 swarm scaling 的意义</h2>
+<h2 id="h2348">对 swarm scaling 的意义</h2>
 <p>案例提示，扩展并行规模需要任务分配、冲突控制和状态同步。但单个案例不足以证明实例越多越高效，也无法据此计算相对单智能体的收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

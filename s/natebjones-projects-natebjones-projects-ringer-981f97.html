@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NateBJones-Projects/ringer</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>NateBJones-Projects/ringer</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>NateBJones-Projects</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/NateBJones-Projects/ringer" target="_blank" rel="noopener">https://github.com/NateBJones-Projects/ringer</a></dd><dt>许可</dt><dd>NOASSERTION（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>307</dd><dt>收录理由</dt><dd>GitHub 搜索到的头部长尾项目，显示专门蜂群工具规模仍小；搜索接口仅标为 other。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h289">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>NateBJones-Projects/ringer</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>NateBJones-Projects</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/NateBJones-Projects/ringer" target="_blank" rel="noopener">https://github.com/NateBJones-Projects/ringer</a></dd><dt>许可</dt><dd>NOASSERTION（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>307</dd><dt>收录理由</dt><dd>GitHub 搜索到的头部长尾项目，显示专门蜂群工具规模仍小；搜索接口仅标为 other。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h313">一句话</h2>
 <p>Ringer 将蜂群扩展的重点放在分工、可执行验收和运行记录上，但材料尚未证明增加 worker 能带来多大成本收益或吞吐提升。</p>
-<h2 id="h290">主要内容</h2>
+<h2 id="h314">主要内容</h2>
 <ul><li>采用分层分工：能力更强的模型负责规格与审查，较便宜的 CLI worker 并行实现，适合脚手架、迁移、批量转换等容易拆分的工作。</li><li>每个任务有独立目录、日志和验收命令，也可使用独立 Git worktree。完成与否由命令退出状态判定；默认最多尝试两次，重试时注入失败输出。</li><li>验收本身也需要检查：lint 提醒无法失败、缺少诊断信息、写入冲突等问题；baseline 在启动 worker 前，对未修改的代码运行检查，帮助识别验收条件错误。</li><li>本地看板展示多个蜂群、任务状态、耗时及可获得的 token 数据。逐次尝试日志支持按模型和任务类型比较首次通过率，辅助后续路由。</li><li>项目明确承认验证边界：运行检查不能保证语义正确，编排器改动仍需审查；自由文本问答只验证产出非空。</li></ul>
-<h2 id="h291">证据与可信度</h2>
+<h2 id="h315">证据与可信度</h2>
 <p>材料是项目 README，属于维护者对功能、经验和效果的自述，未提供独立核验，也未展示可分析的完整实验结果。示例演示使用三个 worker，仅说明演示配置，不能作为规模上限或扩展效率证据。</p>
 <p>文中输出价格便宜约二十至三十倍、单任务约一美分的说法，缺少任务样本、token 用量与统一对照，只能视为项目方估算。模型路由将同类任务至少三次、首次通过率不低于 0.67 定为“proven”；这是工具设定的启发式门槛，小样本不足以证明稳定可靠。</p>
 <p>元数据的 engagement 为 307，但未说明指标口径，不能直接解释成星标数、用户量或市场规模。材料也不足以支持“专门蜂群工具规模仍小”的总体判断。</p>
-<h2 id="h292">对 swarm scaling 的意义</h2>
+<h2 id="h316">对 swarm scaling 的意义</h2>
 <p>Ringer 提供的是可审计的扩展流程：先拆成可独立验收的任务，再用隔离减少冲突，用失败上下文支持重试，用记录改善模型选择。首次通过率与重试后通过率的差距，有助于识别便宜 worker 背后的返工负担。</p>
 <p>其关键约束仍是任务能否拆开、检查能否覆盖真实目标。若验收薄弱，并行只会更快积累表面合格的产物。材料未给出并发增加时的吞吐、总成本、合并冲突或质量曲线，因此更适合作为工程机制案例，而非 swarm scaling 已获验证的性能证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

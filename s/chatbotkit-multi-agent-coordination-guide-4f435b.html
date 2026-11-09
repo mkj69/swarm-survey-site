@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-agent coordination guide</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-agent coordination guide</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>ChatbotKit</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://chatbotkit.com/guides/multi-agent-coordination-guide" target="_blank" rel="noopener">https://chatbotkit.com/guides/multi-agent-coordination-guide</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>搜索中找到的唯一 USL 智能体类比，未打开原文，日期为访问日。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h77">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-agent coordination guide</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>ChatbotKit</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://chatbotkit.com/guides/multi-agent-coordination-guide" target="_blank" rel="noopener">https://chatbotkit.com/guides/multi-agent-coordination-guide</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>搜索中找到的唯一 USL 智能体类比，未打开原文，日期为访问日。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h101">一句话</h2>
 <p>这份厂商指南用分布式系统理论解释多智能体的协调瓶颈，核心价值是提示架构约束，而非证明智能体规模与性能之间的实际曲线。</p>
-<h2 id="h78">主要内容</h2>
+<h2 id="h102">主要内容</h2>
 <ul><li><strong>并行化受串行环节限制。</strong> 等待上游结果、读取共享状态、集体决策都会压低扩容收益；协调本身也可能成为串行工作。</li><li><strong>通信拓扑比智能体数量更关键。</strong> 全互联需要大量同步；独立工作者、树形编排、流水线和末端合并，通过限制依赖减少协调。</li><li><strong>自然语言协作增加额外损耗。</strong> 作者认为，消息歧义、对任务状态理解不一致，以及可信但错误的输出，会让错误沿协作链传播。</li><li><strong>层级化并非免费扩容。</strong> 跨组沟通会重新引入密集连接，多层委派还会增加等待和信息压缩损失。</li><li><strong>实践建议偏向低耦合。</strong> 先拆任务和依赖，再设计角色；保留局部状态、传递不可变消息、限制生成数量，并按任务需要选择一致性强度。文中也借此介绍自家临时公告板产品。</li></ul>
-<h2 id="h79">证据与可信度</h2>
+<h2 id="h103">证据与可信度</h2>
 <p>这是 ChatbotKit 的架构说明与产品相关论述，没有提供多智能体基准测试、实验配置或独立核验。元数据日期是访问日，不能据此判断发表时间。</p>
 <p>文中串行比例为 1%、10%、50% 时，对应加速上限 100、10、2 倍，来自 Amdahl 公式在工作者数量趋于无穷时的推导，属于理论值。3、10、100 个节点对应 3、45、4,950 条双向连接，来自全互联图的节点配对计数，并非实测通信量。</p>
 <p>文章引用 USL，但未给出完整模型、参数拟合或性能数据，因此没有证明具体系统何时出现性能回落。FLP 与 CAP 提供的是特定假设下的理论约束；将其直接推成智能体协作的普遍结论，需要谨慎。“末端合并成本固定”“公告板通信线性”等说法，也未计入随规模增长的读取、处理和汇总工作。</p>
-<h2 id="h80">对 swarm scaling 的意义</h2>
+<h2 id="h104">对 swarm scaling 的意义</h2>
 <p>它提供了一个有用的分析框架：扩容前先检查任务能否独立完成、同步点在哪里、通信是否随规模变密，再讨论增加智能体。</p>
 <p>但连接数量不能直接替代运行成本或效果测量。对 swarm scaling 的研究，这份材料更适合用于提出架构假设和实验变量，不能作为“规模越大必然退化”或某种拓扑已被验证更优的证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

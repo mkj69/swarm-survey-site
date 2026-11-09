@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kimi K2.5: Visual Agentic Intelligence</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi K2.5: Visual Agentic Intelligence</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Kimi Team</dd><dt>日期</dt><dd>2026-02-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.02276" target="_blank" rel="noopener">https://arxiv.org/abs/2602.02276</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>少见公开只训练编排器的PARL蜂群方法和评测。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2393">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi K2.5: Visual Agentic Intelligence</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Kimi Team</dd><dt>日期</dt><dd>2026-02-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.02276" target="_blank" rel="noopener">https://arxiv.org/abs/2602.02276</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>少见公开只训练编排器的PARL蜂群方法和评测。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2417">一句话</h2>
 <p>Kimi K2.5 的 Agent Swarm 把“如何拆任务、何时并行”变成可训练的编排能力，并报告了宽搜索任务上的速度与质量收益。</p>
-<h2 id="h2394">主要内容</h2>
+<h2 id="h2418">主要内容</h2>
 <ul><li><strong>只训练编排器</strong>：PARL 冻结子 agent，其执行轨迹不进入优化目标；编排器通过强化学习掌握任务分解、子 agent 创建与调度。作者希望借此减少联合训练中的信用分配歧义和不稳定性。</li><li><strong>同时防止两种退化</strong>：用并行辅助奖励鼓励探索，避免始终串行；用子任务完成奖励约束无效创建，避免靠大量启动 agent 获取奖励。两项辅助奖励的权重在训练中逐渐降至零。</li><li><strong>围绕最长分支优化</strong>：以“关键步数”衡量执行成本，并行组的耗时由最慢子 agent 决定。这使均衡拆分任务比单纯增加并发数更有价值。</li><li><strong>任务分布诱导并行</strong>：训练覆盖宽搜索、多分支深搜索及长文档分析等任务，不直接在提示中要求并行。</li><li>多模态联合训练是模型基础，但本文对蜂群研究更直接的贡献，是编排器训练方法及其评测口径。</li></ul>
-<h2 id="h2395">证据与可信度</h2>
+<h2 id="h2419">证据与可信度</h2>
 <p>材料为 Kimi 团队技术报告的抓取片段，末尾截断，部分公式与表格缺失，<strong>未读到全文</strong>。</p>
 <p>作者报告：宽搜索场景相较单 agent，推理最高加速 <strong>4.5 倍</strong>，条目级 F1 从 <strong>72.8% 升至 79.0%</strong>，即增加 <strong>6.2 个百分点</strong>，由两数相减得到。这属于厂商自报的实验结果，所给材料没有独立核验。</p>
 <p>“最高”不能代表平均收益，也不能据此断言质量提升与最高加速在同一配置下同时出现。片段未展示这些结果对应的完整硬件、并发规模、总计算量与统计波动；关键步数也不能直接等同于实际耗时或费用。</p>
-<h2 id="h2396">对 swarm scaling 的意义</h2>
+<h2 id="h2420">对 swarm scaling 的意义</h2>
 <p>这份材料支持一个值得检验的方向：扩展蜂群能力，需要学习有效分工与调度，而非仅增加 agent 数量。冻结执行者、集中训练编排器，提供了较清晰的研究切口。</p>
 <p>其奖励设计也揭示了扩展中的核心矛盾：并行不足会限制速度，无效并行则浪费资源。后续应重点检验不同并发规模下的质量、实际延迟与总成本曲线；现有片段尚不足以证明普遍的蜂群规模收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

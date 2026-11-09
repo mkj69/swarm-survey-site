@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Codex pricing</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Codex pricing</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>OpenAI</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">https://learn.chatgpt.com/docs/pricing</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供 Codex 套餐与积分费率，用于跨厂商比较。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h149">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Codex pricing</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>OpenAI</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">https://learn.chatgpt.com/docs/pricing</a></dd><dt>许可</dt><dd>not-stated（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供 Codex 套餐与积分费率，用于跨厂商比较。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h173">一句话</h2>
 <p>这份定价文档提供了 Codex 多代理运行的成本核算依据，但没有证明增加代理数量能带来多少性能收益。</p>
-<h2 id="h150">主要内容</h2>
+<h2 id="h174">主要内容</h2>
 <ul><li>订阅与 API 分开计费：Plus 为每月 20 美元，Pro 有每月 100、200、500 美元档位；API Key 按 API 价格付费，不能据此反推订阅包含多少任务。</li><li>积分按输入、缓存输入和输出 token 分别计价。标准速度下，每百万 token，GPT-6.1 Sol 为 50／2.5／250 积分，Terra 为 25／1.25／125，Luna 为 2.5／0.25／12.5。</li><li>额度消耗取决于模型、上下文、推理、工具、检索和缓存；相似任务也可能消耗不同。文档中的消息数量是估计值，并非固定任务配额。</li><li>本地消息与云端任务共享订阅额度，ChatGPT Work 与 Codex 也共享用量。Pro 当前没有五小时限制，但不能据此理解为无限使用。</li><li>加速会提高消耗：购买积分及企业按量使用时，Fast 为标准费率的 2 倍，Ultrafast 为 6 倍；订阅内额度对应为 2.5 倍和 8 倍。</li><li>文档建议减少无关上下文、限制来源与输出范围、精简 AGENTS.md，并关闭不需要的 MCP 服务。</li></ul>
-<h2 id="h151">证据与可信度</h2>
+<h2 id="h175">证据与可信度</h2>
 <p>这是 OpenAI 官方定价与产品规则说明，属于厂商公布的计费口径，不是独立成本测量或多代理实验。所给文本包含定价正文及常见问题，但功能矩阵抓取后有重复和列对齐丢失，不能可靠还原全部套餐权限。</p>
 <p>上述价格和倍率均直接来自材料。按表内费率计算，Sol 的非缓存输入与输出单价均为 Luna 的 20 倍；这只是单价比，不代表完成同一任务的总成本比。材料未给出统一积分兑美元价格，也未提供独立核验、并发上限、任务成功率或加速比。</p>
-<h2 id="h152">对 swarm scaling 的意义</h2>
+<h2 id="h176">对 swarm scaling 的意义</h2>
 <p>它适合用作成本模型的输入，不能作为 swarm 扩展有效性的证据。评估时应汇总所有代理的输入、缓存输入、输出及速度档位，并记录共享额度消耗，不能直接用“代理数×订阅价格”估算成本。</p>
 <p>模型价差支持检验分层分工是否划算：让较便宜模型承担部分子任务，再比较最终质量与总消耗。缓存费率也提示，共享上下文的复用可能影响成本；但材料没有证明跨代理缓存能否命中。</p>
 <p>跨厂商比较最终仍需实测相同任务的完成率、耗时和总费用，尤其要计入重复探索、协调与返工。</p></main>

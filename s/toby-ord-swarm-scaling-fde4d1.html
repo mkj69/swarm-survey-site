@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Swarm Scaling</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Swarm Scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Toby Ord</dd><dt>日期</dt><dd>2026-09-21</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.tobyord.com/writing/swarm-scaling" target="_blank" rel="noopener">https://www.tobyord.com/writing/swarm-scaling</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出 λ 表，并在 9 月 27 日编辑时删去 Navier-Stokes 分析。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h737">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Swarm Scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Toby Ord</dd><dt>日期</dt><dd>2026-09-21</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.tobyord.com/writing/swarm-scaling" target="_blank" rel="noopener">https://www.tobyord.com/writing/swarm-scaling</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出 λ 表，并在 9 月 27 日编辑时删去 Navier-Stokes 分析。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h761">一句话</h2>
 <p>Toby Ord 用参数 λ 描述多智能体协作的效率损失：所分析图表显示，增加 agent 主要是在用更多总算力换取更短等待时间。</p>
-<h2 id="h738">主要内容</h2>
+<h2 id="h762">主要内容</h2>
 <ul><li>文章区分两条推理扩展路径：延长单个 agent 的思考时间，以及在每个 agent 平均 token 数不变时增加 agent 数量。</li><li>作者依据 OpenAI 发布图中 1、4、16 个 agent 的曲线，通过插值重建第二条路径，并用 \(N^\lambda\) 表示 N 个 agent 相当于单个 agent 工作时长的倍数。λ 越接近 1，协作效率越高。</li><li>作者称 Claude Opus 5 回归得到：BrowseComp 的 λ 为 0.68，SEC-Bench Pro 为 0.57，Terminal-Bench 为 0.48；对应的 90% 置信区间分别为 [0.63, 0.76]、[0.52, 0.61]、[0.40, 0.57]。</li><li>按这些估计，agent 数量增加 10 倍，相当于单 agent 思考时长增加约 3—5 倍。文中以 16 个 agent 为例，说明同等表现下理论上可将耗时降至约四分之一，代价是约四倍总成本。</li><li>作者还讨论了更高性能上限及递归自我改进，但前者是可能性，后者依赖额外模型假设。</li></ul>
-<h2 id="h739">证据与可信度</h2>
+<h2 id="h763">证据与可信度</h2>
 <ul><li>λ 属于对厂商发布图表的二次估计，并非作者直接运行实验的测量。固定每个 agent token 数的比较来自曲线插值，原实验并未直接提供该对照。</li><li>3—5 倍由 \(10^\lambda\) 算出；耗时和成本推算依赖并行执行、token 分配等假设。作者承认实际加速较弱。</li><li>抓取文本未展示图表数值、回归代码及置信区间计算方法，无法据此复核；材料也未提供独立核验。置信区间不能覆盖插值假设及跨任务外推的全部不确定性。</li><li>9 月 27 日，作者因获悉 Navier–Stokes 图表反映的是思考时长扩展，删除了相关推测。这提示必须核对图表实际改变的变量；文首相关叙述也不能充当群体扩展效率的证据。</li></ul>
-<h2 id="h740">对 swarm scaling 的意义</h2>
+<h2 id="h764">对 swarm scaling 的意义</h2>
 <p>这篇文章提供了区分“增加并行数量”与“增加总推理量”的框架。评估 swarm 应同时报告任务表现、总 token 和实际耗时，才能判断加速是否值得额外成本。λ 可用于比较任务和编排方式，但目前估计仅涉及少量规模点，不能直接外推到千级、万级群体，更不能单凭这些结果判断智能爆炸是否会发生。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

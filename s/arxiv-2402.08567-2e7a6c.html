@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Gu, Xiangming et al.</dd><dt>日期</dt><dd>2024-02-13</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.08567" target="_blank" rel="noopener">https://arxiv.org/abs/2402.08567</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在百万级模拟中展示感染式越狱，但交互仅为随机两两对话。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2893">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Gu, Xiangming et al.</dd><dt>日期</dt><dd>2024-02-13</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2402.08567" target="_blank" rel="noopener">https://arxiv.org/abs/2402.08567</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在百万级模拟中展示感染式越狱，但交互仅为随机两两对话。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2917">一句话</h2>
 <p>这篇论文展示了共享图像与记忆如何放大多智能体越狱风险，但“单点感染百万代理”的宣传表述与百万级实验设置存在重要差别。</p>
-<h2 id="h2894">主要内容</h2>
+<h2 id="h2918">主要内容</h2>
 <ul><li>作者研究“感染式越狱”：恶意图像进入代理的图像记忆后，经检索、发送和接收方存储继续传播，同时诱导代理输出预设有害内容，无需攻击者持续介入。</li><li>环境采用随机两两对话，每轮重新配对；代理具备文本历史、图像队列和检索模块，主要使用相同的 LLaVA-1.5 模型骨干。这是传播机制的概念验证，并非复杂任务协作。</li><li>作者报告百万级模拟在第32轮前几乎全部越狱。但正文说明，为降低计算成本，该实验向1024个代理植入同一图像，并将初始携带比例写为1/1024；不能据此认定百万级实验实际从单个感染者开始。</li><li>理论模型以传播概率β和恢复概率γ刻画扩散：在其假设下，β≤2γ时携带比例最终趋零；超过该阈值则可能持续传播。满足条件的实用防御仍是开放问题。</li><li>较小扰动预算存在失败案例；缩短图像记忆队列可以抑制传播，说明结果受攻击强度、记忆机制和对话上下文影响。</li></ul>
-<h2 id="h2895">证据与可信度</h2>
+<h2 id="h2919">证据与可信度</h2>
 <p>未读到全文，所给内容在实验部分截断，表格数值与部分公式也未完整呈现。结论依据作者提供的模拟实验及理论推导，无独立核验。</p>
 <p>“百万级”“第32轮前”来自正文实验自报；开头图注则称单点注入后27—31轮接近100%，两处设置需要核对，不能合并为同一项实测结论。</p>
 <p>感染指标区分“累计曾输出目标内容”和“当前轮输出目标内容”，以预设有害字符串精确匹配判定；作者称指标对5组随机有害目标报告均值和标准差。这衡量的是特定输出行为，不等于任意有害行为或真实工具危害。所述对数轮数关系属于模型推导，不是跨现实部署的测量结论。</p>
-<h2 id="h2896">对 swarm scaling 的意义</h2>
+<h2 id="h2920">对 swarm scaling 的意义</h2>
 <p>它提供的是安全风险随交互扩散的证据，而非任务能力随代理数量增长的证据。共享记忆与消息传递既支持协作，也可能成为污染传播通道。</p>
 <p>尤其要区分轮数与总成本：每轮有N/2次对话，因此传播轮数随规模呈对数增长，并不意味着总通信量或计算量也呈对数增长。随机配对、共享模型骨干及固定交互流程，也限制了结果向真实异构 swarm 的外推。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Towards a Science of Collective AI: LLM-based Multi-Agent Systems Need a Transition from Blind Trial-and-Error to Rigorous Science</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards a Science of Collective AI: LLM-based Multi-Agent Systems Need a Transition from Blind Trial-and-Error to Rigorous Science</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Fan, Jingru, Liu, Dewen, Dang, Yufan et al.</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.05289" target="_blank" rel="noopener">https://arxiv.org/abs/2602.05289</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出协作增益指标以隔离预算增长，是建立多智能体科学评估的方法论框架。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2329">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards a Science of Collective AI: LLM-based Multi-Agent Systems Need a Transition from Blind Trial-and-Error to Rigorous Science</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Fan, Jingru, Liu, Dewen, Dang, Yufan et al.</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2602.05289" target="_blank" rel="noopener">https://arxiv.org/abs/2602.05289</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提出协作增益指标以隔离预算增长，是建立多智能体科学评估的方法论框架。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2353">一句话</h2>
 <p>这篇论文提出：多智能体的价值应以“相同资源下比强单智能体多获得多少收益”衡量，而不能只看增加智能体后的总成绩。</p>
-<h2 id="h2330">主要内容</h2>
+<h2 id="h2354">主要内容</h2>
 <ul><li><strong>以协作增益衡量效果。</strong> 定义 Γ 为相同计算资源约束下，多智能体性能与单智能体基线性能之比。Γ&gt;1 表示存在超出该基线的收益；基线应充分利用预算和适合任务的非协作策略。</li><li><strong>用受控实验筛选设计因素。</strong> 固定预算，比较系统表现，再检验 Γ 的优势是否显著、稳定，避免把随机波动或资源增加当成协作进步。</li><li><strong>整理可研究的因素。</strong> 外部包括任务可分解性、顺序依赖和清晰度；内部包括组织结构、通信机制、智能体多样性与数量，以及运行中的信息变化。</li><li><strong>区分收敛与有效协作。</strong> 内容熵下降可能代表达成共识，也可能是遗漏关键信息后的伪收敛；语义变化太小可能是重复，太大则可能意味着上下文断裂。</li></ul>
-<h2 id="h2331">证据与可信度</h2>
+<h2 id="h2355">证据与可信度</h2>
 <p>未读到全文：提供内容在附录 A 开头截断，部分公式与附录指引也不完整。</p>
 <p>本文主要是方法论倡议，所给内容未展示验证整套框架的新实验。Γ 的阈值 1 来自比值定义，并非实验发现；其解释依赖资源口径、性能指标和单智能体基线是否充分。</p>
 <p>文中通信剪枝节省 28.1%–72.8% token、超过 1,000 个智能体的增长现象等数字均引自其他研究，不是本文测量，也未在此独立核验。作者将 Γ 用于“因子归因”，但系统优于单体本身不能证明某个因素具有因果作用；文中也承认仍需进一步因果建模。</p>
-<h2 id="h2332">对 swarm scaling 的意义</h2>
+<h2 id="h2356">对 swarm scaling 的意义</h2>
 <p>它为扩群研究提供了更清楚的评估方向：同时考察资源增长与组织方式带来的收益。增加智能体数量时，应在匹配预算下跟踪 Γ，并结合通信成本、任务依赖和信息变化判断收益来源。</p>
 <p>其贡献是提出评估与实验框架，并未证明智能体越多越好，也没有给出通用的最优规模或扩展定律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

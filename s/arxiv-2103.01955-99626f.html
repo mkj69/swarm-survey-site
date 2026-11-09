@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Surprising Effectiveness of PPO in Cooperative, Multi-Agent Games</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Surprising Effectiveness of PPO in Cooperative, Multi-Agent Games</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Yu, Chao; Velu, Akash; Vinitsky, Eugene et al.</dd><dt>日期</dt><dd>2021-03-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2103.01955" target="_blank" rel="noopener">https://arxiv.org/abs/2103.01955</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>MAPPO 显示简单方法在合作 MARL 中表现强，是 CTDE 基线。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2937">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Surprising Effectiveness of PPO in Cooperative, Multi-Agent Games</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Yu, Chao; Velu, Akash; Vinitsky, Eugene et al.</dd><dt>日期</dt><dd>2021-03-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2103.01955" target="_blank" rel="noopener">https://arxiv.org/abs/2103.01955</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>MAPPO 显示简单方法在合作 MARL 中表现强，是 CTDE 基线。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2961">一句话</h2>
 <p>MAPPO 表明，合作多智能体学习中，配置得当的 PPO 能成为强基线；效果未必依赖更复杂的算法，但本文不能证明增加智能体数量会持续提升能力。</p>
-<h2 id="h2938">主要内容</h2>
+<h2 id="h2962">主要内容</h2>
 <ul><li><strong>方法核心</strong>：MAPPO 采用集中训练、分散执行（CTDE）。价值网络在训练时读取全局信息，策略执行时只依赖局部观测；IPPO 的策略和价值网络均使用局部信息。同质智能体通常共享参数。</li><li><strong>比较结果</strong>：作者在 MPE、SMAC、Google Research Football 和 Hanabi 四类环境中，发现 PPO 在多数任务上的最终表现和样本效率可与强离策略方法竞争。研究重点是检验简单方法，而非提出全新算法。</li><li><strong>实现细节决定成败</strong>：价值目标归一化、价值网络兼顾全局与个体信息、减少输入冗余、控制数据重复训练次数、限制更新幅度，以及选择合适批量，都会影响结果。</li><li><strong>更多并不总是更好</strong>：困难任务中，过多训练轮次或过细的小批量拆分可能降低表现；批量达到适当规模后，继续增大也可能损害样本效率。</li><li><strong>集中信息有条件地有效</strong>：Hanabi 中，随着玩家增多，MAPPO 相对 IPPO 的优势更明显；但在不少 SMAC 地图上，两者表现接近。</li></ul>
-<h2 id="h2939">证据与可信度</h2>
+<h2 id="h2963">证据与可信度</h2>
 <p>这是作者开展的基准测量与消融研究，未见独立复现证据。MPE 结果平均于 10 个随机种子；SMAC 使用 6 个种子，每次评估进行 32 局，再汇总训练末期胜率。作者报告，同样训练样本预算下，MAPPO 在 14 张地图中的 10 张达到或超过 RODE。</p>
 <p>部分基线由作者重新实现并采用等规模超参数搜索，部分结果引用既有论文；Hanabi 各方法训练时可用信息也不同，比较不能视为完全受控。样本效率主要按环境步数衡量，不等于运行时间或总算力效率。</p>
 <p><strong>未读到全文</strong>：提供内容在附录中途截断，且多处表格与曲线只有说明、没有具体数值，因此上述数字依据正文报告，未重新计算。关于减少策略变化能缓解多智能体非平稳性的解释，属于作者假设。</p>
-<h2 id="h2940">对 swarm scaling 的意义</h2>
+<h2 id="h2964">对 swarm scaling 的意义</h2>
 <p>本文提示，研究群体扩展前，应先建立配置充分的简单基线，避免把训练不稳定误判为协作架构不足。共享参数、集中价值评估和紧凑状态表示，是值得检验的机制。</p>
 <p>它也揭示扩展约束：直接拼接全部局部观测会让输入维度随智能体数量增长；扩大采样批量还受并行计算和显存限制。实验覆盖离散动作、合作任务且多数为同质智能体，不能据此推出开放式 LLM swarm 的规模收益或通用扩展规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

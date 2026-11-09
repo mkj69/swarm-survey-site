@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Reality Checks on AI News</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Reality Checks on AI News</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Latent Space / AINews</dd><dt>日期</dt><dd>2026-09-17</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://latent.space/p/ainews-reality-checks-on-ai-news/" target="_blank" rel="noopener">https://latent.space/p/ainews-reality-checks-on-ai-news/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>九月行业回顾，把Gas Town关停和Databricks成本放在同一期。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h785">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Reality Checks on AI News</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Latent Space / AINews</dd><dt>日期</dt><dd>2026-09-17</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://latent.space/p/ainews-reality-checks-on-ai-news/" target="_blank" rel="noopener">https://latent.space/p/ainews-reality-checks-on-ai-news/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>九月行业回顾，把Gas Town关停和Databricks成本放在同一期。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h809">一句话</h2>
 <p>这期行业汇编提示：更多智能体、更强模型和更多 token，并不自动带来可持续产出；swarm scaling 需要同时核算任务收益、协调开销与运行可靠性。</p>
-<h2 id="h786">主要内容</h2>
+<h2 id="h810">主要内容</h2>
 <ul><li><strong>Gas Town 提供负面个案。</strong> 据汇编转述，Steve Yegge 关停 Gas Town；他每月在编码智能体订阅上花费数千，但自述实际只用它建出了 Gas Town。这个案例质疑投入与产出的关系，不能据此判定多智能体路线整体失败。</li><li><strong>能力提升可能伴随总账上涨。</strong> Databricks 据报先向约 200 人试用 Astra，再推广至约 3,500 名工程师。其判断是复杂系统设计、长程任务获益明显，中低复杂度编码改善有限；编码总支出增加约 60%，因此设置专门预算，鼓励选择性使用。</li><li><strong>编排方式影响扩展收益。</strong> 材料转述的实践观点认为，子智能体适合并行研究、追踪和上下文管理，但深层多智能体树的协调成本往往难以合理化。另有本地部署讨论指出，若服务端只能串行处理请求，并行架构的收益就值得怀疑。</li><li><strong>上下文治理也是成本优化。</strong> 汇编援引一项论文摘要：按协议保留上下文，在任务成功率为 96.0% 的情况下节省 56% token。但当前材料未交代实验设置与适用边界。</li></ul>
-<h2 id="h787">证据与可信度</h2>
+<h2 id="h811">证据与可信度</h2>
 <p><strong>未读到全文</strong>：提供内容在末尾截断，以上仅依据可见部分。</p>
 <p>这是一篇新闻与社交媒体汇编，不是统一条件下的扩展实验。Gas Town 属于个人经验转述；Databricks 的人数、支出增幅及能力判断属于企业人员自报，材料未提供账单、任务组合或生产率对照。“增加约 60%”指编码总支出，不能改写成单任务成本上涨同样幅度。</p>
 <p>上下文节省数字属于论文结果的二手摘要；深层智能体树的评价属于实践观点。材料中未见这些核心结论的独立核验，也没有智能体数量与净收益之间的可比曲线。</p>
-<h2 id="h788">对 swarm scaling 的意义</h2>
+<h2 id="h812">对 swarm scaling 的意义</h2>
 <p>它更适合作为扩展方案的检查清单，而非规模定律的证据：先确认任务能否拆分、推理服务能否并发，再衡量协调、上下文和失败重试消耗了多少收益。</p>
 <p>据此可提出一个待验证方向：把强模型用于复杂长程环节，把子智能体用于边界清楚的并行工作，并按完成任务的总成本与有效产出评估扩展，而不能仅凭 token 单价或智能体数量判断成功。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

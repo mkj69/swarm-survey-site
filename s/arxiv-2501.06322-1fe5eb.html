@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-Agent Collaboration Mechanisms: A Survey of LLMs</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Collaboration Mechanisms: A Survey of LLMs</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Tran, Khanh-Tung, Dao, Dung, Nguyen, Minh-Duong et al.</dd><dt>日期</dt><dd>2025-01-10</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2501.06322" target="_blank" rel="noopener">https://arxiv.org/abs/2501.06322</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>从参与者、类型、结构、策略和协议五个维度梳理协作机制。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2817">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agent Collaboration Mechanisms: A Survey of LLMs</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Tran, Khanh-Tung, Dao, Dung, Nguyen, Minh-Duong et al.</dd><dt>日期</dt><dd>2025-01-10</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2501.06322" target="_blank" rel="noopener">https://arxiv.org/abs/2501.06322</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>从参与者、类型、结构、策略和协议五个维度梳理协作机制。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2841">一句话</h2>
 <p>这篇综述把多智能体扩展的关注点从“增加多少 agent”转向“如何组织协作”，提供了机制分类框架，但所给片段没有证明规模扩大必然带来性能提升。</p>
-<h2 id="h2818">主要内容</h2>
+<h2 id="h2842">主要内容</h2>
 <ul><li><strong>协作的五个维度</strong>：参与者、协作类型、组织结构、策略与协调协议。类型涵盖合作、竞争及竞合；结构包括点对点、集中式和分布式；策略包括角色、规则或模型驱动。</li><li><strong>以协作通道描述系统</strong>：除了模型、目标和环境，系统还包含连接 agent 的协作通道。同一系统可以同时存在辩论与合作等不同通道，因此不能仅用一种拓扑概括全部交互。</li><li><strong>协作不限于交换回答</strong>：材料讨论了共享数据与上下文、交换模型参数，以及汇总输出等不同阶段的协作。</li><li><strong>合作依赖分工与流程</strong>：AgentVerse、MetaGPT 等被用来说明角色专门化和结构化工作流；竞争则通过辩论、批评或博弈提供反馈，但需要与系统目标保持一致。</li><li><strong>收益伴随协调负担</strong>：频繁通信会增加计算成本和复杂度；目标理解不一致、无限对话循环及幻觉传播，都可能损害整体效果。片段还提到，设计欠佳的竞争机制可能不如提示充分的单智能体。</li></ul>
-<h2 id="h2819">证据与可信度</h2>
+<h2 id="h2843">证据与可信度</h2>
 <p>未读到全文：所给内容在竞争机制小节中途截断，后续结构、策略、协调协议和开放问题的完整论述不可见。</p>
 <p>这是一篇文献综述，主要证据是对既有研究的归纳与作者提出的概念框架，不是本文展示的统一规模实验。材料中的效率、可靠性与泛化收益多为综述性判断或引用研究的结论；片段未提供可复核的实验表格、成本数据或规模曲线，也未进行独立核验。五个维度是分类框架的组成数量，不是测量结果。</p>
-<h2 id="h2820">对 swarm scaling 的意义</h2>
+<h2 id="h2844">对 swarm scaling 的意义</h2>
 <p>它适合作为比较 swarm 设计的分析坐标：除了 agent 数量，还应记录谁参与、如何分工、通过什么结构通信，以及如何协调决策。否则，不同系统的差异容易被误归因于“规模”。</p>
 <p>由片段可提出的研究重点是：扩展带来的任务并行与知识互补，能否抵消通信、协调和错误传播的代价。本文提供了拆解这些因素的语言，但尚不能据此确定最佳群体规模、最优拓扑或性能随规模增长的规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

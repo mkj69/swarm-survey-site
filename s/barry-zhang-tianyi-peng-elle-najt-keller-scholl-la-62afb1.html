@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Safely scaling multi-agent teams with Fable 5.2</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Safely scaling multi-agent teams with Fable 5.2</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Barry Zhang, Tianyi Peng, Elle Najt, Keller Scholl, Lance Martin</dd><dt>日期</dt><dd>2026-11-09</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/" target="_blank" rel="noopener">https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>FLT 实验的工程细节：1 个领队 + 999 个助手，只用 Git 和共享数据库协调，自己发明任务表和小组；单机约 100 个智能体就到极限；智能体会过早判定任务不可行。也揭示发布页“无参考资料”说法遗漏了给定的 60 个命题和 47 个引理。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h9">一句话</h2>
+<p>这项千智能体实验展示了通用工具支撑分层协作的可能性，但其成果建立在预设证明路线、已有引理与严格运行环境之上，不能视为从零自主攻克费马大定理。</p>
+<h2 id="h10">主要内容</h2>
+<ul><li>团队由一个领队和 999 个助手组成，使用早期 Fable 5.2。输入包括 60 个待证命题、经典路线的一句话提示、相关定义，以及此前形式化中已证明的 47 个引理。</li><li>每个智能体拥有独立虚拟机、Lean 工具链和 Git 分支，通过共享 Postgres 数据库协调。领队在前 10 分钟建立公告、分工、笔记、子任务、成果五张表，并组织小组与组长。</li><li>协作逐步从领队分配转向助手自行认领、拆分任务。最难的 Langlands–Tunnell 部分最终形成 2,418 个任务、最深 10 层的任务树，约 750 个助手被集中投入。</li><li>作者报告最终证明耗时 28.7 小时，输出 token 为前次实验的三分之一，证明长度为七分之一。60 个命题中完成 54 个，另有五个替代命题不再需要、一个被放弃。</li><li>安全措施包括无网络沙箱、受限 Git 与数据库访问、实时动作监控及离线审查。本次实际未启用实时思维链监控，该监控是在实验后加入的。</li></ul>
+<h2 id="h11">证据与可信度</h2>
+<p>数字均为文章作者自报的实验记录，所给材料没有独立复现或核验。Lean 检查器提供了证明验收机制，但材料未提供可供本页核查的证明产物。</p>
+<p>效率对比存在混杂因素：前次使用不同模型、专用平台和研究者指导，因此不能把时间、token 或代码长度改善单独归因于规模扩大。</p>
+<p>单机约 100 个智能体时，超过一半运行因内存、磁盘或 CPU 耗尽而停止或重启，这是特定部署经验，不是普适上限。百万余次工具调用无阻断，也不等于安全性得到全面证明。</p>
+<p>元数据提到另一发布页声称“无参考资料”，但未提供该页，无法核对；本文明确承认输入了已有引理。文章还记录约第 18 小时从存档重启并增加运行时间，不能将全过程理解为完全无人介入。</p>
+<h2 id="h12">对 swarm scaling 的意义</h2>
+<p>可扩展性来自计算隔离、共享状态和递归拆解的共同作用，而不只是增加智能体数量。Git 与事务数据库足以承载本次协作，但团队实际上自行重建了任务管理和依赖分解机制。</p>
+<p>早期助手将 47 个命题判为预算内不可行，随后团队却完成了其中大多数，说明单体难度判断可能低估群体吞吐。持续推进、动态调配与允许助手继续拆分任务，是本案例的重要经验。</p>
+<p>这是一项有明确验收标准、可拆分且有先验支撑的单次实验；它支持千智能体协作的可行性，尚不能证明普遍的规模收益或最优团队规模。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

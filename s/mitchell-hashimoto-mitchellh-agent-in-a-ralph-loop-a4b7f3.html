@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agent in a Ralph loop optimizing a renderer: why agent psychosis is a problem</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agent in a Ralph loop optimizing a renderer: why agent psychosis is a problem</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Mitchell Hashimoto (@mitchellh)</dd><dt>日期</dt><dd>2026-05-28</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/mitchellh/status/2060088112257372610" target="_blank" rel="noopener">https://x.com/mitchellh/status/2060088112257372610</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L10614 V1.0M</dd><dt>收录理由</dt><dd>Ralph loop 4小时$350把渲染从88ms降到1.5ms，但手写版约0.02ms快约75倍，是 loop 局部最优的一手量化反例。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1645">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agent in a Ralph loop optimizing a renderer: why agent psychosis is a problem</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Mitchell Hashimoto (@mitchellh)</dd><dt>日期</dt><dd>2026-05-28</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/mitchellh/status/2060088112257372610" target="_blank" rel="noopener">https://x.com/mitchellh/status/2060088112257372610</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>L10614 V1.0M</dd><dt>收录理由</dt><dd>Ralph loop 4小时$350把渲染从88ms降到1.5ms，但手写版约0.02ms快约75倍，是 loop 局部最优的一手量化反例。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1669">一句话</h2>
 <p>循环优化的大幅进步，仍可能远逊于懂系统的人写出的方案。</p>
-<h2 id="h1646">主要内容</h2>
+<h2 id="h1670">主要内容</h2>
 <ul><li>作者限制代理不得修改数据结构、公共接口和测试，让其持续优化渲染器。</li><li>约4小时、350美元后，每帧从88ms降至1.5ms，分配从约15万次降至约500次。</li><li>手写移植版同一基准约0.020ms，更新路径零分配。</li></ul>
-<h2 id="h1647">证据与可信度</h2>
+<h2 id="h1671">证据与可信度</h2>
 <p>数字均为作者自报实验，无独立核验；约75倍来自1.5÷0.020。材料未展示代码及完整测量方法，不能据此推断普遍效果。</p>
-<h2 id="h1648">对 swarm scaling 的意义</h2>
+<h2 id="h1672">对 swarm scaling 的意义</h2>
 <p>这是单代理循环案例，不能证明多代理扩展失效；它提示，增加迭代投入不保证找到更优方案，需用强基线判断收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

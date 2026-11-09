@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Minions: Stripe&#x27;s one-shot, end-to-end coding agents, Part 2</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Minions: Stripe&#x27;s one-shot, end-to-end coding agents, Part 2</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Alistair Gray</dd><dt>日期</dt><dd>2026-02-19</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2" target="_blank" rel="noopener">https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>规模化案例证明隔离单任务智能体无需蜂群也能高产。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2253">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Minions: Stripe&#x27;s one-shot, end-to-end coding agents, Part 2</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Alistair Gray</dd><dt>日期</dt><dd>2026-02-19</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2" target="_blank" rel="noopener">https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>规模化案例证明隔离单任务智能体无需蜂群也能高产。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2277">一句话</h2>
 <p>Stripe 的 Minions 展示了一条规模化路径：让智能体在隔离环境中处理独立任务，用确定性流程约束执行，再由人审查代码；高吞吐并不必然依赖蜂群协作。</p>
-<h2 id="h2254">主要内容</h2>
+<h2 id="h2278">主要内容</h2>
 <ul><li><strong>产出与边界</strong>：Stripe 称，每周合并超过 1,300 个完全由 Minions 编写的 PR，代码均经人工审查。“无人值守”指执行过程，无须人工编写代码，并不意味着无人把关。</li><li><strong>并行依靠开发环境</strong>：每个任务运行在标准化、可替换的云端 devbox 中，减少工作目录冲突。预热池提前准备仓库、缓存和服务，目标是在 10 秒内提供可用环境。</li><li><strong>编排采用混合状态机</strong>：Blueprint 将实现任务、修复 CI 等智能体节点，与 lint、推送等确定性节点串联。能预先写成规则的步骤交给代码，开放问题留给模型。</li><li><strong>上下文和工具按需收窄</strong>：规则按目录或文件模式加载；共享工具服务 Toolshed 提供近 500 个 MCP 工具，但 Minions 默认只获得与任务相关的小部分。运行环境隔离生产服务和真实用户数据，并配有工具安全控制。</li><li><strong>反馈有明确上限</strong>：先在本地运行 lint，再进入 CI；首次失败后自动修复或交给智能体再修一次。第二次推送及 CI 后交回人工检查，避免无限循环。</li></ul>
-<h2 id="h2255">证据与可信度</h2>
+<h2 id="h2279">证据与可信度</h2>
 <p>这是 Stripe 工程师对内部系统的第一方介绍，有较具体的架构与流程说明，但材料未提供独立核验。</p>
 <p>每周超过 1,300 个合并 PR 是厂商自报的产出指标，前篇的对应口径为超过 1,000 个；文章未给出统计窗口、任务难度、总尝试次数、失败率或人工审查耗时，不能据此计算成功率或净效率提升。10 秒是环境就绪目标，不是延迟分布测量。近 500 个工具、超过 300 万项测试描述的是基础设施规模，不能直接视作智能体能力。节省 token、降低 CI 成本和提升可靠性的说法主要来自团队经验，缺少量化对照。</p>
-<h2 id="h2256">对 swarm scaling 的意义</h2>
+<h2 id="h2280">对 swarm scaling 的意义</h2>
 <p>这篇材料更支持“独立任务并行扩容”，而非多个智能体围绕同一任务密集协商。其可迁移经验是：先降低环境冲突、上下文负担和反馈成本，再增加并发；共享工具平台也不等于让每个智能体获得全部工具。</p>
 <p>它说明成熟工程基础设施能支撑较高的智能体产出，但没有比较单体与蜂群，也未报告并发数量、协调开销或扩容曲线。因此，它是无需复杂蜂群协作也能规模化交付的案例，不能证明蜂群无益或吞吐会随智能体数量线性增长。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

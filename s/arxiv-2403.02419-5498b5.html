@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Chen, Lingjiao, Davis, Jared Quincy, Hanin, Boris et al.</dd><dt>日期</dt><dd>2024-03-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2403.02419" target="_blank" rel="noopener">https://arxiv.org/abs/2403.02419</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>从理论和实验说明投票调用数量可能先升后降，并能由少量样本预测最优调用数。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2873">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Chen, Lingjiao, Davis, Jared Quincy, Hanin, Boris et al.</dd><dt>日期</dt><dd>2024-03-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2403.02419" target="_blank" rel="noopener">https://arxiv.org/abs/2403.02419</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>从理论和实验说明投票调用数量可能先升后降，并能由少量样本预测最优调用数。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2897">一句话</h2>
 <p>增加模型调用可能把错误答案投得更稳；这篇论文用理论与实验说明，投票系统的准确率可能先升后降，调用规模需要按任务估计。</p>
-<h2 id="h2874">主要内容</h2>
+<h2 id="h2898">主要内容</h2>
 <ul><li>研究两种结构：Vote 对候选答案取众数；Filter-Vote 先用模型筛选，再投票。研究重点是调用次数如何影响准确率。</li><li>核心解释是题目难度分布。这里的“容易”指正确答案是系统最可能输出的选项；“困难”指某个错误选项更占优势。增加采样会强化这种优势，因此混合题集可能出现非单调曲线。</li><li>作者为二选一投票建立解析模型，再提出适用于更多选项和筛选投票的近似模型，通过少数调用规模上的观测拟合曲线、寻找准确率最高的调用数。</li><li>实验使用 GPT-3.5-turbo-0125，覆盖物理问答、真实性问答、专家知识和事实核查任务。研究限于便于投票的客观题，没有解决开放式写作与聊天的扩展问题。</li></ul>
-<h2 id="h2875">证据与可信度</h2>
+<h2 id="h2899">证据与可信度</h2>
 <p>这些结果属于作者的数学分析与实验报告，材料未提供独立复现。未读到全文：抓取在附录末尾截断，部分公式、图表和提示词缺失。</p>
 <p>实验数字需区分真实调用与重采样：作者对每题实际生成 400 个答案，温度为 0.1；随后有放回抽取候选答案，每个设置模拟 1000 次取平均。因此，曲线中的较大调用规模包含基于有限答案池的模拟，不能理解为全部重新调用模型。</p>
 <p>AVERITEC 案例包含 500 题，作者用调用数为 2、5、10、20、50、100 时的结果拟合，再预测其他规模。材料称预测与实测高度相关，但未展示可核查的误差数值；“最优调用数完全匹配”针对所评估的合成双难度数据，不能扩大为所有真实任务。</p>
 <p>文本还有内部矛盾：个别段落将容易、困难题的收益方向写反，定理正文与附录证明对部分曲线条件的描述不一致。因此，非单调现象有多处支持，具体参数判据仍需核对完整论文。</p>
-<h2 id="h2876">对 swarm scaling 的意义</h2>
+<h2 id="h2900">对 swarm scaling 的意义</h2>
 <p>它为“增加并行候选并投票”这一类 swarm 提供了明确警示：规模会放大答案分布中的优势，优势未必属于正确答案。评估时应扫描调用规模，并查看不同题目的变化，不能只比较单次与某个大规模设置。</p>
 <p>但调用数不等于协作智能体数量。论文没有验证角色分工、通信、工具使用或动态协作，也未联合优化费用与延迟。它支持的是投票聚合的规模边界，以及先估计收益曲线再分配推理预算的设计思路。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

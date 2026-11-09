@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>modelcontextprotocol/typescript-sdk</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>modelcontextprotocol/typescript-sdk</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>modelcontextprotocol</dd><dt>日期</dt><dd>2026-10-31</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank" rel="noopener">https://github.com/modelcontextprotocol/typescript-sdk</a></dd><dt>许可</dt><dd>NOASSERTION（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>13707</dd><dt>收录理由</dt><dd>MCP 官方 TS SDK，npm 月下载达 2.64 亿次。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h261">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>modelcontextprotocol/typescript-sdk</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>modelcontextprotocol</dd><dt>日期</dt><dd>2026-10-31</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank" rel="noopener">https://github.com/modelcontextprotocol/typescript-sdk</a></dd><dt>许可</dt><dd>NOASSERTION（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>13707</dd><dt>收录理由</dt><dd>MCP 官方 TS SDK，npm 月下载达 2.64 亿次。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h285">一句话</h2>
 <p>MCP TypeScript SDK 为工具与上下文接入提供标准接口，但这份材料不能证明智能体数量增加会带来性能收益。</p>
-<h2 id="h262">主要内容</h2>
+<h2 id="h286">主要内容</h2>
 <ul><li>仓库将上下文供给与模型交互分开，提供服务端的工具、资源、提示能力，以及客户端连接与调用能力。</li><li>材料称主分支为稳定版 v2，客户端与服务端拆包发布；支持 Node.js、Bun、Deno，以及 Streamable HTTP、stdio 和 OAuth 辅助功能。</li><li>Express、Fastify、Hono 等框架通过薄适配层接入，不承载额外业务逻辑；工具与提示的 schema 可采用兼容 Standard Schema 的库。</li><li>提供最小工具示例、客户端与服务端教程及迁移文档，重点是接入和维护。</li></ul>
-<h2 id="h263">证据与可信度</h2>
+<h2 id="h287">证据与可信度</h2>
 <ul><li>当前读到的是仓库 README，未读到全文代码、测试和所链接文档。功能及版本状态属于维护方自述，未独立核验。</li><li>README 称 v2 实现 2026-07-28 版协议，v1 在 v2 发布后至少继续维护六个月；这是兼容与维护承诺，不是性能测量。</li><li>元数据中的 npm 月下载量为 2.64 亿次，但正文没有统计来源、时间窗口或包聚合口径，不能据此推算用户或智能体数量。互动数 13707 也未注明指标定义。</li><li>材料没有吞吐、延迟、成本、任务成功率或多智能体规模实验。</li></ul>
-<h2 id="h264">对 swarm scaling 的意义</h2>
+<h2 id="h288">对 swarm scaling 的意义</h2>
 <ul><li>标准接口可作为多个智能体复用工具和上下文的基础，减少重复集成；这是架构层面的推断，材料未量化收益。</li><li>客户端、服务端与框架适配层的分离，有利于划清接入职责，但没有展示智能体间的调度、通信或协作机制。</li><li>其价值主要是扩展系统的接入基础设施；是否能支撑更大 swarm、规模增加是否改善任务结果，仍需并发和协作实验验证。</li></ul></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

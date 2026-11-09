@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multi-Agents: What&#x27;s Actually Working</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agents: What&#x27;s Actually Working</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Walden Yan</dd><dt>日期</dt><dd>2026-04-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cognition.com/blog/multi-agents-working" target="_blank" rel="noopener">https://cognition.com/blog/multi-agents-working</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Cognition的部分反转，同时坚持写操作单线程。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1873">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Multi-Agents: What&#x27;s Actually Working</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Walden Yan</dd><dt>日期</dt><dd>2026-04-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cognition.com/blog/multi-agents-working" target="_blank" rel="noopener">https://cognition.com/blog/multi-agents-working</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Cognition的部分反转，同时坚持写操作单线程。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1897">一句话</h2>
 <p>Cognition 对多智能体的态度出现有限转向：认可多个 agent 协助判断，但仍主张写入单线程，把扩展重点放在审查、咨询与管理上。</p>
-<h2 id="h1874">主要内容</h2>
+<h2 id="h1898">主要内容</h2>
 <ul><li><strong>代码生成与审查循环</strong>：编码 agent 与审查 agent 反复交互。作者称，审查方使用独立、干净的上下文效果更好；编码方再结合用户要求筛选反馈，避免越界修改与无休止循环。</li><li><strong>“聪明朋友”模式</strong>：主 agent 遇到问题时咨询另一模型。较弱模型搭配强模型的实验受限于主模型：它未必知道何时求助、该问什么。双方都足够强时，作者报告了实际收益，协作更像按专长路由。</li><li><strong>上下文策略因角色而异</strong>：审查需要独立视角；咨询则倾向复制主模型的完整上下文，并允许顾问指出问题之外的重要线索。不存在统一的“共享越多越好”。</li><li><strong>高层任务管理</strong>：管理 agent 拆分任务、协调子 agent 并汇总。困难包括过度规定执行细节、误以为彼此共享状态，以及发现无法主动传递给其他成员。作者偏好有层级的拆分与汇总，对无结构 swarm 持怀疑态度。</li></ul>
-<h2 id="h1875">证据与可信度</h2>
+<h2 id="h1899">证据与可信度</h2>
 <p>这是 Cognition 作者对自家产品实践的总结，兼有经验判断和产品宣传性质，材料未提供独立核验。</p>
 <ul><li>最大企业客户群的 Devin 使用量近六个月约增至 <strong>8 倍</strong>，属于厂商自报；未说明使用量口径，不能推导生产率或多 agent 收益。</li><li>Devin Review 对 Devin 编写的 PR 平均发现 <strong>2 个 bug</strong>，其中约 <strong>58%</strong> 被列为严重问题。这是内部统计，未披露样本量、判定流程、误报率或对照组。</li><li>SWE-1.5 的 <strong>950 token/秒</strong>是模型速度指标，不是协作系统的端到端效率。跨前沿模型组合的收益没有给出量化结果。</li><li>作者解释了干净上下文为何有利于审查，但本文未用对照实验区分上下文长度、角色设置与其他因素的贡献。</li></ul>
-<h2 id="h1876">对 swarm scaling 的意义</h2>
+<h2 id="h1900">对 swarm scaling 的意义</h2>
 <p>这篇材料支持的是<strong>增加协作角色的价值</strong>，尚未证明增加 agent 数量就能持续提升效果。可扩展的方向是让更多 agent 提供检查、建议与局部知识，同时集中写入和最终决策，减少隐含选择相互冲突。</p>
 <p>它也揭示了两个瓶颈：弱主模型的求助与采纳能力，以及跨 agent 的信息传递。强顾问不能自动补齐弱主模型的判断短板；任务拆得更多，也会增加协调需求。文中没有 agent 数量与质量、成本、耗时的扩展曲线，因此不能据此认定单写者架构在更大规模下仍然最优。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

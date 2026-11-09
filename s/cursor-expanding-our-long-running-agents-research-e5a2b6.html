@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Expanding our long-running agents research preview</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Expanding our long-running agents research preview</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Cursor</dd><dt>日期</dt><dd>2026-02-12</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cursor.com/blog/long-running-agents" target="_blank" rel="noopener">https://cursor.com/blog/long-running-agents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>展示蜂群研究如何产品化，并承认并行协调仍未解决。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2281">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Expanding our long-running agents research preview</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Cursor</dd><dt>日期</dt><dd>2026-02-12</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cursor.com/blog/long-running-agents" target="_blank" rel="noopener">https://cursor.com/blog/long-running-agents</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>展示蜂群研究如何产品化，并承认并行协调仍未解决。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2305">一句话</h2>
 <p>Cursor 将长时自主编程研究转为产品预览，展示了规划与多代理互查的应用，但尚未证明扩大代理数量能带来稳定的协作收益。</p>
-<h2 id="h2282">主要内容</h2>
+<h2 id="h2306">主要内容</h2>
 <ul><li>产品面向 Ultra、Teams 和 Enterprise 用户开放。核心做法是为模型配置专门的执行框架：先提出计划、等待用户批准，再持续执行，并由多个代理相互检查，减少目标遗失和半途停止。</li><li>厂商列举了运行 36 小时的聊天平台开发、30 小时的移动应用实现，以及 25 小时的认证与权限系统重构，说明其目标是承接跨小时、跨天的完整任务。</li><li>Cursor 称内部已合并视频渲染器迁移、沙箱网络策略代理和 CLI 的 sudo 支持等成果；同时宣称长时代理生成的 PR 更大，合并率与其他代理相近。</li><li>更大项目的并行拆分与跨代理协作仍在改进中；生成代码增加后，验证和安全部署也需要配套工具。</li></ul>
-<h2 id="h2283">证据与可信度</h2>
+<h2 id="h2307">证据与可信度</h2>
 <ul><li>这是厂商产品博客，抓取正文重复了一遍，不能视为两份证据。</li><li>25、30、36 小时是厂商列出的案例运行时间，未披露计时方法、资源投入或失败案例。内部约一万行 PR 及测试后问题较少的说法，也属于厂商自报。</li><li>同时运行五个任务、52 小时生成约 15.1 万行代码，以及工期由一个季度缩至数天，均来自受访用户的个人经验；原计划工期不是受控实验基线。</li><li>同模型、同提示下长时代理检查更全面的描述，是用户个案比较。文章没有提供样本量、合并率数值、成本、完整测试结果或独立核验，无法据此量化质量提升及效率收益。</li></ul>
-<h2 id="h2284">对 swarm scaling 的意义</h2>
+<h2 id="h2308">对 swarm scaling 的意义</h2>
 <p>材料支持的方向是：扩大任务规模需要规划、持续执行和交叉检查，执行框架可能与模型能力同样关键。但长时间运行、更多代码和多个独立任务并行，都不足以证明蜂群协作具有规模收益。</p>
 <p>尤其要区分“代理互查已用于产品”与“多条工作流能高效协作”：后者仍是研发目标。文章没有报告代理数量变化下的成功率、耗时或成本曲线，因此更适合作为研究产品化的案例，而非 swarm scaling 已获验证的证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

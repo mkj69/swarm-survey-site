@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How Missions Work</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How Missions Work</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Theo Luan</dd><dt>日期</dt><dd>2026-04-10</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://factory.com/news/missions-architecture" target="_blank" rel="noopener">https://factory.com/news/missions-architecture</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出验证占比与修复比例等罕见的细粒度运行数据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1917">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How Missions Work</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Theo Luan</dd><dt>日期</dt><dd>2026-04-10</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://factory.com/news/missions-architecture" target="_blank" rel="noopener">https://factory.com/news/missions-architecture</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出验证占比与修复比例等罕见的细粒度运行数据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1941">一句话</h2>
 <p>Factory 的 Missions 将长任务拆成短上下文工作单元，通过共享状态与独立验证反复纠错；其案例表明，验证和修复是系统运行的重要成本。</p>
-<h2 id="h1918">主要内容</h2>
+<h2 id="h1942">主要内容</h2>
 <ul><li>作者把长任务失效归因于两类上下文问题：无关信息稀释当前目标，已有实现思路又容易让 agent 在自评时偏向确认自身判断。这是架构设计的出发点，文中未提供对照实验验证。</li><li>系统分为编排者、执行者和验证者。编排者先定义可测试的验收契约，再拆分功能；执行者用新上下文完成明确任务；验证者检查实现、运行轨迹，并从用户角度做黑盒验收。发现问题后，由编排者生成修复任务。</li><li>状态存放在验收契约、功能清单和知识库等共享材料中，各角色按需读取。角色分离也允许按规划、执行、审查的需求选择不同模型。</li><li>Slack 克隆案例耗时 16.5 小时，其中实现占 60.5%，验证占 37.2%。六个里程碑均经过 2—4 轮验证才通过，验证者共发现 81 个问题。</li></ul>
-<h2 id="h1919">证据与可信度</h2>
+<h2 id="h1943">证据与可信度</h2>
 <ul><li>数据来自厂商介绍文章中的单个案例，属于厂商自报；材料未提供可复现记录、独立核验或与单 agent 的对照，因此不能据此证明速度、成本或质量优势。</li><li>修复占比 34.4% 来自 21 个修复功能除以 61 个实现功能；分母包含 40 个原始功能和 21 个修复功能。这是任务数量比例，不能直接理解为修复耗时或代码占比。</li><li>185 次运行包含编排、执行、验证及其子 agent，不能当作同时在线数量。总计 778.5M token 中，744.9M 为缓存读取，也不能直接当作新增生成量或账单成本。</li><li>89.25% 是语句覆盖率，52.5% 是测试代码行数占比；两者说明测试投入，不能单独证明产品正确性。</li></ul>
-<h2 id="h1920">对 swarm scaling 的意义</h2>
+<h2 id="h1944">对 swarm scaling 的意义</h2>
 <p>这份材料更支持“通过角色分工和纠错闭环扩展任务规模”，而非“增加并发 agent 就能提速”。文中执行器按顺序启动功能执行者，没有给出并发扩展曲线。</p>
 <p>值得关注的是验证预算与状态管理：验证消耗超过三分之一运行时间，且所有里程碑首轮均未通过。扩大任务范围时，需要一并扩展验收、修复和知识传递能力。新上下文与外部状态提供了一种控制上下文负担的方案，但其相对收益仍需对照实验确认。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

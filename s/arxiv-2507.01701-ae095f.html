@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exploring Advanced LLM Multi-Agent Systems Based on Blackboard Architecture</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Exploring Advanced LLM Multi-Agent Systems Based on Blackboard Architecture</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Han, Bochen; Zhang, Songmao</dd><dt>日期</dt><dd>2025-07-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2507.01701" target="_blank" rel="noopener">https://arxiv.org/abs/2507.01701</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>把黑板架构用于 LLM，显示经典架构回归。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2741">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Exploring Advanced LLM Multi-Agent Systems Based on Blackboard Architecture</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Han, Bochen; Zhang, Songmao</dd><dt>日期</dt><dd>2025-07-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2507.01701" target="_blank" rel="noopener">https://arxiv.org/abs/2507.01701</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>把黑板架构用于 LLM，显示经典架构回归。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2765">一句话</h2>
 <p>LbMAS 把经典黑板架构用于 LLM 多智能体协作，探索通过共享状态、按需调度和清理消息提高任务表现与 token 效率，但尚未证明扩大智能体规模能持续带来收益。</p>
-<h2 id="h2742">主要内容</h2>
+<h2 id="h2766">主要内容</h2>
 <ul><li>系统由黑板、角色智能体和控制单元组成。智能体通过黑板交换信息；控制单元读取当前状态，逐轮决定由谁行动，无需先搜索固定工作流。</li><li>实现同时包含按问题生成的专家，以及规划、决策、批评、冲突处理、清理等固定角色。公共空间存放共享信息，私有空间支持局部辩论，再将结果写回公共空间。</li><li>决策智能体可提前结束流程；达到轮数上限时，系统汇总各智能体答案，选择与其他答案累计相似度最高者。</li><li>实验覆盖知识、推理和数学共六个基准。作者报告，相对 CoT 和静态多智能体方法，平均表现分别提高 4.33% 和 5.02%；在 MATH 成本比较中，token 用量为第二低。</li><li>数学任务暴露出模型搭配的重要性：仅使用 Qwen 的系统优于对应 CoT，而仅使用 Llama 时表现更差，混合模型也并非总能获益。</li></ul>
-<h2 id="h2743">证据与可信度</h2>
+<h2 id="h2767">证据与可信度</h2>
 <p>这些结果属于论文作者实验报告，未见独立核验。评估以答案匹配计算准确率；MMLU 每类随机抽取 20 题，共 1140 题，MATH 使用 500 题子集。主实验使用 Llama-3.1-70B 与 Qwen-2.5-72B，比较系统采用相同的随机模型分配方式，黑板循环上限为 4 轮。</p>
 <p>抓取文本包含正文与附录叙述，但缺少表格具体数据，因此无法重算平均提升、核对绝对准确率与 token 总量；文中百分比也不宜直接改写为百分点。成本比较将搜索型基线的工作流优化开销纳入讨论，其优势能否延续到工作流反复复用的场景，材料没有给出证据。</p>
 <p>消融叙述支持控制单元减少 token、直接删除冗余消息优于仅做标记，但缺少可见数值。共享记忆为何有效仍主要是作者解释，论文也承认缺少与独立智能体记忆的充分对照。</p>
-<h2 id="h2744">对 swarm scaling 的意义</h2>
+<h2 id="h2768">对 swarm scaling 的意义</h2>
 <p>它提供了一条值得检验的扩展路线：新增专家围绕共享状态参与协作，由调度器控制实际调用量，让协作开销随问题需要变化。清理消息与处理冲突因而也是扩展机制的一部分。</p>
 <p>不过，材料未展示智能体数量增长曲线、并发吞吐或大规模通信实验。所有参与者读取共享内容，仍可能随历史增长增加上下文成本；LLM 控制单元也需要进一步检验其扩展能力。现有证据更支持“小规模动态协作的成本效率”，不足以推出 swarm 的规模收益规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

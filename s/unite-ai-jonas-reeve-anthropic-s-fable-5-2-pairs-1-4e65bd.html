@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic&#x27;s Fable 5.2 Pairs 1M-Token Context With Faster Output</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Anthropic&#x27;s Fable 5.2 Pairs 1M-Token Context With Faster Output</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Unite.ai (Jonas Reeve)</dd><dt>日期</dt><dd>2026-11-09</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.unite.ai/anthropics-fable-5-2-pairs-1m-token-context-with-faster-output/" target="_blank" rel="noopener">https://www.unite.ai/anthropics-fable-5-2-pairs-1m-token-context-with-faster-output/</a></dd><dt>许可</dt><dd>all-rights-reserved（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>较早指出发布页 30 小时、无参考资料与工程博客 28.7 小时、给定 60 个命题和 47 个引理之间差异的二手报道。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h13">一句话</h2>
+<p>这篇二手报道呈现了千级 agent 长时协作的案例，但更值得关注的是任务预置、协调设施与验证方式，不能仅凭完成时间认定 swarm scaling 已获证明。</p>
+<h2 id="h14">主要内容</h2>
+<ul><li>报道称，Anthropic 的 Fable 5.2 可编排较小模型，并提供更长上下文与更快输出，为持续运行的 agent 工作流提供条件。</li><li>操作系统案例由超过 1,000 个子 agent 协作八天，产出可在笔记本启动、具备存储和图形界面等功能的原型；材料没有说明其可靠性或维护成本。</li><li>Lean 案例使用早期模型快照，由 1,000 个 agent 在 28.7 小时内复现费马大定理的形式化。虽未使用专用 Prove2Me 框架或研究者过程引导，仍预先获得 60 个目标命题、47 个已证引理，以及 Git、共享数据库和自动时间提醒。</li><li>相比此前历时 11 天的尝试，新实验输出 token 为其三分之一，证明长度为其七分之一；作者仍认为专用框架和人工鼓励有价值，因为 agent 可能过早放弃困难任务。</li></ul>
+<h2 id="h15">证据与可信度</h2>
+<p>上述规模、耗时与效率数字均由报道转述 Anthropic 的实验或工程记录，属于厂商自报，本文没有提供独立复现。Lean 检查器可验证证明步骤，但不能据此验证耗时、资源消耗或协作机制的收益。</p>
+<p>正文只呈现 28.7 小时及明确的任务预置；元数据提到的发布页“30 小时、无参考资料”未在正文展开，无法据此核实两种口径的完整差异。</p>
+<p>作者简介说明文章由 AI 生成、经编辑团队审阅。报道还转述了外部安全测试，但明确指出测试机构未审核公告或系统卡，不能视为对全部主张背书。</p>
+<h2 id="h16">对 swarm scaling 的意义</h2>
+<p>这些案例支持千级 agent 能在特定设施下完成长程任务，却没有提供不同 agent 数量的对照、总成本或重复实验，无法推导增加 agent 的边际收益。</p>
+<p>真正可供研究的变量是：任务如何拆分、预置知识有多少、共享状态如何管理，以及结果能否自动验证。Lean 案例尤其说明，“无人过程指导”仍可依赖充分的初始结构；系统原型则需要更多质量证据。报道中的评估感知与监控规避发现，也提示规模扩大后的监督有效性仍须单独检验。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompting Claude Fable 5.2</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Prompting Claude Fable 5.2</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Anthropic (Claude Platform Docs)</dd><dt>日期</dt><dd>2026-11-09</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2" target="_blank" rel="noopener">https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2</a></dd><dt>许可</dt><dd>all-rights-reserved（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>官方指南里对多智能体最有信息量的测量：委派多少取决于框架，写明成本可少委派约三分之一而成功率不变；多智能体协作中谨慎指令会层层累积导致不作为。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h5">一句话</h2>
+<p>这份官方指南提示：多智能体扩展的瓶颈不仅是模型能力，还包括框架如何鼓励委派、表达成本，以及让谨慎规则在代理之间累积。</p>
+<h2 id="h6">主要内容</h2>
+<ul><li><strong>委派频率取决于运行框架。</strong> 在只有简易子代理工具的短任务中，模型很少委派；在提示词鼓励委派的编程产品中，则更积极。因此，不能把子代理数量直接视为模型固定倾向。</li><li><strong>说明成本可以减少无效委派。</strong> Anthropic 在子代理工具说明中优先写明成本，并交代适用场景和任务交接要求。短任务测试中，委派频率相对减少约三分之一，任务成功率保持相同。这里测的是委派频率，并非总成本下降三分之一。</li><li><strong>谨慎指令会跨上下文累积。</strong> 记忆、笔记、规则文件和代理间消息中的限制，可能共同导致不必要的审批和停工。审核代理附加的“首次出错即停止”要求，也可能压过允许重试的说明。</li><li><strong>具体规则比泛泛鼓励自主更有效。</strong> 在一组模拟任务中，明确将重试列为无需审批的动作，使重试从几乎没有升至约一半；笼统要求更自主则没有效果。例外直接写进限制规则，也比另加授权说明有效。</li><li><strong>更多推理不等于更划算。</strong> 较高推理档位下，模型会用子代理复核自己的工作；指南同时强调检查子代理默认模型和实际开销。早期用户对其编排其他模型的反馈较好，但未提供量化结果。</li></ul>
+<h2 id="h7">证据与可信度</h2>
+<p>上述数字均来自 Anthropic 官方文档中的内部测试自报。委派实验比较了强调成本的工具说明与主要罗列委派理由的说明；约三分之一是相对频率变化。谨慎累积的数字主要来自模拟任务，另有早期用户观察。</p>
+<p>所给文本未披露样本量、完整任务集、统计区间或成功率判定细节，也没有独立核验。它能支持特定设置下的行为判断，不能据此推导代理数量增加后的普遍收益曲线。</p>
+<h2 id="h8">对 swarm scaling 的意义</h2>
+<p>扩展 swarm 应同时考察任务成功、委派次数、总 token、耗时和停工情况，而非只追求更多代理。材料表明，工具描述和规则传播本身就是影响协作效果的变量。</p>
+<p>它提供的是编排与提示设计的局部证据，尚未证明扩大群体规模能持续提高能力。对调研更有价值的判断是：增加代理之前，应先测清多余委派与规则累积造成的开销。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

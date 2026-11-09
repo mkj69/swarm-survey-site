@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FastRender repository</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>FastRender repository</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Wilson Lin</dd><dt>日期</dt><dd>2026-01-18</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/wilsonzlin/fastrender" target="_blank" rel="noopener">https://github.com/wilsonzlin/fastrender</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>可直接核查CI状态，最新100次运行全部失败。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2537">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>FastRender repository</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Wilson Lin</dd><dt>日期</dt><dd>2026-01-18</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/wilsonzlin/fastrender" target="_blank" rel="noopener">https://github.com/wilsonzlin/fastrender</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>可直接核查CI状态，最新100次运行全部失败。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2561">一句话</h2>
 <p>FastRender 展示了并行 AI 编程研究产出的浏览器工程，但仓库说明主要证明了项目范围与验证设计，尚不足以证明 swarm 扩展带来的质量或效率收益。</p>
-<h2 id="h2538">主要内容</h2>
+<h2 id="h2562">主要内容</h2>
 <ul><li>项目用 Rust 实现浏览器渲染链路，覆盖 HTML/CSS 解析、样式计算、布局、绘制，并提供桌面外壳及嵌入式 JavaScript 执行。</li><li>工程按渲染阶段和功能模块拆分，各阶段通过不可变树传递结果。这有利于划分工作边界，但材料没有说明代理如何认领任务、协调接口或处理冲突。</li><li>实现并非全部从零构建：Flexbox/Grid 使用 Taffy，文本整形使用 RustyBuzz。评估产出时，应区分新增实现与已有组件集成。</li><li>README 明确提示项目仍在快速开发、API 不稳定，不建议用于生产。JavaScript 绑定尚不完整，多进程架构仍是目标，当前渲染器运行于同一进程的工作线程。</li><li>仓库列出了单元测试、集成测试、WPT 子集及与 Chrome 的像素差异比较，也提供页面准确度跟踪工具；这些构成验证路径，但不是测试通过的证据。</li></ul>
-<h2 id="h2539">证据与可信度</h2>
+<h2 id="h2563">证据与可信度</h2>
 <p>材料是仓库说明，功能覆盖和规范完成度属于项目方自述；未提供实际测试报告、页面准确率或独立复现结果。“Complete”等标签不能直接等同于全面符合规范。</p>
 <p>元数据称“最新 100 次运行全部失败”，但正文没有 CI 记录、采样时间、工作流范围或失败原因。因此，100 次失败只能作为待核查线索，不能在此确认，也不能据此认定全部功能不可用。</p>
 <p>所给内容未包含仓库代码、CI 历史及关联研究文章全文，未读到全文；以上判断仅依据提供的仓库说明和元数据。</p>
-<h2 id="h2540">对 swarm scaling 的意义</h2>
+<h2 id="h2564">对 swarm scaling 的意义</h2>
 <p>这个案例更适合用来研究“大量并行产出如何被集成为可验证系统”。模块丰富、功能清单长，说明任务覆盖面广，却无法单独证明代理增加后有效产出同步增长。</p>
 <p>材料提供了像素对比、离线页面和准确度跟踪等可用评估入口。后续需要把代理规模、投入成本与构建通过率、回归情况、渲染准确度对应起来，才能讨论扩展收益。若 CI 连续失败的线索属实，应进一步查明失败类型，才能判断瓶颈在环境、集成还是实现质量。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

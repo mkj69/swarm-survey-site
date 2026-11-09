@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Something I routinely am in awe about is the compute amplification eve</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Something I routinely am in awe about is the compute amplification eve</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>mitchellh</dd><dt>日期</dt><dd>2026-08-16</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/mitchellh/status/2089103408330576056" target="_blank" rel="noopener">https://x.com/mitchellh/status/2089103408330576056</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>2014 likes; 116141 views</dd><dt>收录理由</dt><dd>Hashimoto报告夜间CPU利用率超20%，以前接近0。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1141">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Something I routinely am in awe about is the compute amplification eve</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>mitchellh</dd><dt>日期</dt><dd>2026-08-16</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/mitchellh/status/2089103408330576056" target="_blank" rel="noopener">https://x.com/mitchellh/status/2089103408330576056</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>2014 likes; 116141 views</dd><dt>收录理由</dt><dd>Hashimoto报告夜间CPU利用率超20%，以前接近0。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1165">一句话</h2>
 <p>单次提交背后的计算链持续扩张，后台代理又将资源消耗延伸到夜间。</p>
-<h2 id="h1142">主要内容</h2>
+<h2 id="h1166">主要内容</h2>
 <ul><li>CI展开为200多个跨平台任务，全部完成约需20分钟；成功后约8台机器构建预览版，继而触发公证。</li><li>模糊测试机器全天运行，CPU接近满载；代理还调用远端GPU。</li></ul>
-<h2 id="h1143">证据与可信度</h2>
+<h2 id="h1167">证据与可信度</h2>
 <p>作者个人自报：最近7天，M4 Max夜间平均CPU利用率超过20%，此前深度睡眠时近零。未提供日志或独立核验，也未量化远端GPU消耗。</p>
-<h2 id="h1144">对 swarm scaling 的意义</h2>
+<h2 id="h1168">对 swarm scaling 的意义</h2>
 <p>代理让计算从交互时段扩展到持续运行；但这些数据不能证明多代理协作的效率或收益随规模增长。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

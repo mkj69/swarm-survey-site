@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Raft Consensus Algorithm</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Raft Consensus Algorithm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Raft project (Ongaro; Ousterhout)</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://raft.github.io/" target="_blank" rel="noopener">https://raft.github.io/</a></dd><dt>许可</dt><dd>CC-BY-3.0-Unported（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>说明多数派进展与安全语义。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h73">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Raft Consensus Algorithm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Raft project (Ongaro; Ousterhout)</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://raft.github.io/" target="_blank" rel="noopener">https://raft.github.io/</a></dd><dt>许可</dt><dd>CC-BY-3.0-Unported（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>说明多数派进展与安全语义。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h97">一句话</h2>
 <p>Raft 提供的是故障条件下共享状态的一致性基础：多数派可用时推进，失去多数派时停止推进，同时保持已决定结果的一致性。</p>
-<h2 id="h74">主要内容</h2>
+<h2 id="h98">主要内容</h2>
 <ul><li>Raft 将共识拆成相对独立的子问题，以便理解和实现；项目页称其容错能力与性能等同于 Paxos，但此处没有展开比较依据。</li><li>共识用于让多个服务器对日志中的命令达成一致。对于同一日志位置，各状态机不能执行不同命令；按相同命令序列运行，才能得到一致状态。</li><li>材料以 5 台服务器为例：其中 2 台故障后仍可继续运行；失去多数派后则停止推进。这体现了“能否继续工作”与“是否产生冲突结果”的区别。</li><li>页面汇集论文、博士论文、TLA+ 规范、形式化验证研究、教学资源及实现入口。抓取内容到实现表头为止，未包含各实现的具体能力信息。</li></ul>
-<h2 id="h75">证据与可信度</h2>
+<h2 id="h99">证据与可信度</h2>
 <p>这是项目官方说明，属于算法机制介绍，不是吞吐量、延迟或扩展效率的实测报告。5 台服务器容忍 2 台故障，是多数派规则的示例：仍有 3 台可用，并非实验测出的故障率。</p>
 <p>“与 Paxos 性能等同”是项目方概括，所给内容没有基准配置或测试数据。页面列出了论文、形式规范和外部验证研究，可作为进一步核查入口；本次未核读这些链接，不能将链接存在视为已独立验证。元数据中的日期也不能直接当作算法发表日期。</p>
-<h2 id="h76">对 swarm scaling 的意义</h2>
+<h2 id="h100">对 swarm scaling 的意义</h2>
 <p>它为 swarm 的共享状态层提供参考：若多个 agent 需要共同维护已确认的任务状态或操作顺序，可以借鉴一致日志与复制状态机的思路。这是对材料的架构推论，页面没有展示 agent 系统实验。</p>
 <p>关键边界是：服务器对命令达成一致，不等于 agent 的判断正确，也不等于任务完成质量提高。多数派规则解释了部分节点故障时如何继续协调，却不能证明增加 agent 会提升吞吐或智能水平。讨论 swarm scaling 时，应分别考察状态一致性、持续推进能力与任务收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

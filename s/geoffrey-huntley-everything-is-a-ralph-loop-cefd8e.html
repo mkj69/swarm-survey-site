@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>everything is a ralph loop</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>everything is a ralph loop</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Geoffrey Huntley</dd><dt>日期</dt><dd>2026-01-17</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://ghuntley.com/loop/" target="_blank" rel="noopener">https://ghuntley.com/loop/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Huntley主张Ralph保持单体，把多智能体比作非确定性微服务。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2557">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>everything is a ralph loop</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Geoffrey Huntley</dd><dt>日期</dt><dd>2026-01-17</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://ghuntley.com/loop/" target="_blank" rel="noopener">https://ghuntley.com/loop/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Huntley主张Ralph保持单体，把多智能体比作非确定性微服务。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2581">一句话</h2>
 <p>Huntley主张先把单智能体循环做可靠，再考虑多智能体扩张；其依据主要是工程经验与架构判断，而非规模实验。</p>
-<h2 id="h2558">主要内容</h2>
+<h2 id="h2582">主要内容</h2>
 <ul><li>Ralph采用单仓库、单进程、每轮一个任务的方式运行，强调纵向扩展。</li><li>工程师的工作转向设计目标、规格与上下文，观察循环中的失败，并修正导致失败的机制；人工提示或带暂停的自动化也属于这种方法。</li><li>他把多智能体通信类比为非确定性微服务，认为现阶段引入这类复杂度没有必要。</li><li>Loom则承载更大的愿景：让自主循环持续演化产品、优化收入。文中自述了一次发现问题、修复、部署并验证的自动闭环。</li></ul>
-<h2 id="h2559">证据与可信度</h2>
+<h2 id="h2583">证据与可信度</h2>
 <p>这是实践者的博客论述，兼有项目宣传。单进程、每轮一个任务是设计描述，不是性能测量；“300行代码”是作者对构建基础代理的概括，未给出统计口径。所谓第8级、第9级是文中的能力标签，不能当作统一评测标准。</p>
 <p>自动修复、低成本和无人值守能力均属作者自报。所给内容没有对照实验、成功率、成本明细或独立核验，也未证明单体优于多智能体。</p>
-<h2 id="h2560">对 swarm scaling 的意义</h2>
+<h2 id="h2584">对 swarm scaling 的意义</h2>
 <p>它提供了一个值得比较的基线：扩张能力可以先来自循环质量、上下文设计和失败修复，而不只是增加代理数量。其警示是，多智能体可能叠加通信与非确定性带来的协调负担。但文章没有量化这些负担，也未界定何种任务需要并行协作，因此更适合作为架构假设，不能据此否定 swarm 的规模收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>
