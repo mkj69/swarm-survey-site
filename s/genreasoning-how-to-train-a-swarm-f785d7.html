@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How to Train a Swarm</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How to Train a Swarm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>GenReasoning</dd><dt>日期</dt><dd>2026-11-02</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.gr.inc/blog/how-to-train-a-swarm" target="_blank" rel="noopener">https://www.gr.inc/blog/how-to-train-a-swarm</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>博客本身未读，仅据推文与 AINews 摘要记录。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h249">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>How to Train a Swarm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>GenReasoning</dd><dt>日期</dt><dd>2026-11-02</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.gr.inc/blog/how-to-train-a-swarm" target="_blank" rel="noopener">https://www.gr.inc/blog/how-to-train-a-swarm</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>博客本身未读，仅据推文与 AINews 摘要记录。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h253">一句话</h2>
 <p>这篇文章提出：训练 swarm 的关键是让并行协作在奖励机制中获得收益，并用相同质量下的耗时检验扩展效果。</p>
-<h2 id="h250">主要内容</h2>
+<h2 id="h254">主要内容</h2>
 <ul><li><strong>训练配方</strong>：RLCR 让多个智能体共享策略与集体奖励，将同一个集体优势信号用于所有智能体；Avalon-M1 再通过时间上限施加延迟压力，推动团队分工。</li><li><strong>截止时间与延迟惩罚不同</strong>：显式惩罚可以持续奖励提速；截止时间只比较限时内取得的进展，相同得分且均提前完成的运行不会因快慢得到不同奖励。训练逐步延长时限，让团队有机会收回初期协调成本。</li><li><strong>环境必须支持中途评分</strong>：例如用通过的测试数衡量软件任务进展。否则截断运行后，难以判断团队完成了多少有效工作。</li><li><strong>通信需要收益证明</strong>：私信、公共频道与档案支持分工、交接和共享信息，但通信也占用时间。作者主张减少预设结构，同时承认当前系统仍有 CEO、调度器等组织先验。</li><li><strong>评估不能只看奖励曲线</strong>：文章同时观察环境操作量、通信强度，以及团队是否更早达到单智能体的成绩。</li></ul>
-<h2 id="h251">证据与可信度</h2>
+<h2 id="h255">证据与可信度</h2>
 <p>以下依据所给正文；元数据中的“博客本身未读”与本次提供的长篇正文不一致。未另行核验原网页、报告或引用来源。</p>
 <p>Avalon-M1 的结果属于研发方自报：雇用 5—8 名成员的团队，到训练第 200 步时，“有效工作”接近环境平均运行量的两倍。但该指标实际统计执行环境操作的回合所含输出与推理 token，是工作量代理，不能直接等同于有效成果。</p>
 <p>作者还报告，相同 token 预算下，单智能体耗时约为团队的 4 倍；在 EdgeBench 上，最多雇用 8 名成员的组织约在 2.4 小时的推导延迟后超过单智能体。正文未提供这些结果的独立复现、误差范围或完整计时细节。通信量与成绩同步增长只能支持相关性，不能单独证明通信有用。开篇涉及其他机构的事件亦仅为文内转述。</p>
-<h2 id="h252">对 swarm scaling 的意义</h2>
+<h2 id="h256">对 swarm scaling 的意义</h2>
 <p>文章把扩展目标从“增加智能体”推进到“让更多算力转化为更快的有效进展”。收益取决于任务能否分工，以及分工收益能否覆盖通信与协调成本。</p>
 <p>其证据仍停留在小团队：训练最多 9 个智能体，不能据此外推大规模 swarm。作者明确留下三类难题：小团队策略能否迁移、长任务共享奖励如何分配贡献，以及跨轮次共享成果如何获得奖励。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

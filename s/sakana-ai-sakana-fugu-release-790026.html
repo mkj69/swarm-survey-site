@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sakana Fugu release</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Sakana Fugu release</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Sakana AI</dd><dt>日期</dt><dd>2026-06-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://sakana.ai/fugu-release/" target="_blank" rel="noopener">https://sakana.ai/fugu-release/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>官方说明池内不含 Fable 和 Mythos，其他模型分数来自厂商。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1481">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Sakana Fugu release</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Sakana AI</dd><dt>日期</dt><dd>2026-06-22</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://sakana.ai/fugu-release/" target="_blank" rel="noopener">https://sakana.ai/fugu-release/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>官方说明池内不含 Fable 和 Mythos，其他模型分数来自厂商。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1489">一句话</h2>
 <p>Sakana Fugu 将学会调度多个模型的协调器包装成单一 API，展示了编排式扩展的产品形态，但这份发布稿不足以证明增加智能体就能稳定提升性能。</p>
-<h2 id="h1482">主要内容</h2>
+<h2 id="h1490">主要内容</h2>
 <ul><li>Fugu 本身是经过训练的语言模型，可直接回答，也可选择模型、分派任务、验证并整合结果，还能递归调用自身。</li><li>发布时区分日常使用的 Fugu 与侧重复杂多步任务的 Fugu Ultra；正文另有后续更新，介绍面向成本与性能平衡的 Fugu Max。</li><li>智能体池支持替换模型，用户也可排除特定模型。厂商据此强调供应商切换能力，以及研究、代码审查等长流程任务的适用性。</li><li>文中宣称 Ultra 可比肩 Fable 5 和 Mythos Preview，并明确这两个模型均不在其智能体池内，原因是尚未公开提供。</li></ul>
-<h2 id="h1483">证据与可信度</h2>
+<h2 id="h1491">证据与可信度</h2>
 <ul><li>这是厂商发布稿。Fugu 的性能结论属于厂商自报；其他模型的基准分数取自各自提供商，并非统一条件下重新测量。Fable 5 与 Mythos Preview 若都有某项成绩，则取两者较高值作为比较对象。</li><li>抓取正文缺少图表中的具体成绩，也未提供调用预算、延迟、成本、重复实验或误差信息，因此无法据此计算提升幅度、效率或扩展曲线；文中所引技术报告未包含在所给材料中。</li><li>“接近 500 名”是厂商报告的测试用户规模，不是受控实验样本量。代码审查中“约 3 项”与“超过 20 项”的差异来自用户证言，未说明问题是否经确认，不能等同于准确率提升。</li><li>所给材料未提供独立核验。关于出口管制及规避相关风险的说法也属于厂商叙述，本文不将其视为已核实事实。</li></ul>
-<h2 id="h1484">对 swarm scaling 的意义</h2>
+<h2 id="h1492">对 swarm scaling 的意义</h2>
 <p>它提供的关键思路是：扩展能力不仅靠增加模型数量，也靠学习何时委派、如何组合异构模型，以及怎样核验结果。单一接口则把这些协调过程封装为可调用服务。</p>
 <p>但材料展示的是系统级性能主张，没有分离模型池质量、调用预算与编排策略各自的贡献，也没有给出智能体数量变化的对照。因此，它适合作为“学习式编排走向产品化”的案例，尚不能作为 swarm scaling 规律或成本优势已获验证的证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

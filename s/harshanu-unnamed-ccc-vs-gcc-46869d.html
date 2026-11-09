@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CCC vs GCC</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>CCC vs GCC</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Harshanu (unnamed)</dd><dt>日期</dt><dd>2026-02-08</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://harshanu.space/en/tech/ccc-vs-gcc" target="_blank" rel="noopener">https://harshanu.space/en/tech/ccc-vs-gcc</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>最详细的独立基准，测得链接失败和约737倍运行减速。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2321">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>CCC vs GCC</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Harshanu (unnamed)</dd><dt>日期</dt><dd>2026-02-08</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://harshanu.space/en/tech/ccc-vs-gcc" target="_blank" rel="noopener">https://harshanu.space/en/tech/ccc-vs-gcc</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>最详细的独立基准，测得链接失败和约737倍运行减速。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2337">一句话</h2>
 <p>这份独立测试表明，AI 生成编译器能处理大型项目的源码，但编译通过、成功链接与生成高效程序，仍是不同的验收门槛。</p>
-<h2 id="h2322">主要内容</h2>
+<h2 id="h2338">主要内容</h2>
 <ul><li>作者用 GCC 14.2.0 与 CCC 测试 Linux 6.9 和 SQLite 3.46.0；两台虚拟机配置相同，但位于不同物理节点。</li><li>CCC 编译了内核的 2,844 个 C 文件，未报编译错误，最终却出现 40,784 个链接错误，未生成内核。测试还借助 GCC 处理汇编和部分启动代码，因此不属于完全独立构建。</li><li>SQLite 基准包含 42 项 SQL 操作。作者报告查询结果一致，5 项边界测试均通过；CCC 产物运行约 2 小时 6 分钟，GCC 的无优化版本耗时 10.3 秒。</li><li>SQLite 编译耗时为 CCC 87 秒、GCC 无优化版本 64.6 秒。CCC 产物更大、编译内存占用更高；其 <code>-O0</code> 与 <code>-O2</code> 输出逐字节相同。</li><li>作者把性能问题主要归因于寄存器分配不足、大量栈读写及代码膨胀，并报告符号与调试信息缺陷。</li></ul>
-<h2 id="h2323">证据与可信度</h2>
+<h2 id="h2339">证据与可信度</h2>
 <p>这是作者自行设计、执行并公开复现入口的第三方基准，不是厂商自报；本文未独立复跑，也未核验所链接的原始数据。版本、配置和部分计时可见，但重复次数、波动范围及物理主机差异控制不明。</p>
 <p>约 737 倍来自约 7,560 秒除以 10.3 秒，属于该 SQLite 工作负载的运行时间比，不能推广为所有程序的性能差距。单项查询约 158,129 倍则来自 7,432 秒与约 0.047 秒的比较；表中时间经过舍入，无法精确还原该倍数。</p>
 <p>性能归因弱于计时证据：作者用约 4 倍栈操作开销和约 2—3 倍缓存惩罚解释十万倍减速，但这些因素相乘并不能得到该结果；双方都执行大量循环，也不会自动放大相对倍数。因此，极端减速的根因尚未被充分证明。“全部正确”也只限于已测查询和边界用例。</p>
-<h2 id="h2324">对 swarm scaling 的意义</h2>
+<h2 id="h2340">对 swarm scaling 的意义</h2>
 <p>它提供的是多智能体产物的外部验收案例，而非智能体数量扩展实验。材料没有比较不同 agent 数量、协作结构或成本，不能据此判断 swarm 的扩展收益。</p>
 <p>可借鉴的是验收方法：源码处理规模之外，还要分别检查链接、输出正确性、运行效率和可调试性。完成大量局部任务，并不保证系统集成成功；评估 swarm 时，应把这些端到端指标纳入结果，而不能只统计完成了多少文件。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

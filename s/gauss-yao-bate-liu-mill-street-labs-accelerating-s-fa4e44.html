@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Accelerating Swarms</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Accelerating Swarms</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Gauss, Yao-Bate, Liu (Mill Street Labs)</dd><dt>日期</dt><dd>2026-10-17</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.millstlabs.com/blog/accelerating-swarms/" target="_blank" rel="noopener">https://www.millstlabs.com/blog/accelerating-swarms/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>警告只用 1/4/16 智能体外推 λ 的风险。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h457">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Accelerating Swarms</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Gauss, Yao-Bate, Liu (Mill Street Labs)</dd><dt>日期</dt><dd>2026-10-17</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.millstlabs.com/blog/accelerating-swarms/" target="_blank" rel="noopener">https://www.millstlabs.com/blog/accelerating-swarms/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>警告只用 1/4/16 智能体外推 λ 的风险。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h461">一句话</h2>
 <p>扩大 swarm 的关键不只是增加智能体，而是改变任务组织与知识复用方式；小规模拟合出的加速指数，不能直接当作大规模规律。</p>
-<h2 id="h458">主要内容</h2>
+<h2 id="h462">主要内容</h2>
 <ul><li>作者把进展分为人口规模、工作效率和任务难度：在效率固定的局部区间，达到同一表现所需时间随 N^−λ 缩短；知识积累则可能提高效率、改变有效指数。</li><li>核心警告是模型不可辨识：只观察 1、4、16 个智能体，可能无法区分持续增长的幂律与受串行依赖限制的饱和曲线。文中示例在 16 个智能体时都约加速五倍，到 1000 个时却分别约为六倍和五十一倍。</li><li>组织优化应关注总工作量 B 与最长依赖路径 D。固定任务分解下，完成时间至少为 max(B/m,D)；继续扩容要靠暴露更多并行工作、缩短依赖链或消除阻塞子任务。</li><li>保存可独立验证的中间成果，可以避免失败后全部重做。但复用只有在节省的计算超过验证、检索、传输与维护成本时才划算；收益饱和后，对指数的提升也会消退。</li><li>共享也会传播错误、压缩探索空间。在文中的树状近似下，每个错误的复用次数 κ 与下游错误通过验证概率 u 的乘积须小于 1，预期传播总量才有界。</li></ul>
-<h2 id="h459">证据与可信度</h2>
+<h2 id="h463">证据与可信度</h2>
 <p>未读到全文：提供内容在第 3.5 节中途截断，后续章节及附录未见。</p>
 <p>文章主要是理论框架与研究主张，并非作者完成的大规模 swarm 实测。其引用 Ord 在三个基准上的 λ 估计为 0.48—0.68；16 个智能体约加速 3.8—6.6 倍、耗费 2.4—4.2 倍总计算，均由 N^λ 与 N^(1−λ) 换算，依赖每个智能体计算速率相当等假设。</p>
 <p>六倍与五十一倍是不同模型的外推示例，不是千智能体测量。检查点将计算需求由指数增长变为线性，也依赖有效、持久且免费验证等理想条件。</p>
 <p>文中另引 25 个 ARC-AGI-3 游戏的实验：五个通信智能体完整通关率为 8.0%，五次独立尝试取最好为 2.2%。这是外部实验的转述，不能单独证明一般性规模规律；所给材料未提供独立核验。</p>
-<h2 id="h460">对 swarm scaling 的意义</h2>
+<h2 id="h464">对 swarm scaling 的意义</h2>
 <p>这篇材料把问题从“加多少智能体”转向“规模增加时，哪些机制仍能提高有效产出”。评估应同时观察同等表现下的耗时、总计算、依赖深度与复用成本，并检验 λ 是否随规模下降。其价值在于提出可检验的瓶颈与条件，而非证明 swarm 已能持续自我加速。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

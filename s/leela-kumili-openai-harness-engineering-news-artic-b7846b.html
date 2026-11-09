@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OpenAI harness engineering news article</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>OpenAI harness engineering news article</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Leela Kumili</dd><dt>日期</dt><dd>2026-02-21</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.infoq.com/news/2026/02/openai-harness-engineering-codex" target="_blank" rel="noopener">https://www.infoq.com/news/2026/02/openai-harness-engineering-codex</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供分层架构细节，但没有独立批评或失败记录。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2257">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>OpenAI harness engineering news article</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Leela Kumili</dd><dt>日期</dt><dd>2026-02-21</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://www.infoq.com/news/2026/02/openai-harness-engineering-codex" target="_blank" rel="noopener">https://www.infoq.com/news/2026/02/openai-harness-engineering-codex</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供分层架构细节，但没有独立批评或失败记录。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2269">一句话</h2>
 <p>这篇报道的核心启示是：扩大 agent 的开发能力，需要把上下文、架构约束和反馈机制做成可执行的工程环境。</p>
-<h2 id="h2258">主要内容</h2>
+<h2 id="h2270">主要内容</h2>
 <ul><li>人类负责明确目标、设计环境并提供反馈；Codex 执行编码、测试、缺陷复现、修复及验证，通过 PR 和 CI 推进任务。</li><li>文档目录保存设计规范、执行计划与导航，交叉引用由检查工具和 CI 维护，成为 agent 的共享依据。</li><li>系统用结构测试约束依赖关系，按类型、配置、仓储、服务、运行时、界面分层。</li><li>agent 利用日志、指标和追踪信息，在隔离开发环境中形成诊断与验证闭环。</li></ul>
-<h2 id="h2259">证据与可信度</h2>
+<h2 id="h2271">证据与可信度</h2>
 <p>报道转述 OpenAI 的内部实验：历时五个月，交付约百万行代码的测试版产品，并称没有人工编写源代码。这些数字属于厂商自报，文中未提供统计口径、独立核验或对照实验。Fowler 的评价是观点支持，不能验证产出或效率。报道也未给出失败记录、成本和 agent 并发数量。</p>
-<h2 id="h2260">对 swarm scaling 的意义</h2>
+<h2 id="h2272">对 swarm scaling 的意义</h2>
 <p>可借鉴的是协作基础设施：共享文档帮助统一上下文，机械约束限制架构偏移，自动反馈支持持续迭代。但材料展示的是工程组织方式，未测量 agent 数量增加后的收益、协调开销或性能拐点，不能据此证明 swarm 的规模效应。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

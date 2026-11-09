@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>minisqlite repository</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>minisqlite repository</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Cursor</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/cursor/minisqlite" target="_blank" rel="noopener">https://github.com/cursor/minisqlite</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>公开产物可供外部检查，但未见许可证，差分测试也不在仓库内。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3329">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>minisqlite repository</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Cursor</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/cursor/minisqlite" target="_blank" rel="noopener">https://github.com/cursor/minisqlite</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>公开产物可供外部检查，但未见许可证，差分测试也不在仓库内。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3357">一句话</h2>
 <p>minisqlite 提供了一个可供检查的复杂软件产物，但仅凭仓库说明，无法证明多智能体规模扩大带来了效率或质量提升。</p>
-<h2 id="h3330">主要内容</h2>
+<h2 id="h3358">主要内容</h2>
 <ul><li>项目用 Rust 重实现 SQLite，从 SQL 解析、规划与执行，到事务、存储及磁盘格式；声称能与官方 SQLite 双向交换数据库文件。</li><li>对外接口很小，内部按职责拆为 14 个 crate。架构测试约束模块接口、依赖关系和执行路径，防止出现废弃模块或并行替代实现。</li><li>验证覆盖 SQL 语义、文件格式和崩溃恢复。预期结果据称依据 SQLite 文档及手工字节样本编写，减少实现与测试共享同一错误的风险。</li><li>功能完整性仍有边界：没有预编译语句接口；规划器尚不使用统计信息；并发协调仅限单进程，缺少跨进程文件锁。</li><li>基准框架覆盖查询规模增长与持久化往返检查，但材料没有给出实际性能结果。</li></ul>
-<h2 id="h3331">证据与可信度</h2>
+<h2 id="h3359">证据与可信度</h2>
 <ul><li>约 20 万行 Rust、14 个 crate、5,650 个测试、约 90 秒测试耗时，以及一个外部依赖，均为仓库说明自报，本材料未提供独立核验。代码量与测试数也不能直接代表正确性。</li><li>文中列出的各 crate 源码行数口径不同于总实现规模，不能据此直接确认约 20 万行的统计范围。</li><li>基准设计包含五类负载，数据规模从 1 千行到 100 万行，记录耗时、峰值堆内存和 RSS；这是测量方案，并非已展示的测量结论。</li><li>仓库内测试不调用真实 <code>sqlite3</code>，差分测试据称在仓库外完成，缺少可检查的流程与结果。双向兼容演示有复现路径，但演示本身不能覆盖全部兼容性。</li><li>元数据指出未见许可证；这不妨碍阅读产物，但复用授权仍不明确。</li></ul>
-<h2 id="h3332">对 swarm scaling 的意义</h2>
+<h2 id="h3360">对 swarm scaling 的意义</h2>
 <p>它更适合作为协作产物的审查对象：清晰的模块边界、统一执行路径和架构约束测试，提供了研究任务拆分与集成控制的具体抓手。其对 swarm 的价值是机制启发，尚非因果证据。</p>
 <p>材料没有交代智能体数量、任务分配、通信方式、耗时、成本或单智能体对照，因此无法判断并行收益、协调开销及扩展上限。代码规模和测试数量不能替代这些指标；基准中的数据规模扩展，也不能等同于智能体规模扩展。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

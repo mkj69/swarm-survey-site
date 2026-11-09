@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agent swarms and the new model economics</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agent swarms and the new model economics</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Wilson Lin / Cursor</dd><dt>日期</dt><dd>2026-07-20</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cursor.com/blog/agent-swarm-model-economics" target="_blank" rel="noopener">https://cursor.com/blog/agent-swarm-model-economics</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供新旧 harness 对比和成本表，是目前最细的蜂群实测。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1329">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agent swarms and the new model economics</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Wilson Lin / Cursor</dd><dt>日期</dt><dd>2026-07-20</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://cursor.com/blog/agent-swarm-model-economics" target="_blank" rel="noopener">https://cursor.com/blog/agent-swarm-model-economics</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供新旧 harness 对比和成本表，是目前最细的蜂群实测。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1337">一句话</h2>
 <p>Cursor 的实验表明，蜂群扩展的关键可能是减少重复劳动、隔离上下文并改善协调；提交更多，并不等于完成更多。</p>
-<h2 id="h1330">主要内容</h2>
+<h2 id="h1338">主要内容</h2>
 <ul><li><strong>对照任务</strong>：仅提供 835 页 SQLite 文档，让蜂群用 Rust 重建数据库，禁止访问源码、测试集、SQLite 二进制和互联网；在相同模型与时间预算下比较新旧编排系统。</li><li><strong>组织方式</strong>：规划者递归拆解任务并负责设计决策，执行者专注实现。作者认为，这种分工的主要收益可能来自上下文效率，而非并行本身。</li><li><strong>协调改造</strong>：共享设计文档记录决策，并通过编译检查关联代码；第三方代理处理合并冲突；专门代理拆分膨胀文件；结合多种审查视角，以及代理自行维护的共享经验指南。</li><li><strong>质量结果</strong>：四种模型配置中，新系统均优于旧系统。四小时节点，新系统测试通过率为 73%—85%，旧系统为 11%—77%；新配置后来均达到 100%，但文中未给出各自达到满分的时间。</li><li><strong>活动量与有效产出脱钩</strong>：旧 Grok 运行前两小时产生 68,000 次提交，却累计超过 70,000 次冲突并被暂停；新系统四小时冲突少于 1,000 次。Fable 配置最终均通过全部测试，新旧系统的引擎代码分别为 9,908 与 64,305 行。</li><li><strong>成本差异</strong>：Opus 4.8 规划、Composer 2.5 执行的组合花费 1,339 美元，GPT-5.5 全角色配置为 10,565 美元。执行者消耗至少 69% 的 token，多数运行超过 90%，因此执行模型价格对总成本影响很大。</li></ul>
-<h2 id="h1331">证据与可信度</h2>
+<h2 id="h1339">证据与可信度</h2>
 <p>数字均来自 Cursor 的内部实验自报，无材料内的独立核验。通过率按隐藏的 sqllogictest 查询答案正确比例计算；提交、冲突、代码行数和费用来自作者记录。作者称运行后人工检查了作弊与取巧行为，但材料未报告重复实验次数、误差范围或完整计费口径。</p>
 <p>测试满分说明通过该套查询检查，不能据此认定完整实现 SQLite 或达到生产质量。新系统同时引入多项改动，缺少消融实验，无法确定各机制的独立贡献。“上下文效率主导扩展”“多视角审查维持质量”仍是作者解释。公开代码来自单独的 Opus 配置，不能直接核验全部对照结果。</p>
-<h2 id="h1332">对 swarm scaling 的意义</h2>
+<h2 id="h1340">对 swarm scaling 的意义</h2>
 <p>这份材料把扩展问题从代理数量推进到组织与环境设计：设计决策需要明确归属，冲突与文件膨胀需要专门治理，共享记忆需要持续维护。评估应同时看正确率、费用、冲突和代码规模，避免把高吞吐误当成高生产率。</p>
 <p>混合模型展示了成本优化空间，但规划者自身更省 token，仍可能让执行者付出更多工作。应优化整棵任务树的总成本。材料没有代理数量递增的系统曲线，尚不能推出通用扩展规律或最优蜂群规模。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>A self-organizing thousand-robot swarm</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A self-organizing thousand-robot swarm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Caroline Perry (Harvard SEAS)</dd><dt>日期</dt><dd>2014-08-14</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://seas.harvard.edu/news/self-organizing-thousand-robot-swarm" target="_blank" rel="noopener">https://seas.harvard.edu/news/self-organizing-thousand-robot-swarm</a></dd><dt>许可</dt><dd>all-rights-reserved-notice-(©-Harvard)（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>补充 Kilobot 的行为原语与鲁棒性细节。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3017">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>A self-organizing thousand-robot swarm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Caroline Perry (Harvard SEAS)</dd><dt>日期</dt><dd>2014-08-14</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://seas.harvard.edu/news/self-organizing-thousand-robot-swarm" target="_blank" rel="noopener">https://seas.harvard.edu/news/self-organizing-thousand-robot-swarm</a></dd><dt>许可</dt><dd>all-rights-reserved-notice-(©-Harvard)（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>补充 Kilobot 的行为原语与鲁棒性细节。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3045">一句话</h2>
 <p>Kilobot 展示了千台简单实体机器人如何靠局部通信、定位与纠错规则完成预设形状，但没有证明规模越大、性能就越好。</p>
-<h2 id="h3018">主要内容</h2>
+<h2 id="h3046">主要内容</h2>
 <ul><li>研究团队让 1,024 台机器人接收目标二维形状，自主排列成海星、字母 K 等图案；初始指令下达后，无需持续人工干预。</li><li>四台机器人标定坐标原点，其余机器人通过沿群体边缘移动、追踪距原点的距离、维持相对位置感，依次寻找合适位置。自组织发生在执行过程，目标仍由人指定。</li><li>个体依靠振动马达移动，通过红外与少数邻居通信、测距，没有全局俯视信息。移动不直、测距精度不一致，是低复杂度设计带来的代价。</li><li>算法包含局部纠错规则：出现拥堵或偏离路线时，附近机器人协作处理。实体平台用于暴露仿真难以充分体现的物理交互与个体差异。</li></ul>
-<h2 id="h3019">证据与可信度</h2>
+<h2 id="h3047">证据与可信度</h2>
 <ul><li>材料是哈佛 SEAS 发布的本校研究新闻，属于研究机构对自身成果的报道。1,024 台是报道所述实体演示规模，四台是坐标初始化配置；均非本文重新测量或独立核验。</li><li>报道称成果发表于《Science》，并称团队给出了局部行为导向正确整体结果的数学证明。但此处未提供证明细节、适用条件及实验统计，不能据此推定任意故障下都能成功。</li><li>材料没有给出完成时间、成功率、通信量、能耗，或不同群体规模的性能对比。“此前仅少数群体超过 100 台”也是报道中的历史概述，未附系统统计。</li></ul>
-<h2 id="h3020">对 swarm scaling 的意义</h2>
+<h2 id="h3048">对 swarm scaling 的意义</h2>
 <ul><li>它支持的是“简单个体能否在千台规模协作”的可行性，而非随规模增长的收益曲线。</li><li>扩展能力来自一组配套设计：降低硬件与操作负担、限制通信范围、用局部规则组织行动，并把纠错纳入算法。增加数量本身并不足够。</li><li>大规模会放大拥堵、定位误差及个体差异，因此实体测试的重要性随之上升；局部规则还需接受整体结果的验证。</li><li>对软件或大模型多智能体的启发主要在协调与容错机制。该任务目标明确、环境受限，不能直接外推到开放式推理任务的能力提升。</li></ul></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

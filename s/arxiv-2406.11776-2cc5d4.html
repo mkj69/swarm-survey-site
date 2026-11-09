@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Improving Multi-Agent Debate with Sparse Communication Topology</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Improving Multi-Agent Debate with Sparse Communication Topology</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Yunxuan, Du, Yibing, Zhang, Jiageng et al.</dd><dt>日期</dt><dd>2024-06-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.11776" target="_blank" rel="noopener">https://arxiv.org/abs/2406.11776</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>量化稀疏拓扑的准确率与成本，显示减少连接可保持性能并显著降低令牌。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2873">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Improving Multi-Agent Debate with Sparse Communication Topology</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Yunxuan, Du, Yibing, Zhang, Jiageng et al.</dd><dt>日期</dt><dd>2024-06-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.11776" target="_blank" rel="noopener">https://arxiv.org/abs/2406.11776</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>量化稀疏拓扑的准确率与成本，显示减少连接可保持性能并显著降低令牌。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2901">一句话</h2>
 <p>这篇论文表明，在小规模多智能体辩论中，减少通信连接可以显著节省输入令牌，同时保持甚至改善准确率；连接更多并不必然带来更好结果。</p>
-<h2 id="h2874">主要内容</h2>
+<h2 id="h2902">主要内容</h2>
 <ul><li>研究主要比较六个智能体的静态通信图，从全连接到仅与邻居连接。智能体先独立作答，再参考相邻节点上一轮的答案进行修正，最后多数投票。</li><li>相比全连接，邻居连接在 MATH 上的准确率提高约 2 个百分点，在 GSM8K 上保持相同准确率；两项任务的输入令牌节省最高分别为 41.5% 和 43.5%。</li><li>MathVista 上，最佳稀疏配置较全连接提高 1.2 个百分点，输入令牌最多减少 33.1%；排除图像输入令牌后，节省为 40.6%。这些最优值未必来自同一配置。</li><li>偏好标注实验也呈现类似趋势。作者提出两种解释：减少错误答案对其他节点的干扰，以及推迟过早达成一致。这些是实验观察支持的解释，并非理论证明。</li><li>混合模型实验发现，将较强模型放在连接更多的位置，有助于其信息更快传向较弱模型。</li></ul>
-<h2 id="h2875">证据与可信度</h2>
+<h2 id="h2903">证据与可信度</h2>
 <p>数字来自作者的基准实验，属于论文自报测量，所给材料没有独立复现证据。推理任务按标准答案计算准确率，偏好标注按与人类标签的一致性评估；“成本”主要指输入令牌数，不能直接等同于总费用、延迟或能耗。</p>
 <p>GPT 实验每项随机抽取 100 个样本，Mistral 实验为 500 个；MATH 和 MathVista 只使用特定子集。作者固定首轮答案以减少拓扑比较中的随机波动，但抓取文本缺少表格具体数值与置信区间，小幅准确率提升的稳健性难以核查。多模态模型在设置部分写作 GPT-4，结果表说明则写 GPT-4o，存在表述不一致。</p>
-<h2 id="h2876">对 swarm scaling 的意义</h2>
+<h2 id="h2904">对 swarm scaling 的意义</h2>
 <p>它支持把通信拓扑作为扩展系统时的重要设计变量：增加节点前，应先检验每个节点是否需要看到所有同伴的输出。稀疏连接既能压缩上下文，也可能减少错误传播、保留意见差异；异构系统还需考虑强模型的位置。</p>
 <p>但这主要是六节点、短轮次基准任务的证据，不能据此断言大规模 swarm 也能保持相同收益。论文没有证明最优拓扑，也没有展示随智能体数量增长的完整扩展规律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

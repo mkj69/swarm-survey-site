@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Can LLM Agents Really Debate? A Controlled Study of Multi-Agent Debate in Logical Reasoning</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Can LLM Agents Really Debate? A Controlled Study of Multi-Agent Debate in Logical Reasoning</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Wu, Haolun, Li, Zhenkun, Li, Lingyao</dd><dt>日期</dt><dd>2025-11-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2511.07784" target="_blank" rel="noopener">https://arxiv.org/abs/2511.07784</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用可验证逻辑谜题控制六个因素，发现个体能力和多样性比结构参数更决定辩论成败。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2729">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Can LLM Agents Really Debate? A Controlled Study of Multi-Agent Debate in Logical Reasoning</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Wu, Haolun, Li, Zhenkun, Li, Lingyao</dd><dt>日期</dt><dd>2025-11-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2511.07784" target="_blank" rel="noopener">https://arxiv.org/abs/2511.07784</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>用可验证逻辑谜题控制六个因素，发现个体能力和多样性比结构参数更决定辩论成败。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2753">一句话</h2>
 <p>这项受控研究表明，逻辑推理辩论的收益主要取决于个体能力与团队多样性；扩大队伍可能有帮助，但共识也可能放大错误。</p>
-<h2 id="h2730">主要内容</h2>
+<h2 id="h2754">主要内容</h2>
 <ul><li>研究使用有确定答案的“骑士—无赖—间谍”谜题，分别考察团队规模、组成、置信度可见性、发言顺序、辩论深度和任务难度。</li><li>流程是独立作答、逐个角色讨论、自我修正，最后按角色多数投票，平票由监督模型裁决。评价同时覆盖整题正确率、角色正确率及讨论中的状态变化。</li><li>作者报告，强模型构成推理基础，多样性带来有限但持续的增益；全弱模型团队难靠调整顺序、轮数或置信度展示改善表现。</li><li>多数压力可能妨碍纠错。成功讨论的重要特征是推翻错误多数、接受有效反驳，而不只是更快达成一致。</li></ul>
-<h2 id="h2731">证据与可信度</h2>
+<h2 id="h2755">证据与可信度</h2>
 <ul><li>材料覆盖主体和部分附录，但末尾截断、图表数值及部分配置缺失，<strong>未读到全文</strong>。以下结论仅依据所给文本，未独立核验代码或复现实验。</li><li>数据集为每种规模300题，角色数从4到9，共计1,800题；各配置评估100题。这是论文作者报告的实验设计。</li><li>作者称，4角色和8角色题的实例准确率在辩论后分别提高52%和32%；缺少对应表格的基线数值，无法确认是相对增幅还是百分点，也无法重算。</li><li>最终角色正确率回归的解释度为0.393，初始正确率系数为0.600；团队规模也呈显著正关联。但结论又称规模影响有限，不能据此推出稳定的规模收益规律。</li><li>论证质量由另一个模型评分，属于模型辅助评估；“合理行为”与纠错成功相关，不等于证明其因果作用。部分状态变化本就涉及答案正确性，相关性需谨慎解释。</li></ul>
-<h2 id="h2732">对 swarm scaling 的意义</h2>
+<h2 id="h2756">对 swarm scaling 的意义</h2>
 <p>这篇论文支持优先提升成员能力、保留有效分歧，并用“错误共识能否被纠正”检验协作质量。人数和轮数不能单独代表群体推理能力。</p>
 <p>它尚未给出大规模 swarm 的扩展曲线、等算力比较或边际成本，也未充分排除独立采样加投票的贡献。因此，更适合作为小团队协作机制的证据，不能据此宣称代理越多越好，或辩论必然优于集成。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

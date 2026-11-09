@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>daytonaio/daytona</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>daytonaio/daytona</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>daytonaio</dd><dt>日期</dt><dd>2026-07-24</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/daytonaio/daytona" target="_blank" rel="noopener">https://github.com/daytonaio/daytona</a></dd><dt>许可</dt><dd>AGPL-3.0-at-tag-v0.190.0;-HEAD-has-no-licence-file（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>71384</dd><dt>收录理由</dt><dd>核心转入私有代码库，说明高星标基础设施也可能闭源。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1293">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>daytonaio/daytona</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#tooling_economics">框架、协议、基础设施与经济学</a></div><dl class="info"><dt>作者</dt><dd>daytonaio</dd><dt>日期</dt><dd>2026-07-24</dd><dt>类型</dt><dd>repo</dd><dt>原文</dt><dd><a href="https://github.com/daytonaio/daytona" target="_blank" rel="noopener">https://github.com/daytonaio/daytona</a></dd><dt>许可</dt><dd>AGPL-3.0-at-tag-v0.190.0;-HEAD-has-no-licence-file（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>71384</dd><dt>收录理由</dt><dd>核心转入私有代码库，说明高星标基础设施也可能闭源。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1301">一句话</h2>
 <p>Daytona 展示了支撑 agent 并行执行的沙箱基础设施，也提醒我们：公开代码的可用性与核心产品的持续开放是两回事。</p>
-<h2 id="h1294">主要内容</h2>
+<h2 id="h1302">主要内容</h2>
 <ul><li>据仓库公告，自 2026 年 6 月起，核心开发迁入私有代码库；当前仓库停止更新、修复和发布。已有代码仍可按所链接许可证使用、分叉和继续开发，但不提供支持或担保。</li><li>产品以隔离沙箱承载 AI 生成代码和 agent 工作流，提供独立内核、文件系统、网络栈及计算资源，并宣称支持快速启动、大规模并行和持久运行。</li><li>SDK、API 和 CLI 覆盖环境创建、代码执行、文件操作及生命周期管理；快照用于跨会话保留状态。</li><li>架构划分为接口层、控制层和计算层，分别负责接入、编排与沙箱运行；配套能力包括配额、审计、网络限制和可观测性。</li></ul>
-<h2 id="h1295">证据与可信度</h2>
+<h2 id="h1303">证据与可信度</h2>
 <ul><li>依据是提供的仓库说明文本，未审阅实现代码、许可证全文或实际部署。停止维护和核心迁移属于维护方公告，未独立核验。</li><li>“低于 90 毫秒”是厂商对从代码到执行的启动速度的自报；材料未提供硬件、负载、冷热启动条件或延迟分布，不能视为并发压力下的实测结果。</li><li>“大规模并行”和持久化是产品能力宣称，材料没有并发规模、吞吐量、成本或故障率数据。</li><li>元数据中的 engagement 为 71384，但未定义统计口径，不能直接认定为星标数，也不能据此判断生产采用程度。</li></ul>
-<h2 id="h1296">对 swarm scaling 的意义</h2>
+<h2 id="h1304">对 swarm scaling 的意义</h2>
 <ul><li>Daytona 面向的是 swarm 的执行基础：为多个 agent 提供可编程、隔离且可保留状态的运行环境。它并未给出多 agent 协作效率或任务成功率随规模变化的证据。</li><li>快速启动可能降低短任务的环境准备开销，快照可能支持长任务恢复；但实际扩展收益仍需结合并发启动、资源争用、状态管理和成本测试。</li><li>核心转入私有库意味着，选型不能只看功能和社区热度，还需评估维护连续性、分叉成本与迁移能力。保留公开旧代码，并不等于能持续获得核心改进。</li></ul></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

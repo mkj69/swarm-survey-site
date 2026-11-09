@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Introducing SwarmChat: Open-Source Slack for Your AI Agent Swarm</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Introducing SwarmChat: Open-Source Slack for Your AI Agent Swarm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Aggarwal, Jang, Koh, Fried, Salakhutdinov, Welleck, Yang, Ouporov (CMU / Fleet AI)</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://swarmchat.io" target="_blank" rel="noopener">https://swarmchat.io</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>博客承认每个设置只跑一次、单智能体给足时间可追平，比推文“越多越好”更保守。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h337">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Introducing SwarmChat: Open-Source Slack for Your AI Agent Swarm</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Aggarwal, Jang, Koh, Fried, Salakhutdinov, Welleck, Yang, Ouporov (CMU / Fleet AI)</dd><dt>日期</dt><dd>2026-10-29</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://swarmchat.io" target="_blank" rel="noopener">https://swarmchat.io</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>博客承认每个设置只跑一次、单智能体给足时间可追平，比推文“越多越好”更保守。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h341">一句话</h2>
 <p>SwarmChat 的实验支持一个有限结论：在所测编程任务上，增加智能体主要能缩短达到相近成绩的时间，尚未证明能提高最终能力上限或扩展到超大规模团队。</p>
-<h2 id="h338">主要内容</h2>
+<h2 id="h342">主要内容</h2>
 <ul><li>SwarmChat 是面向智能体的开源通信工具，提供频道、私信、线程、文件及浏览器观察界面，并保存通信记录，便于分析协作过程。</li><li>作者随机选取 ProgramBench 的十个程序，让智能体根据文档和可运行但不可读取源码的参考程序重建软件，以隐藏测试通过率评分。</li><li>GPT-6-Luna 八智能体团队在六小时达到 88.5%，单智能体约需 17.5 小时达到同分，运行二十四小时后达到 89.5%。这说明团队明显提速，但单体给足时间可以追平。</li><li>Claude Haiku 5.5 团队约用 103 分钟达到单体十二小时的最佳成绩 93%。但加速比取决于目标分数：以 90% 为门槛时约为五倍。</li><li>四种八智能体组织方式的平均成绩接近；具体程序却可能对结构敏感。SQLite 的最高与最低成绩相差约 33 个百分点，不能据平均值断言结构无关紧要。</li><li>两种模型呈现不同通信习惯：GPT-6-Luna 偏好频繁私信和私人检查脚本，Claude Haiku 偏好频道汇报及共享测试。材料未证明哪种方式更有效。</li></ul>
-<h2 id="h339">证据与可信度</h2>
+<h2 id="h343">证据与可信度</h2>
 <p>这是工具开发团队自报的实验，所给材料没有独立复现或核验。每种设置只运行一次；十个程序的平均成绩不能替代重复实验，几分差距不足以支持稳定排名。</p>
 <p>时间与 token 数据来自运行记录，每十五分钟保存工作区并评分。八智能体一小时得分 80.9%，单体六小时得分 81.2%；分别消耗 3.06 亿与 2.25 亿 token，即总消耗增加约 36%，换取接近的成绩。</p>
 <p>作者将团队首小时的成绩、token 用量与单体曲线匹配，估算八、十六智能体的扩展指数 λ 为 0.84、0.86。这是特定任务和运行条件下的估计，不是通用常数，也不能证明效率提升由 SwarmChat 导致。开篇列举的大规模 swarm 案例属于背景引用，本实验未验证。</p>
-<h2 id="h340">对 swarm scaling 的意义</h2>
+<h2 id="h344">对 swarm scaling 的意义</h2>
 <p>材料把扩展收益拆成了三个维度：达到目标的时间、总 token 成本、最终成绩。其较强证据是用适度增加的总计算换取更短等待时间，而非“智能体越多，能力越强”。</p>
 <p>通信记录还提示，团队扩大未必使每个成员的协调负担同比增长：从二人到十六人，每人每小时消息由 22 条增至 39 条，冲突相关提及大致稳定。但这些只是日志指标，不能等同于实际协调成本。</p>
 <p>结论边界仍是十六智能体、少量模型和程序重建任务；百人、千人团队如何组织，以及收益何时饱和，材料明确尚无答案。</p></main>

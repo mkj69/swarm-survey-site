@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hello world does not compile (issue 1)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Hello world does not compile (issue 1)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>GitHub users</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://github.com/anthropics/claudes-c-compiler/issues/1" target="_blank" rel="noopener">https://github.com/anthropics/claudes-c-compiler/issues/1</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>显示流传的失败实为包含路径配置问题，头条有所夸大。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2365">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Hello world does not compile (issue 1)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>GitHub users</dd><dt>日期</dt><dd>2026-02-05</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://github.com/anthropics/claudes-c-compiler/issues/1" target="_blank" rel="noopener">https://github.com/anthropics/claudes-c-compiler/issues/1</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>显示流传的失败实为包含路径配置问题，头条有所夸大。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2381">一句话</h2>
 <p>标题称“Hello world 无法编译”，但抓取内容实际是仓库说明，未读到全文中的 issue 讨论，无法据此确认失败原因或判断标题是否夸大。</p>
-<h2 id="h2366">主要内容</h2>
+<h2 id="h2382">主要内容</h2>
 <ul><li>项目宣称以 Rust 从零实现 C 编译器，覆盖四种目标架构，并内置汇编器和链接器。</li><li>说明称代码与文档全部由 Claude Opus 4.6 编写；人类通过提供测试引导部分开发，但未参与交互式调试或代码质量反馈。</li><li>示例包含引用标准头文件的 Hello World。运行前提包括 Linux 主机、系统头文件及 C 运行库；交叉编译还要求对应的系统根目录。</li><li>文档列出多个大型项目的构建与测试成果，也披露优化等级共用同一流水线、部分语言特性支持不完整等限制。</li><li>人类撰写的声明明确表示，代码正确性未经验证，文档也可能存在错误。</li></ul>
-<h2 id="h2367">证据与可信度</h2>
+<h2 id="h2383">证据与可信度</h2>
 <p>抓取文本没有 issue 正文、报错日志、维护者回复或修复记录。因此，元数据中“失败实为包含路径配置问题”的判断缺少直接证据；依赖系统头文件只能说明这种解释存在可能，不能证明本次故障原因。</p>
 <p>“四种架构”、PostgreSQL 的 237 项回归测试、FFmpeg 的 7331 项测试及额外超过 150 个项目，均为仓库文档自报，材料未附独立复现结果。代码与文档的生成比例同样属于项目方声明。文档中的成功宣称与正确性免责声明需要同时保留，不能把测试通过等同于全面正确。</p>
-<h2 id="h2368">对 swarm scaling 的意义</h2>
+<h2 id="h2384">对 swarm scaling 的意义</h2>
 <p>这份材料适合提示如何审查大型智能体产物：区分功能实现、环境配置、测试覆盖与实际正确性，避免把单个失败标题或项目自述当作完整结论。</p>
 <p>但材料没有给出智能体数量、协作机制、资源消耗或随规模变化的对照实验，不能据此推断 swarm 的扩展效率。其直接价值是展示以测试引导开发及验证复杂产物时的证据边界。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

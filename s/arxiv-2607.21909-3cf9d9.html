@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Claim Plane: Enforceable Change Intents and Dynamic Scope for Parallel Coding Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Claim Plane: Enforceable Change Intents and Dynamic Scope for Parallel Coding Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Nikolaev, Maxim</dd><dt>日期</dt><dd>2026-07-24</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2607.21909" target="_blank" rel="noopener">https://arxiv.org/abs/2607.21909</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>是声明计划平面确认研究的前序工作，可追踪意图声明方法的来源。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1281">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Claim Plane: Enforceable Change Intents and Dynamic Scope for Parallel Coding Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Nikolaev, Maxim</dd><dt>日期</dt><dd>2026-07-24</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2607.21909" target="_blank" rel="noopener">https://arxiv.org/abs/2607.21909</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>是声明计划平面确认研究的前序工作，可追踪意图声明方法的来源。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1289">一句话</h2>
 <p>Claim Plane 把并行编码冲突从合并后的修补，前移为写入前的意图声明与权限准入。</p>
-<h2 id="h1282">主要内容</h2>
+<h2 id="h1290">主要内容</h2>
 <ul><li>每个代理先声明基准提交、操作资源、依赖，以及确定执行或条件触发的改动；确定性控制平面判断是否允许并行。</li><li>同文件操作限于声明区域，未解决的重叠需串行执行；依赖失效会被跟踪，权限不明确时拒绝执行。</li><li>条件改动起初不占写权限，首次尝试修改时才原子升级范围并重新准入；执行与集成还校验权限版本、锁及补丁来源。</li></ul>
-<h2 id="h1283">证据与可信度</h2>
+<h2 id="h1291">证据与可信度</h2>
 <p>未读到全文，仅有摘要与元数据。作者报告了 CooperBench 上六对任务的初步机制测试：静态方案全部串行，六对均通过；动态范围使一半任务对保留并行准入，完成七次范围升级，并拒绝两次未声明修改。这些是论文作者自报的测试结果，材料未提供独立核验；作者也明确表示样本不足以支持比较结论。</p>
-<h2 id="h1284">对 swarm scaling 的意义</h2>
+<h2 id="h1292">对 swarm scaling 的意义</h2>
 <p>它提出一种扩展协调的思路：让代理负责提出计划，由确定性机制分配写权限，减少协调对持续监督和事后修复的依赖。动态范围尝试兼顾隔离与并行机会，但现有证据只支持机制可行，尚不能证明代理增多后的吞吐、成本或成功率优势。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

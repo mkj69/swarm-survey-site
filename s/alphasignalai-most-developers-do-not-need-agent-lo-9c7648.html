@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Most Developers Do Not Need Agent Loops Yet</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Most Developers Do Not Need Agent Loops Yet</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>AlphaSignalAI</dd><dt>日期</dt><dd>2026-06-08</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/AlphaSignalAI/status/2064055529883029550" target="_blank" rel="noopener">https://x.com/AlphaSignalAI/status/2064055529883029550</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>165 likes; 40949 views</dd><dt>收录理由</dt><dd>提出循环仅在四个条件下才值得，属观点而非测量。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1561">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Most Developers Do Not Need Agent Loops Yet</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>AlphaSignalAI</dd><dt>日期</dt><dd>2026-06-08</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/AlphaSignalAI/status/2064055529883029550" target="_blank" rel="noopener">https://x.com/AlphaSignalAI/status/2064055529883029550</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>165 likes; 40949 views</dd><dt>收录理由</dt><dd>提出循环仅在四个条件下才值得，属观点而非测量。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1569">一句话</h2>
 <p>这篇文章把 agent loop 的价值归结为可重复、可验证且成本可控的工作流，提醒读者：增加自主运行和代理数量，并不自动带来有效产出。</p>
-<h2 id="h1562">主要内容</h2>
+<h2 id="h1570">主要内容</h2>
 <ul><li>作者提出四个适用条件：任务反复发生、有自动验证、预算能承受重试与无效探索、代理能使用日志和运行环境等工具。这是实践判断框架，并非经实验验证的必要充分条件。</li><li>循环的核心是发现任务、执行、检查、记录状态并决定下一步。文章认为，近期变化主要是能力与工具普及，而非循环架构本身首次出现。</li><li>质量检查必须能拒绝错误结果。拆分编写者与检查者有帮助，但若检查者只有模型判断、缺少测试或构建等客观信号，仍可能相互认可错误。</li><li>建议从一个自动化入口、一个知识文件、一个状态文件和一个验证门槛开始；先让手动运行可靠，再安排持续执行，并设预算、次数或时间上限。</li><li>风险包括审核积压、团队理解落后于代码增长，以及无人值守执行扩大安全暴露面。作者主张以“每个被接受变更的成本”衡量收益。</li></ul>
-<h2 id="h1563">证据与可信度</h2>
+<h2 id="h1571">证据与可信度</h2>
 <p>材料提供了完整文章正文，但未附其所称的首条回复来源清单，无法据此独立核验引用研究及上下文。</p>
 <ul><li>文中转引的生产代理调查覆盖 <strong>306 名从业者、26 个领域</strong>，称 <strong>68%</strong> 的生产代理在不超过十步后引入人工。这是调查结果，不是不同规模 swarm 的受控比较。</li><li>异步编码代理研究被转述为：论文复现与库任务分别提升 <strong>26.7%</strong>、<strong>14.3%</strong>。正文未交代指标、基线和消融设计，不能确认收益完全来自隔离与验证，也不能据此否定增加代理的价值。</li><li>模型任务时长、Claude 编写代码占比及每日合并代码量等数字属于 Anthropic 自报；其中代码合并量增长也被原文承认会高估生产率提升。</li><li>安全漏洞与技能泄密数字属于对外部追踪、审计的转引，本文没有给出核验细节。四条件及“大多数开发者暂不需要循环”主要是作者综合观点；点赞和浏览量仅代表传播情况。</li></ul>
-<h2 id="h1564">对 swarm scaling 的意义</h2>
+<h2 id="h1572">对 swarm scaling 的意义</h2>
 <p>文章提出了比“能启动多少代理”更有用的扩展问题：验证、审核、预算和状态管理能否随执行量一起扩展。隔离工作环境、保存状态和设置客观验收门槛，为并行执行提供了基础。</p>
 <p>但其证据更支持“先建立可靠的小循环”，尚不足以证明 swarm 普遍无效。生产系统运行步数较短，描述的是监督方式；它不能直接回答代理数量增加后的收益曲线。对调研而言，这篇材料适合作为扩展约束与成本指标的观点来源，而非 swarm scaling 的定量结论。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

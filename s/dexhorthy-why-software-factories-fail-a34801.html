@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Why Software Factories Fail</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Why Software Factories Fail</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>dexhorthy</dd><dt>日期</dt><dd>2026-07-24</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/dexhorthy/status/2080697380379427275" target="_blank" rel="noopener">https://x.com/dexhorthy/status/2080697380379427275</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>2000 likes; 582555 views</dd><dt>收录理由</dt><dd>Horthy一手记录：2025年7月全面无灯工厂，到11月决定重写，是最重要的失败报告。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1297">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Why Software Factories Fail</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>dexhorthy</dd><dt>日期</dt><dd>2026-07-24</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/dexhorthy/status/2080697380379427275" target="_blank" rel="noopener">https://x.com/dexhorthy/status/2080697380379427275</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>2000 likes; 582555 views</dd><dt>收录理由</dt><dd>Horthy一手记录：2025年7月全面无灯工厂，到11月决定重写，是最重要的失败报告。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1305">一句话</h2>
 <p>这是一份撤掉人工代码审查后遭遇维护危机的一手复盘：作者认为，增加 agent、循环和 token 能加快产出，却不能自动保证代码库长期可维护。</p>
-<h2 id="h1298">主要内容</h2>
+<h2 id="h1306">主要内容</h2>
 <ul><li>作者称团队于 2025 年 7 月全面采用“无灯工厂”：人主要看规格和工单，中小任务交给后台 agent，不再持续阅读代码。遇到 agent 无法解决的复杂故障后，人必须重新理解已经陌生的代码库。</li><li>首次严重问题让作者花了近两周排查；到 11 月约第三次遭遇此类问题时，团队决定重写，联合创始人又花两周手工整理实现模式。这是文中最具体的失败经历。</li><li>作者将瓶颈迁移概括为：生成代码加速后，审查与测试成为限制；取消人工审查虽扩大吞吐，也可能让设计问题持续累积，直到修改一处牵动多处。</li><li>核心解释是奖励目标失配：通过功能测试容易快速评分，架构与可维护性的代价却往往延迟出现。文章以 SWE-bench 的评测流程说明，修复目标问题且不破坏已有测试，并不等于改善设计；作者也明确区分了评测基准与训练验证器。</li><li>作者提及长任务、多 PR、复合奖励和代码质量判定等探索，但认为尚不足以放心托付代码库。本篇是系列第一部分，具体改进工作流留待后续篇章。</li></ul>
-<h2 id="h1299">证据与可信度</h2>
+<h2 id="h1307">证据与可信度</h2>
 <ul><li>采用时间、排障时长、重写决定均属作者亲历自述；材料未提供代码、事故记录或前后对照指标，无法独立核验，也不能据此估计普遍失败率。</li><li>“10—100 倍提速”是作者批评的行业承诺，不是其团队测量结果。其他公司的代码生成占比、产品收入及报告结论也都是文中转述，不能当作已核验事实。</li><li>作者承认，模型长期维护能力缺少合适基准，其“模型没有明显改善”的判断无法证明。外部报告被他定位为相关性信号，而非因果证据。</li><li>元数据中的点赞、浏览量只反映传播程度。本文支持“一个团队曾失败”的判断，对“无灯工厂普遍无效”的支持有限。</li></ul>
-<h2 id="h1300">对 swarm scaling 的意义</h2>
+<h2 id="h1308">对 swarm scaling 的意义</h2>
 <p>它提示应把“产出规模”与“可维护产出规模”分开：增加执行和审查 agent，可能提高局部任务完成率，却未必解决跨任务累积的设计债务。</p>
 <p>文中没有 agent 数量或并发扩展实验，因此不能据此断言 swarm 越大越差。更有依据的启示是：扩展评估应覆盖连续修改后的维护成本、故障恢复和人工介入负担，而不只统计生成量与测试通过率；多 agent 的审查也需要证明其能捕捉长期质量问题。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

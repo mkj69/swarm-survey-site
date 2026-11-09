@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cursor implied success without evidence</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Cursor implied success without evidence</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>embedding-shapes (unnamed)</dd><dt>日期</dt><dd>2026-01-16</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://emsh.cat/en/cursor-implied-success-without-evidence/" target="_blank" rel="noopener">https://emsh.cat/en/cursor-implied-success-without-evidence/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>独立复现发现约100个提交都无法干净编译。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2585">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Cursor implied success without evidence</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>embedding-shapes (unnamed)</dd><dt>日期</dt><dd>2026-01-16</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://emsh.cat/en/cursor-implied-success-without-evidence/" target="_blank" rel="noopener">https://emsh.cat/en/cursor-implied-success-without-evidence/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>独立复现发现约100个提交都无法干净编译。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2605">一句话</h2>
 <p>这篇批评文章指出：Cursor 展示了多 agent 大规模产出代码的能力，却未提供足以复现浏览器可运行状态的证据，不能据此确认工程成果随规模增长。</p>
-<h2 id="h2586">主要内容</h2>
+<h2 id="h2606">主要内容</h2>
 <ul><li>Cursor 据称让数百个 agent 并发开发浏览器，接近一周生成逾百万行代码、约千个文件，并强调协作冲突较少。</li><li>作者追问的是交付结果：代码能否编译，能否加载简单 HTML，以及展示画面对应哪个可运行版本。</li><li>作者报告回查约 100 个提交，未找到能干净编译的版本；近期主分支 CI 也存在失败，包括工作流文件错误。</li><li>文章承认 Cursor 没有明确宣称浏览器已经可用。其批评重点是：项目叙述和展示容易让读者推断成功，但缺少可复现演示、构建说明和已知可用提交。</li></ul>
-<h2 id="h2587">证据与可信度</h2>
+<h2 id="h2607">证据与可信度</h2>
 <ul><li>并发 agent 数量、运行时长、代码行数及文件数均为文章转引的厂商自报，不是作者独立测量的成果指标。</li><li>约 100 个提交无法干净编译，属于作者自述的独立复现结果；文中链接了测试提交记录及仓库问题。所示一次编译输出为 34 个错误、94 个警告，不能视为每个提交的统一统计。</li><li>本解读仅依据所给正文及修订记录，未独立核验仓库、测试环境或链接内容。抽查范围内失败，不能证明全部历史版本从未成功构建。</li><li>作者关于代码缺乏工程设计、agent 似乎未执行编译检查的说法属于判断或推测；编译失败本身不足以证明检查从未运行。</li></ul>
-<h2 id="h2588">对 swarm scaling 的意义</h2>
+<h2 id="h2608">对 swarm scaling 的意义</h2>
 <p>这份材料提醒研究者区分“协作吞吐量”与“可验证成果”：更多 agent、更多代码和更少合并冲突，并不直接等于系统可用。评估扩展效果应同时给出明确版本、可复现构建和最小功能验证。</p>
 <p>它提供了对成功叙事的反证线索，但没有不同 agent 规模下的对照实验，因此不能据此推出 swarm scaling 普遍无效，也无法确定失败来自并发规模、协调机制还是验证流程。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

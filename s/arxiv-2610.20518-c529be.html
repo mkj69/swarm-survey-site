@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Wealth of Agents: Scaling Agentic AI Across Developers</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Wealth of Agents: Scaling Agentic AI Across Developers</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Austin W. Hanjie, Carlos E. Jimenez, Zirui Wang, Karthik Narasimhan</dd><dt>日期</dt><dd>2026-10-14</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2610.20518" target="_blank" rel="noopener">https://arxiv.org/abs/2610.20518</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>MDA 论文：模拟的专精开发者群体（各自 agent ≤35%）在 GAIA 上组合到约 70%；但在窄任务 SealQA 和通用型池上 MDA 反而更差更贵。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h489">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Wealth of Agents: Scaling Agentic AI Across Developers</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Austin W. Hanjie, Carlos E. Jimenez, Zirui Wang, Karthik Narasimhan</dd><dt>日期</dt><dd>2026-10-14</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2610.20518" target="_blank" rel="noopener">https://arxiv.org/abs/2610.20518</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>MDA 论文：模拟的专精开发者群体（各自 agent ≤35%）在 GAIA 上组合到约 70%；但在窄任务 SealQA 和通用型池上 MDA 反而更差更贵。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h493">一句话</h2>
 <p>这篇论文把 scaling 的单位从“同一团队增加 agent”扩展到“跨开发者组合互补能力”，但收益取决于专精程度与协调成本，并非 agent 越多越好。</p>
-<h2 id="h490">主要内容</h2>
+<h2 id="h494">主要内容</h2>
 <ul><li>区分三种组织方式：单开发者系统（SDA）；把整项任务交给一个系统的路由方案（rSDA）；拆分任务、跨开发者调用并汇总结果的 MDA。SDA 本身也可以包含多个 agent。</li><li>实验中的“开发者”由元 agent 模拟，自动生成能力规格、工具和系统提示，再迭代改进。不同池保持相同的总开发预算，但预算以改进轮数计量。</li><li>GAIA 上，54 个专精开发者组成的池中，单体准确率最高为 35%；组合后约为 70%，比最佳单开发者系统高约 3 个百分点。只用中低档 agent，MDA 仍达到 67%。</li><li>单体成绩不能充分代表协作价值：迁移到 GAIA 的池加入一个独立准确率仅 19.1% 的互补 agent 后，整体从 40.4% 升至 53.2%。</li><li>反例同样关键：在通用型 agent 池，以及主要依赖网页搜索的 SealQA 上，MDA 相比整任务路由准确率更低、成本更高。作者认为，能力差异不足时，拆分和多层转交的损失会压过组合收益。</li><li>理论模型尝试说明：整任务竞争可能鼓励通才化，按技能路由则可能激励专精；这些结论依赖模型设定。</li></ul>
-<h2 id="h491">证据与可信度</h2>
+<h2 id="h495">证据与可信度</h2>
 <p>未读到全文：提供内容在第六节中途截断，附录、完整证明及后续分析不可见。</p>
 <p>数字属于作者报告的基准实验测量，并非真实开发者生态的部署结果。图五、图六注明为四次运行的均值，误差条为均值标准误；不能据此认定所有数字都采用相同统计口径。准确率衡量答题表现，执行成本按 API 费用计算，默认包含协调费用；相同“开发预算”也不等于相同人力或资金投入。</p>
 <p>路由器通过包含标准答案的交互记录学习，GAIA 验证集被分为训练和评估两部分。因此收益还依赖可获得反馈的路由学习条件。所给材料没有提供独立复现或外部核验，理论结论也不应直接当作现实生态规律。</p>
-<h2 id="h492">对 swarm scaling 的意义</h2>
+<h2 id="h496">对 swarm scaling 的意义</h2>
 <p>它支持的是“互补能力的组合扩展”，尚不能证明扩大群体数量本身带来稳定增益。实验同时改变了开发者专精方式、系统组成与协调机制，不能据此提炼通用的数量扩展规律。</p>
 <p>评估 swarm 应同时看整体准确率、含协调的成本，以及新增成员带来的边际贡献。低独立分数的 agent 可能补齐关键短板；强通才系统也可能因重复能力和多层协调而拖累整体。开放生态的核心问题因此包括能力发现、可靠路由与专精激励，而不只是通信协议或并发规模。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WTF Is a Loop? Peter Steinberger vs. Boris Cherny</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>WTF Is a Loop? Peter Steinberger vs. Boris Cherny</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>mvanhorn</dd><dt>日期</dt><dd>2026-06-08</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/mvanhorn/status/2063865685558903149" target="_blank" rel="noopener">https://x.com/mvanhorn/status/2063865685558903149</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>5213 likes; 3912367 views</dd><dt>收录理由</dt><dd>梳理Steinberger和Cherny的循环之争，属二手综述。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1557">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>WTF Is a Loop? Peter Steinberger vs. Boris Cherny</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>mvanhorn</dd><dt>日期</dt><dd>2026-06-08</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/mvanhorn/status/2063865685558903149" target="_blank" rel="noopener">https://x.com/mvanhorn/status/2063865685558903149</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>5213 likes; 3912367 views</dd><dt>收录理由</dt><dd>梳理Steinberger和Cherny的循环之争，属二手综述。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1565">一句话</h2>
 <p>这篇二手综述把“设计循环”解释为从手动指挥单个 agent，转向编写能调度、验证和终止多个 agent 的持续运行系统，但没有证明 agent 数量增加能带来多少收益。</p>
-<h2 id="h1558">主要内容</h2>
+<h2 id="h1566">主要内容</h2>
 <ul><li>作者区分了几种常被混称为 loop 的机制：模型调用工具的反馈循环、自主追逐目标、反复重置上下文执行任务，以及监督其他循环的多 agent 编排。</li><li>文中认为，编排层的关键变化是定时启动、并发监督、持久化状态与崩溃恢复。人的工作随之转向定义目标、组织流程和判断完成条件。</li><li>定时器只负责启动；模型依据当前状态选择行动，验证结果后继续或停止，才构成作者强调的闭环。</li><li>文章把端到端验证放在核心位置，并提出最大迭代次数、停滞检测和费用上限，防止错误与成本持续累积。</li><li>作者最终认为，可复用且经过测试的技能才是长期资产；循环负责反复调用这些能力。</li></ul>
-<h2 id="h1559">证据与可信度</h2>
+<h2 id="h1567">证据与可信度</h2>
 <ul><li>这是社交讨论、访谈与项目案例的二手汇编，没有受控实验，也没有统一的任务、成本或质量评估。</li><li>Cherny 的“30 天合入 259 个 PR、贡献全部由 Claude Code 编写”属于经转述的个人自报，不能据此推断生产率提升幅度。作者夜间处理约 30 个仓库也是个人经验。</li><li>Gas Town 协调 20—30 个实例属于文中项目描述；“数百或数千 agent”是使用建议或规模主张，不是经过验证的有效并行度。</li><li>Uber 费用限制、Gartner 部署比例等数字均为文章转述，所给材料没有足够原始证据供独立核验。“循环成为最昂贵部分”因此更接近观点。</li><li>检索统计存在口径差异：开头称找到 15 个 Reddit 线程、21 条 X 帖子，末尾列出 47 个线程、56 条帖子，未解释差异。互动量反映传播度，不能证明技术结论。</li></ul>
-<h2 id="h1560">对 swarm scaling 的意义</h2>
+<h2 id="h1568">对 swarm scaling 的意义</h2>
 <p>它提供的是工程问题清单：规模扩大后，需要把任务分派、共享状态、验证反馈、故障恢复和终止条件一起设计。单纯增加 agent 数量并不等于有效扩展。</p>
 <p>其最有价值的启发是：应考察整个闭环能否稳定交付，以及每份合格成果消耗多少成本。材料没有给出串行与并行对照、协调开销或收益曲线，因此只能支持这种研究方向，不能作为 swarm scaling 已获实证的依据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

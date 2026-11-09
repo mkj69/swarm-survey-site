@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Coordination Tax: What Nobody Tells You About Running Multiple AI Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Coordination Tax: What Nobody Tells You About Running Multiple AI Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>AlphaSignalAI</dd><dt>日期</dt><dd>2026-06-18</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/AlphaSignalAI/status/2067602968397152754" target="_blank" rel="noopener">https://x.com/AlphaSignalAI/status/2067602968397152754</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>45 likes; 4752 views</dd><dt>收录理由</dt><dd>讨论协调税，但带产品推介，证据价值有限。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1497">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>The Coordination Tax: What Nobody Tells You About Running Multiple AI Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>AlphaSignalAI</dd><dt>日期</dt><dd>2026-06-18</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/AlphaSignalAI/status/2067602968397152754" target="_blank" rel="noopener">https://x.com/AlphaSignalAI/status/2067602968397152754</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>45 likes; 4752 views</dd><dt>收录理由</dt><dd>讨论协调税，但带产品推介，证据价值有限。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1505">一句话</h2>
 <p>这是一篇借 Omnigent 推介多智能体基础设施的文章：统一会话与治理可以减少操作摩擦，但不会消除多智能体协作本身的成本。</p>
-<h2 id="h1498">主要内容</h2>
+<h2 id="h1506">主要内容</h2>
 <ul><li>作者把“协调税”拆为五类：通信消耗 token、等待造成延迟、并行修改引发冲突、评审需要重建上下文，以及汇总任务集中在主管代理形成瓶颈。</li><li>关键判断是：协调负担既取决于并行代理数量，也取决于共享状态的频率。独立分工后统一收集，比多个代理持续修改重叠代码更容易获益。</li><li>据文中介绍，Omnigent 在不同 agent harness 之上统一会话、策略、权限与访问入口；它统一的是协调接口，并不保证不同模型的输出质量一致。</li><li>文章强调外置、有状态的治理：例如安装新依赖后，推送代码前必须获得人工批准；累计花费达到阈值后暂停。这比仅在提示词中要求代理遵守规则更可控。</li><li>示例工作流由主管代理分派并行任务，再交给不同厂商的代理评审。作者认为，可重复的结构化流程和组织级治理更适合这类设施，一次性探索的收益较弱。</li></ul>
-<h2 id="h1499">证据与可信度</h2>
+<h2 id="h1507">证据与可信度</h2>
 <ul><li>本文主要是产品介绍与机制分析，没有提供单代理、多代理及使用 Omnigent 前后的对照实验，也没有量化协调税或投资回报。</li><li>“覆盖 5,000 名工程师的内部经验”是文章对产品背景的转述，不能视为参与测试的人数或有效性证据；每花费 100 美元暂停只是策略示例，不是实测成本。</li><li>Uber 在四个月内耗尽全年 AI 预算的说法属于未经本文核验的转述，不能据此推算多智能体成本。</li><li>元数据中的 45 次点赞、4,752 次浏览仅反映传播情况。文章带明显产品推介倾向，其功能描述与排他性判断均未见独立核验；安装与运行部分的具体命令也未出现在抓取内容中。</li></ul>
-<h2 id="h1500">对 swarm scaling 的意义</h2>
+<h2 id="h1508">对 swarm scaling 的意义</h2>
 <p>它提供了一个有用的分析框架：扩展 swarm 时，应同时考察通信、同步、冲突处理、上下文重建和主管汇总成本，不能只看 worker 数量。</p>
 <p>基础设施可以让协作更容易管理，但净收益仍依赖任务是否可拆分、状态交换是否频繁，以及汇总是否拥堵。这些是值得实验验证的设计假设；本文尚不足以给出最佳代理数量、成本拐点或性能提升幅度。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Why agent swarms could be the next scaling law</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Why agent swarms could be the next scaling law</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Dan Kagan-Kans</dd><dt>日期</dt><dd>2026-10-05</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.understandingai.org/p/why-agent-swarms-could-be-the-next" target="_blank" rel="noopener">https://www.understandingai.org/p/why-agent-swarms-could-be-the-next</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总各方证据与怀疑点。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h633">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Why agent swarms could be the next scaling law</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Dan Kagan-Kans</dd><dt>日期</dt><dd>2026-10-05</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://www.understandingai.org/p/why-agent-swarms-could-be-the-next" target="_blank" rel="noopener">https://www.understandingai.org/p/why-agent-swarms-could-be-the-next</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总各方证据与怀疑点。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h641">一句话</h2>
 <p>这篇综述认为，swarm 可能成为新的推理计算扩展方式，但现有证据更支持“花更多计算换速度”，尚不足以确立持续提升能力上限的 scaling law。</p>
-<h2 id="h634">主要内容</h2>
+<h2 id="h642">主要内容</h2>
 <ul><li><strong>协作需要训练。</strong> 据文中转述，OpenAI 在训练环境中允许智能体通信、共同完成目标；旧推理模型习惯独立工作，接收同伴消息反而可能干扰推理。</li><li><strong>收益可能很快递减。</strong> 文章援引 Anthropic 系统卡：从单智能体扩到 10 个时提升最大，继续增加数量的收益较小。100 个智能体在两小时内领先，但 10 个或 30 个获得更多时间后能够追上。</li><li><strong>大规模成功不能证明规模必要。</strong> OpenAI 据称用 10,000 个智能体解决数学问题，但未做 1,000 个的对照。Brown 将主要功劳归于底层模型，认为多智能体的贡献不到 10%。</li><li><strong>能力增益仍有局部证据。</strong> 文中介绍的微软与伯克利研究，在部分基准上发现团队优于资源充足的单体，且有任务只有团队完成；能否推广仍不清楚。</li><li><strong>组织方式同时影响效率与风险。</strong> 同模型成员可能重复相同错误；身份区分、相互核验和模型多样性可能缓解问题。文章也讨论了协作倾向导致目标偏移的风险，以及集体奖励与个体奖励的潜在差异。</li></ul>
-<h2 id="h635">证据与可信度</h2>
+<h2 id="h643">证据与可信度</h2>
 <p>这是一篇二手综合报道，并非统一条件下的扩展实验。上述智能体数量、时间与结果来自文章转述的厂商报告、研究和访谈，本页未独立核验原始来源。Brown 的“不到 10%”是个人归因判断，不是消融测量。</p>
 <p>文中 Ord 给出的并行化参数 0.5—0.7 属于估计；研究提速三倍是 Brown 讨论的可能性，并非实测。异构团队研究仅覆盖少量较旧模型。关于开放网络上群体失控的描述包含作者推演，不能视为已验证结果。训练细节与关键对照缺失，也限制了因果判断。</p>
-<h2 id="h636">对 swarm scaling 的意义</h2>
+<h2 id="h644">对 swarm scaling 的意义</h2>
 <p>应区分三件事：固定时间内得分提高、达到相同结果更快，以及单体无法达到的新能力。本文对前两者的支持较强，对第三者仅有有限案例。</p>
 <p>评估 swarm 需要同时报告总计算成本、完成时间、单体基线和规模消融。否则，万级智能体的成功难以证明规模本身有效。长期可核验任务可能更适合并行协作，但收益还取决于任务可拆分程度、通信负担及成员错误的相关性；智能体数量本身不足以定义一条 scaling law。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

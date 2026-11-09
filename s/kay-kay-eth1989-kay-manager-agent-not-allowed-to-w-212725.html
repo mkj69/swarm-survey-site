@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kay: manager agent not allowed to work</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kay: manager agent not allowed to work</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Kay (@kay_eth1989)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/kay_eth1989/status/2116877955330887850" target="_blank" rel="noopener">https://x.com/kay_eth1989/status/2116877955330887850</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=74; retweets=4; views=12701</dd><dt>收录理由</dt><dd>准确复述架构与实验限定。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h281">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kay: manager agent not allowed to work</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Kay (@kay_eth1989)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/kay_eth1989/status/2116877955330887850" target="_blank" rel="noopener">https://x.com/kay_eth1989/status/2116877955330887850</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=74; retweets=4; views=12701</dd><dt>收录理由</dt><dd>准确复述架构与实验限定。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h285">一句话</h2>
 <p>扩展瓶颈可能在人类调度，协调者禁止执行任务可强制分工。</p>
-<h2 id="h282">主要内容</h2>
+<h2 id="h286">主要内容</h2>
 <ul><li>Router 对接人、派单并保留全局记忆；隔离的 Worker 各负其责。</li><li>事件先经代码过滤，再由模型判断；后续消息回到原 Worker。</li><li>批处理积压事件，降低单次路由开销。</li></ul>
-<h2 id="h283">证据与可信度</h2>
+<h2 id="h287">证据与可信度</h2>
 <p>推文转述团队初测：合成负载约300条消息、20个真实请求，完成耗时p95为15.7分钟，对照为29.5分钟。属团队自报，经作者二次转述，无独立核验；方案尚未上线，结果仅供参考。</p>
-<h2 id="h284">对 swarm scaling 的意义</h2>
+<h2 id="h288">对 swarm scaling 的意义</h2>
 <p>提示扩展应关注强制委派、事件过滤与上下文管理；小规模合成测试不足以证明大规模收益，跨设备提示注入风险仍待解决。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

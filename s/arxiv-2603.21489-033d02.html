@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Effective Strategies for Asynchronous Software Engineering Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Effective Strategies for Asynchronous Software Engineering Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Geng &amp; Neubig</dd><dt>日期</dt><dd>2026-03-23</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.21489" target="_blank" rel="noopener">https://arxiv.org/abs/2603.21489</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>CAID 原论文，当前版本数字 25.6/14.7 与 elvis 帖 26.7/14.3 略有不同。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2057">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Effective Strategies for Asynchronous Software Engineering Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Geng &amp; Neubig</dd><dt>日期</dt><dd>2026-03-23</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.21489" target="_blank" rel="noopener">https://arxiv.org/abs/2603.21489</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>CAID 原论文，当前版本数字 25.6/14.7 与 elvis 帖 26.7/14.3 略有不同。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2069">一句话</h2>
 <p>CAID 的核心发现是：多智能体协作的收益取决于依赖规划、工作区隔离和可靠集成，增加 agent 数量本身并不保证效果提升。</p>
-<h2 id="h2058">主要内容</h2>
+<h2 id="h2070">主要内容</h2>
 <ul><li>CAID 由中央管理者拆解任务、建立依赖图，只分派前置依赖已完成并合入主分支的任务；工程 agent 在独立 git worktree 中异步实现、自测和提交，管理者逐项合并并更新计划。</li><li>协作通过结构化 JSON 和版本提交明确责任边界。合并冲突由提交者处理；管理者负责整体调度与最终检查。</li><li>摘要报告：相较单 agent，PaperBench 和 Commit0 分别提高 <strong>25.6、14.7 个百分点</strong>。正文中，MiniMax 在 PaperBench 从 10.5% 升至 36.1%；Claude 在 Commit0-Lite 从 53.1% 升至 59.1%。</li><li>工作区隔离具有实际影响：PaperBench 上，共享工作区、仅靠指令约束的方案得分为 55.5%，低于单 agent 的 57.2%；worktree 隔离达到 63.3%。</li><li>并行度存在上限：Commit0-Lite 从 2 名工程 agent 增至 4 名时表现改善，增至 8 名反而下降；PaperBench 超过 2 名后收益很小，时间和成本继续增加。</li><li>作者承认，多 agent 的 API 成本更高，整体耗时也未显著缩短；串行集成与测试限制了并行加速。</li></ul>
-<h2 id="h2059">证据与可信度</h2>
+<h2 id="h2071">证据与可信度</h2>
 <p>材料末尾截断，<strong>未读到全文</strong>；上述判断依据提供的正文片段。</p>
 <p>数字属于作者报告的基准实验结果，无独立核验。25.6 个百分点可由 36.1%−10.5% 得到；14.7 个百分点见摘要，但片段未展示可复算的完整对应数据，不能将其视为所有模型的平均增益。元数据所述另一帖子的不同数字，也无法据此解释。</p>
 <p>Commit0 使用可执行测试；PaperBench 采用 Code-Dev 协议，由 gpt-5-mini 评分，并非完整论文复现评测。单、多 agent 使用相同模型和框架，但总迭代预算并不相等，因此不能把全部收益归因于协调架构，也不能据此宣称等成本优势。正文提及显著性检验，所给材料未含附录细节。</p>
-<h2 id="h2060">对 swarm scaling 的意义</h2>
+<h2 id="h2072">对 swarm scaling 的意义</h2>
 <p>这篇论文支持的是“让可并行工作可靠汇合”的扩展路径。隔离减少相互覆盖，依赖规划控制启动顺序，测试与合并把局部产出转成可用的整体。</p>
 <p>它也展示了扩展瓶颈：关键依赖遗漏、管理者调度能力和集成开销都会抵消更多 agent 的收益。现有证据主要来自少量工程 agent 的软件任务，尚不足以证明大规模 swarm 的扩展规律；更值得追踪的是成功率、总成本和端到端耗时能否同时改善。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

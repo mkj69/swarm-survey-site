@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>On the Resilience of LLM-Based Multi-Agent Collaboration with Faulty Agents</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>On the Resilience of LLM-Based Multi-Agent Collaboration with Faulty Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Huang, Jen-tse, Zhou, Jiaxu, Jin, Tailin et al.</dd><dt>日期</dt><dd>2024-08-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2408.00989" target="_blank" rel="noopener">https://arxiv.org/abs/2408.00989</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>比较线性、扁平和层级结构在错误智能体下的性能下降，提供拓扑韧性数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2865">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>On the Resilience of LLM-Based Multi-Agent Collaboration with Faulty Agents</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Huang, Jen-tse, Zhou, Jiaxu, Jin, Tailin et al.</dd><dt>日期</dt><dd>2024-08-02</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2408.00989" target="_blank" rel="noopener">https://arxiv.org/abs/2408.00989</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>比较线性、扁平和层级结构在错误智能体下的性能下降，提供拓扑韧性数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2893">一句话</h2>
 <p>这篇论文表明，多智能体协作的抗错能力与组织结构有关：在所测系统中，层级结构更稳健，但这些实验尚不能证明大规模 swarm 的扩展规律。</p>
-<h2 id="h2866">主要内容</h2>
+<h2 id="h2894">主要内容</h2>
 <ul><li>作者比较六个系统，覆盖线性、扁平、层级三种结构，以及代码生成、数学、翻译、文本评价四类任务；主实验使用 GPT-3.5 和 GPT-4o，每次只设置一个错误智能体。</li><li>两种故障模拟方式分别是：AutoTransform 改写角色设定，使其自行产生隐蔽错误；AutoInject 直接修改通信消息，控制错误消息比例与消息内部的错误量。</li><li>正文报告层级、扁平、线性结构的平均性能下降分别为 5.51、10.54、23.72。作者认为，上层裁决者能够比较多个候选答案，增加纠错机会。</li><li>代码生成受损最明显。语义错误通常比语法错误更难纠正；部分明显错误反而触发复查或打破重复讨论，但这不是普遍收益。</li><li>Challenger 赋予智能体质疑其他输出的职责；Inspector 增设消息检查者。两者结合，在 Self-collab 的实验中恢复了最多 96.4% 的性能损失。</li></ul>
-<h2 id="h2867">证据与可信度</h2>
+<h2 id="h2895">证据与可信度</h2>
 <p>这些是作者报告的基准实验结果，未见独立核验。四类任务指标统一到 0—100 后取平均，因此上述下降值宜理解为该评分尺度上的差值，不能直接当作相对下降百分比；不同任务指标的平均也有解释局限。</p>
 <p>96.4% 指恢复的性能损失比例，不是纠正了同等比例的错误，更不是最终准确率。材料未展示相关表格数值，无法重算。</p>
 <p>文本存在口径疑点：结论另称层级结构在两种注错方式下降 12.1% 和 9.2%，与摘要及正文的数字未清楚衔接；层级结构的形式定义也未完全对应“辩论者加裁判”的描述。不同系统还同时改变了角色、流程和提示词，因此结构优势不能视为严格隔离变量后的因果结论。</p>
-<h2 id="h2868">对 swarm scaling 的意义</h2>
+<h2 id="h2896">对 swarm scaling 的意义</h2>
 <p>论文支持把错误传播与纠错机制纳入扩展设计，而非仅统计智能体数量或对话轮数。Camel 的案例中，失败任务即使经历更多轮交流也未解决，说明增加交互未必带来韧性。</p>
 <p>层级裁决与消息审查值得作为设计候选，但上层角色出错也可能造成更大损害。实验主要涉及少量智能体、单个故障源，没有验证大规模、多故障同时发生时的效果，也没有给出审查机制的成本与延迟扩展曲线。它提供的是拓扑韧性的实验线索，而非 swarm scaling 定律。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

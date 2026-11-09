@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Silo-Bench: A Scalable Environment for Evaluating Distributed Coordination in Multi-Agent LLM Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Silo-Bench: A Scalable Environment for Evaluating Distributed Coordination in Multi-Agent LLM Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Yuzhe, Liu, Feiran, Shan, Yi et al.</dd><dt>日期</dt><dd>2026-03-01</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.01045" target="_blank" rel="noopener">https://arxiv.org/abs/2603.01045</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供 2 到 100 名智能体的成功率表，显示协调成本随规模累积并抹去并行收益。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2197">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Silo-Bench: A Scalable Environment for Evaluating Distributed Coordination in Multi-Agent LLM Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Yuzhe, Liu, Feiran, Shan, Yi et al.</dd><dt>日期</dt><dd>2026-03-01</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2603.01045" target="_blank" rel="noopener">https://arxiv.org/abs/2603.01045</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>提供 2 到 100 名智能体的成功率表，显示协调成本随规模累积并抹去并行收益。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2209">一句话</h2>
 <p>Silo-Bench 表明：在信息分散的算法任务中，增加智能体数量会放大协调损耗；能形成合适的通信结构，并不代表能算出一致、正确的答案。</p>
-<h2 id="h2198">主要内容</h2>
+<h2 id="h2210">主要内容</h2>
 <ul><li>基准包含 30 项算法任务，覆盖聚合、邻域依赖和全局重排三类结构。每个智能体只持有局部数据，规模增大时保持单体数据量不变。</li><li>实验组合为 6 种规模（2、5、10、20、50、100）、3 种通信协议及 3 个模型，共 54 种配置、1,620 次实验。协议包括定向消息、广播与共享文件系统。</li><li>作者报告，DeepSeek-V3.1、GPT-OSS-120B、Qwen3 的平均成功率分别为 36.9%、16.9%、8.2%。DeepSeek 在全局重排类任务中，达到 50 个及以上智能体时成功率降至零。</li><li>日志案例显示，智能体能形成星形汇聚、邻域通信或全连接结构，但仍出现信息收集不足、答案不一致和最终计算错误。</li><li>协议效果依模型而变：广播更适合 DeepSeek，定向消息更适合 GPT-OSS，不能据此选出通用最优协议。</li></ul>
-<h2 id="h2199">证据与可信度</h2>
+<h2 id="h2211">证据与可信度</h2>
 <p>以上属于论文作者的实验测量，未作独立核验。1,620 来自 30×54，并不意味着每种任务配置都有多次重复测量。输入和标准答案由程序生成；单次任务成功要求所有智能体均答对，门槛严格。</p>
 <p>作者以“1−多智能体成功率／完整输入单智能体成功率”计算相对协调成本。GPT-OSS 在 50 个智能体的中、高复杂度任务上，该成本达到 80%—100%。</p>
 <p>需谨慎看待机制解释：部分正确分与成功率的差距支持“尚未正确整合”的判断，却不能单独证明信息已经充分收集。失败分类结合规则和人工审阅，报告标注一致性 κ=0.87，但所给文本未明确审阅样本量。</p>
 <p>未读到全文：抓取在附录中截断，关键表格仅有标题，无法核对完整逐项结果；未见置信区间。实验也未覆盖异构团队、闭源模型及层级协议。</p>
-<h2 id="h2200">对 swarm scaling 的意义</h2>
+<h2 id="h2212">对 swarm scaling 的意义</h2>
 <p>这项工作把扩群问题从“是否交换了足够多消息”推进到“是否完成了可靠的分布式计算”。信息充分性检查、同步与共识、可验证的中间结果，比单纯增加智能体更值得测试。</p>
 <p>但其扩展方式同时增加全局数据量，且要求全员答对；完整输入单体基线也不直接代表相同资源预算。因此，材料支持的是特定设置下的质量扩展失败，尚不足以证明所有 swarm 都无法获得速度或成本收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

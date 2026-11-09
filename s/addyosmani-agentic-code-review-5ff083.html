@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agentic Code Review</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agentic Code Review</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>addyosmani</dd><dt>日期</dt><dd>2026-06-15</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2066595308629594363" target="_blank" rel="noopener">https://x.com/addyosmani/status/2066595308629594363</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>1713 likes; 335479 views</dd><dt>收录理由</dt><dd>Osmani认为难点已转向判断可信度，审查成为最有杠杆的技能。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1513">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agentic Code Review</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>addyosmani</dd><dt>日期</dt><dd>2026-06-15</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/addyosmani/status/2066595308629594363" target="_blank" rel="noopener">https://x.com/addyosmani/status/2066595308629594363</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>1713 likes; 335479 views</dd><dt>收录理由</dt><dd>Osmani认为难点已转向判断可信度，审查成为最有杠杆的技能。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1521">一句话</h2>
 <p>Osmani认为，代码生成提速后，扩展瓶颈转向验证与理解；增加 agent 的收益，取决于审查系统能否承接新增产出。</p>
-<h2 id="h1514">主要内容</h2>
+<h2 id="h1522">主要内容</h2>
 <ul><li>审查强度应由故障影响、代码寿命和共同维护人数决定。个人原型可以依赖测试与轻量审查；长期运行、用户众多的系统需要更多验证层。</li><li>agent PR 常缺少目标、取舍和验证记录，审查者不得不补做意图重建。作者建议提交时附上决策说明、测试结果及执行证据，并保持改动较小。</li><li>AI 审查可用于分流和查错，但不能替代人判断需求是否正确、是否遗漏关键行为。作者用 Claude Code 或 Codex 为 PR 排风险优先级，合并决定仍由自己承担。</li><li>多审查器的价值在于发现问题的互补性。作者主张高风险改动采用不同特点的审查器，并保留严格 CI、人类把关和抽查。</li></ul>
-<h2 id="h1515">证据与可信度</h2>
+<h2 id="h1523">证据与可信度</h2>
 <ul><li>文中转述 Faros 对 22,000 名开发者、4,000 个团队的遥测：高 AI 采用伴随审查时长中位数增加 441.5%、零审查合并增加 31.3%。这是观察性关联，不能仅据此认定 AI 导致全部变化；Faros 也有商业利益。</li><li>GitClear 的约 4 倍原始产出与约 12% 生产率提升采用不同参照：前者比较使用者与非使用者，后者比较使用者自身上一年。不能直接相除得出价值转化率；材料也承认选择偏差。</li><li>一位工程师在 146 个 PR 上并行使用四种审查工具，报告 617 个被标记位置中，93.4% 仅被一种工具发现。这支持“标记位置重合低”，但不等于这些发现都是真缺陷，也未证明组合后的净收益。</li><li>Anthropic 所报“低于 1% 的发现被标为错误”属于厂商内部反馈，不能当作通用准确率。全文同时包含作者个人经验和实践主张；所引研究未在本材料中独立核验，点赞与浏览量也不是效果证据。</li></ul>
-<h2 id="h1516">对 swarm scaling 的意义</h2>
+<h2 id="h1524">对 swarm scaling 的意义</h2>
 <p>文章提示，swarm 扩容需要同时扩展验证、分流和责任机制，而非只增加执行者。异构审查可能扩大问题覆盖，但低重合本身不足以证明可靠性提升；同类模型还可能共享盲点。</p>
 <p>材料中的个人案例以 20—30 个并行 agent、每天约 40 个 PR 展示一种工作方式：人提前写清计划，自动门禁检查，人处理升级问题。这是转述个案，不能外推为团队扩展规律。对 swarm 更有用的启示是：把意图、证据和风险分级纳入交接，并衡量审查负担与实际缺陷，而不只统计 PR 数量。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

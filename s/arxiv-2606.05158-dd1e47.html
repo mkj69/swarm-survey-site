@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Streaming Communication in Multi-Agent Reasoning</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Streaming Communication in Multi-Agent Reasoning</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Yang, Zhen, Xu, Xiaogang, Wang, Wen et al.</dd><dt>日期</dt><dd>2026-06-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.05158" target="_blank" rel="noopener">https://arxiv.org/abs/2606.05158</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出流式、串行和单智能体协议的闭式分析，并提出步级缩放维度。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1605">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Streaming Communication in Multi-Agent Reasoning</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Yang, Zhen, Xu, Xiaogang, Wang, Wen et al.</dd><dt>日期</dt><dd>2026-06-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2606.05158" target="_blank" rel="noopener">https://arxiv.org/abs/2606.05158</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>给出流式、串行和单智能体协议的闭式分析，并提出步级缩放维度。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1617">一句话</h2>
 <p>StreamMA 将智能体之间的通信细化到推理步骤，尝试同时改善串行协作的延迟与答题效果。</p>
-<h2 id="h1606">主要内容</h2>
+<h2 id="h1618">主要内容</h2>
 <ul><li>每生成一步就传给下游，让相邻智能体重叠执行，无须等待完整推理链。</li><li>作者认为早期步骤更可靠，提前使用这些信息可减少后期错误对下游的误导。</li><li>论文声称对流式、串行和单智能体协议给出联合闭式分析，推导效果排序、加速上界与成本比。</li><li>提出步级缩放：增加每个智能体的步骤数，可与增加智能体数量组合。</li></ul>
-<h2 id="h1607">证据与可信度</h2>
+<h2 id="h1619">证据与可信度</h2>
 <p>未读到全文，仅有 arXiv 摘要与元数据。作者报告测试覆盖八个推理基准、三款模型及三种拓扑；摘要称相对两个基线平均提升 7.3 个百分点，HMMT2026 上最高提升 22.4 个百分点，并标注 Claude Opus 4.6-High。数字属于作者实验自报，汇总口径、预算控制及统计稳定性未见，亦无独立核验。理论结论的假设条件尚无法检查。</p>
-<h2 id="h1608">对 swarm scaling 的意义</h2>
+<h2 id="h1620">对 swarm scaling 的意义</h2>
 <p>它把扩展问题从“增加多少智能体”推进到“何时传递信息、每个智能体推理多少步”。摘要支持将通信粒度视为扩展变量，但不足以证明大规模 swarm 能持续获益；步级收益也仍需检查适用范围与成本条件。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

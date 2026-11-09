@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OpenAI Harness research note</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>OpenAI Harness research note</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Ry Walker</dd><dt>日期</dt><dd>2026-09-23</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://rywalker.com/research/openai-harness" target="_blank" rel="noopener">https://rywalker.com/research/openai-harness</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总OpenAI数字及局限，作者披露其为竞品CEO。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h705">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>OpenAI Harness research note</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Ry Walker</dd><dt>日期</dt><dd>2026-09-23</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://rywalker.com/research/openai-harness" target="_blank" rel="noopener">https://rywalker.com/research/openai-harness</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>汇总OpenAI数字及局限，作者披露其为竞品CEO。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h713">一句话</h2>
 <p>这篇二手研究笔记呈现了 OpenAI 用智能体承担实现与大部分审查的工程实践，但其吞吐数据尚不能证明增加智能体数量会带来怎样的规模收益。</p>
-<h2 id="h706">主要内容</h2>
+<h2 id="h714">主要内容</h2>
 <ul><li>Harness 是内部工程方法与团队实践：人负责组织任务和建设环境，Codex 负责写代码，智能体承担大部分代码审查，人工审查仍可参与。</li><li>据文中转述，团队在五个月内从 3 人增至 7 人，合并约 1,500 个 PR，产出约百万行代码，手写代码为零；披露的吞吐为每位工程师每天 3.5 个 PR，单任务自主运行可超过 6 小时。</li><li>支撑自主工作的关键是工程环境：AGENTS.md 提供文档导航，结构化文档提供知识；浏览器工具验证界面，隔离工作区中的日志与指标帮助定位问题。文章还转述了分层架构约束、结构测试和定期清理漂移的做法。</li><li>实践衍生出编排项目 Symphony。文中特别区分：部分内部团队使用 Symphony 初期的 PR 增幅，不能算作 Harness 团队的成果。</li></ul>
-<h2 id="h707">证据与可信度</h2>
+<h2 id="h715">证据与可信度</h2>
 <p>核心数字来自文章引用的 OpenAI 披露，属于厂商自报；给定材料未提供原始记录、统计口径或独立复现。每人每天 3.5 个 PR 是披露值，不能只凭总 PR 数、周期和团队首尾人数重新核算，因为缺少逐日人员投入。</p>
 <p>“耗时约为手写的十分之一”是 OpenAI 的反事实估计，并非对照实验。代码行数、PR 数和自主运行时长也不能直接证明质量、维护成本或人员替代比例。作者明确撤回了由吞吐推算工程师替代人数的说法。</p>
 <p>Martin Fowler 网站分析和社区讨论补充了方法解释与质疑，但不构成核心指标的独立核验。作者 Ry Walker 披露自己是智能体编排公司 Tembo 的联合创始人兼 CEO，存在商业利益关联。</p>
-<h2 id="h708">对 swarm scaling 的意义</h2>
+<h2 id="h716">对 swarm scaling 的意义</h2>
 <p>材料最有价值的是展示协作基础设施如何支持持续产出：知识可检索、执行可观测、结果可验证，审查也由智能体参与。这提示扩展智能体工作量需要同时建设反馈与约束机制。</p>
 <p>它尚未给出智能体数量、并发度、协调成本及随规模变化的质量数据，因此无法据此判断 swarm 的扩展曲线。小团队、新产品背景和 OpenAI 的模型资源优势，也限制了向大型组织及遗留系统推广的依据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

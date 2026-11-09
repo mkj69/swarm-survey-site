@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Adaptive Graph Pruning for Multi-Agent Communication</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Adaptive Graph Pruning for Multi-Agent Communication</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Boyi, Zhao, Zhonghan, Lee, Der-Horng et al.</dd><dt>日期</dt><dd>2025-06-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2506.02951" target="_blank" rel="noopener">https://arxiv.org/abs/2506.02951</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>联合剪枝智能体数量和通信边，显示按任务调整规模可兼顾性能和成本。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2785">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Adaptive Graph Pruning for Multi-Agent Communication</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Li, Boyi, Zhao, Zhonghan, Lee, Der-Horng et al.</dd><dt>日期</dt><dd>2025-06-03</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2506.02951" target="_blank" rel="noopener">https://arxiv.org/abs/2506.02951</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>联合剪枝智能体数量和通信边，显示按任务调整规模可兼顾性能和成本。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2813">一句话</h2>
 <p>AGP 将“派多少智能体”和“让它们如何通信”一起学习，表明多智能体扩展可以依靠按任务裁剪团队，而不只是增加参与者。</p>
-<h2 id="h2786">主要内容</h2>
+<h2 id="h2814">主要内容</h2>
 <ul><li>方法包含两种剪枝：硬剪枝决定哪些智能体参与，软剪枝调整智能体之间的通信权重；两者共享表示，根据输入任务生成不同规模的通信图。</li><li>训练分两阶段：先采样、优化候选图，收集表现较好的结构作为监督；再训练联合预测节点与边的网络。推理时直接生成结构，但前期仍需支付候选图采集和评估成本。</li><li>监督集包含 460 个图，覆盖通用推理、数学推理和代码生成。主实验使用 gpt-4o-mini，在六个基准上比较十二种基线，通信轮数固定为三轮。</li><li>作者报告平均成绩为 91.04%，六个基准中五个排名第一。消融实验显示，去掉任一种剪枝都会降低成绩；去掉节点剪枝后，提示长度增加 22%–30%。</li><li>案例展示了裁掉冗余角色、保留非直觉相关角色的可能性，但案例本身不能证明这些角色为何有效。</li></ul>
-<h2 id="h2787">证据与可信度</h2>
+<h2 id="h2815">证据与可信度</h2>
 <p>未读到全文：提供的抓取内容在附录中途截断，表格与图也未完整呈现。以上依据可见正文，未做独立复现或核验。</p>
 <p>数字属于作者实验自报。91.04% 是作者报告的平均成绩，缺少完整表格，无法重新计算；MultiArith 的 99.44% 则明确来自答对 179/180 题。作者说明每个基线评估两次后取平均，可见内容未给出误差区间。</p>
 <p>节省 token 的口径需谨慎：摘要称超过 90%，正文给出的 MMLU 对 GPTSwarm 比较约为 90%，其他任务的降幅更小；不能推广为所有任务或全部计算成本均节省九成。“约十步训练即可超过基线”也未计入前期监督图采集成本。</p>
 <p>摘要声称跨多个主流模型架构泛化，但局限性明确指出，跨其他模型家族和规模的迁移仍待验证。</p>
-<h2 id="h2788">对 swarm scaling 的意义</h2>
+<h2 id="h2816">对 swarm scaling 的意义</h2>
 <p>AGP 支持一种资源分配思路：把团队规模、成员选择和通信结构共同视为随任务变化的变量。消融结果为联合裁剪提供了支持，也提示只减少通信边，仍可能保留不必要的智能体开销。</p>
 <p>但这不是大规模 swarm 的扩展定律。文中给出的配置以最大 16 个节点为例，实验限于文本任务与固定轮次，尚不足以证明更大团队、长程协作或多模态环境下仍有同样收益。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

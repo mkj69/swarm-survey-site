@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ChatDev: Communicative Agents for Software Development</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>ChatDev: Communicative Agents for Software Development</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Qian, Chen, Liu, Wei, Liu, Hongzhang et al.</dd><dt>日期</dt><dd>2023-07-16</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2307.07924" target="_blank" rel="noopener">https://arxiv.org/abs/2307.07924</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>代表通信式软件开发智能体，记录多智能体比单智能体更慢且令牌更多但产出更大。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2941">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>ChatDev: Communicative Agents for Software Development</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Qian, Chen, Liu, Wei, Liu, Hongzhang et al.</dd><dt>日期</dt><dd>2023-07-16</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2307.07924" target="_blank" rel="noopener">https://arxiv.org/abs/2307.07924</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>代表通信式软件开发智能体，记录多智能体比单智能体更慢且令牌更多但产出更大。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2969">一句话</h2>
 <p>ChatDev 展示了角色分工与多轮沟通改善软件生成的可能，但其收益伴随更多时间和令牌消耗，不能据此认定智能体越多越好。</p>
-<h2 id="h2942">主要内容</h2>
+<h2 id="h2970">主要内容</h2>
 <ul><li>框架按设计、编码、测试组织串行工作流，每个子任务由两个角色对话，达成共识后向下一环节交付结果。</li><li>阶段内保留对话历史，跨阶段只传递子任务成果，以控制上下文负担。</li><li>“沟通式去幻觉”让助手先追问具体细节，再修改代码；结合代码审查和运行反馈，逐步处理未实现方法、缺失依赖等问题。</li><li>作者报告，ChatDev 的综合质量优于 GPT-Engineer 和 MetaGPT；多智能体生成的文件与代码更多，也更慢、更耗令牌。</li><li>作者同时承认，生成结果常是简单逻辑或静态占位实现，目前更适合原型，难以代表复杂生产软件。</li></ul>
-<h2 id="h2943">证据与可信度</h2>
+<h2 id="h2971">证据与可信度</h2>
 <ul><li>实验由论文作者开展，使用 ChatGPT-3.5，并声明各基线采用相同超参数与设置。自建 SRDD 含 1,200 个需求，来自 40 个子类、每类 30 个任务；构建过程结合模型生成与人工整理。</li><li>综合质量是完整性、可执行性、需求一致性三项指标的乘积。作者报告 MetaGPT 为 0.1523，ChatDev 为 0.3953。这是作者定义指标下的实验测量，不能直接理解为真实业务功能通过率。</li><li>完整性主要检查占位代码，可执行性检查编译与运行，一致性依赖需求与代码的语义嵌入比较。这些代理指标不足以覆盖功能正确性、鲁棒性和安全性；文中对一致性采用“余弦距离”却称越高越好的表述，也需核对实现。</li><li>材料提供了主要正文，但表格数值缺失，未读到全文的完整表图数据。因此只能确认作者报告的耗时、令牌及代码规模变化方向，无法计算具体成本增幅。文中另有人工与 GPT-4 偏好评估，但此处没有胜率数据，也未提供独立复现证据。</li></ul>
-<h2 id="h2944">对 swarm scaling 的意义</h2>
+<h2 id="h2972">对 swarm scaling 的意义</h2>
 <p>这篇材料支持的是“有组织的沟通与迭代可能改善产出”，而非“增加智能体数量必然带来扩展收益”。其核心结构是串行链与局部双人对话，没有给出随智能体数量变化的性能曲线。</p>
 <p>角色、追问机制和测试环节的消融结果提示，收益可能来自任务拆分、提示设计和反馈修正。对 swarm scaling 的评估应控制这些因素，并同时比较质量、延迟与令牌成本；文件更多、代码更长本身不能证明有效能力增长。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

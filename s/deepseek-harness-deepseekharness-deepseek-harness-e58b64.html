@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DeepSeek Harness: Exploring Super-agent design</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>DeepSeek Harness: Exploring Super-agent design</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>DeepSeek Harness (@DeepSeekHarness)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/DeepSeekHarness/status/2116857257245987236" target="_blank" rel="noopener">https://x.com/DeepSeekHarness/status/2116857257245987236</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=13592; retweets=1691; views=3086310</dd><dt>收录理由</dt><dd>最新一手架构文，把瓶颈定位到人类注意力，并给出实验。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h265">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>DeepSeek Harness: Exploring Super-agent design</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>DeepSeek Harness (@DeepSeekHarness)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/DeepSeekHarness/status/2116857257245987236" target="_blank" rel="noopener">https://x.com/DeepSeekHarness/status/2116857257245987236</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=13592; retweets=1691; views=3086310</dd><dt>收录理由</dt><dd>最新一手架构文，把瓶颈定位到人类注意力，并给出实验。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h269">一句话</h2>
 <p>这篇架构文把多任务 agent 的扩展瓶颈指向人类注意力，主张以统一 Router、隔离 Worker 和事件驱动机制，接管用户手工管理会话的负担。</p>
-<h2 id="h266">主要内容</h2>
+<h2 id="h270">主要内容</h2>
 <ul><li><strong>问题定位</strong>：作者认为，单任务主要受模型能力限制，多任务则受人类跟踪会话的能力限制；“通常只能关注 3—5 个活跃会话”来自其经验。</li><li><strong>两层分工</strong>：Router 负责跨渠道交互、全局记忆与任务分派，不亲自执行任务；Worker 拥有独立上下文和执行工具，也可在内部组织子 agent。这里主要扩展的是多个任务的并发，而非把一个任务拆给更多角色。</li><li><strong>减少协调开销</strong>：先用确定性规则过滤事件，再交给模型判断；同一讨论线程的后续事件通过订阅直接送达 Worker，减少 Router 转发。Router 对积压事件批量处理。</li><li><strong>维持长期运行</strong>：上下文采用摘要、引用和按需检索；耗时工具异步运行；计算、持久状态与执行环境分离；外部 Watchdog 检查故障和任务是否偏离目标。</li><li><strong>尚未解决</strong>：强耦合任务何时需要 Router 分片、Worker 直接通信、长期记忆、跨权限边界协作，仍是开放问题。文章明确定位为架构探索，并非现有功能说明。</li></ul>
-<h2 id="h267">证据与可信度</h2>
+<h2 id="h271">证据与可信度</h2>
 <p>未读到全文：所给文本在安全与隐私一节中途截断，图表也未提供；以下仅依据可见正文。</p>
 <p>实验属于作者团队自报，无独立核验。端到端实验每种设计运行 5 次，每次约 300 条消息、约 20 个工作请求；编码由耗时工具模拟，因此测量的是调度与协调，不是真实代码质量。</p>
 <p>Super-agent 的任务完成时间 p50 为 12.4 分钟、p95 为 15.7 分钟；中性提示的单会话方案 p95 为 29.5 分钟，但比较结果明显受委派提示影响。取消直通后，完成时间接近，Router 决策数约增 30%，缓存读取 token 从 23.2M 增至 31.8M，约增 37%。</p>
 <p>独立 Router 压测中，需决策事件从约每分钟 1 个增至 40 个，平均批量从 1.0 增至 2.8，摊销推理时间从每决策 6.4 秒降至 1.6 秒。这不等于端到端响应延迟。作者也承认负载合成、环境简化，结果仅具指示性。元数据中的传播量不能证明技术结论。</p>
-<h2 id="h268">对 swarm scaling 的意义</h2>
+<h2 id="h272">对 swarm scaling 的意义</h2>
 <p>它提供的关键视角是：扩展收益不只来自增加 agent 数量，还来自减少人的上下文切换，以及降低事件过滤、转发和汇报成本。将“必须委派”落实为架构职责，比依赖模型每次自行判断更可控。</p>
 <p>但现有证据主要支持松耦合多任务的调度效率，尚不能证明复杂协作 swarm 的规模收益。全局记忆、强耦合协调与权限边界，仍可能成为下一阶段瓶颈。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

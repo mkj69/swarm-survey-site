@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Andrej Karpathy just went ~66 mins on No Priors Podcast with Sarah Guo</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Andrej Karpathy just went ~66 mins on No Priors Podcast with Sarah Guo</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>anishmoonka</dd><dt>日期</dt><dd>2026-03-20</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/anishmoonka/status/2035119720912081314" target="_blank" rel="noopener">https://x.com/anishmoonka/status/2035119720912081314</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>866 likes; 96110 views</dd><dt>收录理由</dt><dd>No Priors访谈的二手笔记，记录卡帕西并行多个Codex且人成为瓶颈。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2065">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Andrej Karpathy just went ~66 mins on No Priors Podcast with Sarah Guo</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>anishmoonka</dd><dt>日期</dt><dd>2026-03-20</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/anishmoonka/status/2035119720912081314" target="_blank" rel="noopener">https://x.com/anishmoonka/status/2035119720912081314</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>866 likes; 96110 views</dd><dt>收录理由</dt><dd>No Priors访谈的二手笔记，记录卡帕西并行多个Codex且人成为瓶颈。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2077">一句话</h2>
 <p>这份访谈二手笔记提出：agent 扩容的关键可能从增加模型实例，转向人的任务供给能力，以及能否低成本验证分布式探索的成果。</p>
-<h2 id="h2066">主要内容</h2>
+<h2 id="h2078">主要内容</h2>
 <ul><li>据笔记，Karpathy 同时运行多个 Codex，以完整功能分派任务，每项约需 20 分钟；人负责拆分、调度和审查，成为潜在吞吐瓶颈。</li><li>AutoResearch 以训练代码和验证集 bits per byte 为反馈，自动修改并试验。笔记称其两天运行 700 次实验，找到 20 项优化，体现可量化反馈对持续探索的作用。</li><li><code>program.md</code> 规定探索范围和停止条件；笔记进一步提出比较不同指令的实验收益，以改进研究流程。</li><li>最贴近 swarm 的设想是借用分散的不可信算力搜索改进，再集中验证候选提交：寻找有效修改代价高，验证据称只需重新训练一次。</li></ul>
-<h2 id="h2067">证据与可信度</h2>
+<h2 id="h2079">证据与可信度</h2>
 <p>这是 anishmoonka 对约 66 分钟访谈的整理，未读到全文访谈或逐字稿，无法确认转述精度，也难以完全区分嘉宾观点与作者发挥。</p>
 <p>约 20 分钟、多 agent 工作方式属于二手转述的个人经验；700 次实验、20 项优化属于转述的实验成绩，未附日志、基线或独立核验。Shopify 内部模型提升 19% 的说法未说明具体指标，不能直接比较。运行 100 份指令文件是建议的探索方式，并非已报告的实验。点赞和浏览量仅反映传播度。</p>
-<h2 id="h2068">对 swarm scaling 的意义</h2>
+<h2 id="h2080">对 swarm scaling 的意义</h2>
 <p>材料支持两个研究方向：通过更好的任务拆分与审查提高人工调度吞吐；通过便宜、可靠的验证吸收大量分散搜索结果。后者把扩容问题落到“探索成本与验证成本是否不对称”上。</p>
 <p>但材料没有提供 agent 数量与收益曲线、协调开销或验证系统结果。“不可信 swarm 超越前沿实验室”仍是有条件的设想，不能据此认定规模增长必然带来性能提升。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

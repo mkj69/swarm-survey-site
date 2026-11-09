@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pandaily on Super-agent prototype</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Pandaily on Super-agent prototype</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Pandaily (@thePandaily)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/thePandaily/status/2116713246535086563" target="_blank" rel="noopener">https://x.com/thePandaily/status/2116713246535086563</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=4; retweets=0; views=1245</dd><dt>收录理由</dt><dd>媒体报道，提供发布时间和开源信息。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h269">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Pandaily on Super-agent prototype</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Pandaily (@thePandaily)</dd><dt>日期</dt><dd>2026-11-01</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/thePandaily/status/2116713246535086563" target="_blank" rel="noopener">https://x.com/thePandaily/status/2116713246535086563</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>likes=4; retweets=0; views=1245</dd><dt>收录理由</dt><dd>媒体报道，提供发布时间和开源信息。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h273">一句话</h2>
 <p>该原型把并行编码拆成常驻调度与隔离执行，初测显示吞吐潜力，但不足以证明大规模扩展能力。</p>
-<h2 id="h270">主要内容</h2>
+<h2 id="h274">主要内容</h2>
 <ul><li>Router负责交互与派工，Worker并发执行；后续事件直达订阅线程的Worker。</li><li>通过事件过滤、独立工作目录和外部Watchdog管理任务与进度。</li><li>以MIT开源，定位研究代码，部分设计尚未实现。</li></ul>
-<h2 id="h271">证据与可信度</h2>
+<h2 id="h275">证据与可信度</h2>
 <ul><li>媒体转述团队初测：约300条合成消息、约20项请求，半数任务在12.4分钟内完成，95%在15.7分钟内完成，优于单会话加子代理工具，但消耗更多缓存token。</li><li>取消后续事件直达，Router决策约增30%；负载下批处理使每次决策推理耗时从6.4秒降至1.6秒。均属团队自报，材料无独立核验。</li></ul>
-<h2 id="h272">对 swarm scaling 的意义</h2>
+<h2 id="h276">对 swarm scaling 的意义</h2>
 <p>收益来自减少调度中转、隔离执行和批处理，不能简单归因于代理数量。Router扩展、长期记忆、代理间通信及凭据相关注入风险仍未解决。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agora: Git as Shared Memory for Collective AutoResearch</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agora: Git as Shared Memory for Collective AutoResearch</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Zou, Zhang, Hu et al.</dd><dt>日期</dt><dd>2026-09-16</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2609.18094" target="_blank" rel="noopener">https://arxiv.org/abs/2609.18094</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>与 GitSwarm 同属持久共享记忆路线，但只有 13 个工作者、无对照。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h817">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agora: Git as Shared Memory for Collective AutoResearch</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Zou, Zhang, Hu et al.</dd><dt>日期</dt><dd>2026-09-16</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2609.18094" target="_blank" rel="noopener">https://arxiv.org/abs/2609.18094</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>与 GitSwarm 同属持久共享记忆路线，但只有 13 个工作者、无对照。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h825">一句话</h2>
 <p>Agora 展示了用 Git 持久记录、复用和核验多智能体研究成果的可行性，但这次运行尚不能证明增加工作者或采用共享记忆能提升单位算力的发现效率。</p>
-<h2 id="h818">主要内容</h2>
+<h2 id="h826">主要内容</h2>
 <ul><li>每项实验、假设、负结果或核验都作为 Git 提交保存，父子关系记录成果依赖；智能体通过检索视图选择后续工作，无中央规划器分派任务。</li><li>系统除排行榜外，还展示未核验结论、冷门分支和研究方向的集中程度，并推荐值得继续开发或探索的节点。</li><li>作者报告了近 12 天、13 个工作者的一次运行：从 141 个预训练供体出发，在不使用训练数据、不对目标模型做梯度更新的条件下，为约 1.196 亿参数的混合架构模型初始化权重。</li><li>最优方法主要把供体的下一词元预测统计压缩进目标模型，再用稀疏修改引入短程上下文。共享记录支持了跨账户接力，但研究也明显集中于一条主线。</li><li>人类中途加入多样性视图并修改部分工作者的提示词，随后出现新的状态空间模块探索；两项干预的作用无法分开判断。</li></ul>
-<h2 id="h819">证据与可信度</h2>
+<h2 id="h827">证据与可信度</h2>
 <p>未读到全文，提供内容在第 4.7 节中途截断，以下仅依据所给片段。</p>
 <ul><li>作者报告评估分数从随机初始化的 3.3923 降至 1.899044 bpb，越低越好。“弥合 62% 差距”以训练好的 GPT-2 约 1.0 为参照，即分数下降量除以随机初始化与参照之间的差距，并非能力提升 62%。</li><li>1,703 项贡献来自服务器索引，另有 45 个 Git 提交未纳入索引；13 个工作者贡献其中 1,699 项，不能把贡献数直接当作独立实验数。</li><li>165 次核验覆盖 95 个目标，均由其他账户提交且未报告失败。这是运行内部的跨账户复现，不是外部独立核验；账户也不等同于独立模型。</li><li>所有候选均在同一组 200 篇开发文本上选择，片段未提供独立留出集结果。最后的微小改进低于跨硬件波动。</li><li>这是作者自报的单次案例，无匹配对照；部分工作者还能看到同机进程，因此不能将全部协调归因于 Agora。</li></ul>
-<h2 id="h820">对 swarm scaling 的意义</h2>
+<h2 id="h828">对 swarm scaling 的意义</h2>
 <p>它支持一种值得研究的扩展路径：让异步智能体围绕可追溯成果协作，以持久记录承接跨会话知识，而非依赖共享对话。</p>
 <p>但可见性同时加速复用和趋同：前 18 个带分数的贡献已实现约 98% 的总降幅，后续大量工作只带来小幅改善。共享记忆并不自动保证探索多样性。要证明 swarm scaling，仍需控制算力、模型和人工干预，比较不同工作者数量及协调机制下的发现效率。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

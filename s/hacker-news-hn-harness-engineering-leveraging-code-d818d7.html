@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HN: Harness engineering: Leveraging Codex in an agent-first world</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>HN: Harness engineering: Leveraging Codex in an agent-first world</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hacker News</dd><dt>日期</dt><dd>2026-06-05</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://news.ycombinator.com/item?id=48416264" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=48416264</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>社区质疑未公开产品与成本，并有作者补充丢弃率。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1593">一句话</h2>
+<p>这场讨论把“百万行代码的高吞吐”还原为一个更有条件的案例：工程师持续改造约束与验证环境，并接受大量 agent 运行结果被丢弃。</p>
+<h2 id="h1594">主要内容</h2>
+<ul><li>帖中引用的厂商文章称：约五个月形成百万行仓库，覆盖应用、基础设施、工具和文档；约三名工程师驱动 Codex，合并约 1,500 个 PR，报告人均每天 3.5 个 PR，团队随后增至七人。</li><li>社区主要质疑指标与成果脱节：代码行数和 PR 数容易受冗余、拆分方式影响，不能直接说明功能价值、缺陷率或维护成本。</li><li>自称原文作者的 zbrock 补充：项目主要是 Electron 应用及少量托管后端，是类似 Codex app 的内部原型，并确认其影响了后续产品。这回应了“到底做了什么”的部分疑问。</li><li>作者称，工程师的主要工作是调整 skills、文档和提示，遇到不满意的结果就修改 harness；他估计超过一半的 agent 运行未达到标准，可以直接丢弃。</li><li>并发集成方面，作者提到团队在尝试 agent 管理的集中集成队列、普通合并队列，以及监控 CI、处理冲突与失败的 Codex 线程。</li><li>社区经验集中在自动验证、可观测性、仓库内工作记录、小文件和隔离环境；也有人报告成本、CI 负载、日志误导与无人值守时代码膨胀的问题。</li></ul>
+<h2 id="h1595">证据与可信度</h2>
+<p>未读到全文：提供的 HN 抓取在末条评论中途截断，也未包含所链接文章的全文。</p>
+<p>百万行、约 1,500 个 PR、人均每天 3.5 个 PR均来自帖中转引的厂商自报，没有仓库统计或工时明细可独立核验。团队人数发生变化，不能仅凭总量复算人均吞吐。百万行还包含文档与工具，不能等同于产品代码规模。</p>
+<p>“超过一半未达标”是作者的估计，分母是 agent 运行，不能解释为 PR 拒绝率或代码缺陷率。商业 token 成本虽被追问，所给内容未见回答。其他工作流效果主要是个人经验，缺乏对照实验。</p>
+<h2 id="h1596">对 swarm scaling 的意义</h2>
+<p>材料提示，扩大 agent 产出需要同步扩大验证、隔离、集成和失败处置能力；更多生成可能把瓶颈转移到 CI、冲突处理与上下文管理。</p>
+<p>但这不是 agent 数量与有效产出之间的 scaling 实验：材料没有并发 agent 数、统一任务基线、总成本或质量曲线。团队扩张后吞吐增加，也不能证明 swarm 存在规模收益。它更适合作为工程机制与评估缺口的案例：应同时观察被接受的成果、失败重试、人工投入和长期维护负担。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Highlights from Lenny&#x27;s Podcast</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Highlights from Lenny&#x27;s Podcast</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Simon Willison</dd><dt>日期</dt><dd>2026-04-02</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/" target="_blank" rel="noopener">https://simonwillison.net/2026/Apr/2/lennys-podcast/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>四智能体与上午耗尽的一手文字记录，并指出验证是新瓶颈。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2009">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Highlights from Lenny&#x27;s Podcast</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Simon Willison</dd><dt>日期</dt><dd>2026-04-02</dd><dt>类型</dt><dd>blog</dd><dt>原文</dt><dd><a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/" target="_blank" rel="noopener">https://simonwillison.net/2026/Apr/2/lennys-podcast/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>四智能体与上午耗尽的一手文字记录，并指出验证是新瓶颈。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2021">一句话</h2>
 <p>Simon Willison 的亲身经历提示：并行运行编码智能体能加快产出，但扩展能力的限制会转向人的注意力、测试和产品判断。</p>
-<h2 id="h2010">主要内容</h2>
+<h2 id="h2022">主要内容</h2>
 <ul><li><strong>四个智能体带来明显认知负担。</strong> 他描述同时让四个智能体处理四个不同问题，到上午十一点左右就已精疲力尽；有效使用这些工具仍需要调动多年工程经验。</li><li><strong>实现加快，验证成为瓶颈。</strong> 他用“过去三周、现在可能三小时”描述实现速度的变化，强调具体效果取决于智能体对任务的适配程度。更快交付实现，并不意味着最初的产品设想正确。</li><li><strong>候选方案增加，选择更难。</strong> 他常为同一功能制作三种原型，但承认没有把握如何判断哪一种最好，认为可能仍需可用性测试。</li><li><strong>工作节奏变得碎片化。</strong> 他现在可以间歇性地给智能体布置下一步，再处理其他事情；与此同时，担心智能体闲置、不断追加任务，也可能侵蚀休息。</li><li><strong>成品外观不足以证明质量。</strong> 文档和测试可以迅速生成，但他更看重软件是否经过实际使用。安全报告同样需要核实，格式完整不代表漏洞真实存在。</li></ul>
-<h2 id="h2011">证据与可信度</h2>
+<h2 id="h2023">证据与可信度</h2>
 <p>材料是作者对本人播客访谈的文字精选，附有时间戳，并非完整逐字稿。关于并行工作与疲劳的陈述属于直接参与者的个人经验，具有案例价值，但没有独立核验或系统测量。</p>
 <p>“四个智能体”“上午十一点”“三种原型”均来自作者自述；“三周到三小时”是带条件的示意性比较，不能据此计算通用提速倍数。材料没有提供任务难度、成功率、返工量、成本或不同并发数下的对照数据，也没有展示智能体之间的协作机制。</p>
-<h2 id="h2012">对 swarm scaling 的意义</h2>
+<h2 id="h2024">对 swarm scaling 的意义</h2>
 <p>这份材料支持一个值得检验的判断：扩展智能体数量时，人的任务分配、结果审查和方案选择可能先达到负荷上限。代码生成能力的增长，未必同步转化为可验证的有效产出。</p>
 <p>它记录的是一人管理多个独立任务，不能直接作为协作型 swarm 获得规模收益的证据。“四个”也不是普遍最优并发数。对扩展实验而言，应同时观察完成质量、验证耗时和操作者疲劳，而不能仅统计启动了多少智能体或生成了多少代码。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

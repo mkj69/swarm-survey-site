@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agents 201: The Unit Shrank</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agents 201: The Unit Shrank</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>ghumare64</dd><dt>日期</dt><dd>2026-04-23</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/ghumare64/status/2047401813364683007" target="_blank" rel="noopener">https://x.com/ghumare64/status/2047401813364683007</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>161 likes; 60117 views</dd><dt>收录理由</dt><dd>引用单次会话11.55美元的Reddit数字，属二手。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1893">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agents 201: The Unit Shrank</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>ghumare64</dd><dt>日期</dt><dd>2026-04-23</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/ghumare64/status/2047401813364683007" target="_blank" rel="noopener">https://x.com/ghumare64/status/2047401813364683007</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>161 likes; 60117 views</dd><dt>收录理由</dt><dd>引用单次会话11.55美元的Reddit数字，属二手。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1905">一句话</h2>
 <p>作者主张把多智能体系统的构建单位缩小为职责单一、可独立测量和替换的 worker，以统一接口组合能力；这是一套围绕 iii 的工程主张，尚非规模化收益的实验证明。</p>
-<h2 id="h1894">主要内容</h2>
+<h2 id="h1906">主要内容</h2>
 <ul><li>单体 agent 同时负责规划、检索、编码和验证，容易把不同任务绑定到同一模型与上下文，增加成本，也让错误难以定位。</li><li>作者建议按职责拆分 worker，明确输入、输出和测试，再按任务选择模型。拆分应由实际瓶颈推动，从一个 worker 开始测量，而非预先铺开复杂系统。</li><li>iii 用 Worker、Function、Trigger 三种概念描述执行进程、具名任务和触发条件。监督式、群体式和层级式编排，被解释为不同的函数调用与事件订阅关系。</li><li>沙箱、权限检查、浏览器交互也被纳入这一接口。作者进一步设想 worker 动态创建临时 worker，使系统在运行时扩展能力。</li></ul>
-<h2 id="h1895">证据与可信度</h2>
+<h2 id="h1907">证据与可信度</h2>
 <ul><li>文章引用 Reddit 的 138 次会话、6180 万 token、每次 11.55 美元及约为 Max 套餐成本 15 倍的数据，属于二手个人使用记录。按所列均值计算，138 × 11.55 ≈ 1594 美元，与文中每月 1593 美元接近；但材料未提供原始账单、统计周期或套餐比较口径，不能独立核验。</li><li>“1.5 万 token 任务变成 6 万”用于说明多 agent 的成本膨胀，未附实验条件或测量记录。“Haiku 与 Sonnet 一样好”的说法同样来自 Reddit 用户意见，不能视为质量评测。</li><li>新能力接入从平方级变为线性、协调成本降至零，是作者对统一接口的推断；文中没有节点规模、吞吐、延迟、失败率或总成本对照。文章明显推广 iii，框架能力与收益需另行验证。</li></ul>
-<h2 id="h1896">对 swarm scaling 的意义</h2>
+<h2 id="h1908">对 swarm scaling 的意义</h2>
 <p>材料把扩展问题从“增加多少 agent”转向“如何拆分能力并降低接入成本”。窄职责 worker 为模型分层、独立评测和局部替换提供了可操作的路径；共享状态触发则提供了一种去中心化组合方式。</p>
 <p>但统一接口只能减少部分集成工作，尚不能证明整体协调成本随规模线性增长。状态冲突、事件循环、错误传播与验证开销在材料中缺少测量。因此，它适合作为架构设计假说，不宜作为 swarm 已实现低成本扩展的证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

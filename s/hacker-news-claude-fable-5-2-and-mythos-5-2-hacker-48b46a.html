@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Fable 5.2 and Mythos 5.2 (Hacker News discussion)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Claude Fable 5.2 and Mythos 5.2 (Hacker News discussion)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hacker News</dd><dt>日期</dt><dd>2026-11-09</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://news.ycombinator.com/item?id=50429906" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=50429906</a></dd><dt>许可</dt><dd>hn-tos（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>843 points, 512 comments (2026-11-09)</dd><dt>收录理由</dt><dd>发布当天的主要质疑汇集：30 小时对 11 天没有算力对比没有意义、成本、只适用于有自动验证器的领域。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h17">一句话</h2>
+<p>这段 HN 讨论最有价值的是提醒：千代理的完成时间、算力效率与可靠性是不同问题，不能用一次加速演示同时证明。</p>
+<h2 id="h18">主要内容</h2>
+<ul><li>一位评论者转引发布方说法：1,000 个 Fable 5.2 代理用 30 小时完成费马大定理形式化；此前研究版耗时 11 天，并依赖专用框架与研究者指导。新方案据称减少了人工介入，自行建立协调方式，但仍获得了用于衡量进度的中间定理列表。</li><li>转引还称，新方案的动作 token 用量为此前的三分之一，证明长度为此前的七分之一；同样使用 1,000 个代理的 Opus 5.5，在 18 小时完成 26%，到 30 小时后进展仍很有限。</li><li>抓取内容的大部分其实在争论旧模型是否被“削弱”。用户体验相互矛盾；另有人提出系统提示、推理投入、运行框架和使用习惯变化等解释，均未在片段中得到确证。</li><li>元数据提到的算力比较、成本及自动验证器适用边界，在可见正文中没有完整展开，不能据此概括整场讨论。</li></ul>
+<h2 id="h19">证据与可信度</h2>
+<p>未读到全文，正文在评论中途截断，也未提供发布方原文与实验记录。上述形式化结果属于评论转引的厂商自报，未见独立核验。11 天与 30 小时比较的是历时；缺少旧方案代理数量、总算力、总费用及一致的 token 定义，无法推出资源效率提升幅度。</p>
+<p>关于模型退化，一名用户自报：同一组 20 项任务，此前各运行两次，成功 36/40；当天各运行一次，成功 19/20。首 token 延迟中位数从 3.0 秒降至 1.7 秒。样本小、重复次数不同，且仅测试中等推理投入，不能证明整体退化或提升。另一名应用开发者报告重复调用的 token 用量波动较大，同样属于参与者自测。</p>
+<p>元数据为 843 分、512 条评论，正文为 849 分、514 条评论；属于不同抓取时点的热度记录，不代表结论获得验证。</p>
+<h2 id="h20">对 swarm scaling 的意义</h2>
+<p>这份片段提供了一个值得追踪的千代理案例，但没有给出代理数量逐步增加的实验，因而不能建立扩展曲线，也不能分离模型升级与群体协作各自的贡献。</p>
+<p>它更适合用于提出评估要求：同时报告完成质量、历时、总资源与人工投入，并固定模型和运行配置。中间定理列表说明任务已有明确的进度支架；此类形式化任务上的成功，尚不足以证明同样的扩展收益能迁移到目标模糊、反馈迟缓的开放任务。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

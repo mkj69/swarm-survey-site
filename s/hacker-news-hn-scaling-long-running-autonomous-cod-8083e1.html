@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HN: Scaling long-running autonomous coding (Willison)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
+<body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>HN: Scaling long-running autonomous coding (Willison)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Hacker News</dd><dt>日期</dt><dd>2026-01-20</dd><dt>类型</dt><dd>forum</dd><dt>原文</dt><dd><a href="https://news.ycombinator.com/item?id=46686418" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=46686418</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>第二场社区讨论，仅核对了元数据。</dd><dt>注</dt><dd>来源未被调研流程直接核验（只见到摘要、片段或元数据）。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2569">一句话</h2>
+<p>这场 HN 讨论把自主编码的争论从“能生成多大项目”推进到“如何证明产物正确、自治真实且能够维护”，但没有提供 swarm 扩展效率的实测证据。</p>
+<h2 id="h2570">主要内容</h2>
+<ul><li><strong>浏览器演示的代表性存在分歧。</strong> 支持者认为，即便需求明确，复杂代码的生成仍有价值；质疑者指出，标准、参考实现、成熟依赖和模块边界都降低了难度，能显示页面距离生产可用仍很远。</li><li><strong>“从零构建”的边界不清。</strong> Simon Willison 列出 HTML 解析、布局等外部依赖，承认它们影响“从零”的表述，但认为这不妨碍项目展示单个工程师借助大量代理完成工作的潜力。</li><li><strong>验证闭环披露不足。</strong> 评论追问是否使用 Web 平台测试、模糊测试，以及如何检查性能、正确性和安全性。材料没有给出这些问题的完整答案。</li><li><strong>自治程度与组织方式受到质疑。</strong> 有人根据提交与合并记录怀疑存在人工选择，但明确表示无法确定。自称浏览器工程师的评论者主张由人负责架构、模块归属和定期审查，让代理在限定范围内迭代。</li><li><strong>启动成功不等于维护成功。</strong> 讨论涉及重复代码、补丁堆积和模式失去一致性。Willison 也承认，自己主要由代理生成的代码历史尚短，无法判断长期维护成本。</li></ul>
+<h2 id="h2571">证据与可信度</h2>
+<p>未读到全文：所给抓取在评论中途截断，也未包含被讨论的原始文章、完整仓库及实验日志。</p>
+<p>页面显示的 <strong>182 分、110 条评论</strong>是抓取时的社区互动量，不是技术效果指标。评论转述的“连续运行一周”属于对厂商说法的二手引用；“数万亿 token”“数百万美元”等缺少用量日志、计价口径和账单，不能作为已确认成本。</p>
+<p>依赖与代码问题的评论附有仓库链接，但本材料不足以独立复核；专家身份为评论者自述，维护经验属于个人观察。“永远无法扩展为可用浏览器”等断言属于观点。元数据日期与页面相对时间也未交叉核对。</p>
+<h2 id="h2572">对 swarm scaling 的意义</h2>
+<p>这份材料适合用来整理评估问题，不能证明增加代理数量会提升有效产出。它提示研究者同时记录代理规模、人工干预、验收标准、验证成本与后续维护表现，并区分页面演示、符合规范和生产可用。</p>
+<p>可从讨论中提出一个待验证的假设：当代码生成扩大后，架构协调、审查和反馈闭环可能成为瓶颈。模块化分工与人工监督是社区提出的方案，尚不是本材料验证过的结论。</p></main>
+<footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+</script></body></html>

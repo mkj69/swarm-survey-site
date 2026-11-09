@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wtf is graph engineering and why is it going viral?</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Wtf is graph engineering and why is it going viral?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Amart_AI</dd><dt>日期</dt><dd>2026-07-20</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/Amart_AI/status/2079227569598300273" target="_blank" rel="noopener">https://x.com/Amart_AI/status/2079227569598300273</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>162 likes; 37592 views</dd><dt>收录理由</dt><dd>解释循环之后的“图工程”潮流，属二手。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1333">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Wtf is graph engineering and why is it going viral?</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>Amart_AI</dd><dt>日期</dt><dd>2026-07-20</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/Amart_AI/status/2079227569598300273" target="_blank" rel="noopener">https://x.com/Amart_AI/status/2079227569598300273</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>162 likes; 37592 views</dd><dt>收录理由</dt><dd>解释循环之后的“图工程”潮流，属二手。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1341">一句话</h2>
 <p>这篇二手科普把“图工程”解释为显式组织 agent 的分支、循环与协作流程，但没有证明它能提升 swarm 的规模或性能。</p>
-<h2 id="h1334">主要内容</h2>
+<h2 id="h1342">主要内容</h2>
 <ul><li>作者将讨论从提示词转向循环、再转向图的过程，描述为社交媒体上的概念更替；同时强调循环本来就是图的一种形式。</li><li>图由工作节点、决定流向的边和共享状态构成，可表达条件分支、返回重试、多 agent 并行及人工检查点。</li><li>文中以 ReAct 为例：模型判断是否调用工具，工具执行后返回模型，直到结束。这展示的是单 agent 的控制流程，并非 swarm 实验。</li><li>作者建议仅在流程复杂到难以维护时引入图；简单任务继续使用循环即可。材料提到可复制代码，但抓取内容未包含代码，无法检查实现。</li></ul>
-<h2 id="h1335">证据与可信度</h2>
+<h2 id="h1343">证据与可信度</h2>
 <ul><li>这是概念讲解和工具推荐，没有实验设计、性能测量或多 agent 对照结果。</li><li>原帖获 840 万浏览、LangGraph 超过 3.7 万 GitHub 星标，均为作者转述，未提供独立核验；“不到 50 行”“约十分钟”属于作者对入门成本的描述，不能视为实测结论。</li><li>元数据记录本文获 162 次点赞、37,592 次浏览，仅反映传播情况，不能证明技术有效性。对其他人物言论的归纳也是二手材料。</li></ul>
-<h2 id="h1336">对 swarm scaling 的意义</h2>
+<h2 id="h1344">对 swarm scaling 的意义</h2>
 <p>图提供了一种表达协作结构的方式：把任务分派、并行执行、结果汇总与人工介入写成可检查的流程，有助于讨论系统如何组织。不过，流程表达更清楚不等于扩展更有效。材料没有测量 agent 数量增长后的吞吐、成本、通信开销或成功率，也未讨论共享状态在并行写入时如何协调，因此适合作为编排概念入门，不能作为 swarm scaling 的效果证据。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

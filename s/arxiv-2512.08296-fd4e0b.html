@@ -2,16 +2,16 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Towards a Science of Scaling Agent Systems</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards a Science of Scaling Agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Kim, Yubin, Gu, Ken, Park, Chanwoo et al.</dd><dt>日期</dt><dd>2025-12-09</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2512.08296" target="_blank" rel="noopener">https://arxiv.org/abs/2512.08296</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在匹配算力下比较五种架构与六个基准，给出轮次幂律、能力饱和阈值和错误放大系数，是规模化研究的核心实证。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2697">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Towards a Science of Scaling Agent Systems</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Kim, Yubin, Gu, Ken, Park, Chanwoo et al.</dd><dt>日期</dt><dd>2025-12-09</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2512.08296" target="_blank" rel="noopener">https://arxiv.org/abs/2512.08296</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>在匹配算力下比较五种架构与六个基准，给出轮次幂律、能力饱和阈值和错误放大系数，是规模化研究的核心实证。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2721">一句话</h2>
 <p>多智能体的收益取决于任务能否拆分、协调是否有效；这项受控实验表明，在固定预算下，增加协作也可能显著降低表现。</p>
-<h2 id="h2698">主要内容</h2>
+<h2 id="h2722">主要内容</h2>
 <ul><li>作者比较单智能体与独立、集中、去中心化、混合四种多智能体架构，覆盖三个模型家族、六个交互式基准，统一提示、工具和计算预算。</li><li>可拆分的金融分析最受益：集中协调相对单智能体提升 80.8%；顺序约束强的规划任务中，各多智能体架构下降 39%—70%。这些是相对变化，不是准确率百分点。</li><li>作者报告：当单智能体准确率超过约 45% 时，协作容易出现负收益；工具密集型任务也更容易被协调成本拖累。这些是实验范围内的规律，不能直接当作通用阈值。</li><li>集中验证有助于阻断错误传播。独立架构的轨迹级错误放大系数为 17.2 倍，集中架构为 4.4 倍。</li><li>回归模型对跨任务绝对表现的解释力有限，但作者报告，其选择留出配置中最佳架构的准确率达到 87%。</li></ul>
-<h2 id="h2699">证据与可信度</h2>
+<h2 id="h2723">证据与可信度</h2>
 <p>未读到全文，材料在实验设置部分截断，缺少后续结果、附录及完整统计细节。</p>
 <p>以上数字属于作者报告的实验测量与拟合结果，未做独立核验。260 个配置来自四个基准各 45 个、另两个各 40 个；前者每配置使用 50—100 道任务，软件工程与终端基准仅各取 20 道，后两类结论的稳定性需谨慎判断。</p>
 <p>相对收益按“多智能体均分减单智能体均分，再除以单智能体均分”计算。17.2 倍和 4.4 倍来自执行轨迹的 token 分析，衡量协调失败带来的额外计算工作，不能理解为最终失败率倍数。</p>
 <p>交叉验证 R² 为 0.373，换用任务相关能力指标后为 0.413；87% 衡量架构选择，两者不能混同。元数据日期为 2025 年 12 月，正文却提及 2026 年 2 月的模型停用，提示版本时间需要核对。所给片段也未展示元数据所称的“轮次幂律”。</p>
-<h2 id="h2700">对 swarm scaling 的意义</h2>
+<h2 id="h2724">对 swarm scaling 的意义</h2>
 <p>这篇材料支持把 scaling 理解为任务结构、模型能力与协调机制的联合优化，而非单纯增加 agent 数量。并行探索的收益必须覆盖上下文分散、通信和验证成本。</p>
 <p>实践上，应先建立等预算单智能体基线，再测试拆分与验证机制。本文提供了有价值的架构选择假设，但尚不足以证明普适的群体规模定律；尤其独立架构采用无交叉验证的输出拼接，其较差表现不能外推到所有独立采样或投票方案。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chain of Agents: Large Language Models Collaborating on Long-Context Tasks</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Chain of Agents: Large Language Models Collaborating on Long-Context Tasks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Yusen, Sun, Ruoxi, Chen, Yanfei et al.</dd><dt>日期</dt><dd>2024-06-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.02818" target="_blank" rel="noopener">https://arxiv.org/abs/2406.02818</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>以顺序工作者处理长上下文，是任务天然可分块时使用多智能体的早期实例。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2885">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Chain of Agents: Large Language Models Collaborating on Long-Context Tasks</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Zhang, Yusen, Sun, Ruoxi, Chen, Yanfei et al.</dd><dt>日期</dt><dd>2024-06-04</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.02818" target="_blank" rel="noopener">https://arxiv.org/abs/2406.02818</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>以顺序工作者处理长上下文，是任务天然可分块时使用多智能体的早期实例。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2913">一句话</h2>
 <p>CoA 将长文本处理拆成顺序传递证据的工作链，表明多智能体的收益可以来自信息流设计，而非单纯增加并行参与者。</p>
-<h2 id="h2886">主要内容</h2>
+<h2 id="h2914">主要内容</h2>
 <ul><li>文本分块后，每个工作者读取当前片段、任务要求和前一工作者传来的信息，更新证据后继续传递；最后由独立管理者生成答案，无需额外训练。</li><li>这一设计同时针对两类问题：检索可能漏掉关键内容，超长窗口可能难以关注相关信息。它遍历全部文本，但每次只处理较短上下文。</li><li>作者在九个数据集、六种模型上评估问答、摘要和代码补全，并与检索增强、直接输入长上下文、独立工作者投票及树形汇总比较，报告整体优势。</li><li>消融实验显示，管理者和阅读顺序会影响结果；多条不同顺序的工作链还能进一步提升表现，但如何选出最佳结果仍有困难。</li></ul>
-<h2 id="h2887">证据与可信度</h2>
+<h2 id="h2915">证据与可信度</h2>
 <ul><li>证据属于论文作者的基准实验与案例分析，所给材料未提供独立复现。抓取文本包含主要章节，但多张表格和公式缺少具体内容，无法逐项核算结果。</li><li>摘要称最高提升约 10%，正文又出现更大的局部增幅；比较对象、指标及相对增幅或百分点的口径未在这些叙述中充分交代，因此不能将其合并为统一收益。</li><li>“8k 工作者优于 200k 直接输入”的结果来自 NarrativeQA 和 BookSum 的比较，且作者另考察了无需截断的样本；它支持特定设置下的优势，不能推成普遍结论。</li><li>编码复杂度从 \(n^2\) 降至 \(nk\) 是基于注意力计算的理论分析，其中 \(n\) 为总输入长度、\(k\) 为单个模型窗口，并非实际延迟或账单测量。作者也承认，多次 API 调用可能增加延迟。</li></ul>
-<h2 id="h2888">对 swarm scaling 的意义</h2>
+<h2 id="h2916">对 swarm scaling 的意义</h2>
 <ul><li>这是按文本分块扩展处理能力的实例：增加工作者可以覆盖更长输入，但材料没有证明智能体越多，质量就持续提高。</li><li>顺序通信有助于跨片段多跳推理；独立投票或汇总可能缺少前序推理所需的信息。其优势支持任务匹配的通信拓扑，不能直接推广到所有 swarm。</li><li>扩展瓶颈随之转向证据传递与结果选择：原文虽被逐块读取，管理者最终收到的仍是压缩信息。串行依赖也限制并行提速；多路径扩展则增加了选择可靠答案的难度。</li></ul></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>

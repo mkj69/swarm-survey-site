@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Import AI 475: Swarm scaling</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Import AI 475: Swarm scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Jack Clark</dd><dt>日期</dt><dd>2026-10-05</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://importai.substack.com/p/import-ai-475-swarm-scaling-google" target="_blank" rel="noopener">https://importai.substack.com/p/import-ai-475-swarm-scaling-google</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Jack Clark 把 λ 解读为蜂群可能提高 RSI 智能爆炸概率，是主要通讯的反应。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h625">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Import AI 475: Swarm scaling</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Jack Clark</dd><dt>日期</dt><dd>2026-10-05</dd><dt>类型</dt><dd>news</dd><dt>原文</dt><dd><a href="https://importai.substack.com/p/import-ai-475-swarm-scaling-google" target="_blank" rel="noopener">https://importai.substack.com/p/import-ai-475-swarm-scaling-google</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Jack Clark 把 λ 解读为蜂群可能提高 RSI 智能爆炸概率，是主要通讯的反应。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h633">一句话</h2>
 <p>Jack Clark 将 swarm 视为用更多推理成本换取更短完成时间的扩展路径，并认为协调损耗未必足以阻止递归自我改进（RSI）加速。</p>
-<h2 id="h626">主要内容</h2>
+<h2 id="h634">主要内容</h2>
 <ul><li>通讯主要转述 Toby Ord 的分析：多智能体并行的直接价值是速度，同等表现下可能消耗更多总 token，却减少实际等待时间。</li><li>文中例子是：4 个智能体达到相同表现，需要约两倍总 token；平均每个智能体使用的 token 则减半，因此在并行运行的假设下，理论耗时可减半。</li><li>扩大群体会遇到“互相碍事”的协调损耗。文中用 λ 表示这种折损：智能体数量增加 10 倍，对应的有效增益约为 3 至 5 倍，落后于单智能体增加 10 倍 token 的效果。</li><li>Clark 进一步提出，协调方式改善后可能出现更高回报；但材料没有提供验证这种潜力的系统实验。</li></ul>
-<h2 id="h627">证据与可信度</h2>
+<h2 id="h635">证据与可信度</h2>
 <p>这里的 swarm 数字来自 Clark 对 Ord 文章的二手转述，材料没有展示原始实验、任务设置、模型、重复次数或误差范围，无法独立核验其适用范围。</p>
 <p>“两倍总 token、四个智能体”可算出平均每个智能体消耗为单智能体的一半；“耗时减半”还依赖并行执行、生成速度相近及协调开销可控等条件，属于理论推算，不是文中报告的实测延迟。</p>
 <p>10 倍规模对应 3 至 5 倍增益是所引分析的结论，不能据此认定 λ 是跨任务稳定的常数。关于智能爆炸概率的判断，原文归于 Ord，Clark 将其纳入讨论；材料没有给出概率估计或直接因果证据。</p>
-<h2 id="h628">对 swarm scaling 的意义</h2>
+<h2 id="h636">对 swarm scaling 的意义</h2>
 <p>这篇材料的价值主要在于传播和解释一个区分：<strong>成本效率与时间效率是两个不同目标</strong>。即使群体增加总消耗，只要任务受截止时间约束，并行仍可能有价值。</p>
 <p>λ 则提醒研究者关注规模扩大后的收益折损，而不能只数智能体数量。评估 swarm 应同时报告任务表现、总 token 和实际耗时，并检查协调开销如何随规模变化。</p>
 <p>它也是主流 AI 通讯将 swarm scaling 联系到 RSI 的一个案例，但这种联系目前属于理论外推，不能当作 swarm 已能引发智能爆炸的证据。</p></main>

@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agentic Frameworks for Reasoning Tasks: An Empirical Study</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agentic Frameworks for Reasoning Tasks: An Empirical Study</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Rasheed, Zeeshan, Sami, Abdul Malik, Waseem, Muhammad et al.</dd><dt>日期</dt><dd>2026-04-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2604.16646" target="_blank" rel="noopener">https://arxiv.org/abs/2604.16646</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>比较 22 个框架并记录上下文失控和重试造成的极端成本，说明编排质量决定可用性。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1913">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Agentic Frameworks for Reasoning Tasks: An Empirical Study</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Rasheed, Zeeshan, Sami, Abdul Malik, Waseem, Muhammad et al.</dd><dt>日期</dt><dd>2026-04-17</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2604.16646" target="_blank" rel="noopener">https://arxiv.org/abs/2604.16646</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>比较 22 个框架并记录上下文失控和重试造成的极端成本，说明编排质量决定可用性。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1925">一句话</h2>
 <p>这项框架比较表明，多智能体系统的可用性可能先受上下文、重试与终止机制限制；但它并未证明增加智能体数量能提高推理能力。</p>
-<h2 id="h1914">主要内容</h2>
+<h2 id="h1926">主要内容</h2>
 <ul><li>作者从 1,200 个 GitHub 仓库中筛出 22 个框架，在 BBH、GSM8K、ARC 上比较准确率、耗时、成本及表现一致性。</li><li>实验统一使用 GPT-5.2，并采用双智能体配置，控制提示、温度等条件。预实验发现，四智能体配置会明显增加交互时间和 API 成本，因此正式实验选择双智能体。</li><li>摘要报告，19 个框架完成全部基准；其中 12 个表现较稳定，平均准确率为 74.6%–75.9%，每题耗时 4–6 秒，成本为 0.14–0.18 美分。</li><li>失败案例集中在编排：Camel 因上下文持续增长，运行 11 天仍未完成 BBH；Upsonic 因提取失败、反复重试及提示增长，单日花费 1,434 美元；AutoGen、Mastra 的迭代交互耗尽 API 配额，却未改善答案。</li><li>完成全部基准的框架在 GSM8K 上平均准确率为 44.35%，低于 BBH 的 89.80% 和 ARC 的 89.56%。作者据此认为，框架没有消除底层模型的数学推理弱点。</li></ul>
-<h2 id="h1915">证据与可信度</h2>
+<h2 id="h1927">证据与可信度</h2>
 <p>未读到全文：提供内容在实验配置部分截断，尚未看到完整结果表、失败日志及有效性威胁讨论。</p>
 <p>上述数字均来自作者报告的实验测量，不是本文重新计算，也未经独立核验。统一模型和配置有助于比较框架，但当前片段不足以确认准确率汇总方式、成本统计口径及失败归因。作者称已公开代码、数据与逐题日志，这提供了复核路径，不能视作已经复现。</p>
 <p>“框架继承底层模型弱点”属于作者解释；当前片段未展示直接调用同一模型的对照，尚不足以隔离模型、提示和编排各自的影响。</p>
-<h2 id="h1916">对 swarm scaling 的意义</h2>
+<h2 id="h1928">对 swarm scaling 的意义</h2>
 <p>这篇材料更适合作为扩展过程中的系统风险证据：交互可能不断累积上下文，提取失败可能触发重试，最终放大延迟、费用和配额消耗。扩展群体前，应先约束记忆增长、重试次数与终止条件。</p>
 <p>其边界也很明确：正式评测固定为双智能体，四智能体仅有预实验的定性描述，没有随群体规模变化的收益曲线。因此，它支持重视编排质量，不能据此判断 swarm 的最佳规模，或断言多智能体普遍优于单智能体。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

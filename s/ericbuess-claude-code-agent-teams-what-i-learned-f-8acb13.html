@@ -2,14 +2,14 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Claude Code Agent Teams: What I Learned from Testing</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Claude Code Agent Teams: What I Learned from Testing</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>EricBuess</dd><dt>日期</dt><dd>2026-02-06</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/EricBuess/status/2019817656745128366" target="_blank" rel="noopener">https://x.com/EricBuess/status/2019817656745128366</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>295 likes; 45320 views</dd><dt>收录理由</dt><dd>Agent Teams实测：更费token但未测量，研究和审查最合适。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2349">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Claude Code Agent Teams: What I Learned from Testing</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_practitioners">X：一线实践者</a></div><dl class="info"><dt>作者</dt><dd>EricBuess</dd><dt>日期</dt><dd>2026-02-06</dd><dt>类型</dt><dd>x_article</dd><dt>原文</dt><dd><a href="https://x.com/EricBuess/status/2019817656745128366" target="_blank" rel="noopener">https://x.com/EricBuess/status/2019817656745128366</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>295 likes; 45320 views</dd><dt>收录理由</dt><dd>Agent Teams实测：更费token但未测量，研究和审查最合适。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2365">一句话</h2>
 <p>这篇个人实测的核心判断是：Agent Teams 的价值在于并行探索与相互审查，但额外 token 和协调开销是否划算，作者没有做定量验证。</p>
-<h2 id="h2350">主要内容</h2>
+<h2 id="h2366">主要内容</h2>
 <ul><li><strong>协作结构</strong>：一个主会话负责分工与汇总，多个独立 Claude Code 实例各有上下文窗口，通过共享任务板和直接消息协作。成员加载项目配置，但不继承主会话的对话历史。</li><li><strong>与 subagents 的区别</strong>：后者主要向调用者返回结果；Agent Teams 允许成员互相讨论、自行领取任务，更适合需要交叉验证的工作。作者所说的“swarm mode”是社区对 Agent Teams 的称呼。</li><li><strong>适用任务</strong>：作者最认可研究和审查，也看好边界清晰的模块开发、跨层协作及多假设调试。简单修复和顺序任务的收益较弱。</li><li><strong>成本来源</strong>：各成员分别加载上下文，消息交换和任务轮询也消耗 token。作者感觉并行确实更快、成本也更高，但没有提供加速比或费用对照。</li><li><strong>运行摩擦</strong>：实测涉及任务状态未更新、依赖被阻塞、关闭延迟及分屏窗格失效。关于同一会话能否连续运行多个团队，作者明确保留疑问。</li><li><strong>记忆功能需分开看</strong>：文章后半介绍的持久记忆属于 subagents，不能当作 Agent Teams 已具备群体长期学习能力的证据。</li></ul>
-<h2 id="h2351">证据与可信度</h2>
+<h2 id="h2367">证据与可信度</h2>
 <p>材料是 EricBuess 于 2026 年 2 月 6 日发表的个人测试与文档整理，未给出标准任务集、重复次数、耗时记录、token 账单或质量评分，也未对同一任务比较单会话、subagents 和团队。因此，“更快”“更贵”“研究审查最合适”属于个人经验，不能推出规模收益曲线。</p>
 <p>文中的“先用 2 名成员、再考虑 5 个 agent”是入门建议，并非测得的最优规模。架构与限制部分混合了作者观察和对官方文档的转述；本文未独立核验。元数据中的 295 次点赞、45320 次浏览只反映传播情况。</p>
-<h2 id="h2352">对 swarm scaling 的意义</h2>
+<h2 id="h2368">对 swarm scaling 的意义</h2>
 <p>这份材料提示，扩展收益取决于任务能否拆成相对独立、又能通过交流互相纠错的部分。研究和审查较容易满足这一条件；并行实现则更依赖边界划分和协调可靠性。</p>
 <p>它同时暴露了扩展的负担：重复上下文、通信、状态同步和会话管理。材料支持把这些列为评测维度，但不足以证明增加成员后收益如何变化，也无法确定成本与质量的最佳平衡点。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

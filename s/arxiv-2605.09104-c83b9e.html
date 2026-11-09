@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Token Economics for LLM Agents: A Dual-View Study from Computing and Economics</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Token Economics for LLM Agents: A Dual-View Study from Computing and Economics</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Chen, Yuxi, Chen, Junming, He, Chenyu et al.</dd><dt>日期</dt><dd>2026-05-09</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2605.09104" target="_blank" rel="noopener">https://arxiv.org/abs/2605.09104</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>综述多智能体令牌经济学，并将协作摩擦与交易成本理论联系起来。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1789">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Token Economics for LLM Agents: A Dual-View Study from Computing and Economics</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#academic">学术论文：规模化实证</a></div><dl class="info"><dt>作者</dt><dd>Chen, Yuxi, Chen, Junming, He, Chenyu et al.</dd><dt>日期</dt><dd>2026-05-09</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2605.09104" target="_blank" rel="noopener">https://arxiv.org/abs/2605.09104</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>综述多智能体令牌经济学，并将协作摩擦与交易成本理论联系起来。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1801">一句话</h2>
 <p>这篇综述把多智能体扩展重新表述为经济问题：专业分工带来的收益，能否覆盖通信、同步与协调产生的额外成本。</p>
-<h2 id="h1790">主要内容</h2>
+<h2 id="h1802">主要内容</h2>
 <ul><li><strong>统一分析目标</strong>：在满足回答质量要求的前提下，最小化总成本；成本不仅包括 token 和算力，也包括人的参与时间及等待成本。</li><li><strong>按组织规模划分瓶颈</strong>：单智能体关注内部推理、工具调用与记忆的资源分配；多智能体关注协作摩擦；开放生态关注共享算力拥塞与资源定价。安全则作为影响质量和成本的约束贯穿其中。</li><li><strong>多智能体的关键代价</strong>：状态同步、重复传递上下文、格式对齐和冲突处理，被解释为内部交易成本。增加角色和连接关系，需要同时衡量专业化收益与维持一致性的负担。</li><li><strong>单体优化仍是基础</strong>：片段梳理了推理压缩、缓存、量化、工具路由和记忆复用等方法，并尝试用要素替代、成本压缩与投资摊销解释它们。</li><li><strong>后续研究方向</strong>：提出可微 token 预算、记忆资本积累与动态 token 市场，但片段未展示这些方向的验证结果。</li></ul>
-<h2 id="h1791">证据与可信度</h2>
+<h2 id="h1803">证据与可信度</h2>
 <p><strong>未读到全文</strong>：材料在第 3.3 节中途截断，多智能体专章、生态与安全专章及完整结论均未出现。对这些部分的理解主要来自摘要、引言和理论映射。</p>
 <p>文中称 OpenRouter 周 token 处理量从 2024 年 12 月的 0.4 万亿增至 2026 年 3 月的 27 万亿；两者相除为 67.5，因而概括为近 68 倍。这是作者引用的平台数据，片段没有交代统计口径，也未独立核验；不能据此推断全部增长由多智能体驱动。</p>
 <p>本文属于文献综述与理论框架构建。生产函数、影子价格和组织经济学映射是分析模型，片段未展示参数拟合、对照实验或 swarm 规模拐点测量。“首个全面综述”等表述属于作者自述。</p>
-<h2 id="h1792">对 swarm scaling 的意义</h2>
+<h2 id="h1804">对 swarm scaling 的意义</h2>
 <p>它提供了一个有用的评估视角：扩展 swarm 时，应把任务质量与完整协作成本放在一起比较，尤其单独记录通信 token、重复上下文、同步等待和协调开销。</p>
 <p>据此可以提出待验证的问题：新增 agent 的专业化收益，何时不足以补偿新增协作成本？这有助于设计规模、拓扑与预算实验，但材料尚不能给出最佳 agent 数量，也不能证明某种组织结构普遍最优。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

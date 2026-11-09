@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kimi K3.1 Pro model card</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi K3.1 Pro model card</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Moonshot AI</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener">https://huggingface.co/moonshotai/Kimi-K3.1-Pro</a></dd><dt>许可</dt><dd>other-(Kimi-K3.1-Pro-License)（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>n/a</dd><dt>收录理由</dt><dd>模型卡未提及 Agent Swarm 或子智能体，BrowseComp 为单智能体500步设置，说明本次发布不含蜂群新数据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h201">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi K3.1 Pro model card</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_labs">X：实验室与产品团队</a></div><dl class="info"><dt>作者</dt><dd>Moonshot AI</dd><dt>日期</dt><dd>2026-11-04</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener">https://huggingface.co/moonshotai/Kimi-K3.1-Pro</a></dd><dt>许可</dt><dd>other-(Kimi-K3.1-Pro-License)（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>n/a</dd><dt>收录理由</dt><dd>模型卡未提及 Agent Swarm 或子智能体，BrowseComp 为单智能体500步设置，说明本次发布不含蜂群新数据。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h205">一句话</h2>
 <p>这份模型卡展示了 Kimi K3.1 Pro 的长程工具使用能力，但没有提供多智能体蜂群扩展的实验或收益证据。</p>
-<h2 id="h202">主要内容</h2>
+<h2 id="h206">主要内容</h2>
 <ul><li>模型采用 MoE 架构，总参数 2.8T、激活参数 104B，上下文长度为 1,048,576 token，支持文本与图像。模型卡称其通过跨数百个下游领域的联合强化学习完成后训练。</li><li>评测覆盖编程、检索、办公、多模态及安全任务。代表性成绩包括 Terminal-Bench 4.0 的 65.7、带工具 HLE-Full 的 70.0，以及 BrowseComp 的 92.1。这些结果分别对应不同任务和评测协议，不能直接横向比较。</li><li>BrowseComp 设置为最多 500 步，达到 200K token 时触发上下文压缩；用尽步数后强制回答。材料描述的是单个 agent 的运行流程，没有报告子智能体数量、任务分派或并行协作机制。</li><li>多轮对话和工具调用需要完整回传助手消息，包括推理内容与工具调用记录。这体现了模型对跨轮状态保留的要求，但不等于具备蜂群编排能力。</li></ul>
-<h2 id="h203">证据与可信度</h2>
+<h2 id="h207">证据与可信度</h2>
 <ul><li>参数、上下文及模型自身评测分数均来自 Moonshot AI 发布的模型卡，属于厂商披露或厂商测量；本材料未提供对这些结果的独立复现。</li><li>对照模型成绩混合引用官方榜单、技术报告及内部评测。不同模型使用的运行框架、回退行为和评测条件存在差异，因此排名不能完全归因于模型本身。</li><li>BrowseComp 的 92.1 与 500 步上限直接取自表格及脚注；500 步是串行交互预算，不是 500 个智能体。材料没有给出该项的重复运行次数、误差范围或成本。</li><li>部分测试明确标为内部基准；另一些报告多次运行均值、pass@5 或 Elo。这些指标含义不同，不能合并为统一能力分数。</li></ul>
-<h2 id="h204">对 swarm scaling 的意义</h2>
+<h2 id="h208">对 swarm scaling 的意义</h2>
 <p>这份材料可作为研究单智能体长程执行与上下文管理的参考，却不能证明增加智能体数量会提升效果。百万级上下文、上下文压缩和较长工具调用预算，为研究提供了另一条比较路径：将资源投入单个智能体的持续执行。</p>
 <p>要判断蜂群扩展收益，还需在相同任务及总资源预算下比较单智能体与多智能体，并报告数量变化、协作开销、延迟和成功率。本材料没有这些数据，因此适合归入能力背景资料，而非 swarm scaling 的实证结果。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

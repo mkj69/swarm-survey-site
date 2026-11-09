@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Noam Brown interview</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Noam Brown interview</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Dwarkesh Patel</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>video</dd><dt>原文</dt><dd><a href="https://www.dwarkesh.com/p/noam-brown" target="_blank" rel="noopener">https://www.dwarkesh.com/p/noam-brown</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Brown 称未测过 1000 与 10000 的差异，多智能体功劳不到一成。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3365">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Noam Brown interview</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Dwarkesh Patel</dd><dt>日期</dt><dd>未确认</dd><dt>类型</dt><dd>video</dd><dt>原文</dt><dd><a href="https://www.dwarkesh.com/p/noam-brown" target="_blank" rel="noopener">https://www.dwarkesh.com/p/noam-brown</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>Brown 称未测过 1000 与 10000 的差异，多智能体功劳不到一成。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h3393">一句话</h2>
 <p>Brown 将多智能体视为用额外计算换取更短等待时间的方法，但明确表示，现有证据不足以证明万级 agent 的规模收益。</p>
-<h2 id="h3366">主要内容</h2>
+<h2 id="h3394">主要内容</h2>
 <ul><li>多智能体把串行推理转为并行工作，代价是上下文分散和协作开销。收益依任务而变：资料检索较易并行，数学也适合，小说创作则被他判断为较难受益。</li><li>Brown 称，部分基准上，4 个 agent 能将完成时间减半；按数量乘运行时间估算，总计算成本约翻倍。扩至 16 个仍有收益，但效率下降。</li><li>主持人提到，一个系统以 10,000 个 agent、1300 亿 token、88 小时完成了 Navier–Stokes 相关千禧年难题。Brown 强调，这只是单个案例，未做单 agent 对照，也无法确定 10,000 相对 1,000 的增益。他认为，多智能体应得的功劳不到一成，核心是基础模型能力。</li><li>协作设计倾向少设固定流程，给 agent 相互发消息的工具，让其自行协调。但这种组织能力并非自然出现：系统容易退化为各自独立解题，消息也会打断推理。</li><li>对 AI 研究自动化，Brown 认为实验时长、串行依赖和 GPU 供给仍会限制加速，不能直接从数学任务推导出研究速度暴涨。</li></ul>
-<h2 id="h3367">证据与可信度</h2>
+<h2 id="h3395">证据与可信度</h2>
 <p>未读到全文：提供的转录在访谈中途截断，以上仅依据已给片段。</p>
 <p>4 个 agent、耗时减半来自 Brown 对已发布基准的口述；成本翻倍是依据这两个数字推算，片段未提供原始图表或成本明细。万级系统的资源数字及解题说法由主持人提出，材料未附证明、评审结果或独立核验。</p>
 <p>“功劳不到一成”是参与者的主观归因，不是消融实验测得的贡献比例。Brown 也明确承认缺少大规模对照，因此这些内容属于内部参与者陈述与经验判断，不能视为已建立的 scaling law。</p>
-<h2 id="h3368">对 swarm scaling 的意义</h2>
+<h2 id="h3396">对 swarm scaling 的意义</h2>
 <p>这份材料最有价值的是划清证据边界：成功运行万级 swarm，不等于证明增加 agent 带来了相应收益。评估应同时比较答案质量、完成时间和总计算成本，并控制基础模型与任务条件。</p>
 <p>它还提示，规模收益取决于任务可拆分程度、通信干扰和模型的协作能力。万级案例可作为可行性线索，但不足以判断最优规模，更不能单凭数量认定 agent 已比人类更善于大规模组织。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

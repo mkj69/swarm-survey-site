@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>s³: Simple Scaling of Swarms via Cooperative Multi-agent RL (project page)</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>s³: Simple Scaling of Swarms via Cooperative Multi-agent RL (project page)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Kunal Jha, Gonçalo Faria, Shuyue Stella Li, Scott Geng, Faeze Brahman, Noah A. Smith, Yulia Tsvetkov, Max Kleiman-Weiner, Natasha Jaques</dd><dt>日期</dt><dd>2026-11-06</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://scalingswarms.com/" target="_blank" rel="noopener">https://scalingswarms.com/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>s³ 项目页：用共享团队奖励的多智能体 RL 训练 4 智能体蜂群，并在 8–16 智能体下评估。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h45">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>s³: Simple Scaling of Swarms via Cooperative Multi-agent RL (project page)</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Kunal Jha, Gonçalo Faria, Shuyue Stella Li, Scott Geng, Faeze Brahman, Noah A. Smith, Yulia Tsvetkov, Max Kleiman-Weiner, Natasha Jaques</dd><dt>日期</dt><dd>2026-11-06</dd><dt>类型</dt><dd>docs</dd><dt>原文</dt><dd><a href="https://scalingswarms.com/" target="_blank" rel="noopener">https://scalingswarms.com/</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>s³ 项目页：用共享团队奖励的多智能体 RL 训练 4 智能体蜂群，并在 8–16 智能体下评估。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h49">一句话</h2>
 <p>s³ 用共享团队奖励，让异步、无预设角色的 LLM 蜂群学会协作，并在两个受控任务中展示了向更多智能体迁移的收益，但规模优势有明显边界。</p>
-<h2 id="h46">主要内容</h2>
+<h2 id="h50">主要内容</h2>
 <ul><li>蜂群由同一模型的多个副本组成，各自处理任务，自主决定何时发消息、读消息或独立工作，不设固定指挥者与角色。</li><li>奖励以团队是否有人完成任务为基础，再扣除少量 token 成本；训练时比较同题的不同团队，将团队优势用于成员更新，不单独估算谁贡献了多少。</li><li>信息聚合任务要求每个智能体提供自己的私有数字，最终汇总排序。四智能体下，s³ 成功率为 93%，模仿成功轨迹的对照为 35%，个人奖励对照为 13%。训练后约 80% 的蜂群形成每人先广播一次、再读取消息的模式。</li><li>四智能体训练后直接扩大规模：八智能体的信息聚合成功率超过最强基线的 25 倍，领先保持到十二个；十六个时所有方法均表现困难。</li><li>探索任务是在 391 个房间构成的树中寻找出口。关闭通信使四智能体成功率下降 19 个百分点，重复搜索接近翻倍；六智能体时，s³ 比六个独立智能体的 best-of-N 高约 7 个百分点。</li></ul>
-<h2 id="h47">证据与可信度</h2>
+<h2 id="h51">证据与可信度</h2>
 <p>以上数字均为作者项目页报告，属于研究团队自报的实验测量，材料未提供独立核验。信息聚合结果标注六个随机种子的均值与标准误；部分训练过程图仅展示单次运行，不能据此判断稳定性。</p>
 <p>作者称独立智能体基线使用相同训练问题、轨迹数和 token 预算，测试时以 best-of-N 比较，有助于区分协作收益与单纯增加采样的收益。“超过 25 倍”缺少页面文本中的绝对成功率，不能直接理解为高可靠性。</p>
 <p>实验仅覆盖 Qwen3-0.6B、1.7B 和两个受控任务。页面称聚合协调无需示范即可出现，但消融也指出探索中 SFT+RL 更强；示范是否必要应按任务区分。</p>
-<h2 id="h48">对 swarm scaling 的意义</h2>
+<h2 id="h52">对 swarm scaling 的意义</h2>
 <p>这项工作的重点是把“如何组织团队”纳入训练目标，而非仅在推理时增加智能体。聚合任务表明，当分享只帮助别人时，个人奖励可能诱发等待与不分享；探索任务则表明，通信可以通过分工和共享排除结果减少重复劳动。</p>
 <p>规模收益取决于任务：搜索中的独立采样基线会随人数增强，聚合却需要覆盖更多成员的信息，协调更难。四智能体学到的行为能迁移到更大团队，是有价值的证据；十六智能体的失败也说明，它尚未证明可持续的大规模扩展，更未验证真实复杂工作流。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

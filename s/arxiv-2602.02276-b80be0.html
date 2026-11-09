@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kimi K2.5 full text</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi K2.5 full text</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Kimi Team</dd><dt>日期</dt><dd>2026-08-07</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/html/2602.02276" target="_blank" rel="noopener">https://arxiv.org/html/2602.02276</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>全文提供关键步骤度量及BrowseComp等厂商数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1205">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Kimi K2.5 full text</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#industry">行业工程报告</a></div><dl class="info"><dt>作者</dt><dd>Kimi Team</dd><dt>日期</dt><dd>2026-08-07</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/html/2602.02276" target="_blank" rel="noopener">https://arxiv.org/html/2602.02276</a></dd><dt>许可</dt><dd>CC-BY-NC-ND-4.0（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>全文提供关键步骤度量及BrowseComp等厂商数字。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1213">一句话</h2>
 <p>Kimi K2.5 将 swarm 扩展问题转化为可训练的任务拆分与调度问题，厂商报告在广域搜索中同时改善延迟与答案质量，但现有材料不足以证明普遍的规模收益。</p>
-<h2 id="h1206">主要内容</h2>
+<h2 id="h1214">主要内容</h2>
 <ul><li>模型以多模态联合训练为基础，Agent Swarm 则负责动态拆解任务、创建专门子代理并安排并行执行，是否并行也由训练学习。</li><li>PARL 只更新编排器，子代理参数冻结，其输出作为环境观察。作者希望借此降低多代理联合训练中的归因困难与不稳定性。</li><li>奖励兼顾最终质量、并行探索和子任务完成：既避免编排器退回串行，也抑制大量创建代理却不完成有效工作的行为。辅助奖励权重在训练过程中逐渐降至零。</li><li>资源约束采用“关键步骤”：逐阶段考虑主代理行动及并行组中最长的执行分支。因此，均衡拆分、缩短最慢分支比单纯增加代理更有价值。</li><li>训练任务偏向广域搜索、多分支深度搜索、长文档分析等适合拆分的工作，并不直接要求模型并行。</li></ul>
-<h2 id="h1207">证据与可信度</h2>
+<h2 id="h1215">证据与可信度</h2>
 <p>未读到全文：提供内容在评测章节中途截断，部分公式、表格和图中数据未呈现。</p>
 <p>作者报告，广域搜索相较单代理基线，最高加速 <strong>4.5 倍</strong>，条目级 F1 从 <strong>72.8%</strong> 升至 <strong>79.0%</strong>；后者相减为 <strong>6.2 个百分点</strong>。这些属于厂商自报的实验结果，材料未提供独立核验，也未完整呈现该比较的样本规模、误差范围、硬件配置和总计算成本。最高加速值不能理解为平均收益。</p>
 <p>“关键步骤”是关键路径的代理指标，能表达并行结构，但不能直接等同于真实耗时或费用。元数据虽提及 BrowseComp，所给片段没有其具体成绩，不能补写。</p>
-<h2 id="h1208">对 swarm scaling 的意义</h2>
+<h2 id="h1216">对 swarm scaling 的意义</h2>
 <p>这份材料的价值在于把扩展重点从“增加代理数量”移到“学会拆分、调度与汇总”，并明确处理无效并行和最慢分支问题。</p>
 <p>但证据主要支持适合并行的搜索任务。尚不能据此断言代理越多越好，或同样收益适用于强依赖的软件开发任务。判断规模效应仍需同时观察质量、实际延迟、总资源消耗，以及代理数量变化后的收益曲线。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

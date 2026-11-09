@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Emergent social conventions and collective bias in LLM populations</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Emergent social conventions and collective bias in LLM populations</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Ashery, Ariel Flint; Aiello, Luca Maria; Baronchelli, Andrea</dd><dt>日期</dt><dd>2024-10-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2410.08948" target="_blank" rel="noopener">https://arxiv.org/abs/2410.08948</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>去中心化 LLM 群体可涌现约定与集体偏差。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2857">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Emergent social conventions and collective bias in LLM populations</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Ashery, Ariel Flint; Aiello, Luca Maria; Baronchelli, Andrea</dd><dt>日期</dt><dd>2024-10-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2410.08948" target="_blank" rel="noopener">https://arxiv.org/abs/2410.08948</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>去中心化 LLM 群体可涌现约定与集体偏差。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2885">一句话</h2>
 <p>去中心化 LLM 群体能通过局部配对形成共同约定，但一致性也可能伴随集体偏差，且既有共识可能被坚持另一选项的群体推翻。</p>
-<h2 id="h2858">主要内容</h2>
+<h2 id="h2886">主要内容</h2>
 <ul><li>作者让同一模型生成的多个代理进行命名协调游戏：随机两两配对，选相同字母得分，不同则扣分。代理只看到有限历史，不知道群体结构，也没有达成全局共识的任务。</li><li>默认实验包含 24 个代理、10 个候选字母，每个代理记住最近 5 次互动。四种模型都出现全体采用同一名称的现象；除 Llama-2 外，其余模型在第 15 个群体轮次前形成约定。扩展实验报告，200 个代理或 26 个候选字母时仍能收敛。</li><li>单体初始选择未检出显著偏好，不代表群体最终选择均匀。历史中的成功与失败会影响后续选择，这种影响对不同名称并不对称，进而强化某些约定。</li><li>固定输出另一名称的代理可以改变共识。所需比例取决于模型与原有约定，报告结果从 2% 到 67%；某些弱约定甚至无需外部坚持者就会自行转向强约定。</li></ul>
-<h2 id="h2859">证据与可信度</h2>
+<h2 id="h2887">证据与可信度</h2>
 <p>这是作者开展的受控模拟实验，不是现实社会观察，也不是多代理任务性能评测。四种模型包括三种 Llama 模型及 Claude-3.5-Sonnet；主收敛曲线各汇总 40 次实验，集体偏差部分的重复次数因模型而异。</p>
 <p>单体偏差通过无历史时的选择频率及统计检验判断。“未检出偏差”不等于证明完全无偏。临界比例是按实验时限与共识判据测得：翻转要求最近 3N 次互动的成功率达到 95%，多数模型还限定在 30 个群体轮次内。因此，2% 不能当作通用攻击阈值，67% 也已不是少数群体。</p>
 <p>提供的内容在表格处截断，未读到全文，亦未获得完整补充材料；以上依据所给正文与图注，无独立核验。</p>
-<h2 id="h2860">对 swarm scaling 的意义</h2>
+<h2 id="h2888">对 swarm scaling 的意义</h2>
 <p>它提供了“局部协调可产生全局秩序”的实验证据，但没有证明代理越多，任务能力或成本效率就越好。更大群体按群体轮次收敛速度相近，也不意味着总交互成本不变。</p>
 <p>更直接的启示是：群体评测需要观察长期互动后的偏差、共识稳定性与外部干预敏感度，不能只检查孤立代理。结论目前限于同模型、随机配对、有限字母选项的游戏；能否推广到异构 swarm、真实网络和复杂语义任务，仍待验证。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

@@ -2,13 +2,13 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scaling Large Language Model-based Multi-Agent Collaboration</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Scaling Large Language Model-based Multi-Agent Collaboration</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Qian, Chen; Xie, Zihao; Wang, YiFei et al.</dd><dt>日期</dt><dd>2024-06-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.07155" target="_blank" rel="noopener">https://arxiv.org/abs/2406.07155</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>报告千级智能体下性能呈逻辑斯蒂增长。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2881">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Scaling Large Language Model-based Multi-Agent Collaboration</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a></div><dl class="info"><dt>作者</dt><dd>Qian, Chen; Xie, Zihao; Wang, YiFei et al.</dd><dt>日期</dt><dd>2024-06-11</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2406.07155" target="_blank" rel="noopener">https://arxiv.org/abs/2406.07155</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>报告千级智能体下性能呈逻辑斯蒂增长。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2909">一句话</h2>
 <p>MacNet 展示了通过有向无环图扩大协作规模的可行性，但其结果更支持“特定任务与组织方式下收益趋于饱和”，而非智能体越多越好。</p>
-<h2 id="h2882">主要内容</h2>
+<h2 id="h2910">主要内容</h2>
 <ul><li>节点上的执行者生成产物，边上的评审者提出修改意见，按拓扑顺序推进。后续智能体只接收产物，不继承完整对话，以控制上下文膨胀。</li><li>作者比较链、树和图下的六种拓扑，在知识问答、函数代码、仓库级开发和文本生成任务上评估，默认使用 GPT-3.5。</li><li>扩展实验将节点数从 1 增至 64，质量呈先缓慢、后加速、再饱和的趋势，作者用逻辑斯蒂曲线描述。多数拓扑在约百个智能体时趋于饱和。</li><li>拓扑效果依赖任务；不规则图往往更优。作者报告随机图比稠密网格耗时减少约 51.92%，说明增加连边并不必然改善效果。</li><li>作者将收益解释为：更多交互覆盖较少出现的问题与需求，推动反复修订，生成更全面的产物。这是机制假说，尚不能视为因果证明。</li></ul>
-<h2 id="h2883">证据与可信度</h2>
+<h2 id="h2911">证据与可信度</h2>
 <ul><li>数字来自作者的基准实验、交互统计与理论分析，材料未提供独立复现证据；抓取文本缺少表格数值、曲线细节和部分公式，无法核查拟合质量与误差。</li><li>“千级智能体”不等于千个节点。论文按节点数加边数计数；64 节点的全连接 DAG 有 2016 条边，合计 2080 个智能体角色。这是依据文中定义计算，并不意味着同等数量的并行进程。</li><li>逻辑斯蒂增长来自有限规模、特定任务下的曲线拟合，不能直接外推为普遍定律。作者也承认仍需纳入角色、工具和通信协议等因素。</li><li>作者统计评审建议被执行的比例为 93.10%，并报告节点从 1 增至 16 时产物长度增加 7.51 倍。但更长产物可能有利于长度敏感指标，不能单凭这些数字断定推理能力提升。</li><li>上下文从平方增长降为线性，是特定网格结构下的分析，不等于整个系统总成本线性增长。</li></ul>
-<h2 id="h2884">对 swarm scaling 的意义</h2>
+<h2 id="h2912">对 swarm scaling 的意义</h2>
 <p>这项工作的价值在于把规模扩展拆成智能体数量、连边、传播方向和记忆管理等可设计变量。其“群体”实质上是预设 DAG 上的协作流程，不能直接代表开放环境中的自主群体。</p>
 <p>评估扩展收益时，应同时比较任务质量、模型调用、总 token、延迟与产物长度。千级角色证明了组织上的可承载性；收益饱和则提示，应寻找成本与质量的平衡点，而非追求最大群体。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

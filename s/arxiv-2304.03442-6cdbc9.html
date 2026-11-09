@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Generative Agents: Interactive Simulacra of Human Behavior</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Generative Agents: Interactive Simulacra of Human Behavior</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Park, Joon Sung; O&amp;#39;Brien, Joseph C.; Cai, Carrie J. et al.</dd><dt>日期</dt><dd>2023-04-07</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2304.03442" target="_blank" rel="noopener">https://arxiv.org/abs/2304.03442</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>生成式智能体展示社会模拟，而非生产力规模化。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2953">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Generative Agents: Interactive Simulacra of Human Behavior</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#foundations">经典理论基础</a><a class="pill" href="../sources.html#societies_risks">智能体社会与多智能体风险</a></div><dl class="info"><dt>作者</dt><dd>Park, Joon Sung; O&amp;#39;Brien, Joseph C.; Cai, Carrie J. et al.</dd><dt>日期</dt><dd>2023-04-07</dd><dt>类型</dt><dd>paper</dd><dt>原文</dt><dd><a href="https://arxiv.org/abs/2304.03442" target="_blank" rel="noopener">https://arxiv.org/abs/2304.03442</a></dd><dt>许可</dt><dd>arxiv-nonexclusive（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>无</dd><dt>收录理由</dt><dd>生成式智能体展示社会模拟，而非生产力规模化。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h2981">一句话</h2>
 <p>这篇论文展示了记忆、反思与规划如何支撑小规模智能体社会中的持续互动，但没有证明增加智能体数量能提高任务生产力。</p>
-<h2 id="h2954">主要内容</h2>
+<h2 id="h2982">主要内容</h2>
 <ul><li>作者用大语言模型驱动 Smallville 沙盒中的 25 个角色，让它们安排日程、交谈、记住关系，并随环境变化调整行动；实现使用 gpt-3.5-turbo。</li><li>核心架构将经历写入自然语言记忆流，按相关性、时近性与重要性检索，再通过反思形成较高层判断，通过规划生成具体行动。反思和计划也会回写记忆，影响后续行为。</li><li>群体行为案例包括消息传播、新关系形成和聚会协调。聚会组织者被赋予办派对的意图，另一角色预设了暗恋对象；邀请、协助布置、约会和到场等后续行为由系统生成。因此，这是有初始条件的涌现，不能理解为完全无人工设定。</li><li>作者报告的常见问题包括漏检相关记忆、编造记忆细节，以及对话过于正式。</li></ul>
-<h2 id="h2955">证据与可信度</h2>
+<h2 id="h2983">证据与可信度</h2>
 <p>未读到全文：提供内容在记忆检索章节中途截断，未包含完整实验结果。</p>
 <p>25 个角色是作者设置的系统规模；两天是端到端评估覆盖的游戏时间，并非现实运行时长。案例记载聚会当天有 5 个角色到场，但片段没有给出完整受邀人数，不能据此计算邀请成功率。</p>
 <p>作者还报告了通过自然语言“访谈”评估个体行为，以及限制记忆、反思、规划能力的消融实验，称这些组件有助于行为可信性。但当前片段没有评分、样本量或统计结果，无法判断效应大小。这些属于论文作者报告的实验与案例观察，材料未提供独立核验。行为看起来可信，也不等于具有真实人的能动性或准确复现人类社会。</p>
-<h2 id="h2956">对 swarm scaling 的意义</h2>
+<h2 id="h2984">对 swarm scaling 的意义</h2>
 <p>它提供的价值主要是群体协调机制：局部交谈可以传播信息，持续记忆可以连接跨时间互动，个体计划可以汇合成共同活动。</p>
 <p>但材料只展示固定规模的小社会，没有比较不同智能体数量下的任务质量、成本、延迟或吞吐量，不能支持“智能体越多，效果越好”的结论。对 swarm scaling 更直接的启示是：扩展群体前，需要关注记忆检索与行为一致性；它们已经在这个规模下暴露出故障。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>

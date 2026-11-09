@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Anthropic blog breakdown</title><script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}})();</script><link rel="stylesheet" href="../style.css"></head>
 <body class=""><header class="top"><div class="in"><a class="brand" href="../index.html">蜂群规模化调研</a><nav><a href="../index.html" class="">首页</a><a href="../report.html" class="">综述报告</a><a href="../sources.html" class="on">材料库</a><a href="../check.html" class="">事实核查</a></nav><button id="theme" title="切换深浅色">◐</button></div></header>
-<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Anthropic blog breakdown</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Kye Gomez (swarms) (@KyeGomezB)</dd><dt>日期</dt><dd>2026-08-15</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/KyeGomezB/status/2088680543563239713" target="_blank" rel="noopener">https://x.com/KyeGomezB/status/2088680543563239713</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>18 likes; 3 RTs; 26 replies; 2135 views</dd><dt>收录理由</dt><dd>二手技术解读，涉及相关失败。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1169">一句话</h2>
+<main class=""><p class="small"><a href="../sources.html">← 材料库</a></p><h1>Anthropic blog breakdown</h1><div class="meta"><span class="pill dg">中文解读</span><a class="pill" href="../sources.html#x_research">X：研究者与质疑者</a></div><dl class="info"><dt>作者</dt><dd>Kye Gomez (swarms) (@KyeGomezB)</dd><dt>日期</dt><dd>2026-08-15</dd><dt>类型</dt><dd>tweet</dd><dt>原文</dt><dd><a href="https://x.com/KyeGomezB/status/2088680543563239713" target="_blank" rel="noopener">https://x.com/KyeGomezB/status/2088680543563239713</a></dd><dt>许可</dt><dd>unknown（未确认开放许可，因此本页是解读，不是译文）</dd><dt>互动数据</dt><dd>18 likes; 3 RTs; 26 replies; 2135 views</dd><dt>收录理由</dt><dd>二手技术解读，涉及相关失败。</dd></dl><p class="notice">原文未确认开放许可，本页是 Codex 用中文写的解读，不是译文，可能有误。引用前请查看原文。</p><h2 id="h1177">一句话</h2>
 <p>这篇二手解读的核心是：swarm 的扩展收益取决于协调架构，增加 agent 数量和单体能力并不自动带来更好的集体表现。</p>
-<h2 id="h1170">主要内容</h2>
+<h2 id="h1178">主要内容</h2>
 <ul><li><strong>协调能改变搜索方向。</strong> 文中转述，漏洞发现实验通过共享论坛、同行评审和仲裁，让中间发现引导后续算力分配，而非仅将代码分片并行扫描。</li><li><strong>共享状态限制并行收益。</strong> 软件开发实验中的扁平、专家分工和层级团队均未稳定产出高质量软件；划分文件归属能减少冲突，但不能证明形成了有效协作。</li><li><strong>同质 agent 可能重复犯错。</strong> 相似模型、提示和环境会造成输出趋同，多数投票因而可能放大共同偏差。</li><li><strong>局部激励可能损害整体。</strong> 抢占任务引发高频轮询；冲突目标下，agent 甚至相互干扰。通信既支持合作，也可能促进串通或传播错误。</li><li>作者据此主张，将资源调度、权限、证据溯源和冲突处理纳入系统设计，而不能仅靠角色设定。</li></ul>
-<h2 id="h1171">证据与可信度</h2>
+<h2 id="h1179">证据与可信度</h2>
 <p>材料包含较完整的解读正文，但它是 Kye Gomez 对 Anthropic 研究的二手技术评论；此处未独立核验原始报告、实验设置或结果。</p>
 <p>文中转述：独立搜索以 <strong>650 万 token</strong> 找到 <strong>21 个漏洞</strong>；协调配置含 <strong>45 个 agent</strong>，以 <strong>2700 万 token</strong> 找到 <strong>266 个漏洞</strong>，两组重合 <strong>12 个</strong>。按这些数字计算，漏洞数约为 <strong>12.7 倍</strong>，token 用量约为 <strong>4.2 倍</strong>，单位 token 产出约为 <strong>3.0 倍</strong>。这不是等预算比较，不能将全部差异归因于协调，也不能据此推出 agent 数量的扩展曲线。</p>
 <p>其他转述包括：<strong>30 个 agent 中有 18 个</strong>独立选择同一分支名；任务队列产生约 <strong>240 万次请求</strong>，仅接受 <strong>117 个任务</strong>。前者支持行为趋同，尚不直接测量错误相关性；后者说明特定激励与资源约束下的拥塞失败。异构化、信誉机制等则主要是作者提出的设计建议，材料未提供其效果验证。</p>
-<h2 id="h1172">对 swarm scaling 的意义</h2>
+<h2 id="h1180">对 swarm scaling 的意义</h2>
 <p>这份材料更适合用于整理扩展瓶颈与失败机制，而非证明“规模越大越好”。它提示应区分搜索覆盖的扩展与共享状态下的协作扩展，并同时考察预算、重复计算、通信成本、冲突和错误相关性。真正需要验证的是：新增 agent 是否带来新增证据、搜索覆盖或验证能力，以及这些收益能否抵消协调成本。</p></main>
 <footer>Multi-agent 与 Swarm Scaling 调研 · 截至 2026-11-07 · 译文与解读由模型生成，引用请以原文为准</footer>
 <script>
